@@ -13,6 +13,7 @@
 <!-- 제이쿼리 CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<link rel="stylesheet" href="/Gain/markup/reset.css"/>
 <script>
 window.onload = function(){
     document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
@@ -26,7 +27,6 @@ window.onload = function(){
     });
 }
 </script>
-<link rel="stylesheet" href="/Gain/markup/reset.css"/>
 <style type="text/css">
 
 
@@ -84,124 +84,22 @@ window.onload = function(){
          </nav>
     </header>
 	<section>
-	<style>
-		.join_outline{
-			width:800px;
-			height:1200px;
-			margin: 0px auto;
-			display: flex;
-			flex-direction: column;
-		}
-		.Box{
-			margin:0px auto;
-			padding-top: 20px;
-		}
-		input{
-			border:none;
-			width : 100%;
-			box-sizing : border-box;
-			display:flex;
-			margin:15px;
-		}
-		input:focus{
-			outline:none;
-		}
-		.inputInfo{
-			border:1px solid lightgray;
-			width:400px;
-			display:flex;
-			border-radius:6px;
-		}
-		.inputID:focus{
-			outline:2px solid black;
-		}
-		label{
-			cursor: text;
-		}
-	</style>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$(".inputInfo input").each(function(index, ea){
-				$(".inputBox"+index).focus(function(){
-					$(this).parent().css({"outline":"2px solid black"})
-				})
-				$(".inputBox"+index).blur(function(){
-					$(this).parent().css({"outline":"none"})
-				})
-			})
-		})
-	</script>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-			<div class="join_outline">
-				<div class="Box">
-					<div><span>*</span><span>아이디</span></div>
-					<label>
-						<div class="inputInfo">
-							<input class="inputBox0" type="text" name="gainID" placeholder="영문 숫자 6자 이상 12자 이하">
-						</div>
-					</label>
-				</div>
-				
-				<div class="Box">
-					<div><span>*</span><span>닉네임</span></div>
-					<label>
-						<div class="inputInfo">
-							<input class="inputBox1" type="text" name="gainID" placeholder="최대 15자(영문,숫자)">
-						</div>
-					</label>
-				</div>
-				
-				<div class="Box">
-					<div><span>*</span><span>비밀번호</span></div>
-					<label>
-						<div class="inputInfo">
-							<input class="inputBox2" type="text" name="gainID" placeholder="10~16 영문 숫자 조합">
-						</div>
-					</label>
-				</div>
-				
-				<div class="Box">
-					<div><span>*</span><span>이름</span></div>
-					<label>
-						<div class="inputInfo">
-							<input class="inputBox3" type="text" name="gainID" placeholder="실명 입력">
-						</div>
-					</label>
-				</div>
-				
-				<div class="Box">
-					<div><span>*</span><span>휴대폰</span></div>
-					<label>
-						<div class="inputInfo">
-							<input class="inputBox4" type="text" name="gainID" placeholder="'-' 생략">
-						</div>
-					</label>
-				</div>
-				
-				<div class="Box">
-					<div><span>*</span><span>생년월일</span></div>
-					<label>
-						<div class="inputInfo">
-							<input class="inputBox5" type="text" name="gainID" placeholder="8자리 숫자(19990527)">
-						</div>
-					</label>
-				</div>
-				
-				<div class="Box">
-					<div><span>*</span><span>주소</span></div>
-					<label>
-						<div class="inputInfo">
-							<input id="address_kakao" type="text" name="address" placeholder="주소입력" readonly="readonly">
-						</div>
-					</label>
-					<label>
-						<div class="inputInfo">
-							<input class="inputBox6" type="text" name="address_detail" placeholder="상세주소입력">
-						</div>
-					</label>
-				</div>
-			</div>
+			<table>
+	        <tr>
+	            <th>이름</th>
+	            <td><input type="text" name="user_name"></td>
+	        </tr>
+	        <tr>
+	            <th>주소</th>
+	            <td><input type="text" id="address_kakao" name="address" readonly /></td>
+	        </tr>
+	        <tr>
+	            <th>상세 주소</th>
+	            <td><input type="text" name="address_detail" /></td>
+	        </tr>
+	    </table>
         </div>
     <!-- 여기까지만 작업 -->
     </section>
