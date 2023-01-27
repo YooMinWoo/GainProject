@@ -13,41 +13,35 @@
 <!-- 제이쿼리 CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 
-<!-- 슬라이드 플러그인 JS, CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href="/Gain/markup/reset.css"/>
-
 <style type="text/css">
-    /* 메인 슬라이드 배너 */
-	.main_banner_slide{
-		padding-bottom: 20px;
-	}
-	
-    .swiper {
-        width: 1000px;
-        height: 300px;
-        }
 
-    .swiper-slide{
-        background-color: aqua;
-    }
-    
-    
-    /* 하단 콘텐츠 영역 css */
-    
-    .contents{
-    	display: flex;
-    	gap: 10px;
-    	justify-content: center;
-    }
-    
-    .content{
-    	width: 393px;
-    	height: 300px;
-    	border: 1px solid black;
-    }
-    
+.main_wrapper{
+	height: 1200px;
+	background-color: pink;
+}
+
+/* 
+	↑↑↑ 위에 css 지워야 함 ↑↑↑
+	
+	위에 css는 섹션 위치 확인하시라고 
+	높이값이랑 색깔값 넣었어요
+	위치만 확인하고 지워주세요!
+	
+	1) 헤더는 로그인 세션 처리할 때 c:if로 바꿀 예정
+	
+	2) <div class="main_wrapper"> 안에만 내용 넣어 주세요.
+			해당 div는 1200px이라서 안에 크기는 px로 조절하시면 됩니다.
+			
+	3) reset.css를 꼭 link로 걸어주시고 수정 절대 금지!
+	-> 수정하면 모든 페이지가 다 바뀝니다!
+			<link rel="stylesheet" href="/Gain/markup/reset.css"/>
+			
+	4) 제이쿼리는 CDN으로 넣었어요. 최신 버전으로 넣었는데 문제 생기면 말씀해주세요!
+			<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+ */
+
+
 </style>
 </head>
 
@@ -80,30 +74,11 @@
          </nav>
     </header>
 	<section>
+	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-	        <!-- 메인 슬라이드 배너 -->
-            <div class="main_banner_slide">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                        	<img alt="" src="/Gain/markup/img/main_banner01.png">
-                        </div>
-                        <div class="swiper-slide">
-                        	<img alt="" src="/Gain/markup/img/main_banner02.png">
-                        </div>
-                        <div class="swiper-slide">
-                        	<img alt="" src="/Gain/markup/img/main_banner03.png">
-						</div>
-                    </div>
-                </div>
-            </div>
-            <!-- 하단 영역 -->
-            <div class="contents">
-	            <div class="content content_lf"></div>
-	            <div class="content content_cen"></div>
-	            <div class="content content_rt"></div>
-            </div>
+
         </div>
+    <!-- 여기까지만 작업 -->
     </section>
     <footer>
     	<div class="footer_left">
@@ -141,18 +116,7 @@
     </footer>
 </body>
 <script type="text/javascript">
-	const swiper = new Swiper('.swiper', {
-	    // Optional parameters
-	    sldiesPerView: 1,
-	    direction: 'horizontal',
-	    loop: true,
-	    autoplay: {
-	        delay: 1500,
-	    },
-	    effect: 'fade',
-	    fadeEffect: {
-	      crossFade: true
-	    }
-	});
+
+
 </script>
 </html>
