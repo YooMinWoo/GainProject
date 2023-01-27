@@ -108,7 +108,7 @@
             </nav>
          </div>
          <h1 class="main_logo">
-            <a href="#"><img src="/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
+            <a href="#"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
          </h1>
          <nav class="lnb">
             <ul>
