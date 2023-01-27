@@ -59,8 +59,41 @@
         color: #fff;
         line-height: 50px;
     }
+
+    .main_logo{
+        width: 100%;
+        height: 120px;
+        text-align: center;
+    }
+
+    .main_logo img{
+        padding-top: 34px;
+    }
+
+    .lnb ul{
+        display: flex;
+        font-size: 20px;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .lnb a{
+        line-height: 25px;
+        font-weight: 600;
+    }
+
+    .lnb a:hover{
+        color: #ed3124;
+    }
+
+    header{
+        border-bottom: 3px solid #000;
+        padding-bottom: 15px;
+    }
+
 </style>
 </head>
+
 <body>
     <header>
          <div class="gnb">
@@ -74,10 +107,20 @@
                 </ul>
             </nav>
          </div>
-         <h1 class="logo">
-         	<img alt="" src="webapp\markup\img\GAIN_mainlogo.png">
+         <h1 class="main_logo">
+            <a href="#"><img src="/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
          </h1>
-         
+         <nav class="lnb">
+            <ul>
+                <li><a href="#">전체 상품</a></li>
+                <li><a href="#">의류</a></li>
+                <li><a href="#">슈즈</a></li>
+                <li><a href="#">가방</a></li>
+                <li><a href="#">액세서리</a></li>
+                <li><a href="#">주얼리</a></li>
+                <li><a href="#">DEGINERS</a></li>
+            </ul>
+         </nav>
     </header>
     <section>
 
