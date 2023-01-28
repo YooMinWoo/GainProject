@@ -19,18 +19,18 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 
 <style type="text/css">
-  	h4,h5{
+  	h2,h4,h5{
   		display:inline;
   	}
   	.bar{
-  		width:480px; height:10px; background:black; margin-left:120px;
+  		width:480px; height:10px; background:black; margin-left:-5px;
   		display:inline-block;
   	}
   	hr{
   		width:500px;
   		color:lightgray;
   		display:inline-block;
-  		margin-left:0px;
+  		margin-left:110px;
   		margin-top:10px;
   	}
   	h5{
@@ -65,10 +65,10 @@
   		margin-left:440px;
   		margin-top:50px;
   	}
-  	.menu{
-  		font-size:25px;
-  		font-weight:bold;
-  	}
+	.menu{
+		font-size:25px;
+		font-weight:bold;
+	}
 </style>
 </head>
 
@@ -104,31 +104,10 @@
         <div class="main_wrapper">
 	      	<a href="Q&A_mem01.jsp" class="menu" style="margin-left:300px;">1:1 문의하기</a>
 	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:350px;">문의내역</a>
-	      	<div class="bar"></div>
 	      	<hr></hr>
+	      	<div class="bar"></div>
 	      	<br><br>
-	      	<h4 style="margin-left:220px;">문의 유형</h4><h5>*</h5>
-	      	<br>
-	      	<select>
-	      		<option>문의유형을 선택해주세요</option>
-	      		<option>앱/웹 문의</option>
-	      		<option>매장 문의</option>
-	      		<option>상품 문의</option>
-	      		<option>주문/결제 문의</option>
-	      		<option>배송 문의</option>
-	      		<option>취소/환불 문의</option>
-	      		<option>교환/반품 문의</option>
-	      		<option>수선문의</option>
-	      	</select>
-	      	<br><br>
-	      	<h4 style="margin-left:220px;">문의 제목</h4><h5>*</h5>
-	      	<br>
-	      	<input class="input_title" type="text" name="title" placeholder="문의제목을 입력해주세요">
-	        <br><br>
-	      	<h4 style="margin-left:220px;">문의 내용</h4><h5>*</h5>
-	      	<br>
-	      	<textarea></textarea>
-	      	<input type="submit" value="등록하기" class="btn">
+	      	
 
 	      
         </div>
