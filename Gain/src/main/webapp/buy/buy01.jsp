@@ -188,19 +188,12 @@ header {
 }
 
 /* 드롭다운 */
-.dropdown{
-  position : relative;
-  display : block;
-}
-
 .dropdown-content{
   display : none;
   position : absolute;
   z-index : 1; /*다른 요소들보다 앞에 배치*/
 }
-.dropdown-content tr{
-  display :block;
-}
+
 
  .dropdown:hover .dropdown-content {
   display:inline;
@@ -213,18 +206,14 @@ header {
     margin-top: -98px;
 }
 
-.amount{
-    position: absolute;
-    margin-left: 92px;
-}
 .amount01{
-    position: absolute;
-    margin-left: 152px;
+    text-align:end;
+    width:200px;
 }
 
 .amount02{
-width:230px;
-text-align:right;
+    text-align:end;
+    width:218px;
 }
 
 /* input{
@@ -323,7 +312,7 @@ text-align:right;
 				    <div id="sform04">
 				         <table>
 				           
- 				            <tr><td>최대 구매 혜택</td><td class="amount" style="color:blue;">1000000원 적립</td></tr> 
+ 				            <tr><td>최대 구매 혜택</td><td class="amount01" style="color:blue;">1000000원 적립</td></tr> 
  				 
 				            <tr><td>기본적립0.5%</td><td class="amount01" style="color:lightgray;">1000원</td></tr>
 			
