@@ -16,9 +16,7 @@
 <link rel="stylesheet" href="/Gain/heejun/searchPage.css"/>
 <style type="text/css">
 
-.main_wrapper{
-	height: 1200px;
-}
+
 
 /* 
 	↑↑↑ 위에 css 지워야 함 ↑↑↑
