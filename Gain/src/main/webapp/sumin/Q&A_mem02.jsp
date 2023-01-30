@@ -19,16 +19,7 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 
 <style type="text/css">
-<!-- 문의글 제목 및 답변상태 -->
-  	h4{
-  		margin-left:500px;
-  		margin-top:15px;
-  	} 
-  	.category_date{
-  		color:#5D5D5D;
-  		display:inline;
-  	}
-  	
+ 	
   	.bar{
   		width:480px; height:10px; background:black; margin-left:-5px;
   		display:inline-block;
@@ -76,9 +67,44 @@
 		font-size:25px;
 		font-weight:bold;
 	}
+	.question{
+		width:930px;
+		height:100px;
+		margin-left:130px;
+		
+	}
+	.reply{
+		width:930px;
+		height:280px;
+		margin-left:130px;
+		margin-top:10px;
+		background:lightgray;
+		
+	}
 </style>
 </head>
+<script>
+$(document).ready(function(){
+	$(".question").hide()
+	$(".reply").hide()
+	
+	var cnt = 0
+	$("#reply").click(function(){
+		cnt ++
+		if(cnt%2==1){
+			$(".question").show()
+			$(".reply").show()
+		}else{
+			$(".question").hide()
+			$(".reply").hide()
+		}
+	})
+		
+		
+		
 
+})
+</script>
 <body>
     <header>
          <div class="gnb">
@@ -113,13 +139,18 @@
 	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:350px;">문의내역</a>
 	      	<hr></hr>
 	      	<div class="bar"></div>
-	      	<h4>교환반품 문의합니다</h4>
-	      	<h4 style="display:inline;">답변대기</h4>
-	      	<h5 class="category_date">교환/반품문의</h5><h5 class="category_date">2023-01-30</h5>
+	      	<h4 style="margin-left:120px; margin-top:20px;">교환반품 문의합니다</h4>
+	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">답변대기</h4>
+	      	<h5 style="color:#5D5D5D; display:inline;">교환/반품문의</h5>
+	      	<h5 style="color:#5D5D5D; display:inline;">2023-01-30</h5>
+	      	<button type="button" id="reply">▼</button>
+	      	<div class="question"><h2 style="padding:10px 10px;">Q</h2></div>
+	      	<div class="reply">
+	      	<h2 style="padding:10px 10px;">A</h2>
+	     	</div>
 	      	<br><br>
-	      	
+	      	<hr style="width:980px;">
 
-	      
         </div>
     </section>
     <footer>
