@@ -87,23 +87,23 @@ window.onload = function(){
 	<style>
 		.join_outline{
 			width:800px;
-			height:1200px;
 			margin: 0px auto;
 			display: flex;
 			flex-direction: column;
+			padding-bottom:200px;
 		}
 		.Box{
 			margin:0px auto;
 			padding-top: 20px;
 		}
-		input{
+		.inputBox{
 			border:none;
 			width : 100%;
 			box-sizing : border-box;
 			display:flex;
 			margin:15px;
 		}
-		input:focus{
+		.inputBox:focus{
 			outline:none;
 		}
 		.inputInfo{
@@ -112,10 +112,7 @@ window.onload = function(){
 			display:flex;
 			border-radius:6px;
 		}
-		.inputID:focus{
-			outline:2px solid black;
-		}
-		label{
+		.Box label{
 			cursor: text;
 		}
 	</style>
@@ -129,6 +126,19 @@ window.onload = function(){
 					$(this).parent().css({"outline":"none"})
 				})
 			})
+			
+			$("#cbx_chkAll").click(function() {
+				if($("#cbx_chkAll").is(":checked")) $(".chk").prop("checked", true);
+				else $(".chk").prop("checked", false);
+			});
+
+			$(".chk").click(function() {
+				var total = $(".chk").length;
+				var checked = $(".chk:checked").length;
+
+				if(total != checked) $("#cbx_chkAll").prop("checked", false);
+				else $("#cbx_chkAll").prop("checked", true); 
+			});
 		})
 	</script>
 	<!-- 여기서부터 작업 -->
@@ -138,7 +148,7 @@ window.onload = function(){
 					<div><span>*</span><span>아이디</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox0" type="text" name="gainID" placeholder="영문 숫자 6자 이상 12자 이하">
+							<input class="inputBox0 inputBox" type="text" name="gainID" placeholder="영문 숫자 6자 이상 12자 이하">
 						</div>
 					</label>
 				</div>
@@ -147,7 +157,7 @@ window.onload = function(){
 					<div><span>*</span><span>닉네임</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox1" type="text" name="gainID" placeholder="최대 15자(영문,숫자)">
+							<input class="inputBox1 inputBox" type="text" name="gainID" placeholder="최대 15자(영문,숫자)">
 						</div>
 					</label>
 				</div>
@@ -156,7 +166,7 @@ window.onload = function(){
 					<div><span>*</span><span>비밀번호</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox2" type="text" name="gainID" placeholder="10~16 영문 숫자 조합">
+							<input class="inputBox2 inputBox" type="password" name="gainID" placeholder="10~16 영문 숫자 조합">
 						</div>
 					</label>
 				</div>
@@ -165,7 +175,7 @@ window.onload = function(){
 					<div><span>*</span><span>이름</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox3" type="text" name="gainID" placeholder="실명 입력">
+							<input class="inputBox3 inputBox" type="text" name="gainID" placeholder="실명 입력">
 						</div>
 					</label>
 				</div>
@@ -174,7 +184,7 @@ window.onload = function(){
 					<div><span>*</span><span>휴대폰</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox4" type="text" name="gainID" placeholder="'-' 생략">
+							<input class="inputBox4 inputBox" type="text" name="gainID" placeholder="'-' 생략">
 						</div>
 					</label>
 				</div>
@@ -183,7 +193,7 @@ window.onload = function(){
 					<div><span>*</span><span>생년월일</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox5" type="text" name="gainID" placeholder="8자리 숫자(19990527)">
+							<input class="inputBox5 inputBox" type="text" name="gainID" placeholder="8자리 숫자(19990527)">
 						</div>
 					</label>
 				</div>
@@ -192,14 +202,70 @@ window.onload = function(){
 					<div><span>*</span><span>주소</span></div>
 					<label>
 						<div class="inputInfo">
-							<input id="address_kakao" type="text" name="address" placeholder="주소입력" readonly="readonly">
+							<input class="inputBox" id="address_kakao" type="text" name="address" placeholder="주소입력" readonly="readonly">
 						</div>
 					</label>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox6" type="text" name="address_detail" placeholder="상세주소입력">
+							<input class="inputBox6 inputBox" type="text" name="address_detail" placeholder="상세주소입력">
 						</div>
 					</label>
+				</div>
+				<style>
+					.checkBox{
+						display:flex;
+						width:400px;
+						margin:0px auto;
+						flex-direction: column;
+					}
+					.checks{
+						display: flex;
+						gap:15px;
+					}
+					hr{
+						border:1px solid lightgray;
+					}
+					.checks2{
+						display:flex;
+						flex-wrap: wrap;
+    					justify-content: space-between;
+					}
+					.checks2 .checks{
+						width:34%;
+					}
+				</style>
+				<div class="checkBox">
+					<div><label class="checks">
+						<input type="checkbox">
+						<span>이용약관 및 개인정보처리방침에 동의(필수)</span>
+					</label></div>
+					<div><label class="checks">
+						<input type="checkbox" id="cbx_chkAll">
+						<span>마케팅 수신 전체동의(선택)</span>
+					</label></div>
+					<hr>
+					<div class="checks2">
+						<label class="checks">
+							<input type="checkbox" name="message" class="chk" >
+							<span>문자</span>
+						</label>
+						<label class="checks">
+							<input type="checkbox" name="email" class="chk" >
+							<span>이메일</span>
+						</label>
+						<label class="checks">
+							<input type="checkbox" name="appPush" class="chk" >
+							<span>APP 푸시</span>
+						</label>
+						<label class="checks">
+							<input type="checkbox" name="mail" class="chk" >
+							<span>우편발송</span>
+						</label>
+						<label class="checks">
+							<input type="checkbox" name="call" class="chk" >
+							<span>전화안내</span>
+						</label>
+					</div>
 				</div>
 			</div>
         </div>
