@@ -73,7 +73,39 @@
   
 </style>
 </head>
+<script>
+$(document).ready(function(){
+	$("#addBtn").click(function(){
+		var nameVal = $("[name=name]").val()
+		var priceVal = $("[name=price]").val()
+		var startVal = $("[name=start_date]").val()
+		var endVal = $("[name=end_date]").val()
+		var choiceVal = $("[name=choice_date]").val()
+		if(nameVal==""){
+			alert("상품명을 입력하세요")
+			return
+		}
+		if(priceVal==""){
+			alert("상품가격을 입력하세요")
+			return
+		}
+		if(startVal==""){
+			alert("시작일을 입력하세요")
+			return
+		}
+		if(endVal==""){
+			alert("종료일을 입력하세요")
+			return
+		}
+		if(choiceVal==""){
+			alert("추첨일을 입력하세요")
+			return
+		}
+		$("#raffle").submit()
+	})
+})
 
+</script>
 <body>
     <header>
          <div class="gnb">
@@ -108,6 +140,7 @@
 	      	<div class="bar"></div>
 	      	
 	      	<br><br>
+	      	<form id="raffle">
 	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5>
 	      	<br>
 	      	<input type="text" name="name" placeholder="상품명을 입력해주세요">
@@ -132,8 +165,8 @@
 	      	<br>
 	      	<button type="button" class="img_btn">+</button>
 	      	<br>
-	      	<input type="submit" value="등록하기" class="btn">
-
+	      	<button type="button" id="addBtn" class="btn">등록하기</button>
+			</form>
 	      
         </div>
     </section>
