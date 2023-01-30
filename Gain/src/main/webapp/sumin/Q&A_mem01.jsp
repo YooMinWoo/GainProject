@@ -71,7 +71,29 @@
   	}
 </style>
 </head>
-
+<script>
+$(document).ready(function(){
+	
+	 $("#addBtn").click(function(){
+		 var categoryVal = $("[name=category]").val()
+		 var titleVal = $("[name=title]").val()
+		 var contentVal = $("[name=content]").val()
+		 if(categoryVal==""){
+			 alert("문의유형을 선택하세요")
+			 return
+		 }
+		 if(titleVal==""){
+			 alert("문의제목을 입력하세요")
+			 return
+		 }
+		 if(contentVal==""){
+			 alert("문의내용을 입력하세요")
+			 return
+		 }
+		 $("#boardFrm").submit()
+	 })
+})
+</script>
 <body>
     <header>
          <div class="gnb">
@@ -107,10 +129,11 @@
 	      	<div class="bar"></div>
 	      	<hr></hr>
 	      	<br><br>
+	      	<form id="boardFrm">
 	      	<h4 style="margin-left:220px;">문의 유형</h4><h5>*</h5>
 	      	<br>
-	      	<select>
-	      		<option>문의유형을 선택해주세요</option>
+	      	<select name="category">
+	      		<option value="">문의유형을 선택해주세요</option>
 	      		<option>앱/웹 문의</option>
 	      		<option>매장 문의</option>
 	      		<option>상품 문의</option>
@@ -127,8 +150,9 @@
 	        <br><br>
 	      	<h4 style="margin-left:220px;">문의 내용</h4><h5>*</h5>
 	      	<br>
-	      	<textarea></textarea>
-	      	<input type="submit" value="등록하기" class="btn">
+	      	<textarea name="content"></textarea>
+	      	<button type="button" class="btn" id="addBtn">등록하기</button>
+	      	</form>
 
 	      
         </div>
