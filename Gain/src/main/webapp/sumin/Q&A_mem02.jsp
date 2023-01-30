@@ -19,9 +19,16 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 
 <style type="text/css">
-  	h2,h4,h5{
+<!-- 문의글 제목 및 답변상태 -->
+  	h4{
+  		margin-left:500px;
+  		margin-top:15px;
+  	} 
+  	.category_date{
+  		color:#5D5D5D;
   		display:inline;
   	}
+  	
   	.bar{
   		width:480px; height:10px; background:black; margin-left:-5px;
   		display:inline-block;
@@ -106,6 +113,9 @@
 	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:350px;">문의내역</a>
 	      	<hr></hr>
 	      	<div class="bar"></div>
+	      	<h4>교환반품 문의합니다</h4>
+	      	<h4 style="display:inline;">답변대기</h4>
+	      	<h5 class="category_date">교환/반품문의</h5><h5 class="category_date">2023-01-30</h5>
 	      	<br><br>
 	      	
 
