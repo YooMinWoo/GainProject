@@ -84,8 +84,8 @@
 					<h3 class="product_price">판매가</h3>
 				</div>
 				<div class="second_line">
-					<input type="text" name="pname" placeholder="상품명 입력" value="22FW 아페쎄 VPC 화이트 티셔츠">
-					<input type="number" name="price" placeholder="판매가 입력" value="53010">
+					<input type="text" name="pname" placeholder="상품명 입력" value="몽클레어 ROOK 남성 패딩점퍼 F10911A11500 C0453 화이트">
+					<input type="number" name="price" placeholder="판매가 입력" value="881000">
 				</div>
 				<div class="third_line">
 					<h3 class="product_brand">브랜드</h3>
@@ -94,7 +94,7 @@
 				</div>		
 				<div class="fourth_line">
 					<select name="brand">
-						<option disabled="disabled" selected>A.P.C</option>
+						<option disabled="disabled" selected>MONCLER</option>
 						<option>여기에</option>
 						<option>옵션을</option>
 						<option>추가할</option>
@@ -107,7 +107,7 @@
 						<option>추가할</option>
 						<option>예정입니다.</option>
 					</select>
-					<input type="text" name="subsection" placeholder="세부항목 입력" value="탑(TOP)">					
+					<input type="text" name="subsection" placeholder="세부항목 입력" value="코트&자켓">					
 				</div>
 				<div class="fifth_line">
 					<h3 class="product_img">상품 이미지</h3>
@@ -117,7 +117,7 @@
 					<div class="block">
 						<div class="img_block">
 							<div class="upload-display">
-								<div class="upload-thumb-wrap"><img src="apc_shirt.png" class="upload-thumb">
+								<div class="upload-thumb-wrap"><img src="product.jpg" class="upload-thumb">
 								</div>
 							</div>
 							<input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
