@@ -12,7 +12,7 @@
 <title>내 손 안의 백화점, 가인</title>
 <!-- 제이쿼리 CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 <link rel="stylesheet" href="/Gain/heejun/searchPage.css"/>
 <style type="text/css">
@@ -71,10 +71,6 @@
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
-          <div class="search-box">
-    			<input type="text" class="search-txt" name="" placeholder="Type to search">
-    			<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
-  			</div>
     </header>
 	<section>
 	<!-- 여기서부터 작업 -->
@@ -106,11 +102,14 @@
 				</div>
 				
 				<div class="right_content">
+					<div class="insBtn_area">
+						<button class="insBtn" type="button">상 품 등 록 +</button>
+					</div>
 					<div class="product_area">
 						<ul class="product_list">
 							<li>
 								<div class="thumb">
-									<a href="#">
+									<a href="detailPage.jsp">
 										<img alt="" src="product.jpg">
 									</a>
 								</div>
@@ -130,6 +129,10 @@
 											</dd>
 										</dl>
 									</a>
+								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button">수 정</button>
+									<button class="delBtn" type="button">삭 제</button>
 								</div>
 							</li>
 							<li>
@@ -155,6 +158,10 @@
 										</dl>
 									</a>
 								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button">수 정</button>
+									<button class="delBtn" type="button">삭 제</button>
+								</div>								
 							</li>
 							<li>
 								<div class="thumb">
@@ -179,6 +186,10 @@
 										</dl>
 									</a>
 								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button">수 정</button>
+									<button class="delBtn" type="button">삭 제</button>
+								</div>								
 							</li>
 							<li>
 								<div class="thumb">
@@ -203,6 +214,10 @@
 										</dl>
 									</a>
 								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button">수 정</button>
+									<button class="delBtn" type="button">삭 제</button>
+								</div>								
 							</li>
 							<li>
 								<div class="thumb">
@@ -227,6 +242,10 @@
 										</dl>
 									</a>
 								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button">수 정</button>
+									<button class="delBtn" type="button">삭 제</button>
+								</div>								
 							</li>
 							<li>
 								<div class="thumb">
@@ -251,6 +270,10 @@
 										</dl>
 									</a>
 								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button">수 정</button>
+									<button class="delBtn" type="button">삭 제</button>
+								</div>								
 							</li>
 							<li>
 								<div class="thumb">
@@ -275,6 +298,10 @@
 										</dl>
 									</a>
 								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button">수 정</button>
+									<button class="delBtn" type="button">삭 제</button>
+								</div>								
 							</li>
 							<li>
 								<div class="thumb">
@@ -299,6 +326,10 @@
 										</dl>
 									</a>
 								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button">수 정</button>
+									<button class="delBtn" type="button">삭 제</button>
+								</div>								
 							</li>
 						</ul>
 					</div>
@@ -343,7 +374,57 @@
     </footer>
 </body>
 <script type="text/javascript">
-
+	$(document).ready(function() {
+	    $(".insBtn").click(function(){
+			  Swal.fire({
+				  title: '상품등록 페이지로\n 이동하시겠습니까?',
+				  icon: 'warning',
+				  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+				  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+				  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+				  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
+				}).then((result) => {
+				  if (result.value) {
+					//"확인" 버튼을 눌렀을 때 작업할 내용
+					location.href = "insertPage.jsp"
+				  }
+				})	    	
+	  	})		
+	    $(".udtBtn").click(function(){
+			  Swal.fire({
+				  title: '상품수정 페이지로\n 이동하시겠습니까?',
+				  icon: 'warning',
+				  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+				  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+				  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+				  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
+				}).then((result) => {
+				  if (result.value) {
+					//"확인" 버튼을 눌렀을 때 작업할 내용
+					  location.href = "updatePage.jsp"
+				  }
+				})	    	
+	  	})		
+	    $(".delBtn").click(function(){
+			  Swal.fire({
+				  title: '해당 상품을 삭제하시겠습니까?',
+				  icon: 'warning',
+				  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+				  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+				  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+				  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
+				}).then((result) => {
+				  if (result.value) {
+					//"확인" 버튼을 눌렀을 때 작업할 내용
+				  }
+				})	    	
+	  	})
+		
+		
+	});
 
 </script>
 </html>

@@ -1,5 +1,54 @@
 @charset "UTF-8";
 
+.search-box{
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #51e3d4;
+  border-radius: 30px;
+  transition: 0.4s;
+  width:30px;
+}
+.search-box:hover{
+  box-shadow: 0px 0px .5px 1px #51e3d4;
+  width: 282px;
+}
+.search-btn{
+  text-decoration: none;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #51e3d4;
+}
+.search-box:hover > .search-btn{
+  background-color: #fff;
+}
+.search-txt{
+  display: flex;
+  padding: 0;
+  width: 0px;
+  border:none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 1rem;
+  line-height: 30px;
+  transition: .4s;
+}
+.search-box:hover > .search-txt{
+  width: 240px;
+  padding: 0 6px;
+}
+
 
 .choice_category{
 	text-align: center;	
@@ -34,10 +83,27 @@
 	width: 900px;
 }
 
+.insBtn_area{
+	display: flex;
+    flex-direction: row-reverse;
+}
+.insBtn_area .insBtn{
+   	width: 105px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: indigo;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+}
+
 .product_area .product_list > li{
 	width: 205px;
     height: 386px;
-    margin: 30px 10px 60px;
+    margin: 30px 10px 75px;
 }
 
 .product_list{
@@ -73,4 +139,32 @@
 .price_info .per{
     color: red;
     font-weight: 500;
+}
+
+.button_info{
+	padding: 10px 0px 0px 50px;
+}
+.button_info .udtBtn{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background: black;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+}
+.button_info .delBtn{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background: rgb(211, 84, 0);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
 }
