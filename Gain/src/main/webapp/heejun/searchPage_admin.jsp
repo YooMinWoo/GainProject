@@ -109,7 +109,7 @@
 						<ul class="product_list">
 							<li>
 								<div class="thumb">
-									<a href="#">
+									<a href="detailPage.jsp">
 										<img alt="" src="product.jpg">
 									</a>
 								</div>
@@ -387,6 +387,7 @@
 				}).then((result) => {
 				  if (result.value) {
 					//"확인" 버튼을 눌렀을 때 작업할 내용
+					location.href = "insertPage.jsp"
 				  }
 				})	    	
 	  	})		
@@ -402,6 +403,7 @@
 				}).then((result) => {
 				  if (result.value) {
 					//"확인" 버튼을 눌렀을 때 작업할 내용
+					  location.href = "updatePage.jsp"
 				  }
 				})	    	
 	  	})		
