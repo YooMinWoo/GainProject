@@ -12,6 +12,7 @@
 <title>내 손 안의 백화점, 가인</title>
 <!-- 제이쿼리 CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 <link rel="stylesheet" href="/Gain/heejun/searchPage.css"/>
 <style type="text/css">
@@ -70,6 +71,10 @@
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
+          <div class="search-box">
+    			<input type="text" class="search-txt" name="" placeholder="Type to search">
+    			<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+  			</div>
     </header>
 	<section>
 	<!-- 여기서부터 작업 -->
