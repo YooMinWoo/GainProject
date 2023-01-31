@@ -34,10 +34,27 @@
 	width: 900px;
 }
 
+.insBtn_area{
+	display: flex;
+    flex-direction: row-reverse;
+}
+.insBtn_area .insBtn{
+   	width: 105px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: indigo;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+}
+
 .product_area .product_list > li{
 	width: 205px;
     height: 386px;
-    margin: 30px 10px 60px;
+    margin: 30px 10px 75px;
 }
 
 .product_list{
@@ -73,4 +90,32 @@
 .price_info .per{
     color: red;
     font-weight: 500;
+}
+
+.button_info{
+	padding: 10px 0px 0px 50px;
+}
+.button_info .udtBtn{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background: black;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+}
+.button_info .delBtn{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background: rgb(211, 84, 0);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
 }
