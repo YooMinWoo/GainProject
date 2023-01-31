@@ -157,7 +157,7 @@ window.onload = function(){
 					<div><span>*</span><span>닉네임</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox1 inputBox" type="text" name="gainID" placeholder="최대 15자(영문,숫자)">
+							<input class="inputBox1 inputBox" type="text" name="gainNickName" placeholder="최대 15자(영문,숫자)">
 						</div>
 					</label>
 				</div>
@@ -166,7 +166,7 @@ window.onload = function(){
 					<div><span>*</span><span>비밀번호</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox2 inputBox" type="password" name="gainID" placeholder="10~16 영문 숫자 조합">
+							<input class="inputBox2 inputBox" type="password" name="gainPassword" placeholder="10~16 영문 숫자 조합">
 						</div>
 					</label>
 				</div>
@@ -175,7 +175,7 @@ window.onload = function(){
 					<div><span>*</span><span>이름</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox3 inputBox" type="text" name="gainID" placeholder="실명 입력">
+							<input class="inputBox3 inputBox" type="text" name="gainName" placeholder="실명 입력">
 						</div>
 					</label>
 				</div>
@@ -184,7 +184,7 @@ window.onload = function(){
 					<div><span>*</span><span>휴대폰</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox4 inputBox" type="text" name="gainID" placeholder="'-' 생략">
+							<input class="inputBox4 inputBox" type="text" name="gainPhoneNumber" placeholder="'-' 생략">
 						</div>
 					</label>
 				</div>
@@ -193,11 +193,23 @@ window.onload = function(){
 					<div><span>*</span><span>생년월일</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox5 inputBox" type="text" name="gainID" placeholder="8자리 숫자(19990527)">
+							<input class="inputBox5 inputBox" type="text" name="gainBirthday" placeholder="8자리 숫자(19990527)">
 						</div>
 					</label>
 				</div>
-				
+				<div class="checkBox">
+					<div><span>*</span><span>성별</span></div>
+					<div class="checks2">
+						<label class="checks">
+							<input type="radio" name="gainGender" value="man" class="chk" >
+							<span>남자</span>
+						</label>
+						<label class="checks">
+							<input type="radio" name="gainGender" value="woman" class="chk" >
+							<span>여자</span>
+						</label>
+					</div>
+				</div>
 				<div class="Box">
 					<div><span>*</span><span>주소</span></div>
 					<label>
@@ -217,6 +229,8 @@ window.onload = function(){
 						width:400px;
 						margin:0px auto;
 						flex-direction: column;
+						gap: 10px;
+    					padding-top: 30px;
 					}
 					.checks{
 						display: flex;
@@ -229,9 +243,26 @@ window.onload = function(){
 						display:flex;
 						flex-wrap: wrap;
     					justify-content: space-between;
+   					    gap: 7px;
 					}
 					.checks2 .checks{
 						width:34%;
+					}
+					.doneBtnDiv{
+						display: flex;
+					    margin: 0px auto;
+					    margin-top: 40px;
+					}
+					.doneBtn{
+						width: 200px;
+					    height: 45px;
+					    background: black;
+					    border: none;
+					    border-radius: 6px;
+					    color: white;
+					    font-size: medium;
+					    font-weight: 900;	
+					    cursor: pointer;
 					}
 				</style>
 				<div class="checkBox">
@@ -266,6 +297,9 @@ window.onload = function(){
 							<span>전화안내</span>
 						</label>
 					</div>
+				</div>
+				<div class="doneBtnDiv">
+					<button type="button" class="doneBtn">회원가입</button>
 				</div>
 			</div>
         </div>
