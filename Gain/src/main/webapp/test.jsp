@@ -37,37 +37,26 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2 data-toggle="modal" data-target="#exampleModalCenter">타이틀</h2>
+  <h2 data-toggle="modal" data-target="#exampleModalCenter">과제</h2>
 
 </div>
 <div class="container">
-	<form id="frm01" class="form-inline"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input class="form-control mr-sm-2" placeholder="제목" />
-	    <input class="form-control mr-sm-2" placeholder="내용" />
-	    <button class="btn btn-info" type="submit">Search</button>
- 	</nav>
-	</form>
+	
    <table class="table table-hover table-striped">
-   	<col width="10%">
    	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="50%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>아이디</th>
+        <th>비밀번호</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<c:forEach var="mem" items="${ memList}">
+    		<tr><td>${mem.id }</td><td>${mem.pass }</td></tr>
+    	</c:forEach>
+    	
     </tbody>
 	</table>    
     

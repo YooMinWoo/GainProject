@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-1860bc4b541-586d206f048a04eb": {
+		"oracle_thin-1860c37c4a5-61f22278c2efd3f6": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
 			"name": "49.238.170.26",
@@ -22,6 +22,7 @@
 				"auth-model": "oracle_native"
 			}
 		},
+<<<<<<< HEAD
 		"oracle_thin-1860c4f9f6c-5d1d67090aba9b8e": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
@@ -52,6 +53,26 @@
 				},
 				"auth-model": "oracle_native",
 				"handlers": {}
+=======
+		"oracle_thin-1860c491755-7e1875b365f14b0": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "49.238.170.26 2",
+			"save-password": true,
+			"configuration": {
+				"host": "49.238.170.26",
+				"port": "1521",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//49.238.170.26:1521/XE",
+				"configurationType": "MANUAL",
+				"home": "C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 			}
 		}
 	},
