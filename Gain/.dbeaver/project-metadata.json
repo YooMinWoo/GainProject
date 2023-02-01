@@ -1,1 +1,1 @@
-{"resources":{"Scripts/Script.sql":{"default-datasource":"oracle_thin-1857a3ec605-29b40faa82b44a65","default-schema":"SCOTT"}}}
+{"resources":{"Scripts/Script.sql":{"default-schema":"SCOTT","default-datasource":"oracle_thin-1860bc4b541-586d206f048a04eb"}}}
