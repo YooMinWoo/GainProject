@@ -13,7 +13,7 @@
 	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <meta charset="UTF-8">
-<title>내 손 안의 백화점, 가인</title>
+<title>내 손 안의 백화점, 가인</title>s
 <style type="text/css">
 @font-face {
 	font-family: 'Pretendard-Regular';
