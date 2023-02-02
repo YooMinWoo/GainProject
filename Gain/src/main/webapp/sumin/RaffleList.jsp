@@ -77,7 +77,7 @@ $(document).ready(function(){
 	     }
 	     timer = setInterval(showRemaining, 1000);
 	 }
-	 CountDownTimer('02/02/2023 12:00:00', 'timeDeal'); 
+	 CountDownTimer('02/09/2023 12:00:00', 'timeDeal'); 
 })
 
 </script>
