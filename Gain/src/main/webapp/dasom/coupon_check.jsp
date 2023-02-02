@@ -15,10 +15,70 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 <style type="text/css">
 
-.main_wrapper{
-	height: 1200px;
-	background-color: pink;
-}
+        .main_wrapper{
+            height: 1200px;
+        }
+
+        .main_title{
+            text-align: center;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 38px;
+            padding: 70px 0;
+        }
+
+        .coupon_box{
+            display: flex;
+            width: 550px;
+            height: 250px;
+            margin: auto;
+            background: #FFFFFF;
+            border: 1px solid #999999;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            justify-content: space-between
+        }
+
+        .coupon_box_left{
+            padding-top: 30px;
+        }
+
+        .coupon_box_left h2{
+            font-weight: 400;
+            font-size: 80px;
+            line-height: 120px;
+            padding-left: 25px;
+        }
+
+        .coupon_box_left h4{
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+            padding-left: 25px;
+        }
+
+        .coupon_box_left span{
+            color: red;
+        }
+
+        .coupon_box_right{
+            width: 143px;
+        height: 250px;
+        background: #333333;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        position: relative;
+        }
+
+        .coupon_box_right h4{
+            position: absolute;
+            bottom: 53px;
+            left: 27px;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 29px;
+            color: #fff;
+        }
 </style>
 </head>
 
@@ -53,14 +113,26 @@
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-
+            <h2 class="main_title">내 쿠폰 확인하기</h2>
+            <div class="coupon_list">
+                <div class="coupon_box">
+                    <div class="coupon_box_left">
+                        <h4>[01월 생일 기념] 5% 할인 쿠폰</h4>
+                        <h2><i>5%</i></h2>
+                        <h4>2023-01-31 <span>까지 사용 가능</span></h4>
+                    </div>
+                    <div class="coupon_box_right">
+                        <h4>사용 가능</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     <!-- 여기까지만 작업 -->
     </section>
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
-			<p style="font-size:15px; line-height:25px;">
+			<p style="font-size:15px;line-hight:25px;">
 			(주)머스트잇
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>
@@ -68,7 +140,7 @@
 			개인정보보호책임자 : 이수민<br>
 			E-MAIL : help@gain.co.kr
 			</p>
-			<p style="font-size:12px; line-height:20px; padding:10px 0;">
+			<p style="font-size:12px;line-hight:20px; padding:10px 0;">
 			해당 사이트는 프로젝트용 사이트로 실제로 존재하는 사이트가 아닙니다.<br>
 			쌍용강북센터 프로젝트 3팀
 			COPYRIGHT 2023 가인 ALL RIGHT RESERVED.
