@@ -91,7 +91,7 @@
 					<h3 class="product_brand">브랜드</h3>
 					<h3 class="product_category">카테고리</h3>
 					<h3 class="product_subsection">세부항목</h3>
-				</div>		
+				</div>
 				<div class="fourth_line">
 					<select name="brand">
 						<option disabled="disabled" selected>브랜드 선택</option>
@@ -122,7 +122,8 @@
              				<input type="file" id="input_file" class="upload-hidden"> 
 						</div>
 					</div>
-					<textarea name="content" rows="15" cols="70" placeholder="내용을 입력해주세요"></textarea>
+					<textarea name="content" rows="15" cols="70" placeholder="상품 상세설명 입력">
+					</textarea>
 				</div>
 				<div class="submit_line">
 					<button type="button" class="insBtn">등 록</button>
@@ -135,7 +136,7 @@
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
-			<p style="font-size:15px;line-hight:25px;">
+			<p style="font-size:15px;line-height:25px;">
 			(주)머스트잇
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>

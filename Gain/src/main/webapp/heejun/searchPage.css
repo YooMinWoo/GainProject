@@ -3,8 +3,8 @@
 .search-box{
     padding: 10px;
     position: absolute;
-	left: 75%;
-    bottom: 78.5%;
+    left: 72%;
+    bottom: 80.2%;
     transform: translate(-50%,-50%);
     height: 30px;
     background-color: #fff;
@@ -15,7 +15,7 @@
 }
 .search-box:hover{
     box-shadow: 0px 0px 0.5px 1px black;
-    width: 290px;
+    width: 260px;
 }
 .search-btn{
     text-decoration: none;
@@ -45,7 +45,7 @@
   transition: .4s;
 }
 .search-box:hover > .search-txt{
-  width: 240px;
+  width: 220px;
   padding: 0 6px;
 }
 
@@ -123,8 +123,12 @@
 .product_list .product_info{
 	padding-top: 15px;
 }
-.product_list .product_info dd{
-	margin-top: 5px;
+.product_list .product_info dl > dt{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.product_list .product_info dl > dd > p{
+	font-size: 15px;
 }
 
 .price_info{
@@ -142,7 +146,7 @@
 }
 
 .button_info{
-	padding: 10px 0px 0px 50px;
+	padding: 20px 0px 0px 50px;
 }
 .button_info .udtBtn{
     width: 50px;
@@ -156,6 +160,7 @@
     font-weight: bold;
     border: none;
 }
+
 .button_info .delBtn{
     width: 50px;
     height: 30px;

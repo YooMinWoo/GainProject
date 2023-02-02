@@ -33,6 +33,7 @@ select:focus{
 	justify-content: space-around;
 	margin-top: 50px;
    	margin-bottom: 50px;
+   	
 }
 
 
@@ -97,6 +98,7 @@ select:focus{
     justify-content: center;	
     height: 600px;
     margin-bottom: 30px;
+    border-top: 1px solid;
 }
 
 .down_area .product_content{

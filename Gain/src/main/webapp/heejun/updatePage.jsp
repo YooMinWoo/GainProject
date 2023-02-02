@@ -84,7 +84,8 @@
 					<h3 class="product_price">판매가</h3>
 				</div>
 				<div class="second_line">
-					<input type="text" name="pname" placeholder="상품명 입력" value="몽클레어 ROOK 남성 패딩점퍼 F10911A11500 C0453 화이트">
+					<input type="text" name="pname" placeholder="상품명 입력" 
+							value="몽클레어 ROOK 남성 패딩점퍼 F10911A11500 C0453 화이트">
 					<input type="number" name="price" placeholder="판매가 입력" value="881000">
 				</div>
 				<div class="third_line">
@@ -122,15 +123,15 @@
 							</div>
 							<input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
 							
-			              	<label for="input_file">업로드</label> 
+			              	<label for="input_file">수 정</label> 
              				<input type="file" id="input_file" class="upload-hidden"> 
 						</div>
 					</div>
 					<textarea name="content" rows="15" cols="70" placeholder="내용을 입력해주세요">
-* 브랜드 또는 현지 사정에 의해 외관 일부, 원부자재 등 상품 디테일에 차이가 있을 수 있습니다.
-* 제조 시기에 따라 제조국에 차이가 있을 수 있습니다.
-* 실측 수치는 참고용이며 측정 방식에 따라 1~25cm 오차가 있을 수 있습니다.
-* 신발 및 가죽 상품의 경우 가죽 공정 특성상 표면에 자연스러운 주름 및 스크래치 등 사소한 개체차이가 있을 수 있습니다. 
+					* 브랜드 또는 현지 사정에 의해 외관 일부, 원부자재 등 상품 디테일에 차이가 있을 수 있습니다.
+					* 제조 시기에 따라 제조국에 차이가 있을 수 있습니다.
+					* 실측 수치는 참고용이며 측정 방식에 따라 1~25cm 오차가 있을 수 있습니다.
+					* 신발 및 가죽 상품의 경우 가죽 공정 특성상 표면에 자연스러운 주름 및 스크래치 등 사소한 개체차이가 있을 수 있습니다. 
 					</textarea>
 				</div>
 				<div class="submit_line">
@@ -144,7 +145,7 @@
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
-			<p style="font-size:15px;line-hight:25px;">
+			<p style="font-size:15px;line-height:25px;">
 			(주)머스트잇
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>
