@@ -11,7 +11,7 @@ public class ProductService {
 	@Autowired(required = false)
 	private ProductDao dao;
 	
-	// 상품 등록
+	// 상품 등록 service
 	public void insertProd(Product ins) {
 		dao.insertProd(ins);
 	}
