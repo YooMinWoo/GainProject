@@ -37,7 +37,7 @@
          2. annotation으로 Controller, Service, Repository로 선언된
             클래스를 호출하여 객체로 생성되게 처리.
     -->
-      <context:component-scan base-package="springGain">
+      <context:component-scan base-package="springGain,heejun">
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
