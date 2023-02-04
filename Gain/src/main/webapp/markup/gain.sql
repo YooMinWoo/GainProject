@@ -230,7 +230,11 @@ CREATE TABLE raffleInfo
 	result varchar2(50),
 	PRIMARY KEY (rafId)
 );
+SELECT * FROM RAFFLEINFO;
+INSERT INTO RAFFLEINFO values('raffle_230204','나이키 에어 조던1 레트로 하이 OG 쉐도우 2.0 gs 575441-035',
+	150000,'raffle_prod01.jpg','2023-02-04','2023-02-10','2023-02-15','진행중');
 
+SELECT ri.PNAME,ri.PRICE ,ri.STARTDATE,ri.ENDDATE,ri.CHODATE,ri.result FROM RAFSTATE r,RAFFLEINFO ri  WHERE 
 
 -- 응모 현황
 CREATE TABLE rafState
@@ -241,7 +245,7 @@ CREATE TABLE rafState
 	id varchar2(100) NOT NULL
 );
 
-
+INSERT INTO RAFSTATE values('raffle_230204','himan');
 -- 리뷰
 CREATE TABLE review
 (

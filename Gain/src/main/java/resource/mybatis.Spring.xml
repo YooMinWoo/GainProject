@@ -7,6 +7,7 @@
 		<typeAlias alias="member" type="springGain.vo.Member"/>
 		<typeAlias alias="product" type="heejun.vo.Product"/>
 		<typeAlias alias="qna" type="springGain.vo.QnA"/>
+		<typeAlias alias="raffle" type="springGain.vo.Raffle"/>
 		
 	</typeAliases>
 	<!-- 2. 사용 XXXMapper.xml을 추가 -->
