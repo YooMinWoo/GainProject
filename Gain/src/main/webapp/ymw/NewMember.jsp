@@ -141,17 +141,61 @@ window.onload = function(){
 			});
 			
 			$(".doneBtn").click(function(){
-				var idReg = /^[A-za-z]+[A-za-z0-9]{5,11}$/g;
-				var nickNameReg = /^[A-za-z]+[A-za-z0-9]{5,14}$/g;
-		        if( !idReg.test( $("input[name=gainID]").val() ) ) {
+				var idReg = /^[A-Za-z](?=.*[0-9])(?=.*[A-Za-z]).{5,11}$/g;
+				var nickNameReg = /^[A-Za-z][A-Za-z0-9]{5,14}$/g;
+				var pwReg = /(?=.*[0-9])(?=.*[A-Za-z]).{10,20}$/;
+				var n_RegExp = /^[가-힣]{2,15}$/;
+				var phoneReg = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
+				var birth = /^(19\d{2}|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+				
+		        if( !idReg.test( $("input[name=id]").val() ) ) {
 		            alert("아이디는 영문자로 시작하는 6~12자 영문자 또는 숫자이어야 합니다.");
-		            $("input[name=gainID]").focus()
+		            $("input[name=id]").focus()
 		            return;
 		        }
-		        if( !nickNameReg.test( $("input[name=gainNickName]").val() ) ) {
+		        if( !nickNameReg.test( $("input[name=nickname]").val() ) ) {
 		            alert("닉네임은 영문자로 시작하는 6~15자 영문자 또는 숫자이어야 합니다.");
-		            $("input[name=gainNickName]").focus()
+		            $("input[name=nickname]").focus()
 		            return;
+		        }
+		        if( !pwReg.test( $("input[name=gainPassword]").val() ) ) {
+		            alert("비밀번호는 영문숫자 조합 10~20자");
+		            $("input[name=gainPassword]").focus()
+		            return;
+		        }
+		        if(!n_RegExp.test($("input[name=gainName]").val() ) ) {
+		            alert("이름에는 특수문자,영어,숫자는 사용할수 없습니다. 한글만 입력하여주세요.");
+		            $("input[name=gainName]").focus()
+		            return;
+		        }
+		        if(!phoneReg.test($("input[name=gainPhoneNumber]").val() ) ) {
+		            alert("휴대폰 번호를 확인해주세요(숫자만 입력)");
+		            $("input[name=gainPhoneNumber]").focus()
+		            return;
+		        }
+		        if(!birth.test($("input[name=gainBirthday]").val() ) ) {
+		            alert("생년월일을 확인해주세요(숫자만 입력)");
+		            $("input[name=gainBirthday]").focus()
+		            return;
+		        }
+		        
+		        if($('input[name=gainGender]:checked').val()==null){
+		        	alert("성별을 선택해주세요.")
+		        	return;
+		        }
+		        if(($("input[name=address]").val()=="" ) ) {
+		            alert("주소를 입력해주세요");
+		            $("input[name=address]").focus()
+		            return;
+		        }
+		        if(($("input[name=address_detail]").val()=="" ) ) {
+		            alert("상세주소를 입력해주세요");
+		            $("input[name=address_detail]").focus()
+		            return;
+		        }
+		        if($('input[name=agree]:checked').val()==null){
+		        	alert("필수 약관을 체크해주세요.")
+		        	return;
 		        }
 			})
 			
@@ -164,7 +208,7 @@ window.onload = function(){
 					<div><span>*</span><span>아이디</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox0 inputBox" type="text" name="gainID" placeholder="영문 숫자 6자 이상 12자 이하">
+							<input class="inputBox0 inputBox" type="text" name="id" placeholder="영문 숫자 6자 이상 12자 이하">
 						</div>
 					</label>
 				</div>
@@ -173,7 +217,7 @@ window.onload = function(){
 					<div><span>*</span><span>닉네임</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox1 inputBox" type="text" name="gainNickName" placeholder="최대 15자(영문,숫자)">
+							<input class="inputBox1 inputBox" type="text" name="nickname" placeholder="6~15자(영문,숫자)">
 						</div>
 					</label>
 				</div>
@@ -182,7 +226,7 @@ window.onload = function(){
 					<div><span>*</span><span>비밀번호</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox2 inputBox" type="password" name="gainPassword" placeholder="10~16 영문 숫자 조합">
+							<input class="inputBox2 inputBox" type="password" name="pass" placeholder="10~16 영문 숫자 조합">
 						</div>
 					</label>
 				</div>
@@ -191,7 +235,7 @@ window.onload = function(){
 					<div><span>*</span><span>이름</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox3 inputBox" type="text" name="gainName" placeholder="실명 입력">
+							<input class="inputBox3 inputBox" type="text" name="name" placeholder="실명 입력">
 						</div>
 					</label>
 				</div>
@@ -200,7 +244,7 @@ window.onload = function(){
 					<div><span>*</span><span>휴대폰</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox4 inputBox" type="text" name="gainPhoneNumber" placeholder="'-' 생략">
+							<input class="inputBox4 inputBox" type="text" name="phoneNum" placeholder="'-' 생략">
 						</div>
 					</label>
 				</div>
@@ -209,7 +253,7 @@ window.onload = function(){
 					<div><span>*</span><span>생년월일</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox5 inputBox" type="text" name="gainBirthday" placeholder="8자리 숫자(19990527)">
+							<input class="inputBox5 inputBox" type="text" name="birth" placeholder="8자리 숫자(19990527)">
 						</div>
 					</label>
 				</div>
@@ -217,11 +261,11 @@ window.onload = function(){
 					<div><span>*</span><span>성별</span></div>
 					<div class="checks2">
 						<label class="checks">
-							<input type="radio" name="gainGender" value="man" class="chk" >
+							<input type="radio" name="sex" value="man" class="chk" >
 							<span>남자</span>
 						</label>
 						<label class="checks">
-							<input type="radio" name="gainGender" value="woman" class="chk" >
+							<input type="radio" name="sex" value="woman" class="chk" >
 							<span>여자</span>
 						</label>
 					</div>
@@ -283,7 +327,7 @@ window.onload = function(){
 				</style>
 				<div class="checkBox">
 					<div><label class="checks">
-						<input type="checkbox">
+						<input type="checkbox" name="useInfo">
 						<span>이용약관 및 개인정보처리방침에 동의(필수)</span>
 					</label></div>
 					<div><label class="checks">
@@ -293,23 +337,23 @@ window.onload = function(){
 					<hr>
 					<div class="checks2">
 						<label class="checks">
-							<input type="checkbox" name="message" class="chk" >
+							<input type="checkbox" name="permisSms" class="chk" >
 							<span>문자</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="email" class="chk" >
+							<input type="checkbox" name="permisEmail" class="chk" >
 							<span>이메일</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="appPush" class="chk" >
+							<input type="checkbox" name="permisAppPush" class="chk" >
 							<span>APP 푸시</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="mail" class="chk" >
+							<input type="checkbox" name="permisMail" class="chk" >
 							<span>우편발송</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="call" class="chk" >
+							<input type="checkbox" name="permisPhone" class="chk" >
 							<span>전화안내</span>
 						</label>
 					</div>

@@ -6,10 +6,3 @@
    		// public List<Emp> getEmpList(Emp sch);
    		인터페이스를 상속받은 실제 Dao 객체를 위 규칙에 생성하는 xml 파일
     -->
-<mapper namespace="springGain.dao.MemberDao">
-	<select id="getMemList"  resultType="member">
-		select * from member
-	</select>
-	
-	
-</mapper>
