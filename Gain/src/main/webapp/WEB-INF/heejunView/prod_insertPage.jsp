@@ -84,8 +84,8 @@
 					<h3 class="product_price">판매가</h3>
 				</div>
 				<div class="second_line">
-					<input type="text" name="pname" placeholder="상품명 입력">
-					<input type="number" name="price" placeholder="판매가 입력">
+					<input type="text" name=prodName placeholder="상품명 입력">
+					<input type="number" name="prodPrice" placeholder="판매가 입력">
 				</div>
 				<div class="third_line">
 					<h3 class="product_brand">브랜드</h3>
@@ -119,10 +119,10 @@
 							<input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
 							
 			              	<label for="input_file">업로드</label> 
-             				<input type="file" id="input_file" class="upload-hidden"> 
+             				<input type="file" name="prodImg" id="input_file" class="upload-hidden" > 
 						</div>
 					</div>
-					<textarea name="content" rows="15" cols="70" placeholder="상품 상세설명 입력">
+					<textarea name="prodInfo" rows="15" cols="70" placeholder="상품 상세설명 입력">
 					</textarea>
 				</div>
 				<div class="submit_line">

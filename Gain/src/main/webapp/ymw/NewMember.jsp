@@ -308,7 +308,7 @@ window.onload = function(){
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
-			<p style="font-size:15px;line-hight:25px;">
+			<p style="font-size:15px;line-height:25px;">
 			(주)머스트잇
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>

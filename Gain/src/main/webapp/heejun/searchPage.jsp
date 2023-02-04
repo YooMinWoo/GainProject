@@ -72,9 +72,9 @@
             </ul>
          </nav>
           <div class="search-box">
-    			<input type="text" class="search-txt" name="" placeholder="Type to search">
+    			<input type="text" class="search-txt" name="pname">
     			<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
-  			</div>
+  		</div>
     </header>
 	<section>
 	<!-- 여기서부터 작업 -->
@@ -110,22 +110,21 @@
 						<ul class="product_list">
 							<li>
 								<div class="thumb">
-									<a href="#">
+									<a href="detailPage.jsp">
 										<img alt="" src="product.jpg">
 									</a>
 								</div>
 								<div class="product_info">
-									<a href="#">
+									<a href="detailPage.jsp">
 										<dl>
-											<dt>브랜드명</dt>
+											<dt>몽클레어</dt>
 											<dd>
-												<p class="product_name">상품명</p>
+												<p class="product_name">ROOK 남성 패딩점퍼 F10911A11500 C0453 화이트</p>
 												<div class="price_info">
 													<div class="price">
-														<span>가격</span>
-														원 
+														<span>650,000</span>원 
 													</div>
-													<div class="per">할인율</div>
+													<div class="per"><span>25</span>%</div>
 												</div>
 											</dd>
 										</dl>
@@ -310,7 +309,7 @@
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
-			<p style="font-size:15px;line-hight:25px;">
+			<p style="font-size:15px;line-height:25px;">
 			(주)머스트잇
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>

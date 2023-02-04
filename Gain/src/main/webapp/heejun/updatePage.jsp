@@ -27,7 +27,7 @@
 	위치만 확인하고 지워주세요!
 	
 	1) 헤더는 로그인 세션 처리할 때 c:if로 바꿀 예정
-	
+		
 	2) <div class="main_wrapper"> 안에만 내용 넣어 주세요.
 			해당 div는 1200px이라서 안에 크기는 px로 조절하시면 됩니다.
 			
@@ -84,7 +84,8 @@
 					<h3 class="product_price">판매가</h3>
 				</div>
 				<div class="second_line">
-					<input type="text" name="pname" placeholder="상품명 입력" value="몽클레어 ROOK 남성 패딩점퍼 F10911A11500 C0453 화이트">
+					<input type="text" name="pname" placeholder="상품명 입력" 
+							value="몽클레어 ROOK 남성 패딩점퍼 F10911A11500 C0453 화이트">
 					<input type="number" name="price" placeholder="판매가 입력" value="881000">
 				</div>
 				<div class="third_line">
@@ -122,7 +123,7 @@
 							</div>
 							<input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
 							
-			              	<label for="input_file">업로드</label> 
+			              	<label for="input_file">수 정</label> 
              				<input type="file" id="input_file" class="upload-hidden"> 
 						</div>
 					</div>
@@ -144,7 +145,7 @@
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
-			<p style="font-size:15px;line-hight:25px;">
+			<p style="font-size:15px;line-height:25px;">
 			(주)머스트잇
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>

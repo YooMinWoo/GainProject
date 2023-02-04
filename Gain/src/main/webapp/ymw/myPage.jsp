@@ -15,10 +15,6 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 <style type="text/css">
 
-.main_wrapper{
-	height: 1200px;
-	background-color: pink;
-}
 </style>
 </head>
 
@@ -52,8 +48,61 @@
     </header>
 	<section>
 	<!-- 여기서부터 작업 -->
+	<style>
+		.myPageList{
+			width: 700px;
+			margin: 0px auto;
+			display:flex;
+			flex-direction: column;
+			gap: 15px;
+    		padding: 20px 0px;
+		}
+		.list{
+			width:500px;
+			margin:0px auto;
+			border:1px solid lightgray;
+			border-radius:6px;
+			height:60px;
+			display: flex;
+		    justify-content: space-between;
+    		align-items: center;
+    		padding: 0px 20px;
+		    font-size: 17px;
+		    font-weight: 900;
+		    cursor: pointer;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("button").click(function(){
+				alert($(this).attr('id'))
+			})
+		})
+	</script>
         <div class="main_wrapper">
-
+			<div class="myPageList">
+				<button id="buylist" type="button" class="list"> <!-- 주문내역 -->
+					<span>주문내역</span><span></span>
+				</button>
+				<button id="couponlist" type="button" class="list"> <!-- 쿠폰조회 -->
+					<span>쿠폰조회</span><span></span>
+				</button >
+				<button type="button" class="list"> <!-- 적립금 -->
+					<span>적립금</span><span>1000원</span>
+				</button>
+				<button id="reviewlist" type="button" class="list"> <!-- 리뷰조회 -->
+					<span>리뷰조회</span><span></span>
+				</button>
+				<button id="infoUpt" type="button" class="list"> <!-- 회원정보수정 -->
+					<span>회원정보수정</span><span></span>
+				</button>
+				<button id="ask" type="button" class="list"> <!-- 1:1문의 -->
+					<span>1:1문의</span><span></span>
+				</button>
+				<button id="logout" type="button" class="list"> <!-- 로그아웃 -->
+					<span>로그아웃</span><span></span>
+				</button>
+			</div>
         </div>
     <!-- 여기까지만 작업 -->
     </section>

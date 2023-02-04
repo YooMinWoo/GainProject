@@ -81,7 +81,7 @@
 				<div class="up_area">
 					<div class="left_content">
 						<div class="img_block">
-							<img alt="" src="product.jpg">
+							<img src="product.jpg">
 						</div>
 					</div>
 					<div class="right_content">
@@ -144,7 +144,7 @@
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
-			<p style="font-size:15px;line-hight:25px;">
+			<p style="font-size:15px;line-height:25px;">
 			(주)머스트잇
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>

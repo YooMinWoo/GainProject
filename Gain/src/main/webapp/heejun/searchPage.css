@@ -1,33 +1,33 @@
 @charset "UTF-8";
 
 .search-box{
-  padding: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  height: 30px;
-  background-color: #fff;
-  border: 1px solid #51e3d4;
-  border-radius: 30px;
-  transition: 0.4s;
-  width:30px;
+    padding: 10px;
+    position: absolute;
+    left: 72%;
+    bottom: 80.2%;
+    transform: translate(-50%,-50%);
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 30px;
+    transition: 0.4s;
+    width: 30px;
 }
 .search-box:hover{
-  box-shadow: 0px 0px .5px 1px #51e3d4;
-  width: 282px;
+    box-shadow: 0px 0px 0.5px 1px black;
+    width: 260px;
 }
 .search-btn{
-  text-decoration: none;
-  float: right;
-  width: 30px;
-  height: 30px;
-  background-color: #fff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #51e3d4;
+    text-decoration: none;
+    float: right;
+    width: 8px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
 }
 .search-box:hover > .search-btn{
   background-color: #fff;
@@ -41,11 +41,11 @@
   outline: none;
   float: left;
   font-size: 1rem;
-  line-height: 30px;
+  line-height: 0px;
   transition: .4s;
 }
 .search-box:hover > .search-txt{
-  width: 240px;
+  width: 220px;
   padding: 0 6px;
 }
 
@@ -123,8 +123,12 @@
 .product_list .product_info{
 	padding-top: 15px;
 }
-.product_list .product_info dd{
-	margin-top: 5px;
+.product_list .product_info dl > dt{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.product_list .product_info dl > dd > p{
+	font-size: 15px;
 }
 
 .price_info{
@@ -142,7 +146,7 @@
 }
 
 .button_info{
-	padding: 10px 0px 0px 50px;
+	padding: 20px 0px 0px 50px;
 }
 .button_info .udtBtn{
     width: 50px;
@@ -156,6 +160,7 @@
     font-weight: bold;
     border: none;
 }
+
 .button_info .delBtn{
     width: 50px;
     height: 30px;

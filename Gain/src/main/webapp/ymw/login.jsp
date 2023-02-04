@@ -127,7 +127,8 @@
 					<div><span>아이디</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox0 inputBox" type="text" name="gainID" placeholder="아이디를 입력해주세요.">
+							<input class="inputBox0 inputBox" type="text" name="gainID" 
+							placeholder="아이디를 입력해주세요.">
 						</div>
 					</label>
 				</div>
@@ -136,7 +137,8 @@
 					<div><span>비밀번호</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox1 inputBox" type="password" name="gainPassword" placeholder="비밀번호를 입력해주세요.">
+							<input class="inputBox1 inputBox" type="password" name="gainPassword" 
+							placeholder="비밀번호를 입력해주세요.">
 						</div>
 					</label>
 				</div>
@@ -152,7 +154,7 @@
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
-			<p style="font-size:15px;line-hight:25px;">
+			<p style="font-size:15px;line-height:25px;">
 			(주)머스트잇
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>

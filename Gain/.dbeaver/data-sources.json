@@ -1,16 +1,16 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-1860bc4b541-586d206f048a04eb": {
+		"oracle_thin-18615b32c21-1cb524c6e5ae68d5": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "49.238.170.26",
+			"name": "localhost",
 			"save-password": true,
 			"configuration": {
-				"host": "49.238.170.26",
+				"host": "localhost",
 				"port": "1521",
-				"database": "XE",
-				"url": "jdbc:oracle:thin:@//49.238.170.26:1521/XE",
+				"database": "xe",
+				"url": "jdbc:oracle:thin:@//localhost:1521/xe",
 				"configurationType": "MANUAL",
 				"home": "C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server",
 				"type": "dev",
