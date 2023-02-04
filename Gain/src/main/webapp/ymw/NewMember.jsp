@@ -139,6 +139,22 @@ window.onload = function(){
 				if(total != checked) $("#cbx_chkAll").prop("checked", false);
 				else $("#cbx_chkAll").prop("checked", true); 
 			});
+			
+			$(".doneBtn").click(function(){
+				var idReg = /^[A-za-z]+[A-za-z0-9]{5,11}$/g;
+				var nickNameReg = /^[A-za-z]+[A-za-z0-9]{5,14}$/g;
+		        if( !idReg.test( $("input[name=gainID]").val() ) ) {
+		            alert("아이디는 영문자로 시작하는 6~12자 영문자 또는 숫자이어야 합니다.");
+		            $("input[name=gainID]").focus()
+		            return;
+		        }
+		        if( !nickNameReg.test( $("input[name=gainNickName]").val() ) ) {
+		            alert("닉네임은 영문자로 시작하는 6~15자 영문자 또는 숫자이어야 합니다.");
+		            $("input[name=gainNickName]").focus()
+		            return;
+		        }
+			})
+			
 		})
 	</script>
 	<!-- 여기서부터 작업 -->
