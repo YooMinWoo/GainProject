@@ -1,4 +1,4 @@
-package sumin.vo;
+package springGain.vo;
 
 import java.util.Date;
 

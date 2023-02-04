@@ -37,7 +37,7 @@
          2. annotation으로 Controller, Service, Repository로 선언된
             클래스를 호출하여 객체로 생성되게 처리.
     -->
-      <context:component-scan base-package="sumin">
+      <context:component-scan base-package="springGain">
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
@@ -68,7 +68,7 @@
            # 마이바티즈에 의해 자동 생성 dao 인터페이스 선언
         -->
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-           <property name="basePackage" value="sumin.dao"></property>
+           <property name="basePackage" value="springGain.dao"></property>
         </bean>
         <!-- 
         1. viewResolver 1순위 선언 : bean이 선언되어 있으면 해당 뷰를 찾게 처리

@@ -1,30 +1,8 @@
-package sumin.vo;
+package springGain.vo;
 
 import java.util.Date;
 
 public class Raffle {
-	/*
-	 CREATE TABLE raffleInfo
-(
-	-- 래플번호
-	rafId varchar2(100) NOT NULL,
-	-- 상품명 : pname
-	pname varchar2(200),
-	-- 가격
-	price number,
-	-- 이미지
-	imgSrc varchar2(1000),
-	-- 시작일
-	startDate date,
-	-- 종료일
-	endDate date,
-	-- 당첨일
-	choDate date,
-	-- 응모 결과
-	result varchar2(50),
-	PRIMARY KEY (rafId)
-);
-	 */
 	
 	private String rafId;
 	private String pname;

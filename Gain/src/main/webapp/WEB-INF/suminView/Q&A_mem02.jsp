@@ -99,9 +99,9 @@ $(document).ready(function(){
 			$(".reply").hide()
 		}
 	})
-		
-		
-		
+	$("[name=id]").val("himan")
+	
+
 
 })
 </script>
@@ -139,12 +139,15 @@ $(document).ready(function(){
 	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:350px;">문의내역</a>
 	      	<hr></hr>
 	      	<div class="bar"></div>
+	      	<form id="frm01">
 	      	<input type="hidden" name="id" value="himan"/>
+	      	<button style="display:none;" type="submit" id="search">검색</button>
+	      	</form>
 	      	<c:forEach var="qna" items="${qnaList }">
 	      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
 	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
 	      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
-	      	<h5 style="color:#5D5D5D; display:inline;">${qna.regDate }</h5>
+	      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate}"/></h5>
 	      	<button type="button" id="reply">▼</button>
 	      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
 	      	<div class="reply">

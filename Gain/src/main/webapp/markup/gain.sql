@@ -205,7 +205,7 @@ CREATE TABLE QnA
 	-- 아이디 : 아이디
 	id varchar2(100) NOT NULL
 );
-SELECT * FROM QnA;
+SELECT * FROM QnA WHERE id='himan';
 INSERT INTO QnA values('교환/반품','교환반품문의합니다','배송받은 상품에 얼룩이 묻어서 반품 요청합니다.',
 		sysdate,'답변대기','입력하신 환불계좌로 환불해드리겠습니다.','himan');
 SELECT * FROM 

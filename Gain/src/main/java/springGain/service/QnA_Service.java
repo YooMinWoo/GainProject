@@ -1,20 +1,20 @@
-package sumin.service;
+package springGain.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import sumin.dao.QnA_Dao;
-import sumin.vo.QnA;
+import springGain.dao.QnA_Dao;
+import springGain.vo.QnA;
 
 @Service
 public class QnA_Service {
 	
 	@Autowired
 	private QnA_Dao dao;
-	public List<QnA> getQnAList(String id){
-		if(id==null)id="himan";
-		return dao.getQnAList(id);
+	public List<QnA> getQnAList(QnA sch){
+		if(sch.getId()==null) sch.setId("himan");
+		return dao.getQnAList(sch);
 	}
 }
