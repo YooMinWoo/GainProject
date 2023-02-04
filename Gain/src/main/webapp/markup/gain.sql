@@ -19,6 +19,7 @@ DROP TABLE raffleInfo CASCADE CONSTRAINTS;
 
 
 
+
 /* Create Tables */
 
 -- 브랜드
@@ -56,6 +57,7 @@ CREATE TABLE coupon
 	couponEndDate date,
 	PRIMARY KEY (couponNum)
 );
+
 
 
 -- 세부항목
@@ -110,7 +112,9 @@ CREATE TABLE gainMember
 	auth number,
 	PRIMARY KEY (id)
 );
-
+SELECT * FROM gainMember;
+INSERT INTO gainMember values('himan','하이맨','7777','유민우','010-1234-5678',
+			'1999-05-27','men',0,0,0,0,0,0,0,'인천 용현동','minwoo@ssangyong.com',0);
 
 -- 보유 쿠폰
 CREATE TABLE haveCoupon
@@ -201,8 +205,10 @@ CREATE TABLE QnA
 	-- 아이디 : 아이디
 	id varchar2(100) NOT NULL
 );
-
-
+SELECT * FROM QnA;
+INSERT INTO QnA values('교환/반품','교환반품문의합니다','배송받은 상품에 얼룩이 묻어서 반품 요청합니다.',
+		sysdate,'답변대기','입력하신 환불계좌로 환불해드리겠습니다.','himan');
+SELECT * FROM 
 -- 래플
 CREATE TABLE raffleInfo
 (

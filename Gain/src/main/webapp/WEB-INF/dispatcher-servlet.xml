@@ -37,7 +37,7 @@
          2. annotation으로 Controller, Service, Repository로 선언된
             클래스를 호출하여 객체로 생성되게 처리.
     -->
-      <context:component-scan base-package="springGain,heejun">
+      <context:component-scan base-package="sumin">
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
@@ -50,9 +50,9 @@
        -->
        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
              <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-             <property name="url" value="jdbc:oracle:thin:@49.238.170.26:1521:xe"></property>
-             <property name="username" value="Gain"></property>
-             <property name="password" value="Gain"></property>
+             <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+             <property name="username" value="scott"></property>
+             <property name="password" value="tiger"></property>
        </bean>
        <!-- 
              # Mybatis 연동
@@ -68,7 +68,7 @@
            # 마이바티즈에 의해 자동 생성 dao 인터페이스 선언
         -->
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-           <property name="basePackage" value="springGain.dao"></property>
+           <property name="basePackage" value="sumin.dao"></property>
         </bean>
         <!-- 
         1. viewResolver 1순위 선언 : bean이 선언되어 있으면 해당 뷰를 찾게 처리

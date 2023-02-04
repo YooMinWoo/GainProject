@@ -6,10 +6,13 @@
 	<typeAliases>
 		<typeAlias alias="member" type="springGain.vo.Member"/>
 		<typeAlias alias="product" type="heejun.vo.Product"/>
+		<typeAlias alias="qna" type="sumin.vo.QnA"/>
+		
 	</typeAliases>
 	<!-- 2. 사용 XXXMapper.xml을 추가 -->
 	<mappers>
 		<mapper resource="resource/MemberMapper.xml"/>
 		<mapper resource="resource/ProdMapper.xml"/>
+		<mapper resource="resource/qnaMapper.xml"/>
 	</mappers>
 </configuration>
