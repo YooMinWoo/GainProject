@@ -10,7 +10,6 @@ public class Product {
 	private String prodInfo;
 	private Date prodDate;
 	
-	
 	public String getProdNum() {
 		return prodNum;
 	}
