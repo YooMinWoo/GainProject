@@ -1,4 +1,4 @@
-package heejun.vo;
+package springGain.vo;
 
 import java.util.Date;
 

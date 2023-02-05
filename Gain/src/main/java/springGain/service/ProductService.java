@@ -1,10 +1,10 @@
-package heejun.service;
+package springGain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import heejun.dao.ProductDao;
-import heejun.vo.Product;
+import springGain.dao.ProductDao;
+import springGain.vo.Product;
 
 @Service
 public class ProductService {

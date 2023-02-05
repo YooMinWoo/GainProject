@@ -1,6 +1,6 @@
-package heejun.dao;
+package springGain.dao;
 
-import heejun.vo.Product;
+import springGain.vo.Product;
 
 public interface ProductDao {
 	

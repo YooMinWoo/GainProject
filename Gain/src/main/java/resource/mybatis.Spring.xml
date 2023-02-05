@@ -13,7 +13,7 @@
 	<!-- 2. 사용 XXXMapper.xml을 추가 -->
 	<mappers>
 		<mapper resource="resource/MemberMapper.xml"/>
-		<mapper resource="resource/ProdMapper.xml"/>
+		<mapper resource="resource/heejun/ProdMapper.xml"/>
 		<mapper resource="resource.sumin/qnaMapper.xml"/>
 	</mappers>
 </configuration>
