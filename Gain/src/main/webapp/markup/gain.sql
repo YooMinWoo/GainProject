@@ -19,7 +19,6 @@ DROP TABLE raffleInfo CASCADE CONSTRAINTS;
 
 
 
-
 /* Create Tables */
 
 -- 브랜드
@@ -57,7 +56,6 @@ CREATE TABLE coupon
 	couponEndDate date,
 	PRIMARY KEY (couponNum)
 );
-
 
 
 -- 세부항목
@@ -106,15 +104,17 @@ CREATE TABLE gainMember
 	point number,
 	-- 주소 : 주소
 	address varchar2(1000),
-	-- 이메일
-	email varchar2(100),
 	-- 권한
 	auth number,
 	PRIMARY KEY (id)
 );
-SELECT * FROM gainMember;
-INSERT INTO gainMember values('himan','하이맨','7777','유민우','010-1234-5678',
-			'1999-05-27','men',0,0,0,0,0,0,0,'인천 용현동','minwoo@ssangyong.com',0);
+
+INSERT INTO GAINMEMBER values(
+	'alsn99','alsn99','dbalsdn1234','유민우','01092045515',
+	to_date('19990527','YYYYMMDD'),'man',1,1,1,1,1,1,1000,
+	'인천광역시 미추홀구 용오로 82 저층동아아파트 4동 608호',0
+);
+SELECT * FROM GAINMEMBER g ;
 
 -- 보유 쿠폰
 CREATE TABLE haveCoupon
@@ -205,10 +205,8 @@ CREATE TABLE QnA
 	-- 아이디 : 아이디
 	id varchar2(100) NOT NULL
 );
-SELECT * FROM QnA WHERE id='himan';
-INSERT INTO QnA values('교환/반품','교환반품문의합니다','배송받은 상품에 얼룩이 묻어서 반품 요청합니다.',
-		sysdate,'답변대기','입력하신 환불계좌로 환불해드리겠습니다.','himan');
-SELECT * FROM 
+
+
 -- 래플
 CREATE TABLE raffleInfo
 (
@@ -230,14 +228,7 @@ CREATE TABLE raffleInfo
 	result varchar2(50),
 	PRIMARY KEY (rafId)
 );
-SELECT * FROM RAFFLEINFO;
-INSERT INTO RAFFLEINFO values('raffle_230204','나이키 에어 조던1 레트로 하이 OG 쉐도우 2.0 gs 575441-035',
-	150000,'raffle_prod01.jpg','2023-02-04','2023-02-10','2023-02-15','진행중');
-INSERT INTO RAFFLEINFO values('raffle_230205','래플 상품명',
-	150000,'raffle_prod01.jpg','2023-02-04','2023-02-10','2023-02-15','진행중');
 
-SELECT ri.PNAME,ri.PRICE,ri.ENDDATE,ri.IMGSRC
-FROM RAFSTATE r,RAFFLEINFO ri WHERE ri.RESULT='진행중' AND r.RAFID = ri.RAFID;
 
 -- 응모 현황
 CREATE TABLE rafState
@@ -248,8 +239,7 @@ CREATE TABLE rafState
 	id varchar2(100) NOT NULL
 );
 
-INSERT INTO RAFSTATE values('raffle_230204','himan');
-INSERT INTO RAFSTATE values('raffle_230205','himan');
+
 -- 리뷰
 CREATE TABLE review
 (
@@ -405,7 +395,6 @@ COMMENT ON COLUMN gainMember.permisPhone IS '전화안내 허용 여부 : 전화
 COMMENT ON COLUMN gainMember.useInfo IS '이용약관 : 이용약관';
 COMMENT ON COLUMN gainMember.point IS '적립금 : 적립금';
 COMMENT ON COLUMN gainMember.address IS '주소 : 주소';
-COMMENT ON COLUMN gainMember.email IS '이메일';
 COMMENT ON COLUMN gainMember.auth IS '권한';
 COMMENT ON TABLE haveCoupon IS '보유 쿠폰';
 COMMENT ON COLUMN haveCoupon.orderNum IS '주문번호';
