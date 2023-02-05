@@ -12,4 +12,18 @@
 	
 	</insert>
 	
+	<select id="getBrand" resultType="brand">
+		select *
+		from brand
+	</select>
+	
+	<select id="getCategory" resultType="category">
+		select *
+		from category
+	</select>
+	
+	<select id="getDetailInfo" resultType="detail">
+		select detailnum, detailname
+		from detailInfo
+	</select>
 </mapper>

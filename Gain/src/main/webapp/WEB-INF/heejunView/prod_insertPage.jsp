@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"
     import="java.util.*" 
 %>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:requestEncoding value="UTF-8" />
@@ -46,6 +48,18 @@
 </head>
 
 <body>
+ <%
+String loc="C:/Users/ghktk/git/GainProject/Gain/src/main/webapp/markup/img";
+int maxSize=1024*1024*5; //키로바이트*메가바이트*기가바이트
+MultipartRequest multi = new MultipartRequest(
+		request,
+		loc,
+		maxSize,
+		"utf-8",
+		new DefaultFileRenamePolicy()
+	);
+
+%>
     <header>
          <div class="gnb">
             <div class="gnb_left">내 손 안의 백화점, 가인</div>
@@ -78,13 +92,13 @@
         <div class="main_wrapper">
         	<h2 class="insert_product">상 품 등 록</h2>
         	<div class="content">
-        	<form action="">
+        	<form action="" enctype="multipart/form-data" method="post">
 				<div class="first_line">
 					<h3 class="product_pname">상품명</h3>
 					<h3 class="product_price">판매가</h3>
 				</div>
 				<div class="second_line">
-					<input type="text" name=prodName placeholder="상품명 입력">
+					<input type="text" name="prodName" placeholder="상품명 입력">
 					<input type="number" name="prodPrice" placeholder="판매가 입력">
 				</div>
 				<div class="third_line">
@@ -93,21 +107,24 @@
 					<h3 class="product_subsection">세부항목</h3>
 				</div>
 				<div class="fourth_line">
-					<select name="brand">
+					<select name=brandNum>
 						<option disabled="disabled" selected>브랜드 선택</option>
-						<option>여기에</option>
-						<option>옵션을</option>
-						<option>추가할</option>
-						<option>예정입니다.</option>
+						<c:forEach var="brand" items="${brandCom}">
+						<option value="${brand.brandNum}">${brand.brandName}</option>
+						</c:forEach>
 					</select>
-					<select name="category">
+					<select name="categoryNum">
 						<option disabled="disabled" selected>카테고리 선택</option>
-						<option>여기에</option>
-						<option>카테고리를</option>
-						<option>추가할</option>
-						<option>예정입니다.</option>
+						<c:forEach var="cg" items="${categoryCom}">
+						<option value="${cg.categoryNum}">${cg.categoryName}</option>
+						</c:forEach>
 					</select>
-					<input type="text" name="subsection" placeholder="세부항목 입력">					
+					<select name="detailNum">
+						<option disabled="disabled" selected>세부항목 선택</option>
+						<c:forEach var="detail" items="${detailCom}">
+						<option value="${detail.detailNum}">${detail.detailName}</option>
+						</c:forEach>
+					</select>
 				</div>
 				<div class="fifth_line">
 					<h3 class="product_img">상품 이미지</h3>
@@ -167,6 +184,8 @@
     	</p>
     	</div>
     </footer>
+    
+
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -181,10 +200,10 @@ $(document).ready(function(){
 				  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
 				}).then((result) => {
 				  if (result.value) {
-					//"확인" 버튼을 눌렀을 때 작업할 내용
+					insertProd();
 				  }
 				})	    	
-	  	})	
+	  	})
 	
 	   var fileTarget = $('.img_block .upload-hidden');
 
@@ -235,6 +254,22 @@ $(document).ready(function(){
 	    
 
 	});
+	
+	function insertProd() {
+		$.ajax({
+			url : "${path}/insertProd.do",
+			type : "post",
+			data : $("form").serialize(),
+			dataType : "json",
+			success : function(data){
+				var product = data.product
+				console.log(product)
+			},
+			error : function(err){
+				console.log(err)
+			}
+		})	
+	}
 
 </script>
 </html>
