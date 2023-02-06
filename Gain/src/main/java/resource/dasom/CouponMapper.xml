@@ -8,7 +8,7 @@
 	<select id="getCoupon" parameterType="coupon" resultType="coupon">
 	SELECT COUPONNUM, COUPONNAME, COUPONPERCENT, TO_CHAR(COUPONENDDATE, 'YYYY-MM-DD')COUPONENDDATE
 	FROM coupon
-	WHERE couponName Like '%'||#{couponName}||'%';
+	WHERE couponName Like '%'||#{couponName}||'%'
 	</select>
 	
 	
