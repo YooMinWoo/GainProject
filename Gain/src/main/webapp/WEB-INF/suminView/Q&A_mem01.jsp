@@ -20,16 +20,18 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 
 <style type="text/css">
- 	
+  	h4,h5{
+  		display:inline;
+  	}
   	.bar{
-  		width:480px; height:10px; background:black; margin-left:-5px;
+  		width:480px; height:10px; background:black; margin-left:120px;
   		display:inline-block;
   	}
   	hr{
   		width:500px;
   		color:lightgray;
   		display:inline-block;
-  		margin-left:110px;
+  		margin-left:0px;
   		margin-top:10px;
   	}
   	h5{
@@ -42,7 +44,7 @@
   		height:38px;
   		border-radius:4px;
   	}
-  	.input_title{
+  	#input_title{
   		margin-left:205px;
   		width:400px;
   		height:38px;
@@ -64,46 +66,46 @@
   		margin-left:440px;
   		margin-top:50px;
   	}
-	.menu{
-		font-size:25px;
-		font-weight:bold;
-	}
-	.question{
-		width:930px;
-		height:100px;
-		margin-left:130px;
-		
-	}
-	.reply{
-		width:930px;
-		height:280px;
-		margin-left:130px;
-		margin-top:10px;
-		background:lightgray;
-		
-	}
+  	.menu{
+  		font-size:25px;
+  		font-weight:bold;
+  	}
 </style>
 </head>
 <script>
 $(document).ready(function(){
-	$(".question").hide()
-	$(".reply").hide()
 	
-	var cnt = 0
-	$("#reply").click(function(){
-		cnt ++
-		if(cnt%2==1){
-			$(".question").show()
-			$(".reply").show()
-		}else{
-			$(".question").hide()
-			$(".reply").hide()
-		}
-	})
+	 $("#addBtn").click(function(){
+		
+		 var categoryVal = $("[name=category]").val()
+		 var titleVal = $("[name=title]").val()
+		 var contentVal = $("[name=content]").val()
+		 if(categoryVal==""){
+			 alert("문의유형을 선택하세요")
+			 return
+		 }
+		 if(titleVal==""){
+			 alert("문의제목을 입력하세요")
+			 return
+		 }
+		 if(contentVal==""){
+			 alert("문의내용을 입력하세요")
+			 return
+		 }
+		 if(categoryVal!="" && titleVal!="" && contentVal!=""){
+			 $("#boardFrm").submit()
+		 }
+		 var msg ="${msg}"
+			 if(msg!=null){
+				 if(confirm(msg+"\n 문의내역으로 이동하시겠습니까?")){
+					 location.href="${path }/qna.do"
+				 }
+			 }
+		
+	 })
 	
-	//$('#search').click()
-})
 
+})
 </script>
 <body>
     <header>
@@ -137,25 +139,36 @@ $(document).ready(function(){
         <div class="main_wrapper">
 	      	<a href="${path }/insertFrm.do" class="menu" style="margin-left:300px;">1:1 문의하기</a>
 	      	<a href="${path }/qna.do" class="menu" style="margin-left:350px;">문의내역</a>
-	      	<hr></hr>
 	      	<div class="bar"></div>
-	      	<form id="frm01">
-	      	<input type="hidden" name="id" value="alsn99"/>
-	      	<button  type="submit" id="search">검색</button>
-	      	</form>
-	      	<c:forEach var="qna" items="${qnaList }">
-	      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
-	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
-	      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
-	      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate}"/></h5>
-	      	<button type="button" id="reply">▼</button>
-	      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
-	      	<div class="reply">
-	      	<h2 style="padding:10px 10px;">A</h2>${qna.reply }
-	     	</div>
+	      	<hr></hr>
 	      	<br><br>
-	      	<hr style="width:980px;">
-			</c:forEach>
+	      	<form id="boardFrm" action="${path}/insert.do" method="post">
+	      	<input type="hidden" name="id" value="alsn99"/>
+	      	<h4 style="margin-left:220px;">문의 유형</h4><h5>*</h5>
+	      	<br>
+	      	<select name="category">
+	      		<option value="">문의유형을 선택해주세요</option>
+	      		<option>앱/웹 문의</option>
+	      		<option>매장 문의</option>
+	      		<option>상품 문의</option>
+	      		<option>주문/결제 문의</option>
+	      		<option>배송 문의</option>
+	      		<option>취소/환불 문의</option>
+	      		<option>교환/반품 문의</option>
+	      		<option>수선문의</option>
+	      	</select>
+	      	<br><br>
+	      	<h4 style="margin-left:220px;">문의 제목</h4><h5>*</h5>
+	      	<br>
+	      	<input id="input_title"  type="text" name="title" placeholder="문의제목을 입력해주세요">
+	        <br><br>
+	      	<h4 style="margin-left:220px;">문의 내용</h4><h5>*</h5>
+	      	<br>
+	      	<textarea name="content" ></textarea>
+	      	<button type="submit" class="btn" id="addBtn" >등록하기</button>
+	      	</form>
+
+	      
         </div>
     </section>
     <footer>
@@ -169,7 +182,7 @@ $(document).ready(function(){
 			개인정보보호책임자 : 이수민<br>
 			E-MAIL : help@gain.co.kr
 			</p>
-			<p style="font-size:12px;line-height:20px; padding:10px 0;">
+			<p style="font-size:12px;line-hight:20px; padding:10px 0;">
 			해당 사이트는 프로젝트용 사이트로 실제로 존재하는 사이트가 아닙니다.<br>
 			쌍용강북센터 프로젝트 3팀
 			COPYRIGHT 2023 가인 ALL RIGHT RESERVED.

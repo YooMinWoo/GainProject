@@ -4,9 +4,18 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
 
 <mapper namespace="springGain.dao.QnA_Dao">
-	<select id="getQnAList" parameterType="qna" resultType="qna">
+	<select id="memQnAList" parameterType="qna" resultType="qna">
 		select * from QnA where id=#{id}
 	</select>
+	<insert id="insertQnA" parameterType="qna">
+		INSERT INTO QnA values(#{category},#{title},#{content},sysdate,'답변대기',null,#{id},qna_seq.nextval)
+	</insert>
 	
+	<select id="getQnAList" parameterType="qna" resultType="qna">
+		select * from QnA where state='답변대기'
+	</select>
 	
+	<update id="uptReply" parameterType="qna">
+		UPDATE QnA SET state='답변완료', reply=#{reply} WHERE qna_no=#{qna_no}
+	</update>
 </mapper>

@@ -56,7 +56,7 @@ CREATE TABLE coupon
 	couponEndDate date,
 	PRIMARY KEY (couponNum)
 );
-
+SELECT * FROM coupon;
 
 -- 세부항목
 CREATE TABLE detailInfo
@@ -109,7 +109,9 @@ CREATE TABLE gainMember
 	PRIMARY KEY (id)
 );
 
-
+SELECT * FROM gainMember;
+INSERT INTO gainMember values('himan','하이맨','7777','박민혁','010-1234-5678','1999-01-26','men',0,0,0,0,0,0,
+1000,'서울 금천동',0);
 -- 보유 쿠폰
 CREATE TABLE haveCoupon
 (
@@ -199,8 +201,11 @@ CREATE TABLE QnA
 	-- 아이디 : 아이디
 	id varchar2(100) NOT NULL
 );
-
-
+SELECT * FROM QnA;
+SELECT * FROM gainMember;
+DELETE FROM QnA WHERE id='himan';
+INSERT INTO QnA values('배송','배송문의합니다','배송지연된 제품 언제 출고되나요?',sysdate,'답변대기','','himan');
+INSERT INTO QnA values('상품','상품문의합니다','s 사이즈는 없나요?',sysdate,'답변대기',null,'himan');
 -- 래플
 CREATE TABLE raffleInfo
 (
@@ -222,7 +227,15 @@ CREATE TABLE raffleInfo
 	result varchar2(50),
 	PRIMARY KEY (rafId)
 );
+create sequence raffle_seq
+      start with 1
+      minvalue 1
+      maxvalue 999999
+      increment by 1;
 
+SELECT * FROM raffleInfo;
+INSERT INTO raffleInfo values(raffle_seq.nextval,'나이키 에어 조던1 레트로 하이 OG 쉐도우 2.0 gs 575441-035',
+	150000,'raffle_prod01.jpg','2023-02-06','2023-02-15','2023-02-18','진행중');
 
 -- 응모 현황
 CREATE TABLE rafState

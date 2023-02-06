@@ -11,6 +11,9 @@ public class QnA {
 	private Date regDate;
 	private String state;
 	private String reply;
+	private int qna_no;
+	
+	
 	public QnA() {
 		// TODO Auto-generated constructor stub
 	}
@@ -64,6 +67,12 @@ public class QnA {
 	}
 	public void setReply(String reply) {
 		this.reply = reply;
+	}
+	public int getQna_no() {
+		return qna_no;
+	}
+	public void setQna_no(int qna_no) {
+		this.qna_no = qna_no;
 	}
 	
 	
