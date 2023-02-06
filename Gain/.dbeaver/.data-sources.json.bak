@@ -1,6 +1,7 @@
 {
 	"folders": {},
 	"connections": {
+<<<<<<< HEAD
 		"oracle_thin-1862605b714-6fc5c17a4fe82dd7": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
@@ -11,6 +12,18 @@
 				"port": "1521",
 				"database": "xe",
 				"url": "jdbc:oracle:thin:@//localhost:1521/xe",
+=======
+		"oracle_thin-186260539a9-235b4a12f0253c3b": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "49.238.170.26",
+			"save-password": true,
+			"configuration": {
+				"host": "49.238.170.26",
+				"port": "1521",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//49.238.170.26:1521/XE",
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 				"configurationType": "MANUAL",
 				"home": "C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server",
 				"type": "dev",
