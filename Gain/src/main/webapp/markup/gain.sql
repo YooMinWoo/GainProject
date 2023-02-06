@@ -144,7 +144,9 @@ CREATE TABLE orderDetails
 	PRIMARY KEY (orderNum)
 );
 
-SELECT * FROM orderDetails;
+SELECT * FROM GAINMEMBER;
+
+
 
 
 -- 옵션
@@ -182,6 +184,7 @@ CREATE TABLE products
 	PRIMARY KEY (prodNum)
 );
 
+SELECT * FROM products;
 
 -- QnA
 CREATE TABLE QnA
