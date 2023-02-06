@@ -84,9 +84,9 @@
 					<h3 class="product_price">판매가</h3>
 				</div>
 				<div class="second_line">
-					<input type="text" name="pname" placeholder="상품명 입력" 
-							value="몽클레어 ROOK 남성 패딩점퍼 F10911A11500 C0453 화이트">
-					<input type="number" name="price" placeholder="판매가 입력" value="881000">
+					<input type="text" name="prodName" placeholder="상품명 입력" 
+							value="${prod.prodName}">
+					<input type="number" name="prodPrice" placeholder="판매가 입력" value="${prod.prodPrice}">
 				</div>
 				<div class="third_line">
 					<h3 class="product_brand">브랜드</h3>
@@ -94,21 +94,22 @@
 					<h3 class="product_subsection">세부항목</h3>
 				</div>
 				<div class="fourth_line">
-					<select name="brand">
-						<option disabled="disabled" selected>MONCLER</option>
-						<option>여기에</option>
-						<option>옵션을</option>
-						<option>추가할</option>
-						<option>예정입니다.</option>
+					<select name="brandNum">
+						<c:forEach var="brand" items="${brandCom}">
+						<option value="${brand.brandNum}">${brand.brandName}</option>
+						</c:forEach>
 					</select>
-					<select name="category">
-						<option disabled="disabled" selected>의류</option>
-						<option>여기에</option>
-						<option>카테고리를</option>
-						<option>추가할</option>
-						<option>예정입니다.</option>
+					<select name="categoryNum">
+						<c:forEach var="cg" items="${categoryCom}">
+						<option value="${cg.categoryNum}">${cg.categoryName}</option>
+						</c:forEach>
 					</select>
-					<input type="text" name="subsection" placeholder="세부항목 입력" value="코트&자켓">					
+					<select name="detailNum">
+						<option disabled="disabled" selected>세부항목 선택</option>
+						<c:forEach var="detail" items="${detailCom}">
+						<option value="${detail.detailNum}">${detail.detailName}</option>
+						</c:forEach>
+					</select>				
 				</div>
 				<div class="fifth_line">
 					<h3 class="product_img">상품 이미지</h3>

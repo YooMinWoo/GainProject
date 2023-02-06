@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -13,8 +14,9 @@
 <!-- 제이쿼리 CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
-<link rel="stylesheet" href="/Gain/heejun/detailPage.css"/>
+<link rel="stylesheet" href="/Gain/heejun/searchPage.css"/>
 <style type="text/css">
 
 
@@ -39,10 +41,22 @@
 			<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 
  */
- 
 
 
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+	})
+	
+	function Detail(categoryNum, detailNum) {
+		location.href="${path}/getProdListAdmin.do?categoryNum="+categoryNum+"&detailNum="+detailNum;
+	}
+	
+	function goDetailPage(prodNum, categoryNum) {
+		location.href="${path}/prodDetail.do?prodNum="+prodNum+"&categoryNum="+categoryNum;
+	}
+</script>
 </head>
 
 <body>
@@ -64,80 +78,79 @@
          <nav class="lnb">
             <ul>
                 <li><a href="#">전체 상품</a></li>
-                <li><a href="#">의류</a></li>
-                <li><a href="#">슈즈</a></li>
-                <li><a href="#">가방</a></li>
-                <li><a href="#">액세서리</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C1">의류</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C2">슈즈</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C3">가방</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C4">액세서리</a></li>
                 <li><a href="#">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
+         <div class="search-box">
+         	<form action="" method="post">
+    			<input type="text" class="search-txt" name="prodName" value="${sch.prodName}">
+    			<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+    		</form>	
+  		 </div>
     </header>
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-        	<h3 class="detail_product">HOME > 의류 > 코트&자켓</h3>
+        	<h2 class="choice_category">${category.categoryName}</h2>
         	<div class="content">
-				<div class="up_area">
-					<div class="left_content">
-						<div class="img_block">
-							<img src="/Gain/heejun/${prod.prodImg}">
-						</div>
+				<div class="left_content">
+					<h3>${category.categoryName}</h3>
+					<ul class="category_subsection">
+						<li>
+							<a href="${path}/getProdList.do?categoryNum=${category.categoryNum}&detailNum=""">전체 보기</a>
+						</li>
+						<c:forEach var="detail" items="${detail}">
+						<li>
+							<a onclick="Detail('${category.categoryNum}','${detail.detailNum}')">${detail.detailName}</a>
+						</li>
+						</c:forEach>
+					</ul>
+				</div>
+				
+				<div class="right_content">
+					<div class="insBtn_area">
+						<button class="insBtn" type="button">상 품 등 록 +</button>
 					</div>
-					<div class="right_content">
-						<h2>${prod.prodName}</h2>
-						<ul class="product_info">
+					<div class="product_area">
+						<ul class="product_list">
+							<c:forEach var="prod" items="${plist}">
 							<li>
-								<dl>
-									<dt>판매가</dt>
-									<dd><fmt:formatNumber value="${prod.prodPrice}" />원</dd>
-								</dl>
-								<dl>
-									<dt>회원가</dt>
-									<dd><fmt:formatNumber value="${prod.prodPrice-prod.prodPrice*0.2}"/>원</dd>
-								</dl>
-								<dl>
-									<dt>적립금</dt>
-									<dd>최대 7,000원</dd>
-								</dl>
-								<dl>
-									<dt>배송비</dt>
-									<dd>무료</dd>
-								</dl>
-								<dl>
-									<dt>예상 수령일</dt>
-									<c:set var="front" value="<%=new Date(new Date().getTime() + 60*60*24*1000*1)%>"/>
-									<c:set var="back" value="<%=new Date(new Date().getTime() + 60*60*24*1000*2)%>"/>
-									<dd> <fmt:formatDate value="${front}" pattern="MM/dd(E)" /> - <fmt:formatDate value="${back}" pattern="MM/dd(E)" /></dd>
-								</dl>
+								<div class="thumb">
+									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
+										<img src="/Gain/heejun/${prod.prodImg}">
+									</a>
+								</div>
+								<div class="product_info">
+									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
+										<dl>
+											<dt>${prod.brandNum}</dt>
+											<dd>
+												<p class="product_name">${prod.prodName}</p>
+												<div class="price_info">
+													<div class="price">
+														<span><fmt:formatNumber value="${prod.prodPrice-prod.prodPrice*0.2}"/></span>원 
+													</div>
+													<div class="per"><span>20</span>%</div>
+												</div>
+											</dd>
+										</dl>
+									</a>
+								</div>
+								<div class="button_info">
+									<button class="udtBtn" type="button" onclick="goUdtPage('${prod.prodNum}')">수 정</button>
+									<button class="delBtn" type="button" onclick="delProd('${prod.prodNum}')">삭 제</button>
+								</div>
 							</li>
+							</c:forEach>
+
 						</ul>
-						<div class="product_buy">
-							<select name="option">
-								<option disabled="disabled" selected>옵션 선택</option>
-								<c:forEach var="option" items="${option}">
-								<option value="${option.optionNum}">${option.optionName}</option>
-								</c:forEach>						
-							</select>
-							<button type="button" class="buyBtn">구 매 하 기</button>
-							<button type="button" class="basketBtn">장 바 구 니</button>
-						</div>
 					</div>
 				</div>
-				<div class="down_area">
-					<div class="product_content">
-					<pre>
-여기에는
-
-제품의
-
-상세설명이
-
-들어갈
-
-예정입니다.
-					</pre>
-				</div>										
 			</div>
         </div>
     <!-- 여기까지만 작업 -->
@@ -178,11 +191,11 @@
     </footer>
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
+	$(document).ready(function() {
 	    $(".insBtn").click(function(){
 			  Swal.fire({
-				  title: '등록하시겠습니까?',
-				  icon: 'question',
+				  title: '상품등록 페이지로\n 이동하시겠습니까?',
+				  icon: 'warning',
 				  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
 				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
 				  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
@@ -191,11 +204,47 @@ $(document).ready(function(){
 				}).then((result) => {
 				  if (result.value) {
 					//"확인" 버튼을 눌렀을 때 작업할 내용
+					location.href = "${path}/insertProd.do"
 				  }
 				})	    	
-	  	})	
-	   
-});
+	  	})			
+
+		
+		
+	});
+	function goUdtPage(prodNum){
+		  Swal.fire({
+			  title: '상품수정 페이지로\n 이동하시겠습니까?',
+			  icon: 'warning',
+			  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+			  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+			  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+			  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+			  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
+			}).then((result) => {
+			  if (result.value) {
+				//"확인" 버튼을 눌렀을 때 작업할 내용
+				  location.href = "${path}/updateProd.do?prodNum="+prodNum
+			  }
+			})	
+		
+	}
+	function delProd(prodNum) {
+		  Swal.fire({
+			  title: '해당 상품을\n 삭제하시겠습니까?',
+			  icon: 'warning',
+			  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+			  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+			  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+			  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+			  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
+			}).then((result) => {
+			  if (result.value) {
+				//"확인" 버튼을 눌렀을 때 작업할 내용
+				location.href="${path}/deleteProd.do?prodNum="+prodNum
+			  }
+			})	
+	}
 
 </script>
 </html>

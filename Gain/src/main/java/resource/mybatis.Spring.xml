@@ -11,6 +11,7 @@
 		<typeAlias alias="brand" type="springGain.vo.Brand"/>
 		<typeAlias alias="category" type="springGain.vo.Category"/>
 		<typeAlias alias="detail" type="springGain.vo.DetailInfo"/>
+		<typeAlias alias="option" type="springGain.vo.Option"/>
 
 		<typeAlias alias="gmember" type="springGain.vo.GainMember"/>
 		<typeAlias alias="coupon" type="springGain.vo.Coupon"/>
