@@ -9,6 +9,7 @@
 		<typeAlias alias="qna" type="springGain.vo.QnA"/>
 		<typeAlias alias="raffle" type="springGain.vo.Raffle"/>
 		<typeAlias alias="gmember" type="springGain.vo.GainMember"/>
+		<typeAlias alias="coupon" type="springGain.vo.Coupon"/>
 		
 	</typeAliases>
 	<!-- 2. 사용 XXXMapper.xml을 추가 -->
@@ -17,5 +18,6 @@
 		<mapper resource="resource/heejun/ProdMapper.xml"/>
 		<mapper resource="resource/sumin/qnaMapper.xml"/>
 		<mapper resource="resource/ymw_mapper/Mapper.xml"/>
+		<mapper resource="resource/dasom/CouponMapper.xml"/>
 	</mappers>
 </configuration>
