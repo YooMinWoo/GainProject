@@ -169,7 +169,7 @@ $(document).ready(function(){
 			개인정보보호책임자 : 이수민<br>
 			E-MAIL : help@gain.co.kr
 			</p>
-			<p style="font-size:12px;line-hight:20px; padding:10px 0;">
+			<p style="font-size:12px;line-height:20px; padding:10px 0;">
 			해당 사이트는 프로젝트용 사이트로 실제로 존재하는 사이트가 아닙니다.<br>
 			쌍용강북센터 프로젝트 3팀
 			COPYRIGHT 2023 가인 ALL RIGHT RESERVED.

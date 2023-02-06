@@ -115,6 +115,61 @@ window.onload = function(){
 		.Box label{
 			cursor: text;
 		}
+		.checkBox{
+			display:flex;
+			width:400px;
+			margin:0px auto;
+			flex-direction: column;
+			gap: 10px;
+ 					padding-top: 30px;
+		}
+		.checks{
+			display: flex;
+			gap:15px;
+			cursor: pointer;
+		}
+		hr{
+			border:1px solid lightgray;
+		}
+		.checks2{
+			display:flex;
+			flex-wrap: wrap;
+ 					justify-content: space-between;
+					    gap: 7px;
+		}
+		.checks2 .checks{
+			width:34%;
+		}
+		.doneBtnDiv{
+			display: flex;
+		    margin: 0px auto;
+		    margin-top: 40px;
+		}
+		.doneBtn{
+			width: 200px;
+		    height: 45px;
+		    background: black;
+		    border: none;
+		    border-radius: 6px;
+		    color: white;
+		    font-size: medium;
+		    font-weight: 900;	
+		    cursor: pointer;
+		}
+		.btnCss{
+    		background: black;
+		}
+		.btnCss2{
+		    border: none;
+		    margin: 7px;
+		    background: inherit;
+		    display: flex;
+		    justify-content: center;
+		    font-size: 16px;
+		    font-weight: 900;
+		    cursor: pointer;
+		    color:white;
+		}
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -140,16 +195,49 @@ window.onload = function(){
 				else $("#cbx_chkAll").prop("checked", true); 
 			});
 			
+			var idCheck = false;
+				$("#idCheck").click(function(){
+					if(!idCheck){
+						var idReg = /^[A-Za-z](?=.*[0-9])(?=.*[A-Za-z]).{5,11}$/g;
+						if( !idReg.test( $("input[name=id]").val() ) ) {
+				            alert("아이디는 영문자로 시작하는 6~12자 영문자 또는 숫자이어야 합니다.");
+				            $("input[name=id]").focus()
+				            return;
+				        }
+						$.ajax({
+							url:"/Gain/idCheck.do",
+							type:"post",
+							dataType:"json",
+							data:"id="+$("input[name=id]").val(),
+							success:function(data){
+								var idC = data.idC
+								if(idC==null){
+									if(confirm("사용 가능한 아이디입니다.\n사용하시겠습니까?")){
+										idCheck = true;
+										$("input[name=id]").attr("readonly","readonly")
+										$("input[name=id]").parent().css("background","#E2E2E2")
+										$("input[name=id]").css("background","#E2E2E2")
+										$("#idCheck").css("cursor","Default")
+									}
+								}else{
+									alert("이미 사용 중인 아이디입니다.")
+								}
+							}
+						})
+					}
+					
+				})
+			
+			
 			$(".doneBtn").click(function(){
-				var idReg = /^[A-Za-z](?=.*[0-9])(?=.*[A-Za-z]).{5,11}$/g;
 				var nickNameReg = /^[A-Za-z][A-Za-z0-9]{5,14}$/g;
 				var pwReg = /(?=.*[0-9])(?=.*[A-Za-z]).{10,20}$/;
 				var n_RegExp = /^[가-힣]{2,15}$/;
 				var phoneReg = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
 				var birth = /^(19\d{2}|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
-				
-		        if( !idReg.test( $("input[name=id]").val() ) ) {
-		            alert("아이디는 영문자로 시작하는 6~12자 영문자 또는 숫자이어야 합니다.");
+				/*
+		        if(!idCheck) {
+		            alert("아이디 중복확인을 해주세요.");
 		            $("input[name=id]").focus()
 		            return;
 		        }
@@ -193,10 +281,26 @@ window.onload = function(){
 		            $("input[name=address_detail]").focus()
 		            return;
 		        }
-		        if($('input[name=agree]:checked').val()==null){
+		        
+		        if(!$("[name=useInfo]").is(":checked")){
 		        	alert("필수 약관을 체크해주세요.")
 		        	return;
 		        }
+		        */
+		        // console.log(!$("[name=useInfo]").is(":checked"))
+		        /*
+		        	유효성 끝냈고, 체크박스 값들은 js로 true면 1, false면 0 처리 해서 파라미터로 넘기고,
+		        	컨트롤러 호출, 
+		        	아니 근데 이거 컨트롤러 호출할 때 ?"id="id+"&pass="+pass... 이렇게 해야하는데
+		        	(체크박스 0,1 처리한 거랑 address, address_detail을 하나로 합쳐서 파라미터로 넘거야 함.)
+		        	이렇게 안 하고 더 간단하게 하는 방법... 없겠다.
+		        	
+		        	--- 참고 ---
+		        	$("#frm02").attr("action","${path}/memberUpt.do");
+					$("#frm02").submit();
+					-----------
+					
+		        */
 			})
 			
 		})
@@ -211,6 +315,14 @@ window.onload = function(){
 							<input class="inputBox0 inputBox" type="text" name="id" placeholder="영문 숫자 6자 이상 12자 이하">
 						</div>
 					</label>
+					<label>
+						<div class="inputInfo btnCss">
+							<button type="button" id="idCheck" class="inputInfo btnCss2">
+								아이디 중복확인
+							</button>
+						</div>
+					</label>
+						
 				</div>
 				
 				<div class="Box">
@@ -261,11 +373,11 @@ window.onload = function(){
 					<div><span>*</span><span>성별</span></div>
 					<div class="checks2">
 						<label class="checks">
-							<input type="radio" name="sex" value="man" class="chk" >
+							<input type="radio" name="sex" value="man" class="chk2" >
 							<span>남자</span>
 						</label>
 						<label class="checks">
-							<input type="radio" name="sex" value="woman" class="chk" >
+							<input type="radio" name="sex" value="woman" class="chk2" >
 							<span>여자</span>
 						</label>
 					</div>
@@ -283,48 +395,6 @@ window.onload = function(){
 						</div>
 					</label>
 				</div>
-				<style>
-					.checkBox{
-						display:flex;
-						width:400px;
-						margin:0px auto;
-						flex-direction: column;
-						gap: 10px;
-    					padding-top: 30px;
-					}
-					.checks{
-						display: flex;
-						gap:15px;
-					}
-					hr{
-						border:1px solid lightgray;
-					}
-					.checks2{
-						display:flex;
-						flex-wrap: wrap;
-    					justify-content: space-between;
-   					    gap: 7px;
-					}
-					.checks2 .checks{
-						width:34%;
-					}
-					.doneBtnDiv{
-						display: flex;
-					    margin: 0px auto;
-					    margin-top: 40px;
-					}
-					.doneBtn{
-						width: 200px;
-					    height: 45px;
-					    background: black;
-					    border: none;
-					    border-radius: 6px;
-					    color: white;
-					    font-size: medium;
-					    font-weight: 900;	
-					    cursor: pointer;
-					}
-				</style>
 				<div class="checkBox">
 					<div><label class="checks">
 						<input type="checkbox" name="useInfo">
