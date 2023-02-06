@@ -1,0 +1,366 @@
+@charset "UTF-8";
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	border: none;
+	vertical-align: top;
+}
+
+body {
+	font-family: 'Pretendard-Regular';
+}
+
+.clearfix::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.gnb {
+	width: 100%;
+	height: 50px;
+	background-color: #000;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+}
+
+.gnb_left {
+	width: 20%;
+	text-align: center;
+	line-height: 50px;
+}
+
+.gnb_center {
+	width: 50%;
+	text-align: center;
+	line-height: 50px;
+}
+
+.gnb_right {
+	width: 20%;
+}
+
+.gnb_right ul {
+	display: flex;
+	gap: 40px;
+}
+
+.gnb a {
+	color: #fff;
+	line-height: 50px;
+}
+
+.main_logo {
+	width: 100%;
+	height: 120px;
+	text-align: center;
+}
+
+.main_logo img {
+	padding-top: 34px;
+}
+
+.lnb ul {
+	display: flex;
+	font-size: 20px;
+	gap: 40px;
+	justify-content: center;
+}
+
+.lnb a {
+	line-height: 25px;
+	font-weight: 600;
+}
+
+.lnb a:hover {
+	color: #ed3124;
+}
+
+header {
+	border-bottom: 3px solid #000;
+	padding-bottom: 15px;
+}
+
+
+
+.flex-container {
+	width: 1000px;
+/* 	height: 1300px; */
+	border: 1px solid lightgray;
+	margin: 0 auto;
+	margin-top: 42px;
+	BACKGROUND-COLOR: white;
+	background: #f6f6f6;
+}
+
+.shipping-address {
+	width: 500px;
+/* 	height: 1284px; */
+	border: 1px solid lightgray;
+	margin: 0 auto;
+	margin-top: 18px;
+	border-radius: 12px 12px;
+/* 	background:white; */
+}
+
+#sform01 {
+	display: inline-block;
+	width: 100%;
+	margin-left: 96px
+}
+
+#sform02 {
+	display: inline-block;
+	width: 100%;
+	margin-left: 96px
+}
+
+#sform03 {
+	display: inline-block;
+	width: 100%;
+	margin-left: 96px
+}
+
+#sform04 {
+	display: inline-block;
+	width: 100%;
+	margin-left: 96px
+}
+
+#sform05 {
+	display: inline-block;
+	width: 100%;
+	margin-left: 96px
+}
+
+#sform05 {
+	display: inline-block;
+	width: 100%;
+	margin-left: 96px
+}
+
+.change {
+	position: absolute;
+	margin-left: 339px;
+	margin-top: -20px;
+}
+
+.pdinfo {
+	position: absolute;
+	margin-left: 103px;
+	margin-top: -84px;
+	font-size: 17px;
+}
+
+.select01 {
+	width: 296px;
+	height: 34px;
+	background: black;
+	color: white;
+	margin-top: 10px;
+}
+
+.select02 {
+	position: absolute;
+	width: 48px;
+	margin-left: 6px;
+	height: 30px;
+}
+
+.select03 {
+    width: 296px;
+    height: 34px;
+    background: black;
+    color: white;
+    margin-top: 22px;
+    margin-left: 88px;
+}
+
+/* 드롭다운 */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	z-index: 1; /*다른 요소들보다 앞에 배치*/
+}
+
+.dropdown:hover .dropdown-content {
+	display: inline;
+}
+
+
+.amount01 {
+	text-align: end;
+	width: 200px;
+}
+
+.amount02 {
+	text-align: end;
+	width: 218px;
+}
+.amount03 {
+	text-align: end;
+	width: 218px;
+}
+
+.box01{
+    width: 145px;
+    border: 1px solid black;
+    height: 67px;
+}
+
+.kakao{
+    width: 70px;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 40px;
+ 
+}
+.kakao01{
+    font-size: 15px;
+    color: blue;
+    margin-top: 40px;
+    position: absolute;
+    margin-left: 23px;
+}
+
+.box02{
+    width: 145px;
+    border: 1px solid black;
+    height: 67px;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: -67px;
+}
+
+.naver{
+    width: 70px;
+    position: absolute;
+    margin-left: 37px;
+    margin-top: 8px;
+}
+
+.npay{
+    font-size: 15px;
+    color: blue;
+    margin-top: 40px;
+    position: absolute;
+    margin-left: 33px;
+}
+
+.box03{
+    width: 145px;
+    border: 1px solid black;
+    height: 67px;
+    position: absolute;
+    margin-left: 1px;
+    margin-top: 7px;
+}
+
+.box04{
+    width: 145px;
+    border: 1px solid black;
+    height: 67px;
+    position: absolute;
+    margin-left: 151px;
+    margin-top: 7px;
+}
+.card{
+    position: absolute;
+    margin-left: 42px;
+    margin-top: 21px;
+}
+
+* .Vaccount{ 
+    position: absolute;
+    margin-left: 42px;
+    margin-top: 21px;
+}
+
+.box05{
+    width: 145px;
+    border: 1px solid black;
+    height: 67px;
+    position: absolute;
+    margin-left: 1px;
+    margin-top: 82px;
+}
+
+.reccount{
+    position: absolute;
+    margin-left: 21px;
+    margin-top: 21px;
+}
+
+#panel01, #flip01 {
+  
+  text-align: center;
+}
+
+#panel01{
+  padding: 1px; 
+  display: none; 
+  width:310px;
+
+}
+
+#flip01{
+    position: absolute;
+    margin-left: 271px;
+    margin-top: -60px;
+}
+
+
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+}
+
+#panel{
+  padding: 50px; 
+  display: none; 
+  border: 1px solid;
+  background: lightgoldenrodyellow;
+}
+
+
+#flip{
+    position: absolute;
+    margin-left: 260px;
+    margin-top: -22px;
+}
+
+.finalprice{
+    position: absolute;
+    margin-top: -41px;
+    margin-left: 267px;
+}
+
+.consent ul li{
+   text-align: center;
+}
+input{
+ border:0 solid black
+} 
