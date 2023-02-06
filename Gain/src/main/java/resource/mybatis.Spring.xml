@@ -4,23 +4,29 @@
 <configuration>
 <!-- 1. 사용할(XXXMapper.xml) 패키지명 포함 vo 클래스를 alias 선언 -->
 	<typeAliases>
-		<typeAlias alias="product" type="springGain.vo.Product"/>
 		<typeAlias alias="qna" type="springGain.vo.QnA"/>
 		<typeAlias alias="raffle" type="springGain.vo.Raffle"/>
+		
+		<typeAlias alias="product" type="springGain.vo.Product"/>
+		<typeAlias alias="brand" type="springGain.vo.Brand"/>
+		<typeAlias alias="category" type="springGain.vo.Category"/>
+		<typeAlias alias="detail" type="springGain.vo.DetailInfo"/>
+
 		<typeAlias alias="gmember" type="springGain.vo.GainMember"/>
 		<typeAlias alias="coupon" type="springGain.vo.Coupon"/>
+
 		
 	</typeAliases>
 	<!-- 2. 사용 XXXMapper.xml을 추가 -->
 	<mappers>
 
-		<mapper resource="resource/ProdMapper.xml"/>
 		<mapper resource="resource/sumin/qnaMapper.xml"/>
 		<mapper resource="resource/sumin/raffleMapper.xml"/>
 
 		<mapper resource="resource/heejun/ProdMapper.xml"/>
-		<mapper resource="resource/sumin/qnaMapper.xml"/>
+		
 		<mapper resource="resource/ymw_mapper/Mapper.xml"/>
+		
 		<mapper resource="resource/dasom/CouponMapper.xml"/>
 
 	</mappers>

@@ -16,6 +16,7 @@ public class GainMemberController {
    @Autowired
    private GainMemberService service;
    
+   
    // http://localhost:8090/Gain/idCheck.do?id=alsn99
    @RequestMapping("/idCheck.do")
    public String idCheck(GainMember gm, Model d) {

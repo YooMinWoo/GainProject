@@ -5,11 +5,51 @@
 
 <mapper namespace="springGain.dao.ProductDao">
 	<select id="getProduct" parameterType="product" resultType="product">
+		SELECT prodNum, prodname, prodprice, prodimg, prodinfo, proddate, (SELECT brandName FROM brand b, products p WHERE b.brandNum=p.brandNum) brandNum
+		FROM products
+		WHERE prodname LIKE '%'||#{prodName}||'%'
+		<if test='categoryNum != null'>
+		AND categoryNum LIKE '%'||#{categoryNum}||'%'
+		</if>
+		<if test='detailNum != null'>
+		AND detailNum LIKE '%'||#{detailNum}||'%'
+		</if>
+	</select>
 	
+	<select id="productDetail" resultType="product" parameterType="string">
+		SELECT *
+		FROM products
+		WHERE prodnum = #{prodNum}
 	</select>
 	
 	<insert id="insertProd" parameterType="product">
 	
 	</insert>
 	
+	<select id="getBrand" resultType="brand">
+		select *
+		from brand
+	</select>
+	
+	<select id="getCategory" resultType="category">
+		select *
+		from category
+	</select>
+	
+	<select id="getDetailInfo" resultType="detail">
+		select *
+		from detailInfo
+	</select>
+	
+	<select id="getCategoryName" resultType="category" parameterType="string">
+		SELECT *
+		FROM CATEGORY
+		WHERE categorynum = #{categoryNum}
+	</select>
+	
+	<select id="getDetailName" resultType="detail" parameterType="string">
+		SELECT *
+		FROM detailInfo
+		WHERE categoryNum = #{categoryNum}
+	</select>
 </mapper>

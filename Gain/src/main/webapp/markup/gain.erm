@@ -11,8 +11,13 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>0.5</zoom>
+<<<<<<< HEAD
 	<x>526</x>
 	<y>513</y>
+=======
+	<x>2002</x>
+	<y>516</y>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -135,7 +140,11 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2023-02-03 16:50:59</creation_date>
+<<<<<<< HEAD
 			<updated_date>2023-02-06 17:37:15</updated_date>
+=======
+			<updated_date>2023-02-05 19:07:41</updated_date>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -1460,7 +1469,7 @@
 			<connections>
 				<relation>
 					<id>0</id>
-					<source>1</source>
+					<source>11</source>
 					<target>2</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -1482,7 +1491,7 @@
 				</relation>
 				<relation>
 					<id>1</id>
-					<source>13</source>
+					<source>1</source>
 					<target>2</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -1513,7 +1522,7 @@
 				<normal_column>
 					<id>10</id>
 					<referenced_column>2</referenced_column>
-					<relation>0</relation>
+					<relation>1</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1546,8 +1555,13 @@
 				</normal_column>
 				<normal_column>
 					<id>11</id>
+<<<<<<< HEAD
 					<referenced_column>56</referenced_column>
 					<relation>1</relation>
+=======
+					<referenced_column>50</referenced_column>
+					<relation>0</relation>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1603,7 +1617,7 @@
 			<connections>
 				<relation>
 					<id>2</id>
-					<source>13</source>
+					<source>11</source>
 					<target>3</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -1831,7 +1845,11 @@
 				</normal_column>
 				<normal_column>
 					<id>18</id>
+<<<<<<< HEAD
 					<referenced_column>56</referenced_column>
+=======
+					<referenced_column>50</referenced_column>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<relation>2</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1985,7 +2003,33 @@
 			<connections>
 				<relation>
 					<id>3</id>
+<<<<<<< HEAD
 					<source>13</source>
+=======
+					<source>11</source>
+					<target>5</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+				<relation>
+					<id>4</id>
+					<source>6</source>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<target>5</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2093,7 +2137,11 @@
 				<normal_column>
 					<id>22</id>
 					<referenced_column>29</referenced_column>
+<<<<<<< HEAD
 					<relation>5</relation>
+=======
+					<relation>4</relation>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2126,7 +2174,11 @@
 				</normal_column>
 				<normal_column>
 					<id>23</id>
+<<<<<<< HEAD
 					<referenced_column>56</referenced_column>
+=======
+					<referenced_column>50</referenced_column>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<relation>3</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2259,8 +2311,13 @@
 				</normal_column>
 				<normal_column>
 					<id>27</id>
+<<<<<<< HEAD
 					<referenced_column>42</referenced_column>
 					<relation>4</relation>
+=======
+					<referenced_column>43</referenced_column>
+					<relation>5</relation>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2372,6 +2429,28 @@
 				<relation>
 					<id>7</id>
 					<source>4</source>
+					<target>6</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+				<relation>
+					<id>8</id>
+					<source>12</source>
 					<target>6</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2665,6 +2744,40 @@
 						<decimal_size>0</decimal_size>
 					</sequence>
 				</normal_column>
+				<normal_column>
+					<id>37</id>
+					<referenced_column>66</referenced_column>
+					<relation>8</relation>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>true</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
 			</columns>
 			<indexes>
 			</indexes>
@@ -2689,7 +2802,7 @@
 			</color>
 			<connections>
 				<relation>
-					<id>8</id>
+					<id>9</id>
 					<source>6</source>
 					<target>7</target>
 						<source_xp>-1</source_xp>
@@ -2711,8 +2824,8 @@
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
 				<relation>
-					<id>9</id>
-					<source>13</source>
+					<id>10</id>
+					<source>11</source>
 					<target>7</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2741,9 +2854,15 @@
 			<option></option>
 			<columns>
 				<normal_column>
+<<<<<<< HEAD
 					<id>37</id>
 					<referenced_column>56</referenced_column>
 					<relation>9</relation>
+=======
+					<id>38</id>
+					<referenced_column>50</referenced_column>
+					<relation>10</relation>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2775,9 +2894,9 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<id>38</id>
+					<id>39</id>
 					<referenced_column>29</referenced_column>
-					<relation>8</relation>
+					<relation>9</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2823,8 +2942,8 @@
 			<width>720</width>
 				<font_name>맑은 고딕</font_name>
 				<font_size>15</font_size>
-			<x>4884</x>
-			<y>1908</y>
+			<x>3996</x>
+			<y>2280</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -2832,7 +2951,7 @@
 			</color>
 			<connections>
 				<relation>
-					<id>10</id>
+					<id>11</id>
 					<source>4</source>
 					<target>8</target>
 						<source_xp>-1</source_xp>
@@ -2863,7 +2982,7 @@
 			<columns>
 				<normal_column>
 					<word_id>25</word_id>
-					<id>39</id>
+					<id>40</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2896,7 +3015,7 @@
 				</normal_column>
 				<normal_column>
 					<word_id>24</word_id>
-					<id>40</id>
+					<id>41</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2928,9 +3047,9 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<id>41</id>
+					<id>42</id>
 					<referenced_column>19</referenced_column>
-					<relation>10</relation>
+					<relation>11</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2994,7 +3113,7 @@
 			<columns>
 				<normal_column>
 					<word_id>14</word_id>
-					<id>42</id>
+					<id>43</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3027,7 +3146,7 @@
 				</normal_column>
 				<normal_column>
 					<word_id>13</word_id>
-					<id>43</id>
+					<id>44</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3060,7 +3179,7 @@
 				</normal_column>
 				<normal_column>
 					<word_id>15</word_id>
-					<id>44</id>
+					<id>45</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3093,7 +3212,7 @@
 				</normal_column>
 				<normal_column>
 					<word_id>12</word_id>
-					<id>45</id>
+					<id>46</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3148,8 +3267,13 @@
 			</color>
 			<connections>
 				<relation>
+<<<<<<< HEAD
 					<id>11</id>
 					<source>9</source>
+=======
+					<id>12</id>
+					<source>5</source>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<target>10</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -3170,6 +3294,7 @@
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
 				<relation>
+<<<<<<< HEAD
 					<id>12</id>
 					<source>5</source>
 					<target>10</target>
@@ -3194,6 +3319,10 @@
 				<relation>
 					<id>13</id>
 					<source>13</source>
+=======
+					<id>13</id>
+					<source>9</source>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<target>10</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -3222,6 +3351,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
+<<<<<<< HEAD
 					<id>46</id>
 					<referenced_column>21</referenced_column>
 					<relation>12</relation>
@@ -3256,9 +3386,50 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
+=======
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<id>47</id>
+<<<<<<< HEAD
 					<referenced_column>42</referenced_column>
 					<relation>11</relation>
+=======
+					<referenced_column>21</referenced_column>
+					<relation>12</relation>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>true</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<id>48</id>
+					<referenced_column>43</referenced_column>
+					<relation>13</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3291,7 +3462,7 @@
 				</normal_column>
 				<normal_column>
 					<word_id>16</word_id>
-					<id>48</id>
+					<id>49</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3367,18 +3538,19 @@
 		</table>
 		<table>
 			<id>11</id>
-			<height>210</height>
-			<width>720</width>
+			<height>868</height>
+			<width>583</width>
 				<font_name>맑은 고딕</font_name>
 				<font_size>15</font_size>
-			<x>3996</x>
-			<y>2292</y>
+			<x>2316</x>
+			<y>1800</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
 				<b>192</b>
 			</color>
 			<connections>
+<<<<<<< HEAD
 				<relation>
 					<id>14</id>
 					<source>4</source>
@@ -3401,16 +3573,22 @@
 					<referenced_column>null</referenced_column>
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
+=======
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 			</connections>
-			<physical_name>detailInfo</physical_name>
-			<logical_name>세부항목</logical_name>
+			<physical_name>gainMember</physical_name>
+			<logical_name>회원</logical_name>
 			<description></description>
 			<constraint></constraint>
 			<primary_key_name></primary_key_name>
 			<option></option>
 			<columns>
 				<normal_column>
+<<<<<<< HEAD
 					<word_id>18</word_id>
+=======
+					<word_id>20</word_id>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<id>50</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3443,7 +3621,11 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
+<<<<<<< HEAD
 					<word_id>17</word_id>
+=======
+					<word_id>23</word_id>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<id>51</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3476,6 +3658,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
+<<<<<<< HEAD
 					<id>52</id>
 					<referenced_column>19</referenced_column>
 					<relation>14</relation>
@@ -3587,6 +3770,10 @@
 				<normal_column>
 					<word_id>11</word_id>
 					<id>53</id>
+=======
+					<word_id>29</word_id>
+					<id>52</id>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3618,9 +3805,14 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
+<<<<<<< HEAD
 					<id>54</id>
 					<referenced_column>56</referenced_column>
 					<relation>15</relation>
+=======
+					<word_id>22</word_id>
+					<id>53</id>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3629,8 +3821,8 @@
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
-					<foreign_key>true</foreign_key>
-					<not_null>true</not_null>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
 					<primary_key>false</primary_key>
 					<unique_key>false</unique_key>
 					<character_set></character_set>
@@ -3652,16 +3844,537 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
+<<<<<<< HEAD
 					<id>55</id>
 					<referenced_column>29</referenced_column>
 					<relation>16</relation>
+=======
+					<word_id>35</word_id>
+					<id>54</id>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
 					<type>varchar(n)</type>
 					<constraint></constraint>
-					<default_value>&lt;공백&gt;</default_value>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>2</word_id>
+					<id>55</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>date</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>49</word_id>
+					<id>56</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>34</word_id>
+					<id>57</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>31</word_id>
+					<id>58</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>30</word_id>
+					<id>59</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>32</word_id>
+					<id>60</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>33</word_id>
+					<id>61</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>54</word_id>
+					<id>62</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>37</word_id>
+					<id>63</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>0</word_id>
+					<id>64</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>1</word_id>
+					<id>65</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+			</columns>
+			<indexes>
+			</indexes>
+			<complex_unique_key_list>
+			</complex_unique_key_list>
+			<table_properties>
+				<schema></schema>
+			</table_properties>
+		</table>
+		<table>
+			<id>12</id>
+			<height>210</height>
+			<width>720</width>
+				<font_name>맑은 고딕</font_name>
+				<font_size>15</font_size>
+			<x>4824</x>
+			<y>1897</y>
+			<color>
+				<r>128</r>
+				<g>128</g>
+				<b>192</b>
+			</color>
+			<connections>
+				<relation>
+					<id>14</id>
+					<source>4</source>
+					<target>12</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+			</connections>
+			<physical_name>detailInfo</physical_name>
+			<logical_name>세부항목</logical_name>
+			<description></description>
+			<constraint></constraint>
+			<primary_key_name></primary_key_name>
+			<option></option>
+			<columns>
+				<normal_column>
+					<word_id>18</word_id>
+					<id>66</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>true</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>17</word_id>
+					<id>67</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<id>68</id>
+					<referenced_column>19</referenced_column>
+					<relation>14</relation>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>true</foreign_key>
 					<not_null>true</not_null>
@@ -3696,27 +4409,72 @@
 		</table>
 		<table>
 			<id>13</id>
-			<height>868</height>
-			<width>583</width>
+			<height>210</height>
+			<width>579</width>
 				<font_name>맑은 고딕</font_name>
 				<font_size>15</font_size>
-			<x>2316</x>
-			<y>1800</y>
+			<x>3152</x>
+			<y>2082</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
 				<b>192</b>
 			</color>
 			<connections>
+				<relation>
+					<id>15</id>
+					<source>11</source>
+					<target>13</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+				<relation>
+					<id>16</id>
+					<source>6</source>
+					<target>13</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
 			</connections>
-			<physical_name>gainMember</physical_name>
-			<logical_name>회원</logical_name>
+			<physical_name>review</physical_name>
+			<logical_name>리뷰</logical_name>
 			<description></description>
 			<constraint></constraint>
 			<primary_key_name></primary_key_name>
 			<option></option>
 			<columns>
 				<normal_column>
+<<<<<<< HEAD
 					<word_id>20</word_id>
 					<id>56</id>
 					<description></description>
@@ -4147,6 +4905,9 @@
 				</normal_column>
 				<normal_column>
 					<word_id>37</word_id>
+=======
+					<word_id>11</word_id>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<id>69</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -4212,18 +4973,58 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
+<<<<<<< HEAD
 					<word_id>1</word_id>
 					<id>71</id>
+=======
+					<id>70</id>
+					<referenced_column>50</referenced_column>
+					<relation>15</relation>
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>decimal</type>
+					<type>varchar(n)</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
-					<foreign_key>false</foreign_key>
-					<not_null>false</not_null>
+					<foreign_key>true</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<id>71</id>
+					<referenced_column>29</referenced_column>
+					<relation>16</relation>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value>&lt;공백&gt;</default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>true</foreign_key>
+					<not_null>true</not_null>
 					<primary_key>false</primary_key>
 					<unique_key>false</unique_key>
 					<character_set></character_set>

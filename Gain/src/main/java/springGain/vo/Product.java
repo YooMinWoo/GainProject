@@ -9,7 +9,28 @@ public class Product {
 	private String prodImg;
 	private String prodInfo;
 	private Date prodDate;
+	private String brandNum;
+	private String categoryNum;
+	private String detailNum;
 	
+	public String getDetailNum() {
+		return detailNum;
+	}
+	public void setDetailNum(String detailNum) {
+		this.detailNum = detailNum;
+	}
+	public String getBrandNum() {
+		return brandNum;
+	}
+	public void setBrandNum(String brandNum) {
+		this.brandNum = brandNum;
+	}
+	public String getCategoryNum() {
+		return categoryNum;
+	}
+	public void setCategoryNum(String categoryNum) {
+		this.categoryNum = categoryNum;
+	}
 	public String getProdNum() {
 		return prodNum;
 	}

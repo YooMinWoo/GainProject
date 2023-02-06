@@ -71,11 +71,11 @@ input:focus, select:focus, textarea:focus{
 	justify-content: space-between;
 	margin-top: 15px;
 }
-[name=pname]{
+[name=prodName]{
 	width: 65.5%;
 }
 
-[name=price]{
+[name=prodPrice]{
 	width: 31%;
 }
 
@@ -96,12 +96,12 @@ input:focus, select:focus, textarea:focus{
 	display: flex;
 	margin-top: 15px;
 }
-[name=brand], [name=category]{
+[name=brandNum], [name=categoryNum]{
 	width: 31%;
 	margin-right: 42px;
 }
 
-[name=subsection]{
+[name=detailNum]{
 	width: 31%;
 }
 

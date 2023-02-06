@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"
     import="java.util.*" 
 %>
-<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
-<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:requestEncoding value="UTF-8" />
@@ -16,7 +14,7 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
-<link rel="stylesheet" href="/Gain/heejun/insertPage.css"/>
+<link rel="stylesheet" href="/Gain/heejun/detailPage.css"/>
 <style type="text/css">
 
 
@@ -48,7 +46,6 @@
 </head>
 
 <body>
-
     <header>
          <div class="gnb">
             <div class="gnb_left">내 손 안의 백화점, 가인</div>
@@ -79,62 +76,69 @@
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-        	<h2 class="insert_product">상 품 등 록</h2>
+        	<h3 class="detail_product">HOME > 의류 > 코트&자켓</h3>
         	<div class="content">
-        	<form action="" enctype="multipart/form-data" method="post">
-				<div class="first_line">
-					<h3 class="product_pname">상품명</h3>
-					<h3 class="product_price">판매가</h3>
-				</div>
-				<div class="second_line">
-					<input type="text" name="prodName" placeholder="상품명 입력">
-					<input type="number" name="prodPrice" placeholder="판매가 입력">
-				</div>
-				<div class="third_line">
-					<h3 class="product_brand">브랜드</h3>
-					<h3 class="product_category">카테고리</h3>
-					<h3 class="product_subsection">세부항목</h3>
-				</div>
-				<div class="fourth_line">
-					<select name=brandNum>
-						<option disabled="disabled" selected>브랜드 선택</option>
-						<c:forEach var="brand" items="${brandCom}">
-						<option value="${brand.brandNum}">${brand.brandName}</option>
-						</c:forEach>
-					</select>
-					<select name="categoryNum">
-						<option disabled="disabled" selected>카테고리 선택</option>
-						<c:forEach var="cg" items="${categoryCom}">
-						<option value="${cg.categoryNum}">${cg.categoryName}</option>
-						</c:forEach>
-					</select>
-					<select name="detailNum">
-						<option disabled="disabled" selected>세부항목 선택</option>
-						<c:forEach var="detail" items="${detailCom}">
-						<option value="${detail.detailNum}">${detail.detailName}</option>
-						</c:forEach>
-					</select>
-				</div>
-				<div class="fifth_line">
-					<h3 class="product_img">상품 이미지</h3>
-					<h3 class="product_content">상품 상세설명</h3>
-				</div>
-				<div class="sixth_line">
-					<div class="block">
+				<div class="up_area">
+					<div class="left_content">
 						<div class="img_block">
-							<input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
-							
-			              	<label for="input_file">업로드</label> 
-             				<input type="file" name="prodImg" id="input_file" class="upload-hidden" > 
+							<img src="/Gain/heejun/${prod.prodImg}">
 						</div>
 					</div>
-					<textarea name="prodInfo" rows="15" cols="70" placeholder="상품 상세설명 입력">
-					</textarea>
+					<div class="right_content">
+						<h2>${prod.prodName}</h2>
+						<ul class="product_info">
+							<li>
+								<dl>
+									<dt>판매가</dt>
+									<dd><fmt:formatNumber value="${prod.prodPrice}" />원</dd>
+								</dl>
+								<dl>
+									<dt>회원가</dt>
+									<dd><fmt:formatNumber value="${prod.prodPrice-150000}" />원</dd>
+								</dl>
+								<dl>
+									<dt>적립금</dt>
+									<dd>최대 7,000원</dd>
+								</dl>
+								<dl>
+									<dt>배송비</dt>
+									<dd>무료</dd>
+								</dl>
+								<dl>
+									<dt>예상 수령일</dt>
+									<c:set var="front" value="<%=new Date(new Date().getTime() + 60*60*24*1000*1)%>"/>
+									<c:set var="back" value="<%=new Date(new Date().getTime() + 60*60*24*1000*2)%>"/>
+									<dd> <fmt:formatDate value="${front}" pattern="MM/dd(E)" /> - <fmt:formatDate value="${back}" pattern="MM/dd(E)" /></dd>
+								</dl>
+							</li>
+						</ul>
+						<div class="product_buy">
+							<select name="option">
+								<option disabled="disabled" selected>옵션 선택</option>
+								<option>여기에</option>
+								<option>옵션을</option>
+								<option>추가할</option>
+								<option>예정입니다.</option>							
+							</select>
+							<button type="button" class="buyBtn">구 매 하 기</button>
+							<button type="button" class="basketBtn">장 바 구 니</button>
+						</div>
+					</div>
 				</div>
-				<div class="submit_line">
-					<button type="button" class="insBtn">등 록</button>
-				</div>	
-			</form>										
+				<div class="down_area">
+					<div class="product_content">
+					<pre>
+여기에는
+
+제품의
+
+상세설명이
+
+들어갈
+
+예정입니다.
+					</pre>
+				</div>										
 			</div>
         </div>
     <!-- 여기까지만 작업 -->
@@ -173,8 +177,6 @@
     	</p>
     	</div>
     </footer>
-
-
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -189,76 +191,12 @@ $(document).ready(function(){
 				  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
 				}).then((result) => {
 				  if (result.value) {
-					insertProd();
+					//"확인" 버튼을 눌렀을 때 작업할 내용
 				  }
 				})	    	
-	  	})
-	
-	   var fileTarget = $('.img_block .upload-hidden');
-
-	    fileTarget.on('change', function(){
-	        if(window.FileReader){
-	            // 파일명 추출
-	            var filename = $(this)[0].files[0].name;
-	        } 
-
-	        else {
-	            // Old IE 파일명 추출
-	            var filename = $(this).val().split('/').pop().split('\\').pop();
-	        };
-
-	        $(this).siblings('.upload-name').val(filename);
-	    });
-
-	    //preview image 
-	    var imgTarget = $('.img_block .upload-hidden');
-
-	    imgTarget.on('change', function(){
-	        var parent = $(this).parent();
-	        parent.children('.upload-display').remove();
-
-	        if(window.FileReader){
-	            //image 파일만
-	            if (!$(this)[0].files[0].type.match(/image\//)) return;
-	            
-	            var reader = new FileReader();
-	            reader.onload = function(e){
-	                var src = e.target.result;
-	                parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb"></div></div>');
-	            }
-	            reader.readAsDataURL($(this)[0].files[0]);
-	        }
-
-	        else {
-	            $(this)[0].select();
-	            $(this)[0].blur();
-	            var imgSrc = document.selection.createRange().text;
-	            parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>');
-
-	            var img = $(this).siblings('.upload-display').find('img');
-	            img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";        
-	        }
-	    });
-	    
-	    
-
-	});
-	
-	function insertProd() {
-		$.ajax({
-			url : "${path}/insertProd.do",
-			type : "post",
-			data : $("form").serialize(),
-			dataType : "json",
-			success : function(data){
-				var product = data.product
-				console.log(product)
-			},
-			error : function(err){
-				console.log(err)
-			}
-		})	
-	}
+	  	})	
+	   
+});
 
 </script>
 </html>
