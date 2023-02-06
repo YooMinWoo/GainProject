@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -42,6 +43,20 @@
 
 
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+	})
+	
+	function Detail(categoryNum, detailNum) {
+		location.href="${path}/getProdList.do?categoryNum="+categoryNum+"&detailNum="+detailNum;
+	}
+	
+	function goDetailPage(prodNum) {
+		location.href="${path}/prodDetail.do?prodNum="+prodNum
+	}
+</script>
+
 </head>
 
 <body>
@@ -63,66 +78,60 @@
          <nav class="lnb">
             <ul>
                 <li><a href="#">전체 상품</a></li>
-                <li><a href="#">의류</a></li>
-                <li><a href="#">슈즈</a></li>
-                <li><a href="#">가방</a></li>
-                <li><a href="#">액세서리</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C1">의류</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C2">슈즈</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C3">가방</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C4">액세서리</a></li>
                 <li><a href="#">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
-          <div class="search-box">
-    			<input type="text" class="search-txt" name="pname">
+         <div class="search-box">
+         	<form action="" method="post">
+    			<input type="text" class="search-txt" name="prodName" value="${sch.prodName}">
     			<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
-  		</div>
+    		</form>	
+  		 </div>
     </header>
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-        	<h2 class="choice_category">선택한 카테고리</h2>
+        	<h2 class="choice_category">${category.categoryName}</h2>
         	<div class="content">
 				<div class="left_content">
-					<h3>의류</h3>
+					<h3>${category.categoryName}</h3>
 					<ul class="category_subsection">
 						<li>
-							<a href="#">전체 보기</a>
+							<a href="${path}/getProdList.do?categoryNum=${category.categoryNum}&detailNum=""">전체 보기</a>
 						</li>
+						<c:forEach var="detail" items="${detail}">
 						<li>
-							<a href="#">탑(Top)</a>
+							<a onclick="Detail('${category.categoryNum}','${detail.detailNum}')">${detail.detailName}</a>
 						</li>
-						<li>
-							<a href="#">코트&자켓</a>
-						</li>
-						<li>
-							<a href="#">셔츠</a>
-						</li>
-						<li>
-							<a href="#">팬츠</a>
-						</li>
-						<li>
-							<a href="#">기능성 의류</a>
-						</li>
+						</c:forEach>
+
 					</ul>
 				</div>
 				
 				<div class="right_content">
 					<div class="product_area">
 						<ul class="product_list">
+							<c:forEach var="prod" items="${plist}">
 							<li>
 								<div class="thumb">
-									<a href="detailPage.jsp">
-										<img alt="" src="/heejun/product.jpg">
+									<a onclick="goDetailPage('${prod.prodNum}')">
+										<img src="/Gain/heejun/${prod.prodImg}">
 									</a>
 								</div>
 								<div class="product_info">
-									<a href="detailPage.jsp">
+									<a onclick="goDetailPage('${prod.prodNum}')">
 										<dl>
-											<dt>몽클레어</dt>
+											<dt>${prod.brandNum}</dt>
 											<dd>
-												<p class="product_name">ROOK 남성 패딩점퍼 F10911A11500 C0453 화이트</p>
+												<p class="product_name">${prod.prodName}</p>
 												<div class="price_info">
 													<div class="price">
-														<span>650,000</span>원 
+														<span>${prod.prodPrice}</span>원 
 													</div>
 													<div class="per"><span>25</span>%</div>
 												</div>
@@ -131,174 +140,8 @@
 									</a>
 								</div>
 							</li>
-							<li>
-								<div class="thumb">
-									<a href="#">
-										<img alt="" src="product.jpg">
-									</a>
-								</div>
-								<div class="product_info">
-									<a href="#">
-										<dl>
-											<dt>브랜드명</dt>
-											<dd>
-												<p class="product_name">상품명</p>
-												<div class="price_info">
-													<div class="price">
-														<span>가격</span>
-														원 
-													</div>
-													<div class="per">할인율</div>
-												</div>
-											</dd>
-										</dl>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<a href="#">
-										<img alt="" src="product.jpg">
-									</a>
-								</div>
-								<div class="product_info">
-									<a href="#">
-										<dl>
-											<dt>브랜드명</dt>
-											<dd>
-												<p class="product_name">상품명</p>
-												<div class="price_info">
-													<div class="price">
-														<span>가격</span>
-														원 
-													</div>
-													<div class="per">할인율</div>
-												</div>
-											</dd>
-										</dl>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<a href="#">
-										<img alt="" src="product.jpg">
-									</a>
-								</div>
-								<div class="product_info">
-									<a href="#">
-										<dl>
-											<dt>브랜드명</dt>
-											<dd>
-												<p class="product_name">상품명</p>
-												<div class="price_info">
-													<div class="price">
-														<span>가격</span>
-														원 
-													</div>
-													<div class="per">할인율</div>
-												</div>
-											</dd>
-										</dl>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<a href="#">
-										<img alt="" src="product.jpg">
-									</a>
-								</div>
-								<div class="product_info">
-									<a href="#">
-										<dl>
-											<dt>브랜드명</dt>
-											<dd>
-												<p class="product_name">상품명</p>
-												<div class="price_info">
-													<div class="price">
-														<span>가격</span>
-														원 
-													</div>
-													<div class="per">할인율</div>
-												</div>
-											</dd>
-										</dl>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<a href="#">
-										<img alt="" src="product.jpg">
-									</a>
-								</div>
-								<div class="product_info">
-									<a href="#">
-										<dl>
-											<dt>브랜드명</dt>
-											<dd>
-												<p class="product_name">상품명</p>
-												<div class="price_info">
-													<div class="price">
-														<span>가격</span>
-														원 
-													</div>
-													<div class="per">할인율</div>
-												</div>
-											</dd>
-										</dl>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<a href="#">
-										<img alt="" src="product.jpg">
-									</a>
-								</div>
-								<div class="product_info">
-									<a href="#">
-										<dl>
-											<dt>브랜드명</dt>
-											<dd>
-												<p class="product_name">상품명</p>
-												<div class="price_info">
-													<div class="price">
-														<span>가격</span>
-														원 
-													</div>
-													<div class="per">할인율</div>
-												</div>
-											</dd>
-										</dl>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class="thumb">
-									<a href="#">
-										<img alt="" src="product.jpg">
-									</a>
-								</div>
-								<div class="product_info">
-									<a href="#">
-										<dl>
-											<dt>브랜드명</dt>
-											<dd>
-												<p class="product_name">상품명</p>
-												<div class="price_info">
-													<div class="price">
-														<span>가격</span>
-														원 
-													</div>
-													<div class="per">할인율</div>
-												</div>
-											</dd>
-										</dl>
-									</a>
-								</div>
-							</li>
+							</c:forEach>
+
 						</ul>
 					</div>
 				</div>

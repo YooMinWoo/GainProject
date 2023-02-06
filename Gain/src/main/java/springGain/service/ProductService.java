@@ -22,6 +22,26 @@ public class ProductService {
 		
 		return dao.getProduct(sch);
 	}
+	
+	// 상품 상세조회
+	public Product productDetail(String prodNum) {
+		
+		
+		return dao.productDetail(prodNum);
+	}
+	
+	// 카테고리 이름 출력
+	public Category getCategoryName(String categoryNum) {
+		
+		return dao.getCategoryName(categoryNum);
+	}
+	
+	// 세부항목 이름 출력
+	public List<DetailInfo> getDetailName(String categoryNum) {
+		
+		return dao.getDetailName(categoryNum);
+	}
+	
 	// 상품 등록 service
 	public void insertProd(Product ins) {
 		dao.insertProd(ins);

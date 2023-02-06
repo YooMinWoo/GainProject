@@ -12,6 +12,15 @@ public interface ProductDao {
 	// 상품 조회
 	public List<Product> getProduct(Product sch);
 	
+	// 상품 상세조회
+	public Product productDetail(String prodNum);
+	
+	// 카테고리 이름
+	public Category getCategoryName(String categoryNum);
+	
+	// 세부항목 이름
+	public List<DetailInfo> getDetailName(String categoryNum);
+	
 	// 상품 등록 Dao
 	public void insertProd(Product ins);
 	
