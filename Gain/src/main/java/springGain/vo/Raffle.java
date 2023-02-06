@@ -12,6 +12,13 @@ public class Raffle {
 	private Date endDate;
 	private Date choDate;
 	private String result;
+	private String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public Raffle() {
 		// TODO Auto-generated constructor stub
 	}

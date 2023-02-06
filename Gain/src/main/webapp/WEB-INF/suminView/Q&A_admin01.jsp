@@ -22,8 +22,8 @@
 <style type="text/css">
  	
   	.bar{
-  		width:480px; height:10px; background:black; margin-left:-5px;
-  		display:inline-block;
+  		width:980px; height:10px; background:black; margin-left:115px;
+  		
   	}
   	hr{
   		width:500px;
@@ -67,6 +67,7 @@
 	.menu{
 		font-size:25px;
 		font-weight:bold;
+	
 	}
 	.question{
 		width:930px;
@@ -148,9 +149,8 @@ $(document).ready(function(){
     </header>
 	<section>
         <div class="main_wrapper">
-	      	<a href="Q&A_mem01.jsp" class="menu" style="margin-left:300px;">1:1 문의하기</a>
-	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:350px;">문의내역</a>
-	      	<hr></hr>
+	      
+	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:570px;">문의내역</a>
 	      	<div class="bar"></div>
 	      	<c:forEach var="qna" items="${qnaList }">
 	      		

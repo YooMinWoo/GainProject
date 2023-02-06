@@ -19,6 +19,7 @@ DROP TABLE raffleInfo CASCADE CONSTRAINTS;
 
 
 
+
 /* Create Tables */
 
 -- 브랜드
@@ -199,13 +200,20 @@ CREATE TABLE QnA
 	-- 답변 : reply
 	reply varchar2(2000),
 	-- 아이디 : 아이디
-	id varchar2(100) NOT NULL
+	id varchar2(100) NOT NULL,
+	qna_no NUMBER PRIMARY key
 );
+create sequence qna_seq
+      start with 1
+      minvalue 1
+      maxvalue 999999
+      increment by 1;
 SELECT * FROM QnA;
 SELECT * FROM gainMember;
 DELETE FROM QnA WHERE id='himan';
-INSERT INTO QnA values('배송','배송문의합니다','배송지연된 제품 언제 출고되나요?',sysdate,'답변대기','','himan');
+INSERT INTO QnA values('배송','배송문의합니다','배송지연된 제품 언제 출고되나요?',sysdate,'답변대기','','alsn99',qna_seq.nextval);
 INSERT INTO QnA values('상품','상품문의합니다','s 사이즈는 없나요?',sysdate,'답변대기',null,'himan');
+UPDATE QnA SET state='답변완료', reply='2월10일 출고 예정입니다' WHERE qna_no=1;
 -- 래플
 CREATE TABLE raffleInfo
 (
@@ -232,10 +240,14 @@ create sequence raffle_seq
       minvalue 1
       maxvalue 999999
       increment by 1;
-
 SELECT * FROM raffleInfo;
+SELECT * FROM raffleInfo WHERE RESULT='진행중';
+SELECT ri.PNAME,ri.rafID,ri.choDATE,ri.IMGSRC,r.id,ri.result
+		FROM RAFSTATE r,RAFFLEINFO ri WHERE ri.RESULT='진행중' AND r.RAFID = ri.RAFID AND r.id='alsn99';
 INSERT INTO raffleInfo values(raffle_seq.nextval,'나이키 에어 조던1 레트로 하이 OG 쉐도우 2.0 gs 575441-035',
 	150000,'raffle_prod01.jpg','2023-02-06','2023-02-15','2023-02-18','진행중');
+INSERT INTO raffleInfo values(raffle_seq.nextval,'나이키 에어 조던1 레트로 하이 OG 쉐도우 2.0 gs 575441-035',
+	150000,'raffle_prod01.jpg','2023-02-06','2023-02-15','2023-02-18','응모마감');
 
 -- 응모 현황
 CREATE TABLE rafState
@@ -245,8 +257,8 @@ CREATE TABLE rafState
 	-- 아이디 : 아이디
 	id varchar2(100) NOT NULL
 );
-
-
+INSERT INTO rafState values(1,'alsn99');
+SELECT * FROM rafState;
 -- 리뷰
 CREATE TABLE review
 (

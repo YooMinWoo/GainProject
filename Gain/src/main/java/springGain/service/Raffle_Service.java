@@ -19,4 +19,8 @@ public class Raffle_Service {
 		return dao.getRafList();
 	}
 	
+	public void insertRaffle(Raffle ins) {
+		dao.insertRaffle(ins);
+	}
+	
 }

@@ -25,11 +25,6 @@
   		width:980px; height:10px; background:black; margin-left:120px;
   		display:inline-block;
   	}
-  	.timer{
-  		font-size:45px;
-  		color:#0054FF;
-  		margin-left:500px;		
-  	}
  	.btn{
   		background:black;
   		width:160px;
@@ -45,49 +40,26 @@
   		margin-left:460px;
   		margin-top:20px;
   	}
-  
+  	.status{
+  		background:#0054FF;
+  		width:55px;
+  		height:30px;
+  		margin-left:460px;
+  	}
+  	.endDate{
+  		width:320px;
+  		height:60px;
+  		border:1px solid black;
+  		margin-left:450px;
+  	}
 </style>
 </head>
 <script>
 $(document).ready(function(){
 	
-	function CountDownTimer(dt, id) {
-	     var end = new Date(dt);
-	     var _second = 1000;
-	     var _minute = _second * 60;
-	     var _hour = _minute * 60;
-	     var _day = _hour * 24;
-	     var timer;
-	     function showRemaining() {
-	         var now = new Date();
-	         var distance = end - now;
-	       
-	         if (distance < 0) {
-	             clearInterval(timer);
-	             document.getElementById(id).innerHTML = '응모종료';
-	             return;
-	         }
-	         var days = Math.floor(distance / _day);
-	         var hours = Math.floor((distance % _day) / _hour)+(days*24);
-	         var minutes = Math.floor((distance % _hour) / _minute);
-	         var seconds = Math.floor((distance % _minute) / _second);
-	         //document.getElementById(id).innerHTML = days + '일 ';
-	         document.getElementById(id).innerHTML = hours + ' : ';
-	         document.getElementById(id).innerHTML += minutes + ' : ';
-	         document.getElementById(id).innerHTML += seconds;
-	     }
-	     timer = setInterval(showRemaining, 1000);
-	 }
-	 CountDownTimer('02/09/2023 12:00:00', 'timeDeal'); 
+	
 })
 
-function addRaffle(rafId,id){
-	location.href="${path}/insRaffle.do?rafId="+rafId+"&id="+id
-}
-var msg = "${msg}"
-if(msg!=""){
-	alert(msg)
-}
 </script>
 <body>
     <header>
@@ -121,18 +93,20 @@ if(msg!=""){
         <div class="main_wrapper">
 	      	<h2 style="margin-left:580px;">Raffle</h2>
 	      	<div class="bar"></div>
-	      	<br><br><br>
-	      	<c:forEach var="raffle" items="${rafList }">
-		      	<span id="timeDeal" class="timer"></span>
-		      	<input type="hidden" name="id" value="alsn99"/>
-		      	<br>
-		      	<h4 style="margin-left:560px; color:#6799FF;">5000명 참여중</h4>
-		      	<button type="button" class="btn" onclick="addRaffle('${raffle.rafId}','alsn99')">응모하기</button>
-		      	
-		      	<img src="/Gain/markup/img/${raffle.imgSrc }" class="prod"/>
-		      	<br><br>
-		      	<h4 style="margin-left:400px;">${raffle.pname }</h4>
-		      	<h2 style="margin-left:550px;">${raffle.price }</h2>
+	      	<br><br>
+	      	<img src="/Gain/markup/img/raffle_prod01.jpg" class="prod"/>
+	      	<br><br>
+	      	<c:forEach var="myRaf" items="${myRafList }">
+	      	<div class="status">
+	      		<h4 style="color:white; padding:5px 5px;">${myRaf.result }</h4>
+	      	</div>
+	      	<br>
+	      	<h4 style="margin-left:460px;">${myRaf.pname }</h4>
+	      	<br><h4 style="margin-left:460px;">Gain | RAFFLE_${myRaf.rafId }</h4><br><br>
+	      	<div class="endDate">
+	      		<br>
+	      		<h3 style="margin-left:50px; color:lightgray;">${myRaf.choDate } 당첨자 발표 예정</h3>
+	      	</div>
 	      	</c:forEach>
         </div>
     </section>
@@ -147,7 +121,7 @@ if(msg!=""){
 			개인정보보호책임자 : 이수민<br>
 			E-MAIL : help@gain.co.kr
 			</p>
-			<p style="font-size:12px;line-height:20px; padding:10px 0;">
+			<p style="font-size:12px;line-hight:20px; padding:10px 0;">
 			해당 사이트는 프로젝트용 사이트로 실제로 존재하는 사이트가 아닙니다.<br>
 			쌍용강북센터 프로젝트 3팀
 			COPYRIGHT 2023 가인 ALL RIGHT RESERVED.
