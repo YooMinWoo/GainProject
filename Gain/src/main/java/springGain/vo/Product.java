@@ -1,4 +1,4 @@
-package heejun.vo;
+package springGain.vo;
 
 import java.util.Date;
 
@@ -9,7 +9,6 @@ public class Product {
 	private String prodImg;
 	private String prodInfo;
 	private Date prodDate;
-	
 	
 	public String getProdNum() {
 		return prodNum;

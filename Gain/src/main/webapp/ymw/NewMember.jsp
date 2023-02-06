@@ -115,6 +115,61 @@ window.onload = function(){
 		.Box label{
 			cursor: text;
 		}
+		.checkBox{
+			display:flex;
+			width:400px;
+			margin:0px auto;
+			flex-direction: column;
+			gap: 10px;
+ 					padding-top: 30px;
+		}
+		.checks{
+			display: flex;
+			gap:15px;
+			cursor: pointer;
+		}
+		hr{
+			border:1px solid lightgray;
+		}
+		.checks2{
+			display:flex;
+			flex-wrap: wrap;
+ 					justify-content: space-between;
+					    gap: 7px;
+		}
+		.checks2 .checks{
+			width:34%;
+		}
+		.doneBtnDiv{
+			display: flex;
+		    margin: 0px auto;
+		    margin-top: 40px;
+		}
+		.doneBtn{
+			width: 200px;
+		    height: 45px;
+		    background: black;
+		    border: none;
+		    border-radius: 6px;
+		    color: white;
+		    font-size: medium;
+		    font-weight: 900;	
+		    cursor: pointer;
+		}
+		.btnCss{
+    		background: black;
+		}
+		.btnCss2{
+		    border: none;
+		    margin: 7px;
+		    background: inherit;
+		    display: flex;
+		    justify-content: center;
+		    font-size: 16px;
+		    font-weight: 900;
+		    cursor: pointer;
+		    color:white;
+		}
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -139,6 +194,115 @@ window.onload = function(){
 				if(total != checked) $("#cbx_chkAll").prop("checked", false);
 				else $("#cbx_chkAll").prop("checked", true); 
 			});
+			
+			var idCheck = false;
+				$("#idCheck").click(function(){
+					if(!idCheck){
+						var idReg = /^[A-Za-z](?=.*[0-9])(?=.*[A-Za-z]).{5,11}$/g;
+						if( !idReg.test( $("input[name=id]").val() ) ) {
+				            alert("아이디는 영문자로 시작하는 6~12자 영문자 또는 숫자이어야 합니다.");
+				            $("input[name=id]").focus()
+				            return;
+				        }
+						$.ajax({
+							url:"/Gain/idCheck.do",
+							type:"post",
+							dataType:"json",
+							data:"id="+$("input[name=id]").val(),
+							success:function(data){
+								var idC = data.idC
+								if(idC==null){
+									if(confirm("사용 가능한 아이디입니다.\n사용하시겠습니까?")){
+										idCheck = true;
+										$("input[name=id]").attr("readonly","readonly")
+										$("input[name=id]").parent().css("background","#E2E2E2")
+										$("input[name=id]").css("background","#E2E2E2")
+										$("#idCheck").css("cursor","Default")
+									}
+								}else{
+									alert("이미 사용 중인 아이디입니다.")
+								}
+							}
+						})
+					}
+					
+				})
+			
+			
+			$(".doneBtn").click(function(){
+				var nickNameReg = /^[A-Za-z][A-Za-z0-9]{5,14}$/g;
+				var pwReg = /(?=.*[0-9])(?=.*[A-Za-z]).{10,20}$/;
+				var n_RegExp = /^[가-힣]{2,15}$/;
+				var phoneReg = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
+				var birth = /^(19\d{2}|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+				/*
+		        if(!idCheck) {
+		            alert("아이디 중복확인을 해주세요.");
+		            $("input[name=id]").focus()
+		            return;
+		        }
+		        if( !nickNameReg.test( $("input[name=nickname]").val() ) ) {
+		            alert("닉네임은 영문자로 시작하는 6~15자 영문자 또는 숫자이어야 합니다.");
+		            $("input[name=nickname]").focus()
+		            return;
+		        }
+		        if( !pwReg.test( $("input[name=gainPassword]").val() ) ) {
+		            alert("비밀번호는 영문숫자 조합 10~20자");
+		            $("input[name=gainPassword]").focus()
+		            return;
+		        }
+		        if(!n_RegExp.test($("input[name=gainName]").val() ) ) {
+		            alert("이름에는 특수문자,영어,숫자는 사용할수 없습니다. 한글만 입력하여주세요.");
+		            $("input[name=gainName]").focus()
+		            return;
+		        }
+		        if(!phoneReg.test($("input[name=gainPhoneNumber]").val() ) ) {
+		            alert("휴대폰 번호를 확인해주세요(숫자만 입력)");
+		            $("input[name=gainPhoneNumber]").focus()
+		            return;
+		        }
+		        if(!birth.test($("input[name=gainBirthday]").val() ) ) {
+		            alert("생년월일을 확인해주세요(숫자만 입력)");
+		            $("input[name=gainBirthday]").focus()
+		            return;
+		        }
+		        
+		        if($('input[name=gainGender]:checked').val()==null){
+		        	alert("성별을 선택해주세요.")
+		        	return;
+		        }
+		        if(($("input[name=address]").val()=="" ) ) {
+		            alert("주소를 입력해주세요");
+		            $("input[name=address]").focus()
+		            return;
+		        }
+		        if(($("input[name=address_detail]").val()=="" ) ) {
+		            alert("상세주소를 입력해주세요");
+		            $("input[name=address_detail]").focus()
+		            return;
+		        }
+		        
+		        if(!$("[name=useInfo]").is(":checked")){
+		        	alert("필수 약관을 체크해주세요.")
+		        	return;
+		        }
+		        */
+		        // console.log(!$("[name=useInfo]").is(":checked"))
+		        /*
+		        	유효성 끝냈고, 체크박스 값들은 js로 true면 1, false면 0 처리 해서 파라미터로 넘기고,
+		        	컨트롤러 호출, 
+		        	아니 근데 이거 컨트롤러 호출할 때 ?"id="id+"&pass="+pass... 이렇게 해야하는데
+		        	(체크박스 0,1 처리한 거랑 address, address_detail을 하나로 합쳐서 파라미터로 넘거야 함.)
+		        	이렇게 안 하고 더 간단하게 하는 방법... 없겠다.
+		        	
+		        	--- 참고 ---
+		        	$("#frm02").attr("action","${path}/memberUpt.do");
+					$("#frm02").submit();
+					-----------
+					
+		        */
+			})
+			
 		})
 	</script>
 	<!-- 여기서부터 작업 -->
@@ -148,16 +312,24 @@ window.onload = function(){
 					<div><span>*</span><span>아이디</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox0 inputBox" type="text" name="gainID" placeholder="영문 숫자 6자 이상 12자 이하">
+							<input class="inputBox0 inputBox" type="text" name="id" placeholder="영문 숫자 6자 이상 12자 이하">
 						</div>
 					</label>
+					<label>
+						<div class="inputInfo btnCss">
+							<button type="button" id="idCheck" class="inputInfo btnCss2">
+								아이디 중복확인
+							</button>
+						</div>
+					</label>
+						
 				</div>
 				
 				<div class="Box">
 					<div><span>*</span><span>닉네임</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox1 inputBox" type="text" name="gainNickName" placeholder="최대 15자(영문,숫자)">
+							<input class="inputBox1 inputBox" type="text" name="nickname" placeholder="6~15자(영문,숫자)">
 						</div>
 					</label>
 				</div>
@@ -166,7 +338,7 @@ window.onload = function(){
 					<div><span>*</span><span>비밀번호</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox2 inputBox" type="password" name="gainPassword" placeholder="10~16 영문 숫자 조합">
+							<input class="inputBox2 inputBox" type="password" name="pass" placeholder="10~16 영문 숫자 조합">
 						</div>
 					</label>
 				</div>
@@ -175,7 +347,7 @@ window.onload = function(){
 					<div><span>*</span><span>이름</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox3 inputBox" type="text" name="gainName" placeholder="실명 입력">
+							<input class="inputBox3 inputBox" type="text" name="name" placeholder="실명 입력">
 						</div>
 					</label>
 				</div>
@@ -184,7 +356,7 @@ window.onload = function(){
 					<div><span>*</span><span>휴대폰</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox4 inputBox" type="text" name="gainPhoneNumber" placeholder="'-' 생략">
+							<input class="inputBox4 inputBox" type="text" name="phoneNum" placeholder="'-' 생략">
 						</div>
 					</label>
 				</div>
@@ -193,7 +365,7 @@ window.onload = function(){
 					<div><span>*</span><span>생년월일</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox5 inputBox" type="text" name="gainBirthday" placeholder="8자리 숫자(19990527)">
+							<input class="inputBox5 inputBox" type="text" name="birth" placeholder="8자리 숫자(19990527)">
 						</div>
 					</label>
 				</div>
@@ -201,11 +373,11 @@ window.onload = function(){
 					<div><span>*</span><span>성별</span></div>
 					<div class="checks2">
 						<label class="checks">
-							<input type="radio" name="gainGender" value="man" class="chk" >
+							<input type="radio" name="sex" value="man" class="chk2" >
 							<span>남자</span>
 						</label>
 						<label class="checks">
-							<input type="radio" name="gainGender" value="woman" class="chk" >
+							<input type="radio" name="sex" value="woman" class="chk2" >
 							<span>여자</span>
 						</label>
 					</div>
@@ -223,51 +395,9 @@ window.onload = function(){
 						</div>
 					</label>
 				</div>
-				<style>
-					.checkBox{
-						display:flex;
-						width:400px;
-						margin:0px auto;
-						flex-direction: column;
-						gap: 10px;
-    					padding-top: 30px;
-					}
-					.checks{
-						display: flex;
-						gap:15px;
-					}
-					hr{
-						border:1px solid lightgray;
-					}
-					.checks2{
-						display:flex;
-						flex-wrap: wrap;
-    					justify-content: space-between;
-   					    gap: 7px;
-					}
-					.checks2 .checks{
-						width:34%;
-					}
-					.doneBtnDiv{
-						display: flex;
-					    margin: 0px auto;
-					    margin-top: 40px;
-					}
-					.doneBtn{
-						width: 200px;
-					    height: 45px;
-					    background: black;
-					    border: none;
-					    border-radius: 6px;
-					    color: white;
-					    font-size: medium;
-					    font-weight: 900;	
-					    cursor: pointer;
-					}
-				</style>
 				<div class="checkBox">
 					<div><label class="checks">
-						<input type="checkbox">
+						<input type="checkbox" name="useInfo">
 						<span>이용약관 및 개인정보처리방침에 동의(필수)</span>
 					</label></div>
 					<div><label class="checks">
@@ -277,23 +407,23 @@ window.onload = function(){
 					<hr>
 					<div class="checks2">
 						<label class="checks">
-							<input type="checkbox" name="message" class="chk" >
+							<input type="checkbox" name="permisSms" class="chk" >
 							<span>문자</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="email" class="chk" >
+							<input type="checkbox" name="permisEmail" class="chk" >
 							<span>이메일</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="appPush" class="chk" >
+							<input type="checkbox" name="permisAppPush" class="chk" >
 							<span>APP 푸시</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="mail" class="chk" >
+							<input type="checkbox" name="permisMail" class="chk" >
 							<span>우편발송</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="call" class="chk" >
+							<input type="checkbox" name="permisPhone" class="chk" >
 							<span>전화안내</span>
 						</label>
 					</div>
