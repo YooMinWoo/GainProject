@@ -52,4 +52,16 @@
 		FROM detailInfo
 		WHERE categoryNum = #{categoryNum}
 	</select>
+	
+	
+	<select id="getOption" resultType="option" parameterType="string">
+		SELECT *
+		FROM prodOption
+		WHERE categoryNum = #{categoryNum}
+	</select>
+	
+	<delete id="deleteProd" parameterType="string">
+		DELETE FROM products
+		WHERE prodNum = #{prodNum}
+	</delete>
 </mapper>

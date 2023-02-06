@@ -9,6 +9,7 @@ import springGain.dao.ProductDao;
 import springGain.vo.Brand;
 import springGain.vo.Category;
 import springGain.vo.DetailInfo;
+import springGain.vo.Option;
 import springGain.vo.Product;
 
 @Service
@@ -30,6 +31,16 @@ public class ProductService {
 		return dao.productDetail(prodNum);
 	}
 	
+	// 상품 등록 service
+	public void insertProd(Product ins) {
+		dao.insertProd(ins);
+	}
+	
+	// 상품 삭제
+	public void deleteProd(String prodNum) {
+		dao.deleteProd(prodNum);
+	}
+	
 	// 카테고리 이름 출력
 	public Category getCategoryName(String categoryNum) {
 		
@@ -42,9 +53,10 @@ public class ProductService {
 		return dao.getDetailName(categoryNum);
 	}
 	
-	// 상품 등록 service
-	public void insertProd(Product ins) {
-		dao.insertProd(ins);
+	// 옵션
+	public List<Option> getOption(String categoryNum){
+		
+		return dao.getOption(categoryNum);
 	}
 	
 	// 브랜드 combo

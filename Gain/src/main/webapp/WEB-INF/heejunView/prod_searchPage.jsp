@@ -52,8 +52,8 @@
 		location.href="${path}/getProdList.do?categoryNum="+categoryNum+"&detailNum="+detailNum;
 	}
 	
-	function goDetailPage(prodNum) {
-		location.href="${path}/prodDetail.do?prodNum="+prodNum
+	function goDetailPage(prodNum, categoryNum) {
+		location.href="${path}/prodDetail.do?prodNum="+prodNum+"&categoryNum="+categoryNum;
 	}
 </script>
 
@@ -119,21 +119,21 @@
 							<c:forEach var="prod" items="${plist}">
 							<li>
 								<div class="thumb">
-									<a onclick="goDetailPage('${prod.prodNum}')">
+									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
 										<img src="/Gain/heejun/${prod.prodImg}">
 									</a>
 								</div>
 								<div class="product_info">
-									<a onclick="goDetailPage('${prod.prodNum}')">
+									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
 										<dl>
 											<dt>${prod.brandNum}</dt>
 											<dd>
 												<p class="product_name">${prod.prodName}</p>
 												<div class="price_info">
 													<div class="price">
-														<span>${prod.prodPrice}</span>원 
+														<span><fmt:formatNumber value="${prod.prodPrice-prod.prodPrice*0.2}"/></span>원 
 													</div>
-													<div class="per"><span>25</span>%</div>
+													<div class="per"><span>20</span>%</div>
 												</div>
 											</dd>
 										</dl>
