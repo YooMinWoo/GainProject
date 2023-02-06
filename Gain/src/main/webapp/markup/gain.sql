@@ -448,6 +448,7 @@ COMMENT ON COLUMN shppingBasket.prodNum IS '상품번호 : prodNum';
 
 ------------------------ 솜이 sql -------------------------
 SELECT * FROM COUPON;
+SELECT * FROM gainMember;
 -- couponNum 시퀀스
 CREATE SEQUENCE Gain.coupon_seq
 	INCREMENT BY 1
