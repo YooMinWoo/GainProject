@@ -1,3 +1,3 @@
 	SELECT COUPONNUM, COUPONNAME, COUPONPERCENT, TO_CHAR(COUPONENDDATE, 'YYYY-MM-DD')COUPONENDDATE
 	FROM coupon
-	WHERE couponName Like '%'||''||'%';
+	WHERE couponName Like '%'||'생일'||'%';

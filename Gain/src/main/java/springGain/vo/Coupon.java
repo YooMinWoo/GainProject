@@ -6,6 +6,11 @@ public class Coupon {
 	private String couponName;
 	private int couponPercent;
 	private String couponEndDate;
+
+	public Coupon() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getCouponNum() {
 		return couponNum;
 	}

@@ -71,10 +71,10 @@
 				<tbody>
 					<c:forEach var="coupon" items="${couponList}">
 						<tr>
-							<td>${coupon.couponNum }</td>
-							<td>${coupon.couponName }</td>
-							<td>${coupon.couponPercent }</td>
-							<td><fmt:formatDate value="${coupon.couponDate}"/></td>
+							<td>${coupon.couponNum}</td>
+							<td>${coupon.couponName}</td>
+							<td>${coupon.couponPercent}</td>
+							<td>${coupon.couponEndDate}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
