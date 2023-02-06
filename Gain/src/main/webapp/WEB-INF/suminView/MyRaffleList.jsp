@@ -94,9 +94,10 @@ $(document).ready(function(){
 	      	<h2 style="margin-left:580px;">Raffle</h2>
 	      	<div class="bar"></div>
 	      	<br><br>
-	      	<img src="/Gain/markup/img/raffle_prod01.jpg" class="prod"/>
-	      	<br><br>
 	      	<c:forEach var="myRaf" items="${myRafList }">
+	      	<img src="/Gain/markup/img/${myRaf.imgSrc }" class="prod"/>
+	      	<br><br>
+	      	
 	      	<div class="status">
 	      		<h4 style="color:white; padding:5px 5px;">${myRaf.result }</h4>
 	      	</div>
