@@ -5,7 +5,7 @@
 
 <mapper namespace="springGain.dao.QnA_Dao">
 	<select id="getCoupon" parameterType="coupon" resultType="coupon">
-	
+		select * from Coupon Where couponName = #{couponName}
 	</select>
 	
 	
