@@ -1,5 +1,5 @@
 package springGain.dao;
 
-public class CouponDao {
+public interface CouponDao {
 
 }
