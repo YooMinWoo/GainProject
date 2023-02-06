@@ -50,9 +50,9 @@
        -->
        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
              <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-             <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
-             <property name="username" value="scott"></property>
-             <property name="password" value="tiger"></property>
+             <property name="url" value="jdbc:oracle:thin:@49.238.170.26:1521:xe"></property>
+             <property name="username" value="Gain"></property>
+             <property name="password" value="Gain"></property>
        </bean>
        <!-- 
              # Mybatis 연동
@@ -82,6 +82,7 @@
           -->
           <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
          	<property name="order" value="1"/>
+         	
          </bean>
          <!-- 위에서 1순위 채택하는 json viewer -->
          <bean id="pageJsonReport"
