@@ -1,3 +1,12 @@
 	SELECT COUPONNUM, COUPONNAME, COUPONPERCENT, TO_CHAR(COUPONENDDATE, 'YYYY-MM-DD')COUPONENDDATE
 	FROM coupon
-	WHERE couponName Like '%'||'생일'||'%';
+	WHERE couponName Like '%'||''||'%'
+	ORDER BY COUPONNUM;
+	
+
+INSERT INTO COUPON VALUES (
+	'CP'|| coupon_seq.NEXTVAL,
+	'[10주년 이벤트 당첨자]30% 할인 쿠폰',
+	30,
+	to_date('2023-04-02','YYYY-MM-DD')
+);

@@ -38,7 +38,34 @@
 		    height: 40px;
 		    border-bottom: 1px solid #ddd;
         }
+        
+        .couponForm{
+        	display: flex;
+        	gap: 15px;
+		    justify-content: right;
+        }
+        
+        input[name=couponName]{
+        	width: 250px;
+		    height: 30px;
+		    padding: 0 10px;
+		    display: block;
+        }
+        
+        .couponBtn{
+			height: 30px;
+		    display: block;
+		    width: 50px;
+		    border: none;
+		    background: #ccc;
+		    border-radius: 4px;
+		    cursor: pointer;
+        }
 
+		.couponTab{
+			padding: 20px;
+		}
+		
 </style>
 </head>
 
@@ -74,7 +101,11 @@
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
             <h2 class="main_title">쿠폰 조회하기</h2>
-			<table width="100%">
+            <form class="couponForm">
+            	<input type="text" placeholder="쿠폰명을 입력하세요." name="couponName" value="${sch.couponName}">
+            	<button class="couponBtn" type="submit">검색</button>
+            </form>
+			<table class="couponTab" width="100%">
 				<col width="20%">
 				<col width="40%">
 				<col width="20%">
@@ -103,7 +134,7 @@
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
 			<p style="font-size:15px;line-hight:25px;">
-			(주)머스트잇
+			(주)가인
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>
 			사업자등록번호 : 123-456-789<br>
