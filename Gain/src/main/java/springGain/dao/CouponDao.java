@@ -5,5 +5,5 @@ import java.util.List;
 import springGain.vo.Coupon;
 
 public interface CouponDao {
-	public List<Coupon> getCoupon(Coupon sch);
+	public List<Coupon> getCouponList(Coupon sch);
 }
