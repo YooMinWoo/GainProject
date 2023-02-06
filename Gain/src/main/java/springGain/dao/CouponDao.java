@@ -1,5 +1,9 @@
 package springGain.dao;
 
-public interface CouponDao {
+import java.util.List;
 
+import springGain.vo.Coupon;
+
+public interface CouponDao {
+	public List<Coupon> getCoupon(Coupon sch);
 }

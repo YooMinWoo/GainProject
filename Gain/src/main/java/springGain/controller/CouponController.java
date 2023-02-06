@@ -13,8 +13,10 @@ public class CouponController {
 	@Autowired(required = false)
 	private CouponService service;
 	
+	// http://localhost:7080/Gain/getCoupon.do
 	@RequestMapping("/getCoupon.do")
 	public String getCoupon(Coupon sch, Model d) {
-		return "";
+		d.addAttribute("couponList", service.getCoupon(sch));
+		return "WEB-INF\\dasomView\\MyCoupon.jsp";
 	}
 }
