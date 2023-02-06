@@ -24,7 +24,19 @@
             font-weight: 500;
             font-size: 32px;
             line-height: 38px;
-            padding: 70px 0;
+            padding: 20px 0 70px 0;
+        }
+        
+        th{
+		    text-align: center;
+		    height: 50px;
+		    background: #ddd;
+        }
+        
+        td{
+       	    text-align: center;
+		    height: 40px;
+		    border-bottom: 1px solid #ddd;
         }
 
 </style>
@@ -62,10 +74,14 @@
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
             <h2 class="main_title">쿠폰 조회하기</h2>
-			<table>
+			<table width="100%">
+				<col width="20%">
+				<col width="40%">
+				<col width="20%">
+				<col width="20%">
 				<thead>
 					<tr>
-						<th>쿠폰번호</th><th>쿠폰명</th><th>쿠폰 이름</th><th>할인율</th><th>유효기간</th>
+						<th>쿠폰번호</th><th>쿠폰명</th><th>할인율</th><th>유효기간</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -73,7 +89,7 @@
 						<tr>
 							<td>${coupon.couponNum}</td>
 							<td>${coupon.couponName}</td>
-							<td>${coupon.couponPercent}</td>
+							<td>${coupon.couponPercent}%</td>
 							<td>${coupon.couponEndDate}</td>
 						</tr>
 					</c:forEach>

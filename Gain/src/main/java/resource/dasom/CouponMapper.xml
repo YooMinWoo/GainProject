@@ -5,7 +5,7 @@
    
 <!-- 어드민 쿠폰 검색 -->
 <mapper namespace="springGain.dao.CouponDao">
-	<select id="getCoupon" parameterType="coupon" resultType="coupon">
+	<select id="getCouponList" parameterType="coupon" resultType="coupon">
 	SELECT COUPONNUM, COUPONNAME, COUPONPERCENT, TO_CHAR(COUPONENDDATE, 'YYYY-MM-DD')COUPONENDDATE
 	FROM coupon
 	WHERE couponName Like '%'||#{couponName}||'%'
