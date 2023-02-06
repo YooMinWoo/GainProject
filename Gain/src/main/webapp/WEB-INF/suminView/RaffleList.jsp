@@ -114,14 +114,17 @@ $(document).ready(function(){
 	      	<h2 style="margin-left:580px;">Raffle</h2>
 	      	<div class="bar"></div>
 	      	<br><br><br>
-	      	<span id="timeDeal" class="timer"></span>
-	      	<br>
-	      	<h4 style="margin-left:560px; color:#6799FF;">5000명 참여중</h4>
-	      	<button type="button" class="btn">응모하기</button>
-	      	<img src="/Gain/markup/img/raffle_prod01.jpg" class="prod"/>
-	      	<br><br>
-	      	<h4 style="margin-left:400px;">나이키 에어 조던1 레트로 하이 OG 쉐도우 2.0 gs 575441-035</h4>
-	      	<h2 style="margin-left:550px;">100000원</h2>
+	      	<c:forEach var="raffle" items="${rafList }">
+		      	<span id="timeDeal" class="timer"></span>
+		      	<br>
+		      	<h4 style="margin-left:560px; color:#6799FF;">5000명 참여중</h4>
+		      	<button type="button" class="btn">응모하기</button>
+		      	
+		      	<img src="/Gain/markup/img/${raffle.imgSrc }" class="prod"/>
+		      	<br><br>
+		      	<h4 style="margin-left:400px;">${raffle.pname }</h4>
+		      	<h2 style="margin-left:550px;">${raffle.price }</h2>
+	      	</c:forEach>
         </div>
     </section>
     <footer>
@@ -135,7 +138,7 @@ $(document).ready(function(){
 			개인정보보호책임자 : 이수민<br>
 			E-MAIL : help@gain.co.kr
 			</p>
-			<p style="font-size:12px;line-hight:20px; padding:10px 0;">
+			<p style="font-size:12px;line-height:20px; padding:10px 0;">
 			해당 사이트는 프로젝트용 사이트로 실제로 존재하는 사이트가 아닙니다.<br>
 			쌍용강북센터 프로젝트 3팀
 			COPYRIGHT 2023 가인 ALL RIGHT RESERVED.

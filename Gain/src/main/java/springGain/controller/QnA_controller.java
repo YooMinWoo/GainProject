@@ -18,7 +18,6 @@ public class QnA_controller {
 	@RequestMapping("/qna.do")
 	public String getQnAList(@ModelAttribute("sch") QnA sch,Model d) {
 		d.addAttribute("qnaList", service.getQnAList(sch));
-		System.out.println(sch);
 		return "WEB-INF\\suminView\\Q&A_mem02.jsp";
 	}
 }
