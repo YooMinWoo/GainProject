@@ -259,9 +259,13 @@ $(document).ready(function(){
 
 
 		</div>
-
-
-
+<!-- 
+<div class="left_box">
+   <div class="left_box_square">
+   </div>
+   <div>s</div>
+</div>
+ -->
 
 	</section>
 	<footer> </footer>

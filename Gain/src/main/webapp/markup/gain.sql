@@ -144,6 +144,8 @@ CREATE TABLE orderDetails
 	PRIMARY KEY (orderNum)
 );
 
+SELECT * FROM orderDetails;
+
 
 -- 옵션
 CREATE TABLE prodOption
