@@ -15,6 +15,7 @@ public class BuyService {
 	private BuyMemberDao dao;
 	
 	public GainMember getGainMemberList(String id) {
+		
 		return dao.getGainMemberList(id);
 	}
 	
