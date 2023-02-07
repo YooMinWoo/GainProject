@@ -8,7 +8,10 @@
 SELECT * FROM GAINMEMBER;
 
 
-SELECT id, address, phonenum FROM GAINMEMBER;
+SELECT id, address, phonenum 
+FROM GAINMEMBER
+WHERE id='himan';
+
 SELECT * FROM products;
 
 

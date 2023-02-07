@@ -29,6 +29,7 @@
 		<mapper resource="resource/ymw_mapper/Mapper.xml"/>
 		
 		<mapper resource="resource/dasom/CouponMapper.xml"/>
+		<mapper resource="resource/dongeun/BuyMapper.xml"/>
 
 	</mappers>
 </configuration>

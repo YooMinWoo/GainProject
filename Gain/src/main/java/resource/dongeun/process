@@ -3,36 +3,38 @@
 3. DB처리를 위한 구성 
     1) db생성/기본 데이터 입력
     
+     
+    
+    
     2) 조회를 위한 sql 
 
-       SELECT id, address, phonenum FROM GAINMEMBER;
+        SELECT id, address, phonenum 
+		FROM GAINMEMBER
+		WHERE id='himan'
          
     3) vo 작성 
             private String id;
             private String address;
             private String phonenum;
      
-    4) 공통 mybatis 등록 alias board, boardsch
+    4) 공통 mybatis 등록 alias GainMember
         mapper 등록
+        
     5) dao 
-        public List<Board> boardList(BoardSch sch);            
+		public GainMember getGainMemberList(String id);     
+        
     6) mapper 처리
-        <select id="boardList" resultType="board"   
-        parameterType="boardsch">
-         select *
-        from board
-        where 1=1
-        and subject like '%' ||#{subject}||'%'
-        and writer like '%'||#{writer}||'%'
-        </select>
+        <select id="getGainMemberList" resultType="gainmember" parameterType="string">
+		   SELECT id, address, phonenum 
+			FROM GAINMEMBER
+			WHERE id=#{id}
+	    </select>	
 --------------------------------------------------------------------------------------
 4. 비지니스 로직 처리(service)
     1) subject, writer null에 대한 공백 처리     
       
 5. controller 
    1) 
-     public String boardList(@ModelAttribute("sch") BoardSch sch,Model d) {
-      모델 데이터 처리 
-      list       
+      
 
 6. 화면단 list <c:forEach var="board" items="{$list}">
