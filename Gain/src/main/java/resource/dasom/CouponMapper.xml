@@ -12,7 +12,7 @@
 	ORDER BY COUPONNUM
 	</select>
 	
-	<insert id="addCoupon">
+	<insert id="addCoupon" parameterType="coupon">
 		INSERT INTO COUPON VALUES (
 		'CP'|| coupon_seq.NEXTVAL,
 		#{couponName},

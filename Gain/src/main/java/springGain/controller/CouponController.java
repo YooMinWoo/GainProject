@@ -20,4 +20,12 @@ public class CouponController {
 		d.addAttribute("couponList", service.getCouponList(sch));
 		return "WEB-INF\\dasomView\\couponListAdmin.jsp";
 	}
+	
+	
+	// http://localhost:7080/Gain/addCoupon.do?couponName=테스트쿠폰&couponPercent=7&2023-05-25
+	@RequestMapping("/addCoupon.do")
+	public String addCoupon(Coupon cp, Model d) {
+		service.addCoupon(cp);
+		return "WEB-INF\\dasomView\\addCoupon.jsp";
+	}
 }
