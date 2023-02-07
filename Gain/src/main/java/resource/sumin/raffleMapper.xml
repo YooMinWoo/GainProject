@@ -10,4 +10,13 @@
 	<insert id="insertRaffle" parameterType="raffle">
 		INSERT INTO rafState values(#{rafId},#{id})
 	</insert>
+	
+	<select id="myRaffle" parameterType="raffle" resultType="raffle">
+		SELECT * FROM rafState rs, raffleInfo ri WHERE rs.id=#{id} AND rs.RAFID = ri.RAFID
+	</select>
+	
+	<insert id="regRaffle" parameterType="raffle">
+		INSERT INTO raffleInfo values(raffle_seq.nextval,#{pname},
+	#{price},#{imgSrc},#{startDate},#{endDate},#{choDate},'진행중')
+	</insert>
 </mapper>  

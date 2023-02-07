@@ -42,7 +42,7 @@
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
          <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
       </context:component-scan>
-
+	
       <!-- 
          # DB연결처리
          1. dbcp(database connection pool)로 연결
@@ -89,4 +89,5 @@
          	class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
          	<property name="contentType" value="text/html;charset=utf-8"/>
          </bean>
+       
 </beans>

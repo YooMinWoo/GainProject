@@ -86,7 +86,9 @@ function addRaffle(rafId,id){
 }
 var msg = "${msg}"
 if(msg!=""){
-	alert(msg)
+	if(confirm(msg+"\n나의 응모내역으로 이동하시겠습니까?")){
+		location.href="${path}/myRaffle.do?id=alsn99"
+	}
 }
 </script>
 <body>

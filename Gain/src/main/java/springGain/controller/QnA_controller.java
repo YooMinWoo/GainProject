@@ -16,6 +16,7 @@ public class QnA_controller {
 	
 	@Autowired
 	private QnA_Service service;
+	
 	// http://localhost:7080/Gain/qna.do
 	@RequestMapping("/qna.do")
 	public String memQnAList(@ModelAttribute("sch") QnA sch,Model d) {

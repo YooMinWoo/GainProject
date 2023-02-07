@@ -63,7 +63,7 @@
   		font-size:25px;
   		font-weight:bold;
   	}
-  	.img_btn{
+  	.img_div{
   		margin-left:400px;
   		width:200px;
   		height:200px;
@@ -76,12 +76,12 @@
 <script>
 $(document).ready(function(){
 	$("#addBtn").click(function(){
-		var nameVal = $("[name=name]").val()
+		var pnameVal = $("[name=pname]").val()
 		var priceVal = $("[name=price]").val()
-		var startVal = $("[name=start_date]").val()
-		var endVal = $("[name=end_date]").val()
-		var choiceVal = $("[name=choice_date]").val()
-		if(nameVal==""){
+		var startVal = $("[name=startDate]").val()
+		var endVal = $("[name=endDate]").val()
+		var choiceVal = $("[name=choDate]").val()
+		if(pnameVal==""){
 			alert("상품명을 입력하세요")
 			return
 		}
@@ -143,7 +143,7 @@ $(document).ready(function(){
 	      	<form id="raffle">
 	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5>
 	      	<br>
-	      	<input type="text" name="name" placeholder="상품명을 입력해주세요">
+	      	<input type="text" name="pname" placeholder="상품명을 입력해주세요">
 	      	<br><br>
 	      	<h4 style="margin-left:410px;">상품가격</h4><h5>*</h5>
 	      	<br>
@@ -151,19 +151,21 @@ $(document).ready(function(){
 	        <br><br>
 	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5>
 	      	<br>
-	      	<input type="date" name="start_date" placeholder="응모 시작일을 입력해주세요">
+	      	<input type="date" name="startDate" placeholder="응모 시작일을 입력해주세요">
 	      	 <br><br>
 	      	<h4 style="margin-left:410px;">응모종료일</h4><h5>*</h5>
 	      	<br>
-	      	<input type="date" name="end_date" placeholder="응모 종료일을 입력해주세요">
+	      	<input type="date" name="endDate" placeholder="응모 종료일을 입력해주세요">
 	       <br><br>
 	      	<h4 style="margin-left:410px;">추첨일</h4><h5>*</h5>
 	      	<br>
-	      	<input type="date" name="choice_date" placeholder="추첨일을 입력해주세요">
+	      	<input type="date" name="choDate" placeholder="추첨일을 입력해주세요">
 	       <br><br>
 	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
 	      	<br>
-	      	<button type="button" class="img_btn">+</button>
+	      	<div class="img_div">
+	      		<input type="file" id="file"/>
+	      	</div>
 	      	<br>
 	      	<button type="button" id="addBtn" class="btn">등록하기</button>
 			</form>

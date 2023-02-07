@@ -106,7 +106,8 @@ $(document).ready(function(){
 	      	<br><h4 style="margin-left:460px;">Gain | RAFFLE_${myRaf.rafId }</h4><br><br>
 	      	<div class="endDate">
 	      		<br>
-	      		<h3 style="margin-left:50px; color:lightgray;">${myRaf.choDate } 당첨자 발표 예정</h3>
+	      		<h3 style="margin-left:50px; color:lightgray;">
+	      		<fmt:formatDate value="${myRaf.choDate }"/> 당첨자 발표 예정</h3>
 	      	</div>
 	      	</c:forEach>
         </div>
