@@ -2,13 +2,10 @@
     pageEncoding="UTF-8"
     import="java.util.*" 
 %>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="path" value="${pageContext.request.contextPath }"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="left.jsp" %>  
 <%@ include file="modal.jsp"%>  
-
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -111,12 +108,12 @@ $(document).ready(function(){
 				<!--  <c:forEach var="board" items="{$list}">-->
 				<form>
 					<div id="sform01">
-					    <c:forEach var="m01" items="{$mlist}">
+				
 						<input type="text" name="address"
-							placeholder="경기 성남시 분당구 백현동 565-6 그레이스빌" style="width: 55%" value="${m01.address}"><br>
-						<input type="text" name="name" style="width: 10%" value="${m01.name }"> 
-							<input type="text" name="phonenum" value="${m01.phonenum }">
-						</c:forEach>	
+							placeholder="경기 성남시 분당구 백현동 565-6 그레이스빌" style="width: 55%" ><br>
+						<input type="text" name="name" style="width: 10%" > 
+							<input type="text" name="phonenum" >
+						
 							<br><br> 배송메시지<br>
 						<textarea placeholder="내용을 입력해주세요" style="width: 55%"></textarea>
 						<br> <br>

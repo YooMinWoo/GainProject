@@ -14,6 +14,9 @@ WHERE id='himan';
 
 SELECT * FROM products;
 
+  SELECT id, address, phonenum 
+  FROM GAINMEMBER
+  WHERE id like '%'||'' ||'%';
 
 /*
 

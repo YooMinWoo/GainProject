@@ -45,7 +45,10 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
-		
+		var all = "${all}"
+	    if(all != ""){
+	    	$("#all").hide();
+	    }
 	})
 	
 	function Detail(categoryNum, detailNum) {
@@ -77,7 +80,7 @@
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="#">전체 상품</a></li>
+                <li><a href="${path}/getProdList.do">전체 상품</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C1">의류</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C3">가방</a></li>
@@ -96,12 +99,12 @@
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-        	<h2 class="choice_category">${category.categoryName}</h2>
+        	<h2 class="choice_category">${category.categoryName}${all}</h2>
         	<div class="content">
 				<div class="left_content">
-					<h3>${category.categoryName}</h3>
+					<h3>${category.categoryName}${all}</h3>
 					<ul class="category_subsection">
-						<li>
+						<li id="all">
 							<a href="${path}/getProdList.do?categoryNum=${category.categoryNum}&detailNum=""">전체 보기</a>
 						</li>
 						<c:forEach var="detail" items="${detail}">
@@ -119,12 +122,12 @@
 							<c:forEach var="prod" items="${plist}">
 							<li>
 								<div class="thumb">
-									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
+									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
 										<img src="/Gain/heejun/${prod.prodImg}">
 									</a>
 								</div>
 								<div class="product_info">
-									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
+									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
 										<dl>
 											<dt>${prod.brandNum}</dt>
 											<dd>

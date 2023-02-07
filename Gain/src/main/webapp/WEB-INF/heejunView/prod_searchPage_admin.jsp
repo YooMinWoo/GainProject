@@ -49,13 +49,7 @@
 		
 	})
 	
-	function Detail(categoryNum, detailNum) {
-		location.href="${path}/getProdListAdmin.do?categoryNum="+categoryNum+"&detailNum="+detailNum;
-	}
-	
-	function goDetailPage(prodNum, categoryNum) {
-		location.href="${path}/prodDetail.do?prodNum="+prodNum+"&categoryNum="+categoryNum;
-	}
+
 </script>
 </head>
 
@@ -77,7 +71,7 @@
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="#">전체 상품</a></li>
+                <li><a href="${path}/getProdListAdmin.do">전체 상품</a></li>
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C1">의류</a></li>
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C3">가방</a></li>
@@ -96,13 +90,13 @@
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-        	<h2 class="choice_category">${category.categoryName}</h2>
+        	<h2 class="choice_category">${category.categoryName}${all}</h2>
         	<div class="content">
 				<div class="left_content">
-					<h3>${category.categoryName}</h3>
+					<h3>${category.categoryName}${all}</h3>
 					<ul class="category_subsection">
-						<li>
-							<a href="${path}/getProdList.do?categoryNum=${category.categoryNum}&detailNum=""">전체 보기</a>
+						<li id="all">
+							<a href="${path}/getProdList.do?categoryNum=${category.categoryNum}&detailNum=''">전체 보기</a>
 						</li>
 						<c:forEach var="detail" items="${detail}">
 						<li>
@@ -195,7 +189,7 @@
 	    $(".insBtn").click(function(){
 			  Swal.fire({
 				  title: '상품등록 페이지로\n 이동하시겠습니까?',
-				  icon: 'warning',
+				  icon: 'question',
 				  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
 				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
 				  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
@@ -208,14 +202,61 @@
 				  }
 				})	    	
 	  	})			
-
+		var all = "${all}"
+	    if(all != ""){
+	    	$("#all").hide();
+	    }
 		
+	    var insMsg = "${insMsg}"
+	    if(insMsg != ""){
+			  Swal.fire({
+				  title: '상품등록 성공!',
+				  icon: 'success',
+				  showCancelButton: false, // cancel버튼 보이기. 기본은 원래 없음
+				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+				  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+				}).then((result) => {
+				  if (result.value) {
+					//"확인" 버튼을 눌렀을 때 작업할 내용
+				  }
+				})	
+	    }
+	    
+	    var udtMsg = "${udtMsg}"
+	    if(udtMsg != ""){
+			  Swal.fire({
+				  title: '상품수정 성공!',
+				  icon: 'success',
+				  showCancelButton: false, // cancel버튼 보이기. 기본은 원래 없음
+				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+				  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+				}).then((result) => {
+				  if (result.value) {
+					//"확인" 버튼을 눌렀을 때 작업할 내용
+				  }
+				})	
+	    }
+	    
+	    var delMsg = "${delMsg}"
+	    if(insMsg != ""){
+			  Swal.fire({
+				  title: '상품삭제 성공!',
+				  icon: 'success',
+				  showCancelButton: false, // cancel버튼 보이기. 기본은 원래 없음
+				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+				  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+				}).then((result) => {
+				  if (result.value) {
+					//"확인" 버튼을 눌렀을 때 작업할 내용
+				  }
+				})	
+	    }
 		
 	});
 	function goUdtPage(prodNum){
 		  Swal.fire({
 			  title: '상품수정 페이지로\n 이동하시겠습니까?',
-			  icon: 'warning',
+			  icon: 'question',
 			  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
 			  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
 			  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
@@ -244,6 +285,13 @@
 				location.href="${path}/deleteProd.do?prodNum="+prodNum
 			  }
 			})	
+	}
+	function Detail(categoryNum, detailNum) {
+		location.href="${path}/getProdListAdmin.do?categoryNum="+categoryNum+"&detailNum="+detailNum;
+	}
+	
+	function goDetailPage(prodNum, categoryNum) {
+		location.href="${path}/prodDetail.do?prodNum="+prodNum+"&categoryNum="+categoryNum;
 	}
 
 </script>

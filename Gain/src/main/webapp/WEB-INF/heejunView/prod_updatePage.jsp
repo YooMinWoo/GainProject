@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -63,11 +64,11 @@
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="#">전체 상품</a></li>
-                <li><a href="#">의류</a></li>
-                <li><a href="#">슈즈</a></li>
-                <li><a href="#">가방</a></li>
-                <li><a href="#">액세서리</a></li>
+                <li><a href="${path}/getProdListAdmin.do">전체 상품</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C1">의류</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C2">슈즈</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C3">가방</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C4">액세서리</a></li>
                 <li><a href="#">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
@@ -78,7 +79,8 @@
         <div class="main_wrapper">
         	<h2 class="insert_product">상 품 수 정</h2>
         	<div class="content">
-        	<form action="">
+        	<form enctype="multipart/form-data" method="post">
+        		<input type="hidden" name="prodNum" value="${prod.prodNum}">
 				<div class="first_line">
 					<h3 class="product_pname">상품명</h3>
 					<h3 class="product_price">판매가</h3>
@@ -99,17 +101,19 @@
 						<option value="${brand.brandNum}">${brand.brandName}</option>
 						</c:forEach>
 					</select>
+					<input type="hidden" value="${prod.brandNum}" name="brandHidden">
 					<select name="categoryNum">
 						<c:forEach var="cg" items="${categoryCom}">
 						<option value="${cg.categoryNum}">${cg.categoryName}</option>
 						</c:forEach>
 					</select>
+					<input type="hidden" value="${prod.categoryNum}" name="categoryHidden">
 					<select name="detailNum">
-						<option disabled="disabled" selected>세부항목 선택</option>
 						<c:forEach var="detail" items="${detailCom}">
 						<option value="${detail.detailNum}">${detail.detailName}</option>
 						</c:forEach>
-					</select>				
+					</select>	
+					<input type="hidden" value="${prod.detailNum}" name="detailHidden">			
 				</div>
 				<div class="fifth_line">
 					<h3 class="product_img">상품 이미지</h3>
@@ -119,26 +123,21 @@
 					<div class="block">
 						<div class="img_block">
 							<div class="upload-display">
-								<div class="upload-thumb-wrap"><img src="product.jpg" class="upload-thumb">
+								<div class="upload-thumb-wrap"><img src="/Gain/heejun/${prod.prodImg}" class="upload-thumb">
 								</div>
 							</div>
-							<input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
+							<input class="upload-name" value="${prod.prodImg}" disabled="disabled" style="width: 200px;">
 							
 			              	<label for="input_file">수 정</label> 
-             				<input type="file" id="input_file" class="upload-hidden"> 
+             				<input type="file" name="multipartfile" id="input_file" class="upload-hidden" value="${prod.prodImg}"> 
 						</div>
 					</div>
-					<textarea name="content" rows="15" cols="70" placeholder="내용을 입력해주세요">
-* 브랜드 또는 현지 사정에 의해 외관 일부, 원부자재 등 상품 디테일에 차이가 있을 수 있습니다.
-* 제조 시기에 따라 제조국에 차이가 있을 수 있습니다.
-* 실측 수치는 참고용이며 측정 방식에 따라 1~25cm 오차가 있을 수 있습니다.
-* 신발 및 가죽 상품의 경우 가죽 공정 특성상 표면에 자연스러운 주름 및 스크래치 등 사소한 개체차이가 있을 수 있습니다. 
-					</textarea>
+					<textarea name="prodInfo" rows="15" cols="70" placeholder="내용을 입력해주세요">${prod.prodInfo}</textarea>
 				</div>
 				<div class="submit_line">
 					<button type="button" class="udtBtn">수 정</button>
-				</div>	
-			</form>										
+				</div>
+			</form>
 			</div>
         </div>
     <!-- 여기까지만 작업 -->
@@ -180,6 +179,20 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
+		$("[name=brandNum] option").each(function(idx, opt){
+			if($(this).val() == $("[name=brandHidden]").val()){
+				$(this).attr("selected", "selected");
+			}
+		})
+		$("[name=categoryNum] option").each(function(idx, opt){
+			if($(this).val() == $("[name=categoryHidden]").val()){
+				$(this).attr("selected", "selected");
+			}
+		})
+		$("[name=detailNum] option").each(function(idx, opt){
+			if($(this).val() == $("[name=detailHidden]").val()){
+				$(this).attr("selected", "selected");
+				
 	    $(".udtBtn").click(function(){
 			  Swal.fire({
 				  title: '수정하시겠습니까?',
@@ -192,9 +205,95 @@ $(document).ready(function(){
 				}).then((result) => {
 				  if (result.value) {
 					//"확인" 버튼을 눌렀을 때 작업할 내용
+					  if($("[name=prodName]").val() == ""){
+						  Swal.fire({
+							  title: '상품명을 입력해주세요.',
+							  icon: 'warning',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.value) {
+								  $("[name=prodName]").focus()
+							      return;
+							  }
+						  })
+					  }
+					  else if($("[name=prodPrice]").val() == ""){
+						  Swal.fire({
+							  title: '판매가를 입력해주세요.',
+							  icon: 'warning',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.value) {
+								  $("[name=prodPrice]").focus()
+							      return;
+							  }
+						  })
+					  }
+					  else if($("[name=brandNum]").val() == ""){
+						  Swal.fire({
+							  title: '브랜드를 선택해주세요.',
+							  icon: 'warning',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.value) {
+							      return;
+							  }
+						  })
+					  }
+					  else if($("[name=categoryNum]").val() == ""){
+						  Swal.fire({
+							  title: '카테고리를 선택해주세요.',
+							  icon: 'warning',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.value) {
+							      return;
+							  }
+						  })
+					  }
+					  else if($("[name=detailNum]").val() == ""){
+						  Swal.fire({
+							  title: '세부항목을 선택해주세요.',
+							  icon: 'warning',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.value) {
+							      return;
+							  }
+						  })
+					  }
+					  else if($("[name=prodInfo]").val() == ""){
+						  Swal.fire({
+							  title: '상품 상세설명을 입력해주세요.',
+							  icon: 'warning',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.value) {
+								  $("[name=prodInfo]").focus()
+							      return;
+							  }
+						  })
+					  }else{
+						  $("form").submit();
+					  }
 				  }
 				})	    	
 	  	})
+			}
+		})
+
 	
 	
 	   var fileTarget = $('.img_block .upload-hidden');

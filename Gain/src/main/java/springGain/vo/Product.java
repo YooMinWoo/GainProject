@@ -2,6 +2,8 @@ package springGain.vo;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Product {
 	private String prodNum;
 	private String prodName;
@@ -12,6 +14,7 @@ public class Product {
 	private String brandNum;
 	private String categoryNum;
 	private String detailNum;
+	private MultipartFile multipartfile;
 	
 	public String getDetailNum() {
 		return detailNum;
@@ -67,5 +70,12 @@ public class Product {
 	public void setProdDate(Date prodDate) {
 		this.prodDate = prodDate;
 	}
+	public MultipartFile getMultipartfile() {
+		return multipartfile;
+	}
+	public void setMultipartfile(MultipartFile multipartfile) {
+		this.multipartfile = multipartfile;
+	}
+	
 
 }

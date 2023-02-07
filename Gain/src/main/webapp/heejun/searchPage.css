@@ -75,6 +75,9 @@ a{
 .category_subsection li{
 	margin-bottom: 15px;
 }
+.category_subsection li a:hover{
+	color: #ed3124;
+}
 
 
 .right_content{

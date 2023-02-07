@@ -1,9 +1,13 @@
 package springGain.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import springGain.dao.ProductDao;
 import springGain.vo.Brand;
@@ -16,6 +20,10 @@ import springGain.vo.Product;
 public class ProductService {
 	@Autowired(required = false)
 	private ProductDao dao;
+	
+	// 업로드할 경로 지정
+	@Value("${img.upload}")
+	private String upload;
 	
 	// 상품 검색 service
 	public List<Product> getProduct(Product sch){
@@ -31,14 +39,55 @@ public class ProductService {
 		return dao.productDetail(prodNum);
 	}
 	
-	// 상품 등록 service
-	public void insertProd(Product ins) {
+
+	// 상품 등록시 이미지 파일 업로드
+	public String uploadFile(MultipartFile multipartfile) {
+		String fname = multipartfile.getOriginalFilename();
+		if(fname != null && !fname.equals("")) {
+			File fObj = new File(upload+fname);
+			
+			try {
+				multipartfile.transferTo(fObj);
+				
+			} catch (IllegalStateException e) {
+				System.out.println("파일업로드 예외1:"+e.getMessage());
+				
+			} catch (IOException e) {
+				System.out.println("파일업로드 예외2:"+e.getMessage());
+			} 
+		}
+		return fname;
+	}
+	// 상품 등록
+	public String insertProd(Product ins) {
+		String prodImg = uploadFile(ins.getMultipartfile());
+		
+		ins.setProdImg(prodImg);
+		
 		dao.insertProd(ins);
+		
+		return prodImg;
+	}
+	
+	//  상품 수정
+	public String updateProd(Product udt) {
+		String prodImg = uploadFile(udt.getMultipartfile());
+		
+		udt.setProdImg(prodImg);
+		if(udt.getProdImg()==null) udt.setProdImg("");
+		if(udt.getProdInfo()==null) udt.setProdInfo("");
+		
+		
+		dao.updateProd(udt);
+		
+		return udt.getProdNum();
 	}
 	
 	// 상품 삭제
-	public void deleteProd(String prodNum) {
+	public String deleteProd(String prodNum) {
 		dao.deleteProd(prodNum);
+		
+		return prodNum;
 	}
 	
 	// 카테고리 이름 출력
