@@ -12,5 +12,8 @@
 	ORDER BY COUPONNUM
 	</select>
 	
+	<insert id="addCoupon">
+		
+	</insert>
 	
 </mapper>
