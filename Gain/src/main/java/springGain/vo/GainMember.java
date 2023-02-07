@@ -7,14 +7,15 @@ public class GainMember {
 	private String nickname;
 	private String pass;
 	private String name;
-	private String phoneNum;
-	private Date birth;
+	private String phonenum;
+	private String birth;
 	private String sex;
-	private int permisSms;
-	private int permisAppPush;
-	private int permisMail;
-	private int permisPhone;
-	private int useInfo;
+	private int permissms;
+	private int permisemail;
+	private int permisapppush;
+	private int permismail;
+	private int permisphone;
+	private String useinfo;
 	private int point;
 	private String address;
 	private String address_detail;
@@ -22,21 +23,22 @@ public class GainMember {
 	public GainMember() {
 		// TODO Auto-generated constructor stub
 	}
-	public GainMember(String id, String nickname, String pass, String name, String phoneNum, Date birth, String sex,
-			int permisSms, int permisAppPush, int permisMail, int permisPhone, int useInfo, int point, String address,
-			String address_detail, String auth) {
+	public GainMember(String id, String nickname, String pass, String name, String phonenum, String birth, String sex,
+			int permissms, int permisemail, int permisapppush, int permismail, int permisphone, String useinfo,
+			int point, String address, String address_detail, String auth) {
 		this.id = id;
 		this.nickname = nickname;
 		this.pass = pass;
 		this.name = name;
-		this.phoneNum = phoneNum;
+		this.phonenum = phonenum;
 		this.birth = birth;
 		this.sex = sex;
-		this.permisSms = permisSms;
-		this.permisAppPush = permisAppPush;
-		this.permisMail = permisMail;
-		this.permisPhone = permisPhone;
-		this.useInfo = useInfo;
+		this.permissms = permissms;
+		this.permisemail = permisemail;
+		this.permisapppush = permisapppush;
+		this.permismail = permismail;
+		this.permisphone = permisphone;
+		this.useinfo = useinfo;
 		this.point = point;
 		this.address = address;
 		this.address_detail = address_detail;
@@ -66,16 +68,16 @@ public class GainMember {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPhoneNum() {
-		return phoneNum;
+	public String getPhonenum() {
+		return phonenum;
 	}
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
+	public void setPhonenum(String phonenum) {
+		this.phonenum = phonenum;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public String getSex() {
@@ -84,35 +86,41 @@ public class GainMember {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public int getPermisSms() {
-		return permisSms;
+	public int getPermissms() {
+		return permissms;
 	}
-	public void setPermisSms(int permisSms) {
-		this.permisSms = permisSms;
+	public void setPermissms(int permissms) {
+		this.permissms = permissms;
 	}
-	public int getPermisAppPush() {
-		return permisAppPush;
+	public int getPermisemail() {
+		return permisemail;
 	}
-	public void setPermisAppPush(int permisAppPush) {
-		this.permisAppPush = permisAppPush;
+	public void setPermisemail(int permisemail) {
+		this.permisemail = permisemail;
 	}
-	public int getPermisMail() {
-		return permisMail;
+	public int getPermisapppush() {
+		return permisapppush;
 	}
-	public void setPermisMail(int permisMail) {
-		this.permisMail = permisMail;
+	public void setPermisapppush(int permisapppush) {
+		this.permisapppush = permisapppush;
 	}
-	public int getPermisPhone() {
-		return permisPhone;
+	public int getPermismail() {
+		return permismail;
 	}
-	public void setPermisPhone(int permisPhone) {
-		this.permisPhone = permisPhone;
+	public void setPermismail(int permismail) {
+		this.permismail = permismail;
 	}
-	public int getUseInfo() {
-		return useInfo;
+	public int getPermisphone() {
+		return permisphone;
 	}
-	public void setUseInfo(int useInfo) {
-		this.useInfo = useInfo;
+	public void setPermisphone(int permisphone) {
+		this.permisphone = permisphone;
+	}
+	public String getUseinfo() {
+		return useinfo;
+	}
+	public void setUseinfo(String useinfo) {
+		this.useinfo = useinfo;
 	}
 	public int getPoint() {
 		return point;
@@ -138,6 +146,5 @@ public class GainMember {
 	public void setAuth(String auth) {
 		this.auth = auth;
 	}
-	
 	
 }

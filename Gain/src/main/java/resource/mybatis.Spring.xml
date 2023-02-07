@@ -16,6 +16,7 @@
 		<typeAlias alias="gmember" type="springGain.vo.GainMember"/>
 		<typeAlias alias="coupon" type="springGain.vo.Coupon"/>
 
+
 		
 	</typeAliases>
 	<!-- 2. 사용 XXXMapper.xml을 추가 -->
@@ -29,6 +30,7 @@
 		<mapper resource="resource/ymw_mapper/Mapper.xml"/>
 		
 		<mapper resource="resource/dasom/CouponMapper.xml"/>
+		<mapper resource="resource/dongeun/BuyMapper.xml"/>
 
 	</mappers>
 </configuration>

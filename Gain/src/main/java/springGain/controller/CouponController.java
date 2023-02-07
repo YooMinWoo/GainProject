@@ -20,4 +20,12 @@ public class CouponController {
 		d.addAttribute("couponList", service.getCouponList(sch));
 		return "WEB-INF\\dasomView\\couponListAdmin.jsp";
 	}
+	
+	
+	// http://localhost:7080/Gain/addCoupon.do
+	@RequestMapping("/addCoupon.do")
+	public String addCoupon(Coupon cp, Model d) {
+		service.addCoupon(cp);
+		return "WEB-INF\\dasomView\\addCoupon.jsp";
+	}
 }

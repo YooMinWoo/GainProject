@@ -77,13 +77,13 @@
        <bean id="btnViewResolver"
        	class="org.springframework.web.servlet.view.BeanNameViewResolver">
        	<property name="order" value="0"/>
-       </bean>
+	</bean>
        <!-- 
        2. 위에 선언된 viewer 이외는 모두 html/jsp 뷰
         -->
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
        	<property name="order" value="1"/>
-       </bean>
+        </bean>
        <!-- 위에서 1순위 채택하는 json viewer -->
        <bean id="pageJsonReport"
        	class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">

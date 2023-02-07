@@ -24,48 +24,9 @@
             font-weight: 500;
             font-size: 32px;
             line-height: 38px;
-            padding: 20px 0 70px 0;
-        }
-        
-        th{
-		    text-align: center;
-		    height: 50px;
-		    background: #ddd;
-        }
-        
-        td{
-       	    text-align: center;
-		    height: 40px;
-		    border-bottom: 1px solid #ddd;
-        }
-        
-        .couponForm{
-        	display: flex;
-        	gap: 15px;
-		    justify-content: right;
-        }
-        
-        input[name=couponName]{
-        	width: 250px;
-		    height: 30px;
-		    padding: 0 10px;
-		    display: block;
-        }
-        
-        .couponBtn{
-			height: 30px;
-		    display: block;
-		    width: 50px;
-		    border: none;
-		    background: #ccc;
-		    border-radius: 4px;
-		    cursor: pointer;
+            padding: 70px 0;
         }
 
-		.couponTab{
-			padding: 20px;
-		}
-		
 </style>
 </head>
 
@@ -100,33 +61,16 @@
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-            <h2 class="main_title">쿠폰 조회하기</h2>
-            <form class="couponForm">
-            	<input type="text" placeholder="쿠폰명을 입력하세요." name="couponName" value="${sch.couponName}">
-            	<button class="couponBtn" type="submit">검색</button>
-            </form>
-			<table class="couponTab" width="100%">
-				<col width="20%">
-				<col width="40%">
-				<col width="20%">
-				<col width="20%">
-				<thead>
-					<tr>
-						<th>쿠폰번호</th><th>쿠폰명</th><th>할인율</th><th>유효기간</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="coupon" items="${couponList}">
-						<tr>
-							<td>${coupon.couponNum}</td>
-							<td>${coupon.couponName}</td>
-							<td>${coupon.couponPercent}%</td>
-							<td>${coupon.couponEndDate}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-				
+            <h2 class="main_title">쿠폰 생성하기</h2>
+			<form>
+				<h3>쿠폰 이름</h3>
+				<input type="text" name="couponName">
+				<h3>할인율</h3>
+				<input type="text" name="couponPercent" placeholder="숫자만 입력하세요">%
+				<h3>쿠폰 만료일</h3>
+				<input type="date" name="couponEndDate">
+				<button type="button" class="go_add_coupon" >생성하기</button>
+			</form>
         </div>
     <!-- 여기까지만 작업 -->
     </section>
@@ -167,6 +111,23 @@
 </body>
 <script type="text/javascript">
 
+	$(".go_add_coupon").click(function() {
+		insertCoupon();
+	})
 
+	function insertCoupon() {
+		$.ajax({
+			url : "${path}/addCoupon.do",
+			type : "post",
+			data : $("form").serialize(),
+			dataType : "json",
+			success : function(data){
+				alert("등록이 완료되었습니다.");
+			},
+			error : function(err){
+				alert("에러");
+			}
+		})	
+	}
 </script>
 </html>

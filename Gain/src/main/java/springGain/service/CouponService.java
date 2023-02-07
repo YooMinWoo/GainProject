@@ -17,4 +17,7 @@ public class CouponService {
 		return dao.getCouponList(sch);
 	}
 	
+	public void addCoupon(Coupon cp) {
+		dao.addCoupon(cp);
+	}
 }
