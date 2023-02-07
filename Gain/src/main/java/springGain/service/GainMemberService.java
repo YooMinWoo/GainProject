@@ -20,4 +20,10 @@ public class GainMemberService {
    		dao.insMem(gm);
    	};
    	
+   	public GainMember login(GainMember gm) {
+   		if(gm.getId()==null) gm.setId("");
+   		if(gm.getPass()==null) gm.setPass("");
+   		return dao.login(gm);
+   	}
+   	
 }

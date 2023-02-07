@@ -1,9 +1,12 @@
 package springGain.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import springGain.service.GainMemberService;
@@ -28,5 +31,21 @@ public class GainMemberController {
    public String insMember(GainMember gm, Model d) {
 	  service.insMem(gm);
       return "ymw/login.jsp";
+   }
+   // http://localhost:6070/Gain/login.do
+   @RequestMapping("/login.do")
+   public String login(GainMember gm, Model d, HttpSession session) {
+	  if(gm.getId()==null) {
+		  d.addAttribute("logCh", "");
+		  return "ymw/login.jsp";
+	  }
+	  else if(service.login(gm)==null) {
+		  d.addAttribute("logCh", "X");
+		  return "ymw/login.jsp";
+	  }
+	  else{
+		  session.setAttribute("login", service.login(gm));
+		  return "ymw/session.jsp";
+	  }
    }
 }

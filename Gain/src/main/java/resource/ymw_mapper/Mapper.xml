@@ -20,4 +20,7 @@
 			#{address},0
 		)
 	</insert>
+	<select id="login" parameterType="gmember" resultType="gmember">
+		select * from GainMember where id=#{id} and pass=#{pass}
+	</select>
 </mapper>
