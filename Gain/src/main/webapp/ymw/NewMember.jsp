@@ -155,6 +155,7 @@ window.onload = function(){
 		    font-size: medium;
 		    font-weight: 900;	
 		    cursor: pointer;
+		    margin: 0px auto;
 		}
 		.btnCss{
     		background: black;
@@ -169,6 +170,9 @@ window.onload = function(){
 		    font-weight: 900;
 		    cursor: pointer;
 		    color:white;
+		}
+		#frm01{
+			margin:0px auto;
 		}
 	</style>
 	<script type="text/javascript">
@@ -235,7 +239,6 @@ window.onload = function(){
 				var n_RegExp = /^[가-힣]{2,15}$/;
 				var phoneReg = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
 				var birth = /^(19\d{2}|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
-				/*
 		        if(!idCheck) {
 		            alert("아이디 중복확인을 해주세요.");
 		            $("input[name=id]").focus()
@@ -246,28 +249,28 @@ window.onload = function(){
 		            $("input[name=nickname]").focus()
 		            return;
 		        }
-		        if( !pwReg.test( $("input[name=gainPassword]").val() ) ) {
+		        if( !pwReg.test( $("input[name=pass]").val() ) ) {
 		            alert("비밀번호는 영문숫자 조합 10~20자");
 		            $("input[name=gainPassword]").focus()
 		            return;
 		        }
-		        if(!n_RegExp.test($("input[name=gainName]").val() ) ) {
+		        if(!n_RegExp.test($("input[name=name]").val() ) ) {
 		            alert("이름에는 특수문자,영어,숫자는 사용할수 없습니다. 한글만 입력하여주세요.");
 		            $("input[name=gainName]").focus()
 		            return;
 		        }
-		        if(!phoneReg.test($("input[name=gainPhoneNumber]").val() ) ) {
+		        if(!phoneReg.test($("input[name=phonenum]").val() ) ) {
 		            alert("휴대폰 번호를 확인해주세요(숫자만 입력)");
-		            $("input[name=gainPhoneNumber]").focus()
+		            $("input[name=phonenum]").focus()
 		            return;
 		        }
-		        if(!birth.test($("input[name=gainBirthday]").val() ) ) {
+		        if(!birth.test($("input[name=birth]").val() ) ) {
 		            alert("생년월일을 확인해주세요(숫자만 입력)");
-		            $("input[name=gainBirthday]").focus()
+		            $("input[name=birth]").focus()
 		            return;
 		        }
 		        
-		        if($('input[name=gainGender]:checked').val()==null){
+		        if($('input[name=sex]:checked').val()==null){
 		        	alert("성별을 선택해주세요.")
 		        	return;
 		        }
@@ -282,11 +285,10 @@ window.onload = function(){
 		            return;
 		        }
 		        
-		        if(!$("[name=useInfo]").is(":checked")){
+		        if(!$("[name=useinfo]").is(":checked")){
 		        	alert("필수 약관을 체크해주세요.")
 		        	return;
 		        }
-		        */
 		        // console.log(!$("[name=useInfo]").is(":checked"))
 		        /*
 		        	유효성 끝냈고, 체크박스 값들은 js로 true면 1, false면 0 처리 해서 파라미터로 넘기고,
@@ -301,6 +303,9 @@ window.onload = function(){
 					-----------
 					
 		        */
+		        alert("회원가입이 완료되었습니다.")
+				$("#frm01").attr("action","/Gain/insMember.do");
+				$("#frm01").submit();
 			})
 			
 		})
@@ -308,6 +313,7 @@ window.onload = function(){
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
 			<div class="join_outline">
+				<form id="frm01">
 				<div class="Box">
 					<div><span>*</span><span>아이디</span></div>
 					<label>
@@ -356,7 +362,7 @@ window.onload = function(){
 					<div><span>*</span><span>휴대폰</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox4 inputBox" type="text" name="phoneNum" placeholder="'-' 생략">
+							<input class="inputBox4 inputBox" type="text" name="phonenum" placeholder="'-' 생략">
 						</div>
 					</label>
 				</div>
@@ -397,7 +403,7 @@ window.onload = function(){
 				</div>
 				<div class="checkBox">
 					<div><label class="checks">
-						<input type="checkbox" name="useInfo">
+						<input type="checkbox" name="useinfo" value="1">
 						<span>이용약관 및 개인정보처리방침에 동의(필수)</span>
 					</label></div>
 					<div><label class="checks">
@@ -407,23 +413,23 @@ window.onload = function(){
 					<hr>
 					<div class="checks2">
 						<label class="checks">
-							<input type="checkbox" name="permisSms" class="chk" >
+							<input type="checkbox" value="1" name="permissms" class="chk" >
 							<span>문자</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="permisEmail" class="chk" >
+							<input type="checkbox" value="1" name="permisemail" class="chk" >
 							<span>이메일</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="permisAppPush" class="chk" >
+							<input type="checkbox" value="1" name="permisapppush" class="chk" >
 							<span>APP 푸시</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="permisMail" class="chk" >
+							<input type="checkbox" value="1" name="permismail" class="chk" >
 							<span>우편발송</span>
 						</label>
 						<label class="checks">
-							<input type="checkbox" name="permisPhone" class="chk" >
+							<input type="checkbox" value="1" name="permisphone" class="chk" >
 							<span>전화안내</span>
 						</label>
 					</div>
@@ -431,6 +437,7 @@ window.onload = function(){
 				<div class="doneBtnDiv">
 					<button type="button" class="doneBtn">회원가입</button>
 				</div>
+				</form>
 			</div>
         </div>
     <!-- 여기까지만 작업 -->

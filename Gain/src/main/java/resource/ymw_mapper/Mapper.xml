@@ -10,4 +10,14 @@
 	<select id="getMemList" parameterType="gmember" resultType="gmember">
 		select id from GainMember where id=#{id}
 	</select>
+	<insert id="insMem" parameterType="gmember">
+		INSERT INTO GAINMEMBER values(
+			#{id},#{nickname},#{pass},
+			#{name},#{phonenum},
+			to_date(#{birth},'YYYYMMDD'),
+			#{sex},#{permissms},#{permisemail},#{permisapppush},#{permismail},
+			#{permisphone},#{useinfo},1000,
+			#{address},0
+		)
+	</insert>
 </mapper>

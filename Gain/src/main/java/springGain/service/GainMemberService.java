@@ -15,4 +15,9 @@ public class GainMemberService {
    	public GainMember getMemList(GainMember gm){
    		return dao.getMemList(gm);
    	};
+   	public void insMem(GainMember gm){
+   		gm.setAddress(gm.getAddress()+" "+gm.getAddress_detail());
+   		dao.insMem(gm);
+   	};
+   	
 }
