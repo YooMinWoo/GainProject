@@ -19,6 +19,9 @@ public interface ProductDao {
 	// 상품 등록 Dao
 	public void insertProd(Product ins);
 	
+	// 상품 수정 Dao
+	public void updateProd(Product udt);
+	
 	// 상품 삭제 Dao
 	public void deleteProd(String prodNum);
 	
