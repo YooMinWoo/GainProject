@@ -113,8 +113,8 @@ CREATE TABLE gainMember
 -- 보유 쿠폰
 CREATE TABLE haveCoupon
 (
-	-- 주문번호
-	orderNum varchar2(100) NOT NULL,
+	-- 아이디
+	id varchar2(100) NOT NULL,
 	-- 쿠폰번호
 	couponNum varchar2(100) NOT NULL,
 	-- 사용 상태
