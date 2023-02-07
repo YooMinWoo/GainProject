@@ -9,14 +9,13 @@ import springGain.dao.BuyMemberDao;
 import springGain.vo.GainMember;
 
 @Service
-public class buyService {
+public class BuyService {
 
 	@Autowired(required = false)
 	private BuyMemberDao dao;
-	public List<GainMember> getCouponList(GainMember id){
-		if(sch.getId()==null) sch.setId("");
-		if(sch.getAddress()==null) sch.setAddress("");
-		if(sch.getPhonenum()==null) sch.setPhonenum("");
+	
+	public GainMember getGainMemberList(String id) {
 		return dao.getGainMemberList(id);
 	}
+	
 }
