@@ -13,7 +13,12 @@
 	</select>
 	
 	<insert id="addCoupon">
-		
+		INSERT INTO COUPON VALUES (
+		'CP'|| coupon_seq.NEXTVAL,
+		#{couponName},
+		#{couponPercent},
+		to_date(#{couponEndDate},'YYYY-MM-DD')
+		)
 	</insert>
 	
 </mapper>

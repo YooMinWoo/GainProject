@@ -14,7 +14,7 @@ public class CouponController {
 	@Autowired(required = false)
 	private CouponService service;
 	
-	// http://localhost:7080/Gain/couponAdmin.do
+	// http://49.238.170.26:7080/Gain/couponAdmin.do
 	@RequestMapping("/couponAdmin.do")
 	public String getCouponList(@ModelAttribute("sch") Coupon sch, Model d) {
 		d.addAttribute("couponList", service.getCouponList(sch));
