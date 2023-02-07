@@ -238,7 +238,7 @@
 	    }
 	    
 	    var delMsg = "${delMsg}"
-	    if(insMsg != ""){
+	    if(delMsg != ""){
 			  Swal.fire({
 				  title: '상품삭제 성공!',
 				  icon: 'success',
