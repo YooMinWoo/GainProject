@@ -64,12 +64,12 @@
             <h2 class="main_title">쿠폰 생성하기</h2>
 			<form>
 				<h3>쿠폰 이름</h3>
-				<input type="text">
+				<input type="text" name="couponName">
 				<h3>할인율</h3>
-				<input type="text">%
+				<input type="text" name="couponPercent" placeholder="숫자만 입력하세요">%
 				<h3>쿠폰 만료일</h3>
-				<input type="date">
-				<button type="submit">생성하기</button>
+				<input type="date" name="couponEndDate">
+				<button type="button" class="go_add_coupon" >생성하기</button>
 			</form>
         </div>
     <!-- 여기까지만 작업 -->
@@ -111,6 +111,23 @@
 </body>
 <script type="text/javascript">
 
+	$(".go_add_coupon").click(function() {
+		insertCoupon();
+	})
 
+	function insertCoupon() {
+		$.ajax({
+			url : "${path}/addCoupon.do",
+			type : "post",
+			data : $("form").serialize(),
+			dataType : "json",
+			success : function(data){
+				alert("등록이 완료되었습니다.");
+			},
+			error : function(err){
+				alert("에러");
+			}
+		})	
+	}
 </script>
 </html>

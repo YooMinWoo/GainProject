@@ -22,7 +22,7 @@ public class CouponController {
 	}
 	
 	
-	// http://localhost:7080/Gain/addCoupon.do?couponName=테스트쿠폰&couponPercent=7&2023-05-25
+	// http://localhost:7080/Gain/addCoupon.do
 	@RequestMapping("/addCoupon.do")
 	public String addCoupon(Coupon cp, Model d) {
 		service.addCoupon(cp);
