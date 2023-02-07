@@ -105,7 +105,6 @@ $(document).ready(function(){
 		 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" id="change">
 					  변경
 			    </button>
-				<!--  <c:forEach var="board" items="{$list}">-->
 				<form>
 					<div id="sform01">
 				
