@@ -7,7 +7,7 @@
 	    <select id="getGainMemberList" resultType="gmember" parameterType="string">
 		   SELECT id, address, phonenum 
 			FROM GAINMEMBER
-			WHERE id=#{id}
+			WHERE id =#{id}
 	    </select>	
 	
 <!-- 	<insert id="insertProd" parameterType="product"> -->
