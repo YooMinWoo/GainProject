@@ -126,7 +126,7 @@
 								<div class="upload-thumb-wrap"><img src="/Gain/heejun/${prod.prodImg}" class="upload-thumb">
 								</div>
 							</div>
-							<input class="upload-name" value="${prod.prodImg}" name="prodImg" disabled="disabled" style="width: 200px;">
+							<input class="upload-name" value="${prod.prodImg}" name="prodImg" readonly="readonly" style="width: 200px;">
 							
 			              	<label for="input_file">수 정</label> 
              				<input type="file" name="multipartfile" id="input_file" class="upload-hidden"> 
