@@ -22,6 +22,11 @@ public class GainMemberController {
    public String goMain() {
 	   return "markup/main_index.jsp";
    }
+// http://localhost:2020/Gain/goAdminMain.do
+   @RequestMapping("/goAdminMain.do")
+   public String goAdminMain() {
+	   return "markup/admin_main.jsp";
+   }
    
    // http://localhost:2020/Gain/goNewMember.do
    @RequestMapping("/goNewMember.do")
@@ -54,7 +59,12 @@ public class GainMemberController {
 	  }
 	  else{
 		  session.setAttribute("login", service.login(gm));
-		  return "redirect:/goMain.do";
+		  if(service.login(gm).getAuth().equals("1")) {
+			  return "redirect:/goAdminMain.do";
+		  }else {
+			  return "redirect:/goMain.do";
+		  }
+		  
 	  }
    }
 }

@@ -103,18 +103,22 @@ $(document).ready(function(){
 			return
 		}
 		if(pnameVal!="" && priceVal!=""&& startVal!=""&& endVal!=""&&choiceVal!=""){
-			$("#raffle").submit()
-			
+			$("#raffle").submit();
 		}
-		var msg = "${msg}"
+<<<<<<< HEAD
+
+
+	})
+=======
+	})
+	ㄴ
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
+	var msg = "${msg}"
 		if(msg != ""){
 			if(confirm(msg+"래플내역으로 이동하시겠습니까?")){
 				location.href="${path}/raffle.do"
 			}
 		}
-
-		
-	})
 })
 
 </script>

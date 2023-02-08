@@ -29,7 +29,7 @@ public class Raffle_Controller {
 	}
 	@RequestMapping("/rafUpload.do")
 	public String rafUpload(Raffle upload, Model d ) {
-		if(service.regRaffle(upload)!="") {
+		if(service.regRaffle(upload)!=null) {
 			d.addAttribute("msg", "업로드 성공");
 		}
 		

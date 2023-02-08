@@ -110,6 +110,15 @@ public class ProductService {
 		return dao.getOption(categoryNum);
 	}
 	
+	// 브랜드 이름
+	public List<String> getBrandName(Product sch) {
+		if(sch.getBrandNum() == null) sch.setBrandNum("");
+		if(sch.getCategoryNum() == null) sch.setCategoryNum("");
+		if(sch.getDetailNum() == null) sch.setDetailNum("");
+		
+		return dao.getBrandName(sch);
+	}
+	
 	// 브랜드 combo
 	public List<Brand> getBrand(){
 		

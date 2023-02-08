@@ -25,6 +25,9 @@ public interface ProductDao {
 	// 상품 삭제 Dao
 	public void deleteProd(String prodNum);
 	
+	// 브랜드 이름
+	public List<String> getBrandName(Product sch);
+	       
 	// 카테고리 이름
 	public Category getCategoryName(String categoryNum);
 	

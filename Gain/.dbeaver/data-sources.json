@@ -1,7 +1,11 @@
 {
 	"folders": {},
 	"connections": {
+<<<<<<< HEAD
+		"oracle_thin-18630cba3f1-73fafcacf576c1ef": {
+=======
 		"oracle_thin-18630ac3655-490817e7ef146c19": {
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 			"provider": "oracle",
 			"driver": "oracle_thin",
 			"name": "49.238.170.26",
