@@ -22,6 +22,9 @@ public class CouponController {
 		return "WEB-INF\\dasomView\\couponListAdmin.jsp";
 	}
 	
+	//메인
+	// http://localhost:7080/Gain/goMain.do
+	
 	
 	// http://localhost:7080/Gain/addCoupon.do
 	@RequestMapping("/addCoupon.do")
