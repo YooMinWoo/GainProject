@@ -1,5 +1,7 @@
 package springGain.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import springGain.service.Raffle_Service;
+import springGain.vo.GainMember;
 import springGain.vo.RafState;
 import springGain.vo.Raffle;
 
@@ -44,9 +47,9 @@ public class Raffle_Controller {
 	}
 	
 	@GetMapping("/myRaffle.do")
-	public String myRaffle(RafState sch,Model d) {
-	
-		d.addAttribute("myRafList",	service.myRaffle(sch) );
+	public String myRaffle(String id,Model d,HttpSession session) {
+		GainMember mem = (GainMember)session.getAttribute("login");
+		d.addAttribute("myRafList",	service.myRaffle(id) );
 		return "WEB-INF\\suminView\\MyRaffleList.jsp";
 	}
 	
