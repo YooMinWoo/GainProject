@@ -79,6 +79,56 @@
             line-height: 29px;
             color: #fff;
         }
+        
+        .pro_img{
+        	width: 100px;
+        	height: 130px;
+        	margin-left: 20px;
+        }
+        
+        .pro_info{
+        	display: flex;
+        	gap: 30px;
+        }
+        
+        .pro_price{
+        	font-size: 30px;
+		    text-align: center;
+        }
+        
+        .pro_name{
+        	font-size: 20px;
+        	font-weight: 400;
+        }
+        
+        td{
+        	border-bottom: 1px solid #777;
+        	border-right: 1px solid #777;
+        }
+        
+        th{
+        	border-bottom: 1px solid #777;
+        	border-top: 1px solid #777;
+        	border-right: 1px solid #777;
+        	font-weight: 400;
+			font-size: 20px;
+			line-height: 24px;
+			padding: 15px 0;
+        }
+        
+        td:last-child{
+        	border-right: none;
+        }
+        
+        th:last-child{
+        	border-right: none;
+        }
+        
+        table {
+			width: 100%;
+		}
+	
+}
 </style>
 </head>
 
@@ -114,7 +164,32 @@
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
             <h2 class="main_title">나의 장바구니</h2>
-			
+            <table>
+	            <thead>
+	            	<tr>
+	            		<th>체크</th><th>상품정보</th><th>수량</th><th>상품 금액</th>
+	            	</tr>
+	            </thead>
+	            <tbody>
+					<c:forEach var="product" items="${sbList}">
+						<tr>
+							<td>체크</td>
+							<td class="pro_info">
+								<img class="pro_img" alt="${product.prodName } 이미지" src="/Gain/heejun/${product.prodImg }">
+								<h3 class="pro_name">${product.prodName }</h3>							
+							</td>
+							<td>
+								<form>
+									<input type="number" min="1">
+								</form>
+							</td>
+							<td>
+							<h3 class="pro_price">${product.prodPrice }￦</h3>
+							</td>
+						</tr>
+					</c:forEach>
+	            </tbody>
+            </table>
         </div>
     <!-- 여기까지만 작업 -->
     </section>

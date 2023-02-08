@@ -5,7 +5,7 @@
    
 <!-- 어드민 쿠폰 검색 -->
 <mapper namespace="springGain.dao.ShoppingBasketDao">
-	<select id="getSBList" parameterType="string" resultType="product">
+	<select id="getSBList" parameterType="product" resultType="product">
 		SELECT p.*
 		FROM PRODUCTS p, SHPPINGBASKET s 
 		WHERE p.PRODNUM = s.PRODNUM
