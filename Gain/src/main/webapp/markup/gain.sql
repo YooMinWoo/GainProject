@@ -116,8 +116,8 @@ INSERT INTO gainMember values('himan','하이맨','7777','박민혁','010-1234-5
 -- 보유 쿠폰
 CREATE TABLE haveCoupon
 (
-	-- 주문번호
-	orderNum varchar2(100) NOT NULL,
+	-- 아이디
+	id varchar2(100) NOT NULL,
 	-- 쿠폰번호
 	couponNum varchar2(100) NOT NULL,
 	-- 사용 상태
@@ -146,6 +146,10 @@ CREATE TABLE orderDetails
 	orderMsg varchar2(2000),
 	PRIMARY KEY (orderNum)
 );
+
+SELECT * FROM GAINMEMBER;
+
+
 
 
 -- 옵션
@@ -183,6 +187,7 @@ CREATE TABLE products
 	PRIMARY KEY (prodNum)
 );
 
+SELECT * FROM products;
 
 -- QnA
 CREATE TABLE QnA
@@ -471,4 +476,38 @@ COMMENT ON COLUMN shppingBasket.id IS '아이디 : 아이디';
 COMMENT ON COLUMN shppingBasket.prodNum IS '상품번호 : prodNum';
 
 
+
+------------------------ 솜이 sql -------------------------
+SELECT * FROM COUPON;
+SELECT * FROM gainMember;
+-- couponNum 시퀀스
+CREATE SEQUENCE Gain.coupon_seq
+	INCREMENT BY 1
+	START WITH 1000
+	MINVALUE 1000
+	MAXVALUE 9999
+	nocycle
+	nocache;
+
+-- 예시 쿠폰 생성
+INSERT INTO COUPON VALUES (
+	'CP'|| coupon_seq.NEXTVAL,
+	'[02월 생일 기념]5% 할인 쿠폰',
+	5,
+	to_date('2023-02-28','YYYY-MM-DD')
+);
+
+INSERT INTO COUPON VALUES (
+	'CP'|| coupon_seq.NEXTVAL,
+	'[발렌타인데이]10% 할인 쿠폰',
+	10,
+	to_date('2023-02-14','YYYY-MM-DD')
+);
+
+INSERT INTO COUPON VALUES (
+	'CP'|| coupon_seq.NEXTVAL,
+	'[02월 생일 기념]5% 할인 쿠폰',
+	5,
+	to_date('2023-01-31','YYYY-MM-DD')
+);
 

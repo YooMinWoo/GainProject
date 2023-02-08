@@ -45,15 +45,18 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
-		
+		var all = "${all}"
+	    if(all != ""){
+	    	$("#all").hide();
+	    }
 	})
 	
 	function Detail(categoryNum, detailNum) {
 		location.href="${path}/getProdList.do?categoryNum="+categoryNum+"&detailNum="+detailNum;
 	}
 	
-	function goDetailPage(prodNum) {
-		location.href="${path}/prodDetail.do?prodNum="+prodNum
+	function goDetailPage(prodNum, categoryNum) {
+		location.href="${path}/prodDetail.do?prodNum="+prodNum+"&categoryNum="+categoryNum;
 	}
 </script>
 
@@ -77,7 +80,7 @@
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="#">전체 상품</a></li>
+                <li><a href="${path}/getProdList.do">전체 상품</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C1">의류</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C3">가방</a></li>
@@ -96,12 +99,12 @@
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-        	<h2 class="choice_category">${category.categoryName}</h2>
+        	<h2 class="choice_category">${category.categoryName}${all}</h2>
         	<div class="content">
 				<div class="left_content">
-					<h3>${category.categoryName}</h3>
+					<h3>${category.categoryName}${all}</h3>
 					<ul class="category_subsection">
-						<li>
+						<li id="all">
 							<a href="${path}/getProdList.do?categoryNum=${category.categoryNum}&detailNum=""">전체 보기</a>
 						</li>
 						<c:forEach var="detail" items="${detail}">
@@ -119,21 +122,21 @@
 							<c:forEach var="prod" items="${plist}">
 							<li>
 								<div class="thumb">
-									<a onclick="goDetailPage('${prod.prodNum}')">
+									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
 										<img src="/Gain/heejun/${prod.prodImg}">
 									</a>
 								</div>
 								<div class="product_info">
-									<a onclick="goDetailPage('${prod.prodNum}')">
+									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
 										<dl>
 											<dt>${prod.brandNum}</dt>
 											<dd>
 												<p class="product_name">${prod.prodName}</p>
 												<div class="price_info">
 													<div class="price">
-														<span>${prod.prodPrice}</span>원 
+														<span><fmt:formatNumber value="${prod.prodPrice-prod.prodPrice*0.2}"/></span>원 
 													</div>
-													<div class="per"><span>25</span>%</div>
+													<div class="per"><span>20</span>%</div>
 												</div>
 											</dd>
 										</dl>

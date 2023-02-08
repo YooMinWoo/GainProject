@@ -92,7 +92,7 @@
 					<h3 class="product_brand">브랜드</h3>
 					<h3 class="product_category">카테고리</h3>
 					<h3 class="product_subsection">세부항목</h3>
-				</div>		
+				</div>
 				<div class="fourth_line">
 					<select name="brand">
 						<option disabled="disabled" selected>MONCLER</option>

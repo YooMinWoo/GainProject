@@ -1,11 +1,16 @@
 package springGain.vo;
 
+
 public class Coupon {
 	private String couponNum; 
 	private String couponName;
 	private int couponPercent;
-	private String couponDate;
-	
+	private String couponEndDate;
+
+	public Coupon() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getCouponNum() {
 		return couponNum;
 	}
@@ -24,17 +29,19 @@ public class Coupon {
 	public void setCouponPercent(int couponPercent) {
 		this.couponPercent = couponPercent;
 	}
-	public String getCouponDate() {
-		return couponDate;
+	public String getCouponEndDate() {
+		return couponEndDate;
 	}
-	public void setCouponDate(String couponDate) {
-		this.couponDate = couponDate;
+	public void setCouponEndDate(String couponEndDate) {
+		this.couponEndDate = couponEndDate;
 	}
-	public Coupon(String couponNum, String couponName, int couponPercent, String couponDate) {
+	public Coupon(String couponNum, String couponName, int couponPercent, String couponEndDate) {
 		super();
 		this.couponNum = couponNum;
 		this.couponName = couponName;
 		this.couponPercent = couponPercent;
-		this.couponDate = couponDate;
+		this.couponEndDate = couponEndDate;
 	}
+	
+	
 }

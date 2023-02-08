@@ -5,7 +5,7 @@
 
 <mapper namespace="springGain.dao.ProductDao">
 	<select id="getProduct" parameterType="product" resultType="product">
-		SELECT prodNum, prodname, prodprice, prodimg, prodinfo, proddate, (SELECT brandName FROM brand b, products p WHERE b.brandNum=p.brandNum) brandNum
+		SELECT prodNum, prodname, prodprice, prodimg, prodinfo, proddate, (SELECT DISTINCT brandName FROM brand b, products p WHERE b.brandNum=p.brandNum) brandNum, categoryNum
 		FROM products
 		WHERE prodname LIKE '%'||#{prodName}||'%'
 		<if test='categoryNum != null'>
@@ -14,6 +14,7 @@
 		<if test='detailNum != null'>
 		AND detailNum LIKE '%'||#{detailNum}||'%'
 		</if>
+		ORDER BY prodDate DESC
 	</select>
 	
 	<select id="productDetail" resultType="product" parameterType="string">
@@ -22,8 +23,9 @@
 		WHERE prodnum = #{prodNum}
 	</select>
 	
-	<insert id="insertProd" parameterType="product">
 	
+	<insert id="insertProd" parameterType="product">
+		INSERT INTO products VALUES('P'||pro_seq.nextval, #{prodName}, #{prodPrice}, #{prodImg}, #{prodInfo}, sysdate, #{brandNum},#{categoryNum}, #{detailNum})
 	</insert>
 	
 	<select id="getBrand" resultType="brand">
@@ -52,4 +54,28 @@
 		FROM detailInfo
 		WHERE categoryNum = #{categoryNum}
 	</select>
+	
+	
+	<select id="getOption" resultType="option" parameterType="string">
+		SELECT *
+		FROM prodOption
+		WHERE categoryNum = #{categoryNum}
+	</select>
+	
+	<delete id="deleteProd" parameterType="string">
+		DELETE FROM products
+		WHERE prodNum = #{prodNum}
+	</delete>
+	
+	<update id="updateProd" parameterType="product">
+		UPDATE products
+		SET prodName = #{prodName},
+			prodPrice = #{prodPrice},
+			prodImg = #{prodImg},
+			prodInfo = #{prodInfo},
+			brandNum = #{brandNum},
+			categoryNum = #{categoryNum},
+			detailNum = #{detailNum}
+		WHERE prodNum = #{prodNum}
+	</update>
 </mapper>

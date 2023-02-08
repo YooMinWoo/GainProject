@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import springGain.service.ProductService;
 import springGain.vo.Brand;
@@ -36,12 +38,15 @@ public class ProductController {
 		return service.getDetailInfo();
 	}
 	
-	
+	// 사용자 페이지
 	// http://localhost:7080/Gain/getProdList.do
 	@RequestMapping("/getProdList.do")
 	public String getProdList(@ModelAttribute("sch") Product sch, Model d, 
 								@RequestParam(defaultValue="") String categoryNum
 								) {
+		if(categoryNum == "") {
+			d.addAttribute("all", "전체 상품");
+		}
 		d.addAttribute("plist", service.getProduct(sch));
 		d.addAttribute("category", service.getCategoryName(categoryNum));
 		d.addAttribute("detail", service.getDetailName(categoryNum));
@@ -49,19 +54,73 @@ public class ProductController {
 		return "WEB-INF\\heejunView\\prod_searchPage.jsp";
 	}
 	
+	// 관리자 페이지
+	// http://localhost:7080/Gain/getProdListAdmin.do
+	@RequestMapping("/getProdListAdmin.do")
+	public String getProdListAdmin(@ModelAttribute("sch") Product sch, Model d, 
+								@RequestParam(defaultValue="") String categoryNum
+								) {
+		if(categoryNum == "") {
+			d.addAttribute("all", "전체 상품");
+		}
+		d.addAttribute("plist", service.getProduct(sch));
+		d.addAttribute("category", service.getCategoryName(categoryNum));
+		d.addAttribute("detail", service.getDetailName(categoryNum));
+		
+		return "WEB-INF\\heejunView\\prod_searchPage_admin.jsp";
+	}	
+	
 	// 상품 상세페이지
 	@GetMapping("/prodDetail.do")
-	public String prodDetail(@RequestParam String prodNum, Model d) {
+	public String prodDetail(@RequestParam String prodNum, 
+							@RequestParam String categoryNum,
+							Model d) {
 		d.addAttribute("prod", service.productDetail(prodNum));
+		d.addAttribute("option", service.getOption(categoryNum));
 		
 		return "WEB-INF\\heejunView\\prod_detailPage.jsp";
 	}
 	
+	
+	// 상품 등록
 	// http://localhost:7080/Gain/insertProd.do
-	@RequestMapping("/insertProd.do")
-	public String insertProd(Product ins, Model d) {
-		// service.insertProd(ins);
-		
+	@GetMapping("/insertProd.do")
+	public String insertProd() {
 		return "WEB-INF\\heejunView\\prod_insertPage.jsp";
+	}
+	@PostMapping("/insertProd.do")
+	public String insertProd(Product ins, RedirectAttributes redirect) {
+		if(service.insertProd(ins) != null) {
+			redirect.addFlashAttribute("insMsg", "등록 성공");
+		}
+		
+		return "redirect:/getProdListAdmin.do";
+	}
+	
+	// 상품 수정
+	@GetMapping("/updateProd.do")
+	public String updateProd(@RequestParam String prodNum, Model d) {
+		d.addAttribute("prod", service.productDetail(prodNum));
+		
+		return "WEB-INF\\heejunView\\prod_updatePage.jsp";
+	}
+	@PostMapping("/updateProd.do")
+	public String updateProd(Product udt, RedirectAttributes redirect) {
+		if(service.updateProd(udt) != null) {
+			redirect.addFlashAttribute("udtMsg", "수정 성공");
+		}
+		
+		return "redirect:/getProdListAdmin.do";
+	}
+	
+	
+	// 상품 삭제
+	@RequestMapping("/deleteProd.do")
+	public String deleteProd(@RequestParam String prodNum, RedirectAttributes redirect) {
+		if(service.deleteProd(prodNum) != null) {
+			redirect.addFlashAttribute("delMsg", "삭제 성공");
+		}
+		
+		return "redirect:/getProdListAdmin.do";
 	}
 }

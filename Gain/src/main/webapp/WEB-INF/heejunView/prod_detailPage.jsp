@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -63,11 +64,11 @@
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="#">전체 상품</a></li>
-                <li><a href="#">의류</a></li>
-                <li><a href="#">슈즈</a></li>
-                <li><a href="#">가방</a></li>
-                <li><a href="#">액세서리</a></li>
+                <li><a href="${path}/getProdList.do">전체 상품</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C1">의류</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C2">슈즈</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C3">가방</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C4">액세서리</a></li>
                 <li><a href="#">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
@@ -94,11 +95,11 @@
 								</dl>
 								<dl>
 									<dt>회원가</dt>
-									<dd><fmt:formatNumber value="${prod.prodPrice-150000}" />원</dd>
+									<dd><fmt:formatNumber value="${prod.prodPrice-prod.prodPrice*0.2}"/>원</dd>
 								</dl>
 								<dl>
 									<dt>적립금</dt>
-									<dd>최대 7,000원</dd>
+									<dd>최대 <fmt:formatNumber value="${(prod.prodPrice-prod.prodPrice*0.2)*0.02}"/>원</dd>
 								</dl>
 								<dl>
 									<dt>배송비</dt>
@@ -115,10 +116,9 @@
 						<div class="product_buy">
 							<select name="option">
 								<option disabled="disabled" selected>옵션 선택</option>
-								<option>여기에</option>
-								<option>옵션을</option>
-								<option>추가할</option>
-								<option>예정입니다.</option>							
+								<c:forEach var="option" items="${option}">
+								<option value="${option.optionNum}">${option.optionName}</option>
+								</c:forEach>						
 							</select>
 							<button type="button" class="buyBtn">구 매 하 기</button>
 							<button type="button" class="basketBtn">장 바 구 니</button>
@@ -128,17 +128,10 @@
 				<div class="down_area">
 					<div class="product_content">
 					<pre>
-여기에는
-
-제품의
-
-상세설명이
-
-들어갈
-
-예정입니다.
+${prod.prodInfo}
 					</pre>
-				</div>										
+					</div>										
+				</div>
 			</div>
         </div>
     <!-- 여기까지만 작업 -->

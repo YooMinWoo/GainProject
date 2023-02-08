@@ -11,9 +11,11 @@
 		<typeAlias alias="brand" type="springGain.vo.Brand"/>
 		<typeAlias alias="category" type="springGain.vo.Category"/>
 		<typeAlias alias="detail" type="springGain.vo.DetailInfo"/>
+		<typeAlias alias="option" type="springGain.vo.Option"/>
 
 		<typeAlias alias="gmember" type="springGain.vo.GainMember"/>
 		<typeAlias alias="coupon" type="springGain.vo.Coupon"/>
+
 
 		
 	</typeAliases>
@@ -28,6 +30,7 @@
 		<mapper resource="resource/ymw_mapper/Mapper.xml"/>
 		
 		<mapper resource="resource/dasom/CouponMapper.xml"/>
+		<mapper resource="resource/dongeun/BuyMapper.xml"/>
 
 	</mappers>
 </configuration>

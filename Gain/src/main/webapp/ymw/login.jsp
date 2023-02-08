@@ -86,7 +86,12 @@
 			margin:0px auto;
 			padding-top: 30px;
 		}
-		
+		#loginFrm{
+			margin:0px auto;
+		}
+		.doneBtn{
+			margin:0px auto;
+		}
 
 </style>
 </head>
@@ -123,11 +128,12 @@
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
 			<div class="join_outline">
+				<form id="loginFrm" method="post">
 				<div class="Box">
 					<div><span>아이디</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox0 inputBox" type="text" name="gainID" 
+							<input class="inputBox0 inputBox" type="text" name="id" 
 							placeholder="아이디를 입력해주세요.">
 						</div>
 					</label>
@@ -137,7 +143,7 @@
 					<div><span>비밀번호</span></div>
 					<label>
 						<div class="inputInfo">
-							<input class="inputBox1 inputBox" type="password" name="gainPassword" 
+							<input class="inputBox1 inputBox" type="password" name="pass" 
 							placeholder="비밀번호를 입력해주세요.">
 						</div>
 					</label>
@@ -146,11 +152,24 @@
 				<div class="doneBtnDiv">
 					<button type="button" class="doneBtn">로그인</button>
 				</div>
-				<a href="/Gain/ymw/NewMember.jsp" class="goNewMem">회원가입</a>
+				</form>
+				<a href="/Gain/goNewMember.do" class="goNewMem">회원가입</a>
 			</div>
         </div>
     <!-- 여기까지만 작업 -->
     </section>
+    <script>
+    	$(document).ready(function(){
+    		var logCh = "${logCh}"
+    		if(logCh=="X"){
+    			alert("아이디 또는 비밀번호가 틀렸습니다.")
+    		}
+    		$(".doneBtn").click(function(){
+    			$("#loginFrm").attr("action","/Gain/login.do");
+    			$("#loginFrm").submit()
+    		})
+    	})
+    </script>
     <footer>
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">

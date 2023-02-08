@@ -15,7 +15,7 @@ import springGain.vo.Raffle;
 
 @Service
 public class Raffle_Service {
-	@Value("${file.upload}")
+	@Value("${img.upload2}")
 	private String upload;
 	
 	@Autowired
@@ -35,18 +35,19 @@ public class Raffle_Service {
 	}
 	
 	public String regRaffle(Raffle ins) {
-		String fname = uploadFile(ins.getImgSrc());
+		String fname = uploadFile(ins.getFile());
+		ins.setImgSrc(fname);
 		dao.regRaffle(ins);
 		return fname;
 	}
 	
-	public String uploadFile(MultipartFile imgSrc) {
-		String fname = imgSrc.getOriginalFilename();
+	public String uploadFile(MultipartFile file) {
+		String fname = file.getOriginalFilename();
 		if(fname!=null && !fname.equals("")) {
 			File fObj = new File(upload+fname);
 			
 			try {
-				imgSrc.transferTo(fObj); // 필수예외처리 (IO발생)
+				file.transferTo(fObj); // 필수예외처리 (IO발생)
 			} catch (IllegalStateException e) {
 				System.out.println("파일업로드 예외1:"+e.getMessage());
 			} catch (IOException e) {
