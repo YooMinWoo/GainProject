@@ -16,6 +16,7 @@
 
 		<typeAlias alias="gmember" type="springGain.vo.GainMember"/>
 		<typeAlias alias="coupon" type="springGain.vo.Coupon"/>
+		<typeAlias alias="ShoppingBasket" type="springGain.vo.ShoppingBasket"/>
 
 
 		
