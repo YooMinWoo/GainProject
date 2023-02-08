@@ -50,26 +50,46 @@
     
 </style>
 </head>
-
+<script type="text/javascript">
+	var lo = "${lo}"
+	if(lo=="로그아웃"){
+		if(confirm("로그아웃이 완료되었습니다.\n로그인 창으로 이동하겠습니까?")){
+			location.href="/Gain/login.do"
+		}
+	}
+</script>
 <body>
     <header>
+    	<c:if test="${not empty login }"> <%-- 로그인 세션 O --%>
          <div class="gnb">
             <div class="gnb_left">내 손 안의 백화점, 가인</div>
             <div class="gnb_center">The department store in my hand</div>
             <nav class="gnb_right">
                 <ul>
-                    <li><a href="#">로그아웃</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="/Gain/logout.do">로그아웃</a></li>
+                    <li><a href="/Gain/goMypage.do">마이페이지</a></li>
                 </ul>
             </nav>
          </div>
+         </c:if>
+         <c:if test="${empty login }"> <%-- 로그인 세션 X --%>
+         <div class="gnb">
+            <div class="gnb_left">내 손 안의 백화점, 가인</div>
+            <div class="gnb_center">The department store in my hand</div>
+            <nav class="gnb_right">
+                <ul>
+                    <li><a href="/Gain/login.do">로그인</a></li>
+                    <li><a href="/Gain/goNewMember.do">회원가입</a></li>
+                </ul>
+            </nav>
+         </div>
+         </c:if>
          <h1 class="main_logo">
-            <a href="#"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
+            <a href="/Gain/goMain.do"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="/Gain/qna.do">전체 상품</a></li>
+                <li><a href="#">전체 상품</a></li>
                 <li><a href="#">의류</a></li>
                 <li><a href="#">슈즈</a></li>
                 <li><a href="#">가방</a></li>

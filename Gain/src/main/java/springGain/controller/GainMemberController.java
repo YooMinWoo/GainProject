@@ -33,6 +33,16 @@ public class GainMemberController {
    public String goNewMember() {
 	   return "ymw/NewMember.jsp";
    }
+// http://localhost:2020/Gain/goMypage.do
+   @RequestMapping("/goMypage.do")
+   public String goMypage() {
+	   return "ymw/myPage.jsp";
+   }
+   
+   @RequestMapping("/goAdminMypage.do")
+   public String goAdminMypage() {
+	   return "ymw/adminMyPage.jsp";
+   }
    
    // http://localhost:2020/Gain/idCheck.do?id=alsn99
    @RequestMapping("/idCheck.do")
@@ -50,7 +60,7 @@ public class GainMemberController {
    @RequestMapping("/login.do")
    public String login(GainMember gm, Model d, HttpSession session) {
 	  if(gm.getId()==null) {
-		  d.addAttribute("logCh", "");
+		  d.addAttribute("logCh", "초기화면");
 		  return "ymw/login.jsp";
 	  }
 	  else if(service.login(gm)==null) {
@@ -67,4 +77,12 @@ public class GainMemberController {
 		  
 	  }
    }
+   @RequestMapping("/logout.do")
+   public String logout(HttpSession session, Model d) {
+	  session.removeAttribute("login");
+	  d.addAttribute("lo","로그아웃");
+      return "forward:/goMain.do";
+   }
+   
+   
 }
