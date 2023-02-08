@@ -69,7 +69,7 @@
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="#">전체 상품</a></li>
+                <li><a href="/Gain/qna.do">전체 상품</a></li>
                 <li><a href="#">의류</a></li>
                 <li><a href="#">슈즈</a></li>
                 <li><a href="#">가방</a></li>

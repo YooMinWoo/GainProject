@@ -263,6 +263,7 @@ CREATE TABLE rafState
 	id varchar2(100) NOT NULL
 );
 INSERT INTO rafState values(1,'alsn99');
+DELETE FROM rafState WHERE id = 'alsn99';
 SELECT * FROM rafState;
 SELECT * FROM rafState rs, raffleInfo ri WHERE rs.id='alsn99' AND rs.RAFID = ri.RAFID;
 -- 리뷰

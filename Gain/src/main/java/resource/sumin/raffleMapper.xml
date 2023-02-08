@@ -7,11 +7,11 @@
 		SELECT * FROM raffleInfo WHERE RESULT='진행중'
 	</select>
 	
-	<insert id="insertRaffle" parameterType="raffle">
+	<insert id="insertRaffle" parameterType="rafstate">
 		INSERT INTO rafState values(#{rafId},#{id})
 	</insert>
 	
-	<select id="myRaffle" parameterType="raffle" resultType="raffle">
+	<select id="myRaffle" parameterType="rafstate" resultType="raffle">
 		SELECT * FROM rafState rs, raffleInfo ri WHERE rs.id=#{id} AND rs.RAFID = ri.RAFID
 	</select>
 	

@@ -105,9 +105,14 @@ $(document).ready(function(){
 		if(pnameVal!="" && priceVal!=""&& startVal!=""&& endVal!=""&&choiceVal!=""){
 			$("#raffle").submit();
 		}
+<<<<<<< HEAD
 
 
 	})
+=======
+	})
+	ㄴ
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 	var msg = "${msg}"
 		if(msg != ""){
 			if(confirm(msg+"래플내역으로 이동하시겠습니까?")){
@@ -174,8 +179,7 @@ $(document).ready(function(){
 	       <br><br>
 	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
 	      	<br>
-	      	<input type="file" id="file" name="file"/>
-	      	
+	      	<input type="file" name="file"/>
 	      	<br>
 	      	<button type="button" id="addBtn" class="btn">등록하기</button>
 			</form>

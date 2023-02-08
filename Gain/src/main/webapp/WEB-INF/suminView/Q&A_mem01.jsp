@@ -95,14 +95,14 @@ $(document).ready(function(){
 		 if(categoryVal!="" && titleVal!="" && contentVal!=""){
 			 $("#boardFrm").submit()
 		 }
-		 var msg ="${msg}"
-			 if(msg!=null){
-				 if(confirm(msg+"\n 문의내역으로 이동하시겠습니까?")){
-					 location.href="${path }/qna.do"
-				 }
-			 }
 		
 	 })
+	 var msg ="${msg}"
+		 if(msg!=""){
+			 if(confirm(msg+"\n 문의내역으로 이동하시겠습니까?")){
+				 location.href="${path}/qna.do"
+			 }
+		 }
 	
 
 })

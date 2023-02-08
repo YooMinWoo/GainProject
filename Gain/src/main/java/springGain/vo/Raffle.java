@@ -15,12 +15,11 @@ public class Raffle {
 	private Date endDate;
 	private Date choDate;
 	private String result;
-	private String id;
 	public Raffle() {
 		// TODO Auto-generated constructor stub
 	}
 	public Raffle(String rafId, String pname, int price, String imgSrc, MultipartFile file, Date startDate,
-			Date endDate, Date choDate, String result, String id) {
+			Date endDate, Date choDate, String result) {
 		this.rafId = rafId;
 		this.pname = pname;
 		this.price = price;
@@ -30,7 +29,6 @@ public class Raffle {
 		this.endDate = endDate;
 		this.choDate = choDate;
 		this.result = result;
-		this.id = id;
 	}
 	public String getRafId() {
 		return rafId;
@@ -86,12 +84,8 @@ public class Raffle {
 	public void setResult(String result) {
 		this.result = result;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
+	
 	
 	
 }

@@ -4,12 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
 import springGain.service.Raffle_Service;
+import springGain.vo.RafState;
 import springGain.vo.Raffle;
 
 @Controller
@@ -39,14 +37,14 @@ public class Raffle_Controller {
 	}
 	
 	@RequestMapping("/insRaffle.do")
-	public String insertRaffle(Raffle ins,Model d) {
+	public String insertRaffle(RafState ins,Model d) {
 		service.insertRaffle(ins);
 		d.addAttribute("msg", "응모완료");
 		return "WEB-INF\\suminView\\RaffleList.jsp";
 	}
 	
 	@GetMapping("/myRaffle.do")
-	public String myRaffle(Raffle sch,Model d) {
+	public String myRaffle(RafState sch,Model d) {
 	
 		d.addAttribute("myRafList",	service.myRaffle(sch) );
 		return "WEB-INF\\suminView\\MyRaffleList.jsp";

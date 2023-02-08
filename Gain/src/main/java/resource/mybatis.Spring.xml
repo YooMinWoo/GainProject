@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias alias="qna" type="springGain.vo.QnA"/>
 		<typeAlias alias="raffle" type="springGain.vo.Raffle"/>
+		<typeAlias alias="rafstate" type="springGain.vo.RafState"/>
 		
 		<typeAlias alias="product" type="springGain.vo.Product"/>
 		<typeAlias alias="brand" type="springGain.vo.Brand"/>
