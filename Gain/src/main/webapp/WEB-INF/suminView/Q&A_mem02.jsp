@@ -103,8 +103,6 @@ $(document).ready(function(){
 		}
 	})
 	--%>
-	//$('#search').click()
-	
 	$("#reply").click(function(){
 	    $("#question").slideToggle("slow");
 	    $("#answer").slideToggle("slow");
@@ -148,10 +146,7 @@ $(document).ready(function(){
 	      	<a href="${path }/qna.do" class="menu" style="margin-left:350px;">문의내역</a>
 	      	<hr></hr>
 	      	<div class="bar"></div>
-	      	<form id="frm01" >
-	      	<input type="hidden" name="id" value="alsn99"/>
-	      	<button  type="submit" id="search">검색</button>
-	      	</form>
+	      	
 	      	<c:forEach var="qna" items="${qnaList }">
 	      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
 	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>

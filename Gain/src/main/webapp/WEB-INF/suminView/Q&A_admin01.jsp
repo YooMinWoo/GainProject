@@ -113,7 +113,7 @@ $(document).ready(function(){
 	})
 	var msg ="${msg}"
 		 if(msg!=""){
-			if(confirm(msg+"문의내역으로 이동하시겠습니까?")){
+			if(confirm(msg+"\n문의내역으로 이동하시겠습니까?")){
 				location.href="${path}/qnaList.do"
 			}
 		 }		
@@ -162,7 +162,7 @@ $(document).ready(function(){
 		      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
 		      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
 		      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
-		      	<h5 style="color:#5D5D5D; display:inline;">${qna.regDate }</h5>
+		      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate }"/></h5>
 		      	<button type="button" id="reply">▼</button>
 		      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>
 		      	${qna.content }
