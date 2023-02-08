@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -24,8 +25,57 @@
             font-weight: 500;
             font-size: 32px;
             line-height: 38px;
-            padding: 70px 0;
         }
+        
+        form{
+        	margin: auto;
+        	width: 313px;
+        	padding: 70px 0 0;
+        }
+        
+       	form h3{
+	       	font-size: 20px;
+		    font-weight: 400;
+		    line-height: 60px;
+       	}
+       	
+       	input[type=text]{
+      		width: 300px;
+		    height: 30px;
+		    padding-left: 10px;
+		    font-size: 17px;
+		    font-family: inherit;
+		    border-radius: 4px;
+		   	border: 1px solid #666;
+       	}
+       	
+       	input[type=date]{
+      		width: 300px;
+		    height: 30px;
+		    padding-left: 10px;
+		    font-size: 17px;
+		    font-family: inherit;
+		    border-radius: 4px;
+		    border: 1px solid #666;
+       	}
+       	
+       	.BtnCls{
+       	    width: 135px;
+		    height: 45px;
+		    background: #ddd;
+		    border: none;
+		    font-size: 20px;
+		    font-weight: 600;
+		    font-family: inherit;
+		    border-radius: 4px;
+		    margin: 70px auto 0;
+		    display: block;
+		    cursor: pointer;
+       	}
+       	
+       	.btns{
+       		display: flex;
+       	}
 
 </style>
 </head>
@@ -62,14 +112,17 @@
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
             <h2 class="main_title">쿠폰 생성하기</h2>
-			<form>
+			<form class="makeForm">
 				<h3>쿠폰 이름</h3>
 				<input type="text" name="couponName">
 				<h3>할인율</h3>
-				<input type="text" name="couponPercent" placeholder="숫자만 입력하세요">%
+				<input type="text" name=couponPercent placeholder="숫자만 입력하세요">%
 				<h3>쿠폰 만료일</h3>
-				<input type="date" name="couponEndDate">
-				<button type="button" class="go_add_coupon" >생성하기</button>
+				<input type="date" name="couponEndDate"><br>
+				<div class="btns">
+					<button type="submit" class="BtnCls" onclick="alert('쿠폰이 생성되었습니다.')">생성하기</button>
+					<button type="button" class="BtnCls" onclick="location.href='${path}/couponAdmin.do'">쿠폰 조회</button>
+				</div>
 			</form>
         </div>
     <!-- 여기까지만 작업 -->
@@ -111,23 +164,5 @@
 </body>
 <script type="text/javascript">
 
-	$(".go_add_coupon").click(function() {
-		insertCoupon();
-	})
-
-	function insertCoupon() {
-		$.ajax({
-			url : "${path}/addCoupon.do",
-			type : "post",
-			data : $("form").serialize(),
-			dataType : "json",
-			success : function(data){
-				alert("등록이 완료되었습니다.");
-			},
-			error : function(err){
-				alert("에러");
-			}
-		})	
-	}
 </script>
 </html>
