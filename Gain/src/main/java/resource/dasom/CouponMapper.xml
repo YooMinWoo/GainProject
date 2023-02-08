@@ -15,9 +15,9 @@
 	<insert id="addCoupon" parameterType="coupon">
 		INSERT INTO COUPON VALUES (
 		'CP'|| coupon_seq.NEXTVAL,
-		#{couponName},
-		#{couponPercent},
-		to_date(#{couponEndDate},'YYYY-MM-DD')
+		#{couponName,jdbcType=VARCHAR},
+		#{couponPercent,jdbcType=INTEGER},
+		to_date(#{couponEndDate,jdbcType=VARCHAR},'YYYY-MM-DD')
 		)
 	</insert>
 	
