@@ -13,9 +13,9 @@ public class QnA_Service {
 	
 	@Autowired
 	private QnA_Dao dao;
-	public List<QnA> memQnAList(QnA sch){
-		if(sch.getId()==null) sch.setId("");
-		return dao.memQnAList(sch);
+	public List<QnA> memQnAList(String id){
+		
+		return dao.memQnAList(id);
 	}
 	
 	public void insertQnA(QnA ins) {

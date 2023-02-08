@@ -17,6 +17,12 @@ public class GainMemberController {
    @Autowired
    private GainMemberService service;
    
+// http://localhost:2020/Gain/goMain.do
+   @RequestMapping("/goMain.do")
+   public String goMain() {
+	   return "markup/main_index.jsp";
+   }
+   
    // http://localhost:2020/Gain/goNewMember.do
    @RequestMapping("/goNewMember.do")
    public String goNewMember() {
@@ -48,7 +54,7 @@ public class GainMemberController {
 	  }
 	  else{
 		  session.setAttribute("login", service.login(gm));
-		  return "ymw/session.jsp";
+		  return "redirect:/goMain.do";
 	  }
    }
 }

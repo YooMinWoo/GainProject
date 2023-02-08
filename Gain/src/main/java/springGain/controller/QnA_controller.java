@@ -2,6 +2,8 @@ package springGain.controller;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import springGain.service.QnA_Service;
-
+import springGain.vo.GainMember;
 import springGain.vo.QnA;
 
 @Controller
@@ -22,16 +24,16 @@ public class QnA_controller {
 	
 	// http://localhost:7080/Gain/qna.do
 	@RequestMapping("/qna.do")
-	public String memQnAList(@ModelAttribute("sch") QnA sch,Model d) {
-		
-		d.addAttribute("qnaList", service.memQnAList(sch));
-		return "WEB-INF\\suminView\\Q&A_mem02.jsp";
-	}
-//	public String memQnAList(@ModelAttribute("sch") QnA sch,Model d,HttpSession session) {
-//		GainMember mem = (GainMember)session.getAttribute("mem");
-//		d.addAttribute("qnaList", service.memQnAList(mem.getId()));
+//	public String memQnAList(@ModelAttribute("sch") QnA sch,Model d) {
+//		
+//		d.addAttribute("qnaList", service.memQnAList(sch));
 //		return "WEB-INF\\suminView\\Q&A_mem02.jsp";
 //	}
+	public String memQnAList(Model d,HttpSession session) {
+		GainMember mem = (GainMember)session.getAttribute("login");
+		d.addAttribute("qnaList", service.memQnAList(mem.getId()));
+		return "WEB-INF\\suminView\\Q&A_mem02.jsp";
+	}
 	
 	@GetMapping("/insertFrm.do")
 	public String insertFrm() {
