@@ -153,7 +153,7 @@
 					<button type="button" class="doneBtn">로그인</button>
 				</div>
 				</form>
-				<a href="/Gain/ymw/NewMember.jsp" class="goNewMem">회원가입</a>
+				<a href="/Gain/goNewMember.do" class="goNewMem">회원가입</a>
 			</div>
         </div>
     <!-- 여기까지만 작업 -->

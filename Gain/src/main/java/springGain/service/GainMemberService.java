@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import springGain.dao.GainMemberDao;
 import springGain.vo.GainMember;
 
-
 @Service
 public class GainMemberService {
    @Autowired
