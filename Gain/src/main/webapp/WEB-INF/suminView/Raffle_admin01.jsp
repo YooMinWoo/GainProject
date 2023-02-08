@@ -105,20 +105,15 @@ $(document).ready(function(){
 		if(pnameVal!="" && priceVal!=""&& startVal!=""&& endVal!=""&&choiceVal!=""){
 			$("#raffle").submit();
 		}
-<<<<<<< HEAD
 
 
 	})
-=======
-	})
-	ㄴ
->>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 	var msg = "${msg}"
-		if(msg != ""){
-			if(confirm(msg+"래플내역으로 이동하시겠습니까?")){
-				location.href="${path}/raffle.do"
-			}
+	if(msg != ""){
+		if(confirm(msg+"래플내역으로 이동하시겠습니까?")){
+			location.href="${path}/raffle.do"
 		}
+	}
 })
 
 </script>
@@ -167,15 +162,15 @@ $(document).ready(function(){
 	        <br><br>
 	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5>
 	      	<br>
-	      	<input type="date" name="startDate" placeholder="응모 시작일을 입력해주세요">
+	      	<input type="text" name="startDate" placeholder="응모 시작일을 입력해주세요">
 	      	 <br><br>
 	      	<h4 style="margin-left:410px;">응모종료일</h4><h5>*</h5>
 	      	<br>
-	      	<input type="date" name="endDate" placeholder="응모 종료일을 입력해주세요">
+	      	<input type="text" name="endDate" placeholder="응모 종료일을 입력해주세요">
 	       <br><br>
 	      	<h4 style="margin-left:410px;">추첨일</h4><h5>*</h5>
 	      	<br>
-	      	<input type="date" name="choDate" placeholder="추첨일을 입력해주세요">
+	      	<input type="text" name="choDate" placeholder="추첨일을 입력해주세요">
 	       <br><br>
 	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
 	      	<br>
