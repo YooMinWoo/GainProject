@@ -11,15 +11,15 @@ public class Raffle {
 	private int price;
 	private String imgSrc;
 	private MultipartFile file;
-	private Date startDate;
-	private Date endDate;
-	private Date choDate;
+	private String startDate;
+	private String endDate;
+	private String choDate;
 	private String result;
 	public Raffle() {
 		// TODO Auto-generated constructor stub
 	}
-	public Raffle(String rafId, String pname, int price, String imgSrc, MultipartFile file, Date startDate,
-			Date endDate, Date choDate, String result) {
+	public Raffle(String rafId, String pname, int price, String imgSrc, MultipartFile file, String startDate,
+			String endDate, String choDate, String result) {
 		this.rafId = rafId;
 		this.pname = pname;
 		this.price = price;
@@ -60,22 +60,22 @@ public class Raffle {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	public Date getChoDate() {
+	public String getChoDate() {
 		return choDate;
 	}
-	public void setChoDate(Date choDate) {
+	public void setChoDate(String choDate) {
 		this.choDate = choDate;
 	}
 	public String getResult() {
