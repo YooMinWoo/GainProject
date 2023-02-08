@@ -30,9 +30,9 @@ public class Raffle_Service {
 		dao.insertRaffle(ins);
 	}
 	
-	public List<Raffle> myRaffle(RafState sch){
-		if(sch.getId()==null) sch.setId("");
-		return dao.myRaffle(sch);
+	public List<Raffle> myRaffle(String id){
+		
+		return dao.myRaffle(id);
 	}
 	
 	public String uploadFile(MultipartFile file) {
