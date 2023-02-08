@@ -71,12 +71,14 @@ public class ProductService {
 	
 	//  상품 수정
 	public String updateProd(Product udt) {
-		String prodImg = uploadFile(udt.getMultipartfile());
-		
-		udt.setProdImg(prodImg);
+		if( uploadFile(udt.getMultipartfile())!=null && !uploadFile(udt.getMultipartfile()).equals("")) {
+			String prodImg = uploadFile(udt.getMultipartfile());
+			
+			udt.setProdImg(prodImg);
+		}
+
 		if(udt.getProdImg()==null) udt.setProdImg("");
 		if(udt.getProdInfo()==null) udt.setProdInfo("");
-		
 		
 		dao.updateProd(udt);
 		

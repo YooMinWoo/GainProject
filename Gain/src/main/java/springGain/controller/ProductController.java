@@ -27,7 +27,7 @@ public class ProductController {
 	public List<Brand> getBrand() {
 		return service.getBrand();
 	}
-	
+	 
 	@ModelAttribute("categoryCom")
 	public List<Category> getCategory() {
 		return service.getCategory();
