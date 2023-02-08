@@ -70,7 +70,8 @@
                 <li><a href="/Gain/getProdListAdmin.do">상품 등록/수정</a></li>
                 <li><a href="">Q&A 답변</a></li>
                 <li><a href="">래플 등록</a></li>
-                <li><a href="">쿠폰 생성</a></li>
+                <li><a href="/Gain/couponAdmin.do">쿠폰 조회</a></li>
+                <li><a href="/Gain/addCoupon.do">쿠폰 생성</a></li>
             </ul>
          </nav>
     </header>
