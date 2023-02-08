@@ -21,11 +21,22 @@ SELECT * FROM products;
 /*
 
 # 상품정보
-상품 이미지
-상품명
+상품 번호 prodNum
+상품 이미지 prodImg
+상품명 prodName
 배송날짜: 파일 업로드 +3 일 
-*/
 
+*/
+SELECT * FROM products;
+ 
+SELECT prodImg, prodName
+FROM products
+WHERE PRODNUM LIKE '%'||'' ||'%';
+ 
+ \heejun\a.p.c 남성 샌들.jpg
+ 
+ 
+ 
 /*
 # 쿠폰 
 할인쿠폰 

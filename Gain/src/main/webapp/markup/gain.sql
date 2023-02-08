@@ -184,6 +184,7 @@ CREATE TABLE products
 	PRIMARY KEY (prodNum)
 );
 
+
 SELECT * FROM products;
 
 -- QnA

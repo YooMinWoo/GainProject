@@ -11,7 +11,7 @@
 <head>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
+ 
 <style>
    td{text-align:center;}
 </style>
@@ -58,7 +58,9 @@ $(document).ready(function(){
 	  $("#flip").click(function(){
 	    $("#panel").slideToggle("slow");
 	  });
-	  
+	  $(".select01").click(function(){
+		  alert("선택완료")
+	  })
 	});
 </script>
 </head>
@@ -100,35 +102,35 @@ $(document).ready(function(){
 				<!-- 배송지 -->
 				<br>
 				<h3 style="margin-left: 94px">배송지</h3>
-<!-- 		 		<button class="change">변경</button>  -->
 		 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" id="change">
 					  변경
 			    </button>
 				
 				<form>
 					<div id="sform01">
-						<c:forEach var="m01" items="${mlist}">
 						<input type="text" name="address"
-							placeholder="경기 성남시 분당구 백현동 565-6 그레이스빌" style="width: 55%" value="${m01.address}"><br>
-						<input type="text" name="name" style="width: 10%" value="${m01.name }"> 
-							<input type="text" name="phonenum" value="${m01.phonenum }">
-						</c:forEach>
+							placeholder="경기 성남시 분당구 백현동 565-6 그레이스빌" 
+							style="width: 55%" value="${m01.address}" readonly><br>
+						<input type="text" name="name" style="width: 10%" value = "${m01.name }" readonly> 
+							<input type="text" name="phonenum" value="${m01.phonenum }" readonly>
+						
 							<br><br> 배송메시지<br>
 						<textarea placeholder="내용을 입력해주세요" style="width: 55%"></textarea>
 						<br> <br>
 					</div>
 					<hr>
-					
+				
 					<!-- 주문상품(사진) -->
 					<br>
 					<h3 style="margin-left: 94px">주문상품(총1개)</h3>
 					<div id="sform01">
-						<div style="border: 1px solid black; width: 90px; height: 90px;">사진</div>
+						<div style="border: 1px solid black; width: 90px; height: 90px;"><img src="/Gain/heejun/${p01.prodImg}" style="width: 88px;
+    height: 87px;"></div>
 						<div class="pdinfo">
 							<div>상품명</div>
-							<input text="text" name="pname" placeholder="22Fw여성 후드 롱 패딩">
+							<input type="text" name="prodName" value="${p01.prodName} ">
  							<br> 
-							<div style="color: purple">01/18(수)출발</div>
+							<div style="color: purple">${time01}</div>
 						</div>
 						<button class="select01">선택완료</button>
 					</div>

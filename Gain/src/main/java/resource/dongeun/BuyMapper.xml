@@ -5,12 +5,17 @@
 
 <mapper namespace="springGain.dao.BuyMemberDao">
 	    <select id="getGainMemberList" resultType="gmember" parameterType="string">
-		   SELECT id, address, phonenum 
+		   SELECT id, address, phonenum ,name
 			FROM GAINMEMBER
 			WHERE id=#{id}
 	    </select>	
-	
-<!-- 	<insert id="insertProd" parameterType="product"> -->
+	    
+	    <select id="getProductList" resultType="product" parameterType="string">
+			SELECT prodImg, prodName
+	        FROM products
+	        WHERE PRODNUM =#{prodnum}
+	    </select>
+
 	
 
 	
