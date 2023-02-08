@@ -34,13 +34,6 @@ public class Raffle_Service {
 		return dao.myRaffle(sch);
 	}
 	
-	public String regRaffle(Raffle ins) {
-		String fname = uploadFile(ins.getFile());
-		ins.setImgSrc(fname);
-		dao.regRaffle(ins);
-		return fname;
-	}
-	
 	public String uploadFile(MultipartFile file) {
 		String fname = file.getOriginalFilename();
 		if(fname!=null && !fname.equals("")) {
@@ -57,5 +50,14 @@ public class Raffle_Service {
 		}
 		return fname;
 	}
+	
+	public String regRaffle(Raffle ins) {
+		String fname = uploadFile(ins.getFile());
+		ins.setImgSrc(fname);
+		dao.regRaffle(ins);
+		return fname;
+	}
+	
+
 	
 }

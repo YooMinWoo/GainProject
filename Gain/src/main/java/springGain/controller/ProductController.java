@@ -27,7 +27,6 @@ public class ProductController {
 	public List<Brand> getBrand() {
 		return service.getBrand();
 	}
-	 
 	@ModelAttribute("categoryCom")
 	public List<Category> getCategory() {
 		return service.getCategory();
@@ -64,6 +63,7 @@ public class ProductController {
 			d.addAttribute("all", "전체 상품");
 		}
 		d.addAttribute("plist", service.getProduct(sch));
+		d.addAttribute("brand", service.getBrandName(sch));
 		d.addAttribute("category", service.getCategoryName(categoryNum));
 		d.addAttribute("detail", service.getDetailName(categoryNum));
 		

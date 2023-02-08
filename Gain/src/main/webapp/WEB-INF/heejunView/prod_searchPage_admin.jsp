@@ -112,7 +112,7 @@
 					</div>
 					<div class="product_area">
 						<ul class="product_list">
-							<c:forEach var="prod" items="${plist}">
+							<c:forEach var="prod" items="${plist}" varStatus="status">
 							<li>
 								<div class="thumb">
 									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
@@ -122,7 +122,7 @@
 								<div class="product_info">
 									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
 										<dl>
-											<dt>${prod.brandNum}</dt>
+											<dt>${brand[status.index]}</dt>
 											<dd>
 												<p class="product_name">${prod.prodName}</p>
 												<div class="price_info">
