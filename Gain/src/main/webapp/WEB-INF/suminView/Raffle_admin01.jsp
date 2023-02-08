@@ -106,15 +106,14 @@ $(document).ready(function(){
 			$("#raffle").submit()
 			
 		}
-		var msg = "${msg}"
+	})
+	ㄴ
+	var msg = "${msg}"
 		if(msg != ""){
 			if(confirm(msg+"래플내역으로 이동하시겠습니까?")){
 				location.href="${path}/raffle.do"
 			}
 		}
-
-		
-	})
 })
 
 </script>
