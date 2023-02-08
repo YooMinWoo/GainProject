@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -58,7 +59,7 @@
 		    border: 1px solid #666;
        	}
        	
-       	.makeBtn{
+       	.BtnCls{
        	    width: 135px;
 		    height: 45px;
 		    background: #ddd;
@@ -70,6 +71,10 @@
 		    margin: 70px auto 0;
 		    display: block;
 		    cursor: pointer;
+       	}
+       	
+       	.btns{
+       		display: flex;
        	}
 
 </style>
@@ -114,7 +119,10 @@
 				<input type="text" name=couponPercent placeholder="숫자만 입력하세요">%
 				<h3>쿠폰 만료일</h3>
 				<input type="date" name="couponEndDate"><br>
-				<button type="submit" class="makeBtn" onclick="alert('쿠폰이 생성되었습니다.')">생성하기</button>
+				<div class="btns">
+					<button type="submit" class="BtnCls" onclick="alert('쿠폰이 생성되었습니다.')">생성하기</button>
+					<button type="button" class="BtnCls" onclick="location.href='${path}/couponAdmin.do'">쿠폰 조회</button>
+				</div>
 			</form>
         </div>
     <!-- 여기까지만 작업 -->
