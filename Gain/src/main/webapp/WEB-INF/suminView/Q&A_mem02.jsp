@@ -89,19 +89,28 @@ $(document).ready(function(){
 	$(".question").hide()
 	$(".reply").hide()
 	
+	
+	<%--
 	var cnt = 0
 	$("#reply").click(function(){
 		cnt ++
 		if(cnt%2==1){
-			$(".question").show()
-			$(".reply").show()
+			$("this .question").show()
+			$("this .reply").show()
 		}else{
-			$(".question").hide()
-			$(".reply").hide()
+			$("this .question").hide()
+			$("this .reply").hide()
 		}
 	})
-	
+	--%>
 	//$('#search').click()
+	
+	$("#reply").click(function(){
+	    $("#question").slideToggle("slow");
+	    $("#answer").slideToggle("slow");
+	  });
+	
+	
 })
 
 </script>
@@ -139,7 +148,7 @@ $(document).ready(function(){
 	      	<a href="${path }/qna.do" class="menu" style="margin-left:350px;">문의내역</a>
 	      	<hr></hr>
 	      	<div class="bar"></div>
-	      	<form id="frm01">
+	      	<form id="frm01" >
 	      	<input type="hidden" name="id" value="alsn99"/>
 	      	<button  type="submit" id="search">검색</button>
 	      	</form>
@@ -149,8 +158,8 @@ $(document).ready(function(){
 	      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
 	      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate}"/></h5>
 	      	<button type="button" id="reply">▼</button>
-	      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
-	      	<div class="reply">
+	      	<div class="question" id="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
+	      	<div class="reply" id="answer">
 	      	<h2 style="padding:10px 10px;">A</h2>${qna.reply }
 	     	</div>
 	      	<br><br>

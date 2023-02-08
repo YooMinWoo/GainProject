@@ -175,8 +175,7 @@ $(document).ready(function(){
 	       <br><br>
 	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
 	      	<br>
-	      	<input type="file" id="file" name="file"/>
-	      	
+	      	<input type="file" name="file"/>
 	      	<br>
 	      	<button type="button" id="addBtn" class="btn">등록하기</button>
 			</form>

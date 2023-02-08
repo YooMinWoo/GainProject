@@ -1,1 +1,1 @@
-{"resources":{"src/main/webapp/markup/doneun.sql":{"default-schema":"GAIN","default-datasource":"oracle_thin-1862a61849a-293215569f3695ed"}}}
+{"resources":{"src/main/webapp/markup/doneun.sql":{"default-schema":"GAIN","default-datasource":"oracle_thin-1862a61849a-293215569f3695ed"},"src/main/webapp/markup/gain.sql":{"default-datasource":"oracle_thin-18630ac3655-490817e7ef146c19","default-schema":"GAIN"}}}

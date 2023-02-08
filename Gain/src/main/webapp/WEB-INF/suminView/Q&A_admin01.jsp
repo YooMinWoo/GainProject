@@ -108,15 +108,15 @@ $(document).ready(function(){
 			alert("답변내용을 입력하세요")
 		}else{
 			$("#reFrm").submit()
-			 var msg ="${msg}"
-			 if(msg!=null){
-				if(confirm(msg+"문의내역으로 이동하시겠습니까?")){
-					location.href="${path}/qnaList.do"
-				}
-			 }
 		}
+		
 	})
-			
+	var msg ="${msg}"
+		 if(msg!=""){
+			if(confirm(msg+"문의내역으로 이동하시겠습니까?")){
+				location.href="${path}/qnaList.do"
+			}
+		 }		
 		
 		
 		
@@ -170,10 +170,10 @@ $(document).ready(function(){
 	      		</div>
 	      	<div class="reply">
 		      	<h2 style="padding:10px 10px;">A</h2>
-		      	<form id="reFrm" action="${path }/update.do" method="post">
+		      	<form id="reFrm" action="${path}/update.do" method="post">
 		      		<input type="hidden" name="qna_no" value="${qna.qna_no }">
 		      		<textarea name="reply" style="width:870px; height:180px; margin-left:30px;"></textarea>
-		      		<button class="btn" type="submit" id="addReply">답변 등록하기</button>
+		      		<button class="btn" type="button" id="addReply">답변 등록하기</button>
 		      	</form>
 	     	</div>
 	     	</c:forEach>
