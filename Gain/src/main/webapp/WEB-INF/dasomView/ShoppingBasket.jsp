@@ -16,7 +16,7 @@
 <style type="text/css">
 
         .main_wrapper{
-            height: 1200px;
+            padding-bottom: 50px;
         }
 
         .main_title{
@@ -97,8 +97,9 @@
         }
         
         .pro_name{
-        	font-size: 20px;
+        	font-size: 18px;
         	font-weight: 400;
+        	line-height: 130px;
         }
         
         td{
@@ -126,6 +127,44 @@
         
         table {
 			width: 100%;
+			border-spacing: 0;
+			padding-bottom: 30px;
+		}
+		
+		.delBtn{
+			width: 300px;
+    		height: 75px;
+			background: #FFFFFF;
+			border: 1px solid #777777;
+			font-size: 23px;
+			line-height: 24px;
+			color: #777777;
+			display: block; 
+			margin: 20px auto 0;
+			font-family: inherit;
+		}
+		
+		.buyBtn{
+			width: 300px;
+    		height: 75px;
+			background: #777777;
+			font-weight: 500;
+			font-size: 23px;
+			line-height: 24px;
+			color: #FFFFFF;
+			display: block;
+			border: none;
+			margin: 20px auto 0;
+			font-family: inherit;
+		}
+		
+		input[type=number]{
+			display: block;
+		    font-family: inherit;
+		    padding-left: 20px;
+		    margin: auto;
+		    width: 100px;
+		    font-size: 28px;
 		}
 	
 }
@@ -164,32 +203,38 @@
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
             <h2 class="main_title">나의 장바구니</h2>
-            <table>
-	            <thead>
-	            	<tr>
-	            		<th>체크</th><th>상품정보</th><th>수량</th><th>상품 금액</th>
-	            	</tr>
-	            </thead>
-	            <tbody>
-					<c:forEach var="product" items="${sbList}">
-						<tr>
-							<td>체크</td>
-							<td class="pro_info">
-								<img class="pro_img" alt="${product.prodName } 이미지" src="/Gain/heejun/${product.prodImg }">
-								<h3 class="pro_name">${product.prodName }</h3>							
-							</td>
-							<td>
-								<form>
-									<input type="number" min="1">
-								</form>
-							</td>
-							<td>
-							<h3 class="pro_price">${product.prodPrice }￦</h3>
-							</td>
-						</tr>
-					</c:forEach>
-	            </tbody>
-            </table>
+            <form>
+	            <table>
+	            	<col width="5%">
+	            	<col width="50%">
+	            	<col width="20%">
+	            	<col width="25%">
+		            <thead>
+		            	<tr>
+		            		<th><input type="checkbox"></th><th>상품정보</th><th>수량</th><th>상품 금액</th>
+		            	</tr>
+		            </thead>
+		            <tbody>
+						<c:forEach var="product" items="${sbList}">
+							<tr>
+								<td style="text-align: center;"><input type="checkbox"></td>
+								<td class="pro_info">
+									<img class="pro_img" alt="${product.prodName } 이미지" src="/Gain/heejun/${product.prodImg }">
+									<h3 class="pro_name">${product.prodName }</h3>							
+								</td>
+								<td>
+									<input type="number" min="1" value="1">
+								</td>
+								<td>
+								<h3 class="pro_price">${product.prodPrice }￦</h3>
+								</td>
+							</tr>
+						</c:forEach>
+		            </tbody>
+	            </table>
+            </form>
+            <button class="delBtn">선택 상품 삭제하기</button>
+            <button class="buyBtn">선택 상품 구매하기</button>
         </div>
     <!-- 여기까지만 작업 -->
     </section>
