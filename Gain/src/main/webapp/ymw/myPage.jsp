@@ -85,8 +85,11 @@
 				<button id="buylist" type="button" class="list"> <!-- 주문내역 -->
 					<span>주문내역</span><span></span>
 				</button>
-				<button id="couponlist" type="button" class="list"> <!-- 쿠폰조회 -->
+				<button id="couponAdmin" type="button" class="list"> <!-- 쿠폰조회 -->
 					<span>쿠폰조회</span><span></span>
+				</button >
+				<button id="addCoupon" type="button" class="list"> <!-- 쿠폰생성 -->
+					<span>쿠폰생성</span><span></span>
 				</button >
 				<button type="button" class="list"> <!-- 적립금 -->
 					<span>적립금</span><span>${login.point }원</span>

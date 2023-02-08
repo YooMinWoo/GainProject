@@ -11,6 +11,7 @@
 		WHERE p.PRODNUM = s.PRODNUM
 		AND s.id = #{id}
 	</select>
+	
 	<insert id="addCart" parameterType="shoppingBasket">
 		INSERT INTO SHPPINGBASKET VALUES (#{id},#{prodNum})
 	</insert>
