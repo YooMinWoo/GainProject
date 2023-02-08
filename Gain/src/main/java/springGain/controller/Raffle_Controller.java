@@ -35,7 +35,7 @@ public class Raffle_Controller {
 			d.addAttribute("msg", "업로드 성공");
 		}
 		
-		return "WEB-INF\\suminView\\Raffle_admin01.jsp"; // 업로드 후에 바로 전체 리스트 검색되게 처리
+		return "WEB-INF\\suminView\\Raffle_admin01.jsp"; 
 	}
 	
 	@RequestMapping("/insRaffle.do")

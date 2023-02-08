@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -103,9 +104,15 @@ $(document).ready(function(){
 		}
 		if(pnameVal!="" && priceVal!=""&& startVal!=""&& endVal!=""&&choiceVal!=""){
 			$("#raffle").submit()
-			var msg = "${msg}"
-			alert(msg)
+			
 		}
+		var msg = "${msg}"
+		if(msg != ""){
+			if(confirm(msg+"래플내역으로 이동하시겠습니까?")){
+				location.href="${path}/raffle.do"
+			}
+		}
+
 		
 	})
 })
@@ -145,14 +152,14 @@ $(document).ready(function(){
 	      	<div class="bar"></div>
 	      	
 	      	<br><br>
-	      	<form id="raffle" action="${path }/rafUpload.do" method="post" enctype="multipart/form-data">
+	      	<form id="raffle" action="${path}/rafUpload.do" method="post" enctype="multipart/form-data">
 	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5>
 	      	<br>
 	      	<input type="text" name="pname" placeholder="상품명을 입력해주세요">
 	      	<br><br>
 	      	<h4 style="margin-left:410px;">상품가격</h4><h5>*</h5>
 	      	<br>
-	      	<input type="text" name="price" placeholder="상품가격을 입력해주세요">
+	      	<input type="number" name="price" placeholder="상품가격을 입력해주세요">
 	        <br><br>
 	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5>
 	      	<br>
