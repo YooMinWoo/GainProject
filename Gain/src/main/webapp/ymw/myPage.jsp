@@ -91,7 +91,7 @@
 				<button type="button" class="list"> <!-- 적립금 -->
 					<span>적립금</span><span>${login.point }원</span>
 				</button>
-				<button id="reviewlist" type="button" class="list"> <!-- 장바구니 -->
+				<button id="shoppingBasket" type="button" class="list"> <!-- 장바구니 -->
 					<span>장바구니</span><span></span>
 				</button>
 				<button id="infoUpt" type="button" class="list"> <!-- 회원정보수정 -->

@@ -113,19 +113,8 @@
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-            <h2 class="main_title">내 쿠폰 확인하기</h2>
-            <div class="coupon_list">
-                <div class="coupon_box">
-                    <div class="coupon_box_left">
-                        <h4>[01월 생일 기념] 5% 할인 쿠폰</h4>
-                        <h2><i>5%</i></h2>
-                        <h4>2023-01-31 <span>까지 사용 가능</span></h4>
-                    </div>
-                    <div class="coupon_box_right">
-                        <h4>사용 가능</h4>
-                    </div>
-                </div>
-            </div>
+            <h2 class="main_title">나의 장바구니</h2>
+			
         </div>
     <!-- 여기까지만 작업 -->
     </section>
