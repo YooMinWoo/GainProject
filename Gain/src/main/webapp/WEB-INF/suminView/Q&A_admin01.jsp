@@ -4,8 +4,8 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:requestEncoding value="UTF-8" />
 <c:set var="path" value="${pageContext.request.contextPath }"/>
+<fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +22,8 @@
 <style type="text/css">
  	
   	.bar{
-  		width:480px; height:10px; background:black; margin-left:-5px;
-  		display:inline-block;
+  		width:980px; height:10px; background:black; margin-left:115px;
+  		
   	}
   	hr{
   		width:500px;
@@ -57,16 +57,17 @@
   	}
   	.btn{
   		background:black;
-  		width:300px;
+  		width:100px;
   		height:45px;
   		color:white;
   		border-radius:4px;
-  		margin-left:440px;
-  		margin-top:50px;
+  		margin-left:800px;
+  		margin-top:5px;
   	}
 	.menu{
 		font-size:25px;
 		font-weight:bold;
+	
 	}
 	.question{
 		width:930px;
@@ -76,7 +77,7 @@
 	}
 	.reply{
 		width:930px;
-		height:280px;
+		height:300px;
 		margin-left:130px;
 		margin-top:10px;
 		background:lightgray;
@@ -100,10 +101,28 @@ $(document).ready(function(){
 			$(".reply").hide()
 		}
 	})
-	
-	//$('#search').click()
-})
+		
+	$("#addReply").click(function(){
+		var replyVal = $("[name=reply]").val()
+		if(replyVal==""){
+			alert("답변내용을 입력하세요")
+		}else{
+			$("#reFrm").submit()
+			 var msg ="${msg}"
+			 if(msg!=null){
+				if(confirm(msg+"문의내역으로 이동하시겠습니까?")){
+					location.href="${path}/qnaList.do"
+				}
+			 }
+		}
+	})
+			
+		
+		
+		
 
+})
+	
 </script>
 <body>
     <header>
@@ -135,27 +154,32 @@ $(document).ready(function(){
     </header>
 	<section>
         <div class="main_wrapper">
-	      	<a href="${path }/insertFrm.do" class="menu" style="margin-left:300px;">1:1 문의하기</a>
-	      	<a href="${path }/qna.do" class="menu" style="margin-left:350px;">문의내역</a>
-	      	<hr></hr>
+	      
+	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:570px;">문의내역</a>
 	      	<div class="bar"></div>
-	      	<form id="frm01">
-	      	<input type="hidden" name="id" value="alsn99"/>
-	      	<button  type="submit" id="search">검색</button>
-	      	</form>
 	      	<c:forEach var="qna" items="${qnaList }">
-	      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
-	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
-	      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
-	      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate}"/></h5>
-	      	<button type="button" id="reply">▼</button>
-	      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
+	      		
+		      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
+		      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
+		      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
+		      	<h5 style="color:#5D5D5D; display:inline;">${qna.regDate }</h5>
+		      	<button type="button" id="reply">▼</button>
+		      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>
+		      	${qna.content }
+		      	
+	      		</div>
 	      	<div class="reply">
-	      	<h2 style="padding:10px 10px;">A</h2>${qna.reply }
+		      	<h2 style="padding:10px 10px;">A</h2>
+		      	<form id="reFrm" action="${path }/update.do" method="post">
+		      		<input type="hidden" name="qna_no" value="${qna.qna_no }">
+		      		<textarea name="reply" style="width:870px; height:180px; margin-left:30px;"></textarea>
+		      		<button class="btn" type="submit" id="addReply">답변 등록하기</button>
+		      	</form>
 	     	</div>
+	     	</c:forEach>
 	      	<br><br>
 	      	<hr style="width:980px;">
-			</c:forEach>
+
         </div>
     </section>
     <footer>
@@ -169,7 +193,7 @@ $(document).ready(function(){
 			개인정보보호책임자 : 이수민<br>
 			E-MAIL : help@gain.co.kr
 			</p>
-			<p style="font-size:12px;line-height:20px; padding:10px 0;">
+			<p style="font-size:12px;line-hight:20px; padding:10px 0;">
 			해당 사이트는 프로젝트용 사이트로 실제로 존재하는 사이트가 아닙니다.<br>
 			쌍용강북센터 프로젝트 3팀
 			COPYRIGHT 2023 가인 ALL RIGHT RESERVED.

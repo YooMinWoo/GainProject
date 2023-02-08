@@ -126,10 +126,10 @@
 								<div class="upload-thumb-wrap"><img src="/Gain/heejun/${prod.prodImg}" class="upload-thumb">
 								</div>
 							</div>
-							<input class="upload-name" value="${prod.prodImg}" disabled="disabled" style="width: 200px;">
+							<input class="upload-name" value="${prod.prodImg}" name="prodImg" disabled="disabled" style="width: 200px;">
 							
 			              	<label for="input_file">수 정</label> 
-             				<input type="file" name="multipartfile" id="input_file" class="upload-hidden" value="${prod.prodImg}"> 
+             				<input type="file" name="multipartfile" id="input_file" class="upload-hidden"> 
 						</div>
 					</div>
 					<textarea name="prodInfo" rows="15" cols="70" placeholder="내용을 입력해주세요">${prod.prodInfo}</textarea>

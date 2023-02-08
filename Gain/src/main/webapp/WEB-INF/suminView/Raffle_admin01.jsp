@@ -4,8 +4,8 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:requestEncoding value="UTF-8" />
 <c:set var="path" value="${pageContext.request.contextPath }"/>
+<fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,18 +20,14 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 
 <style type="text/css">
- 	
+  	h4,h5{
+  		display:inline;
+  	}
   	.bar{
-  		width:480px; height:10px; background:black; margin-left:-5px;
+  		width:980px; height:10px; background:black; margin-left:120px;
   		display:inline-block;
   	}
-  	hr{
-  		width:500px;
-  		color:lightgray;
-  		display:inline-block;
-  		margin-left:110px;
-  		margin-top:10px;
-  	}
+  
   	h5{
   		margin-left:10px;
   		color:red;
@@ -42,8 +38,8 @@
   		height:38px;
   		border-radius:4px;
   	}
-  	.input_title{
-  		margin-left:205px;
+  	input{
+  		margin-left:400px;
   		width:400px;
   		height:38px;
   		border-radius:4px;
@@ -61,47 +57,64 @@
   		height:45px;
   		color:white;
   		border-radius:4px;
-  		margin-left:440px;
+  		margin-left:450px;
   		margin-top:50px;
   	}
-	.menu{
-		font-size:25px;
-		font-weight:bold;
-	}
-	.question{
-		width:930px;
-		height:100px;
-		margin-left:130px;
-		
-	}
-	.reply{
-		width:930px;
-		height:280px;
-		margin-left:130px;
-		margin-top:10px;
-		background:lightgray;
-		
-	}
+  	.menu{
+  		font-size:25px;
+  		font-weight:bold;
+  	}
+  	.img_div{
+  		margin-left:400px;
+  		width:200px;
+  		height:200px;
+  		border:1px solid black;
+  		background:white;
+  	}
+  
 </style>
 </head>
 <script>
 $(document).ready(function(){
-	$(".question").hide()
-	$(".reply").hide()
-	
-	var cnt = 0
-	$("#reply").click(function(){
-		cnt ++
-		if(cnt%2==1){
-			$(".question").show()
-			$(".reply").show()
-		}else{
-			$(".question").hide()
-			$(".reply").hide()
+	$("#addBtn").click(function(){
+		var pnameVal = $("[name=pname]").val()
+		var priceVal = $("[name=price]").val()
+		var startVal = $("[name=startDate]").val()
+		var endVal = $("[name=endDate]").val()
+		var choiceVal = $("[name=choDate]").val()
+		if(pnameVal==""){
+			alert("상품명을 입력하세요")
+			return
 		}
+		if(priceVal==""){
+			alert("상품가격을 입력하세요")
+			return
+		}
+		if(startVal==""){
+			alert("시작일을 입력하세요")
+			return
+		}
+		if(endVal==""){
+			alert("종료일을 입력하세요")
+			return
+		}
+		if(choiceVal==""){
+			alert("추첨일을 입력하세요")
+			return
+		}
+		if(pnameVal!="" && priceVal!=""&& startVal!=""&& endVal!=""&&choiceVal!=""){
+			$("#raffle").submit()
+			
+		}
+		var msg = "${msg}"
+		if(msg != ""){
+			if(confirm(msg+"래플내역으로 이동하시겠습니까?")){
+				location.href="${path}/raffle.do"
+			}
+		}
+
+		
 	})
-	
-	//$('#search').click()
 })
 
 </script>
@@ -135,27 +148,39 @@ $(document).ready(function(){
     </header>
 	<section>
         <div class="main_wrapper">
-	      	<a href="${path }/insertFrm.do" class="menu" style="margin-left:300px;">1:1 문의하기</a>
-	      	<a href="${path }/qna.do" class="menu" style="margin-left:350px;">문의내역</a>
-	      	<hr></hr>
+	      	<h2 style="margin-left:580px;">Raffle</h2>
 	      	<div class="bar"></div>
-	      	<form id="frm01">
-	      	<input type="hidden" name="id" value="alsn99"/>
-	      	<button  type="submit" id="search">검색</button>
-	      	</form>
-	      	<c:forEach var="qna" items="${qnaList }">
-	      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
-	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
-	      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
-	      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate}"/></h5>
-	      	<button type="button" id="reply">▼</button>
-	      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
-	      	<div class="reply">
-	      	<h2 style="padding:10px 10px;">A</h2>${qna.reply }
-	     	</div>
+	      	
 	      	<br><br>
-	      	<hr style="width:980px;">
-			</c:forEach>
+	      	<form id="raffle" action="${path}/rafUpload.do" method="post" enctype="multipart/form-data">
+	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5>
+	      	<br>
+	      	<input type="text" name="pname" placeholder="상품명을 입력해주세요">
+	      	<br><br>
+	      	<h4 style="margin-left:410px;">상품가격</h4><h5>*</h5>
+	      	<br>
+	      	<input type="number" name="price" placeholder="상품가격을 입력해주세요">
+	        <br><br>
+	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5>
+	      	<br>
+	      	<input type="date" name="startDate" placeholder="응모 시작일을 입력해주세요">
+	      	 <br><br>
+	      	<h4 style="margin-left:410px;">응모종료일</h4><h5>*</h5>
+	      	<br>
+	      	<input type="date" name="endDate" placeholder="응모 종료일을 입력해주세요">
+	       <br><br>
+	      	<h4 style="margin-left:410px;">추첨일</h4><h5>*</h5>
+	      	<br>
+	      	<input type="date" name="choDate" placeholder="추첨일을 입력해주세요">
+	       <br><br>
+	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
+	      	<br>
+	      	<input type="file" id="file" name="file"/>
+	      	
+	      	<br>
+	      	<button type="button" id="addBtn" class="btn">등록하기</button>
+			</form>
+	      
         </div>
     </section>
     <footer>
@@ -169,7 +194,7 @@ $(document).ready(function(){
 			개인정보보호책임자 : 이수민<br>
 			E-MAIL : help@gain.co.kr
 			</p>
-			<p style="font-size:12px;line-height:20px; padding:10px 0;">
+			<p style="font-size:12px;line-hight:20px; padding:10px 0;">
 			해당 사이트는 프로젝트용 사이트로 실제로 존재하는 사이트가 아닙니다.<br>
 			쌍용강북센터 프로젝트 3팀
 			COPYRIGHT 2023 가인 ALL RIGHT RESERVED.

@@ -4,8 +4,8 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:requestEncoding value="UTF-8" />
 <c:set var="path" value="${pageContext.request.contextPath }"/>
+<fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,88 +20,44 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 
 <style type="text/css">
- 	
+  
   	.bar{
-  		width:480px; height:10px; background:black; margin-left:-5px;
+  		width:980px; height:10px; background:black; margin-left:120px;
   		display:inline-block;
   	}
-  	hr{
-  		width:500px;
-  		color:lightgray;
-  		display:inline-block;
-  		margin-left:110px;
-  		margin-top:10px;
-  	}
-  	h5{
-  		margin-left:10px;
-  		color:red;
-  	}
-  	select{
-  		margin-left:205px;
-  		width:300px;
-  		height:38px;
-  		border-radius:4px;
-  	}
-  	.input_title{
-  		margin-left:205px;
-  		width:400px;
-  		height:38px;
-  		border-radius:4px;
-  		border:1px solid #4C4C4C;
-  	}
-  	textarea{
-  		margin-left:205px;
-  		width:800px;
-  		height:400px;
-  		border-radius:4px;
-  	}
-  	.btn{
+ 	.btn{
   		background:black;
-  		width:300px;
+  		width:160px;
   		height:45px;
   		color:white;
   		border-radius:4px;
-  		margin-left:440px;
-  		margin-top:50px;
+  		margin-left:530px;
+  		margin-top:30px;
   	}
-	.menu{
-		font-size:25px;
-		font-weight:bold;
-	}
-	.question{
-		width:930px;
-		height:100px;
-		margin-left:130px;
-		
-	}
-	.reply{
-		width:930px;
-		height:280px;
-		margin-left:130px;
-		margin-top:10px;
-		background:lightgray;
-		
-	}
+  	.prod{
+  		width:300px;
+  		height:300px;
+  		margin-left:460px;
+  		margin-top:20px;
+  	}
+  	.status{
+  		background:#0054FF;
+  		width:55px;
+  		height:30px;
+  		margin-left:460px;
+  	}
+  	.endDate{
+  		width:320px;
+  		height:60px;
+  		border:1px solid black;
+  		margin-left:450px;
+  	}
 </style>
 </head>
 <script>
 $(document).ready(function(){
-	$(".question").hide()
-	$(".reply").hide()
 	
-	var cnt = 0
-	$("#reply").click(function(){
-		cnt ++
-		if(cnt%2==1){
-			$(".question").show()
-			$(".reply").show()
-		}else{
-			$(".question").hide()
-			$(".reply").hide()
-		}
-	})
 	
-	//$('#search').click()
 })
 
 </script>
@@ -135,27 +91,25 @@ $(document).ready(function(){
     </header>
 	<section>
         <div class="main_wrapper">
-	      	<a href="${path }/insertFrm.do" class="menu" style="margin-left:300px;">1:1 문의하기</a>
-	      	<a href="${path }/qna.do" class="menu" style="margin-left:350px;">문의내역</a>
-	      	<hr></hr>
+	      	<h2 style="margin-left:580px;">Raffle</h2>
 	      	<div class="bar"></div>
-	      	<form id="frm01">
-	      	<input type="hidden" name="id" value="alsn99"/>
-	      	<button  type="submit" id="search">검색</button>
-	      	</form>
-	      	<c:forEach var="qna" items="${qnaList }">
-	      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
-	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
-	      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
-	      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate}"/></h5>
-	      	<button type="button" id="reply">▼</button>
-	      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
-	      	<div class="reply">
-	      	<h2 style="padding:10px 10px;">A</h2>${qna.reply }
-	     	</div>
 	      	<br><br>
-	      	<hr style="width:980px;">
-			</c:forEach>
+	      	<c:forEach var="myRaf" items="${myRafList }">
+	      	<img src="/Gain/markup/img/${myRaf.imgSrc }" class="prod"/>
+	      	<br><br>
+	      	
+	      	<div class="status">
+	      		<h4 style="color:white; padding:5px 5px;">${myRaf.result }</h4>
+	      	</div>
+	      	<br>
+	      	<h4 style="margin-left:460px;">${myRaf.pname }</h4>
+	      	<br><h4 style="margin-left:460px;">Gain | RAFFLE_${myRaf.rafId }</h4><br><br>
+	      	<div class="endDate">
+	      		<br>
+	      		<h3 style="margin-left:50px; color:lightgray;">
+	      		<fmt:formatDate value="${myRaf.choDate }"/> 당첨자 발표 예정</h3>
+	      	</div>
+	      	</c:forEach>
         </div>
     </section>
     <footer>
@@ -169,7 +123,7 @@ $(document).ready(function(){
 			개인정보보호책임자 : 이수민<br>
 			E-MAIL : help@gain.co.kr
 			</p>
-			<p style="font-size:12px;line-height:20px; padding:10px 0;">
+			<p style="font-size:12px;line-hight:20px; padding:10px 0;">
 			해당 사이트는 프로젝트용 사이트로 실제로 존재하는 사이트가 아닙니다.<br>
 			쌍용강북센터 프로젝트 3팀
 			COPYRIGHT 2023 가인 ALL RIGHT RESERVED.

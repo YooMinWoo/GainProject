@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -80,6 +81,15 @@ $(document).ready(function(){
 	 CountDownTimer('02/09/2023 12:00:00', 'timeDeal'); 
 })
 
+function addRaffle(rafId,id){
+	location.href="${path}/insRaffle.do?rafId="+rafId+"&id="+id
+}
+var msg = "${msg}"
+if(msg!=""){
+	if(confirm(msg+"\n나의 응모내역으로 이동하시겠습니까?")){
+		location.href="${path}/myRaffle.do?id=alsn99"
+	}
+}
 </script>
 <body>
     <header>
@@ -116,9 +126,10 @@ $(document).ready(function(){
 	      	<br><br><br>
 	      	<c:forEach var="raffle" items="${rafList }">
 		      	<span id="timeDeal" class="timer"></span>
+		      	<input type="hidden" name="id" value="alsn99"/>
 		      	<br>
 		      	<h4 style="margin-left:560px; color:#6799FF;">5000명 참여중</h4>
-		      	<button type="button" class="btn">응모하기</button>
+		      	<button type="button" class="btn" onclick="addRaffle('${raffle.rafId}','alsn99')">응모하기</button>
 		      	
 		      	<img src="/Gain/markup/img/${raffle.imgSrc }" class="prod"/>
 		      	<br><br>
