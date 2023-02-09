@@ -71,9 +71,8 @@ public class ProductService {
 	
 	//  상품 수정
 	public String updateProd(Product udt) {
-		if( uploadFile(udt.getMultipartfile())!=null && !uploadFile(udt.getMultipartfile()).equals("")) {
+		if( uploadFile(udt.getMultipartfile())!=null && !uploadFile(udt.getMultipartfile()).equals("") ) {
 			String prodImg = uploadFile(udt.getMultipartfile());
-			
 			udt.setProdImg(prodImg);
 		}
 
@@ -88,7 +87,6 @@ public class ProductService {
 	// 상품 삭제
 	public String deleteProd(String prodNum) {
 		dao.deleteProd(prodNum);
-		
 		return prodNum;
 	}
 	
