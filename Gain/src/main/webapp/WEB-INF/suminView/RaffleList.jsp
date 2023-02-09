@@ -126,6 +126,8 @@ if(msg!=""){
             </ul>
          </nav>
     </header>
+    
+    
 	<section>
         <div class="main_wrapper">
 	      	<h2 style="margin-left:580px;">Raffle</h2>
