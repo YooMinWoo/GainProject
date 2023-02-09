@@ -104,7 +104,7 @@
 							<li>
 								<dl>
 									<dt>판매가</dt>
-									<dd><fmt:formatNumber value="${prod.prodPrice}" />원</dd>
+									<dd><fmt:formatNumber value="${prod.prodPrice}"/>원</dd>
 								</dl>
 								<dl>
 									<dt>회원가</dt>

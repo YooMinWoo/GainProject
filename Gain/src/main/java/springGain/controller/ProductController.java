@@ -37,12 +37,12 @@ public class ProductController {
 		return service.getDetailInfo();
 	}
 	
-	// 사용자 상품 조회 페이지
-	// http://localhost:7080/Gain/getProdList.do
 	
+	// http://localhost:7080/Gain/getProdList.do
+	// 이용자 상품 조회
 	@RequestMapping("/getProdList.do")
 	public String getProdList(@ModelAttribute("sch") Product sch, Model d) {
-		if(sch.getCategoryNum() == "") {
+		if(sch.getCategoryNum() == null) {
 			d.addAttribute("all", "전체 상품");
 		}
 		d.addAttribute("plist", service.getProduct(sch));
@@ -53,11 +53,11 @@ public class ProductController {
 		return "WEB-INF\\heejunView\\prod_searchPage.jsp";
 	}
 	
-	// 관리자 페이지
 	// http://localhost:7080/Gain/getProdListAdmin.do
+	// 관리자 상품 조회
 	@RequestMapping("/getProdListAdmin.do")
 	public String getProdListAdmin(@ModelAttribute("sch") Product sch, Model d) {
-		if(sch.getCategoryNum() == "") {
+		if(sch.getCategoryNum() == null) {
 			d.addAttribute("all", "전체 상품");
 		}
 		d.addAttribute("plist", service.getProduct(sch));
@@ -79,9 +79,9 @@ public class ProductController {
 		return "WEB-INF\\heejunView\\prod_detailPage.jsp";
 	}
 	
+	// http://localhost:7080/Gain/insertProd.do
 	
 	// 상품 등록
-	// http://localhost:7080/Gain/insertProd.do
 	@GetMapping("/insertProd.do")
 	public String insertProd() {
 		return "WEB-INF\\heejunView\\prod_insertPage.jsp";
