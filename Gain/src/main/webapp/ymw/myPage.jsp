@@ -100,7 +100,7 @@
 				<button id="infoUpt" type="button" class="list"> <!-- 회원정보수정 -->
 					<span>회원정보수정</span><span></span>
 				</button>
-				<button id="qna" type="button" class="list"> <!-- 1:1문의 -->
+				<button id="insertFrm" type="button" class="list"> <!-- 1:1문의 -->
 					<span>1:1문의</span><span></span>
 				</button>
 				<button id="logout" type="button" class="list"> <!-- 로그아웃 -->

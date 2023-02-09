@@ -37,8 +37,9 @@ public class ProductController {
 		return service.getDetailInfo();
 	}
 	
-	// 사용자 페이지
+	// 사용자 상품 조회 페이지
 	// http://localhost:7080/Gain/getProdList.do
+	
 	@RequestMapping("/getProdList.do")
 	public String getProdList(@ModelAttribute("sch") Product sch, Model d) {
 		if(sch.getCategoryNum() == "") {
@@ -106,7 +107,6 @@ public class ProductController {
 		if(service.updateProd(udt) != null) {
 			redirect.addFlashAttribute("udtMsg", "수정 성공");
 		}
-		
 		return "redirect:/getProdListAdmin.do";
 	}
 	
