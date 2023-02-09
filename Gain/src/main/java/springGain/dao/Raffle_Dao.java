@@ -14,7 +14,6 @@ public interface Raffle_Dao {
 	
 	public List<Raffle> myRaffle(String id);
 	
-	
 	public void regRaffle(Raffle ins);
 	
 }
