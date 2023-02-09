@@ -140,10 +140,10 @@
 							</select>
 							<div class="product_button"> 
 								<button type="button" class="buyBtn" onclick="buyProd('${prod.prodNum}')">구 매 하 기</button>
-								<form action="${path}/addCart.do" method="post">
+								<form>
 									<input type="hidden" name="prodNum" vlaue="${prod.prodName}">
 									<input type="hidden" name="id" vlaue="himan">
-									<button type="submit" class="basketBtn">장 바 구 니</button>
+									<button type="button" class="basketBtn">장 바 구 니</button>
 								</form>
 							</div>
 						</div>
