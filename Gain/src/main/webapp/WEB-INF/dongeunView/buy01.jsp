@@ -90,6 +90,7 @@ $(document).ready(function(){
                 </ul>
             </nav>
          </div>
+         
          </c:if>
          <h1 class="main_logo">
             <a href="/Gain/goMain.do"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
