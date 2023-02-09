@@ -217,10 +217,6 @@ $(document).ready(function(){
 			$("form").submit();
 		})
 	  	
-=======
-	
-	   
->>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 });
 	function buyProd(prodNum) {
 		  Swal.fire({
