@@ -63,54 +63,95 @@
 			border:1px solid lightgray;
 			border-radius:6px;
 			height:60px;
-			display: flex;
-		    justify-content: space-between;
-    		align-items: center;
     		padding: 0px 20px;
 		    font-size: 17px;
 		    font-weight: 900;
+		}
+		.infos{
+			display: flex;
+    		align-items: center;
+    		justify-content: space-between;
+		}
+		.doneBtnDiv{
+			display: flex;
+		    margin: 0px auto;
+		    margin-top: 40px;
+		}
+		.doneBtn{
+			width: 200px;
+		    height: 45px;
+		    background: black;
+		    border: none;
+		    border-radius: 6px;
+		    color: white;
+		    font-size: medium;
+		    font-weight: 900;	
 		    cursor: pointer;
 		}
 	</style>
 	<script>
 		$(document).ready(function(){
-			$("button").click(function(){
-				var link = $(this).attr('id')
-				location.href="/Gain/"+link+".do"
+			$(".doneBtn").click(function(){
+				var nickNameReg = /^[A-Za-z][A-Za-z0-9]{5,14}$/g;
+				var n_RegExp = /^[가-힣]{2,15}$/;
+				var phoneReg = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
+		        if( !nickNameReg.test( $("input[name=nickname]").val() ) ) {
+		            alert("닉네임은 영문자로 시작하는 6~15자 영문자 또는 숫자이어야 합니다.");
+		            $("input[name=nickname]").focus()
+		            return;
+		        }
+		        if(!n_RegExp.test($("input[name=name]").val() ) ) {
+		            alert("이름에는 특수문자,영어,숫자는 사용할수 없습니다. 한글만 입력하여주세요.(2자 이상 입력)");
+		            $("input[name=gainName]").focus()
+		            return;
+		        }
+		        if(!phoneReg.test($("input[name=phonenum]").val() ) ) {
+		            alert("휴대폰 번호를 확인해주세요(숫자만 입력)");
+		            $("input[name=phonenum]").focus()
+		            return;
+		        }
+		        alert("수정이 완료되었습니다.")
+				//$("#frm01").attr("action","/Gain/goMain.do");
+				// $("#frm01").submit();
 			})
 		})
+	
 	</script>
         <div class="main_wrapper">
+        	<form id="frm01">
 			<div class="myPageList">
-				<button id="buylist" type="button" class="list"> <!-- 주문내역 -->
-					<span>주문내역</span><span></span>
-				</button>
-				<button id="couponAdmin" type="button" class="list"> <!-- 쿠폰조회 -->
-					<span>쿠폰조회</span><span></span>
-				</button >
-				<button type="button" class="list"> <!-- 적립금 -->
-					<span>적립금</span><span>${login.point }원</span>
-				</button>
-				<button id="shoppingBasket" type="button" class="list"> <!-- 장바구니 -->
-					<span>장바구니</span><span></span>
-				</button>
-<<<<<<< HEAD
-				<button id="myRaffle" type="button" class="list"> <!-- 래플내역 -->
-					<span>래플 내역</span><span></span>
-				</button>
-				<button id="infoUpt" type="button" class="list"> <!-- 회원정보수정 -->
-=======
-				<button id="myInfo" type="button" class="list"> <!-- 회원정보수정 -->
->>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
-					<span>회원정보수정</span><span></span>
-				</button>
-				<button id="insertFrm" type="button" class="list"> <!-- 1:1문의 -->
-					<span>1:1문의</span><span></span>
-				</button>
-				<button id="logout" type="button" class="list"> <!-- 로그아웃 -->
-					<span>로그아웃</span><span></span>
-				</button>
+				<div class="infos">
+					<div>
+						<span>닉네임</span>
+					</div>
+					<div>
+						<input id="buylist" value="${login.nickname }" type="text" class="list" name="nickname">
+					</div>
+				</div>
+					
+				<div class="infos">
+					<div>
+						<span>이름</span>
+					</div>
+					<div>
+						<input id="buylist" value="${login.name }" type="text" class="list" name="name">
+					</div>
+					
+				</div>
+				
+				<div class="infos">
+					<div>
+						<span>휴대폰번호</span>
+					</div>
+					<div>
+						<input id="buylist" value="${login.phonenum }" type="text" class="list" name="phonenum"> <!-- 주문내역 -->
+					</div>
+				</div>
+				<div class="doneBtnDiv">
+					<button type="button" class="doneBtn">수정완료</button>
+				</div>
 			</div>
+			</form>
         </div>
     <!-- 여기까지만 작업 -->
     </section>
