@@ -13,8 +13,8 @@ public class QnA_Service {
 	
 	@Autowired
 	private QnA_Dao dao;
+	
 	public List<QnA> memQnAList(String id){
-		
 		return dao.memQnAList(id);
 	}
 	
@@ -26,7 +26,6 @@ public class QnA_Service {
 		if(sch.getId()==null) sch.setId("");
 		return dao.getQnAList(sch);
 	}
-	
 	public void uptReply(QnA upt) {
 		dao.uptReply(upt);
 	}
