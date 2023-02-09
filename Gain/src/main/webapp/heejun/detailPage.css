@@ -4,6 +4,9 @@ h3{
 	letter-spacing: 3px;
 	font-size: 17px;
 }
+pre{
+	white-space: pre-line;
+}
 select{
 	height: 40px;
 	width: 200px;
@@ -66,8 +69,13 @@ select:focus{
 	font-weight: bold;
 }
 
-.product_buy .buyBtn{
+
+.product_buy .product_button{
+	display: flex;
 	margin-top: 10px;
+}
+
+.product_buy .buyBtn{
     width: 200px;
     height: 35px;
     text-align: center;
@@ -78,7 +86,9 @@ select:focus{
     font-size: 15px;
     font-weight: bold;
     border: none;
+    margin-right: 5px;
 }
+
 .product_buy .basketBtn{
     width: 150px;
     height: 35px;

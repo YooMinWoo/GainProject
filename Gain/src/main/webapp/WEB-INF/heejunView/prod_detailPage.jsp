@@ -77,21 +77,12 @@
          </h1>
          <nav class="lnb">
             <ul>
-<<<<<<< HEAD
-                <li><a href="#">전체 상품</a></li>
-                <li><a href="#">의류</a></li>
-                <li><a href="#">슈즈</a></li>
-                <li><a href="#">가방</a></li>
-                <li><a href="#">액세서리</a></li>
-                <li><a href="#">주얼리</a></li>
-=======
                 <li><a href="${path}/getProdList.do">전체 상품</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C1">의류</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C3">가방</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C4">액세서리</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C5">주얼리</a></li>
->>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
@@ -142,20 +133,20 @@
 								<option value="${option.optionNum}">${option.optionName}</option>
 								</c:forEach>						
 							</select>
-							<button type="button" class="buyBtn">구 매 하 기</button>
-							<form action="${path}/addCart.do" method="post">
-								<input type="hidden" name="prodNum" vlaue="${prod.prodName}">
-								<input type="hidden" name="id" vlaue="himan">
-								<button type="submit" class="basketBtn">장 바 구 니</button>
-							</form>
+							<div class="product_button"> 
+								<button type="button" class="buyBtn">구 매 하 기</button>
+								<form action="${path}/addCart.do" method="post">
+									<input type="hidden" name="prodNum" vlaue="${prod.prodName}">
+									<input type="hidden" name="id" vlaue="himan">
+									<button type="submit" class="basketBtn">장 바 구 니</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="down_area">
 					<div class="product_content">
-					<pre>
-${prod.prodInfo}
-					</pre>
+					<pre>${prod.prodInfo}</pre>
 					</div>										
 				</div>
 			</div>
