@@ -120,7 +120,7 @@
 					<div class="block">
 						<div class="img_block">
 							<div class="upload-display">
-								<div class="upload-thumb-wrap"><img src="/Gain/heejun/${prod.prodImg}" class="upload-thumb">
+								<div class="upload-thumb-wrap"><img src="/Gain/sumin/${prod.prodImg}" class="upload-thumb">
 								</div>
 							</div>
 							<input value="${prod.prodImg}" name="prodImg" readonly="readonly" class="upload-name" style="width: 200px;">

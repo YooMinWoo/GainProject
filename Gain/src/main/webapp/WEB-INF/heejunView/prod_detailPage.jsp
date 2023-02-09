@@ -100,7 +100,7 @@
 				<div class="up_area">
 					<div class="left_content">
 						<div class="img_block">
-							<img src="/Gain/heejun/${prod.prodImg}">
+							<img src="/Gain/sumin/${prod.prodImg}">
 						</div>
 					</div>
 					<div class="right_content">
