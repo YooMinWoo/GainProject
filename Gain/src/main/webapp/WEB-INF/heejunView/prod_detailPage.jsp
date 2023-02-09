@@ -139,18 +139,11 @@
 								</c:forEach>						
 							</select>
 							<div class="product_button"> 
-<<<<<<< HEAD
-								<button type="button" class="buyBtn">구 매 하 기</button>
-								<form>
-								<input type="hidden" name="prodNum" value="${prod.prodNum }">
-								<button type="button" class="basketBtn">장 바 구 니</button>
-=======
 								<button type="button" class="buyBtn" onclick="buyProd('${prod.prodNum}')">구 매 하 기</button>
 								<form action="${path}/addCart.do" method="post">
 									<input type="hidden" name="prodNum" vlaue="${prod.prodName}">
 									<input type="hidden" name="id" vlaue="himan">
 									<button type="submit" class="basketBtn">장 바 구 니</button>
->>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 								</form>
 							</div>
 						</div>
