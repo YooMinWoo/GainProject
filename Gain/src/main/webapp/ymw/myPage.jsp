@@ -94,14 +94,10 @@
 				<button id="shoppingBasket" type="button" class="list"> <!-- 장바구니 -->
 					<span>장바구니</span><span></span>
 				</button>
-<<<<<<< HEAD
 				<button id="myRaffle" type="button" class="list"> <!-- 래플내역 -->
 					<span>래플 내역</span><span></span>
 				</button>
 				<button id="infoUpt" type="button" class="list"> <!-- 회원정보수정 -->
-=======
-				<button id="myInfo" type="button" class="list"> <!-- 회원정보수정 -->
->>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 					<span>회원정보수정</span><span></span>
 				</button>
 				<button id="insertFrm" type="button" class="list"> <!-- 1:1문의 -->

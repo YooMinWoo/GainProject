@@ -226,7 +226,7 @@
 									<input type="number" min="1" value="1">
 								</td>
 								<td>
-								<h3 class="pro_price">${product.prodPrice }￦</h3>
+								<h3 class="pro_price"><fmt:formatNumber value="${product.prodPrice }" pattern="#,###" />￦</h3>
 								</td>
 							</tr>
 						</c:forEach>

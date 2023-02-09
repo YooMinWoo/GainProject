@@ -32,7 +32,7 @@ public class ShoppingBasketController {
 	public String addCart(@RequestParam("prodNum") String prodNum, HttpSession session, Model d) {
 		GainMember mem = (GainMember)session.getAttribute("login");
 		service.addCart(prodNum, mem.getId());
-		return "WEB-INF\\heejunView\\prod_detailPage.jsp";
+		return "/shoppingBasket.do";
 	}
 
 }

@@ -140,9 +140,9 @@
 							</select>
 							<div class="product_button"> 
 								<button type="button" class="buyBtn" onclick="buyProd('${prod.prodNum}')">구 매 하 기</button>
-								<form action="${path}/addCart.do" method="post">
+								<form>
 									<input type="hidden" name="prodNum" value="${prod.prodNum}">
-									<button type="submit" class="basketBtn">장 바 구 니</button>
+									<button type="button" class="basketBtn">장 바 구 니</button>
 								</form>
 							</div>
 						</div>
@@ -194,7 +194,6 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
-<<<<<<< HEAD
 	    $(".insBtn").click(function(){
 			  Swal.fire({
 				  title: '등록하시겠습니까?',
@@ -208,18 +207,15 @@ $(document).ready(function(){
 				  if (result.value) {
 					//"확인" 버튼을 눌렀을 때 작업할 내용
 				  }
-				})	    	
+				})
 	  	})	
 
 	  	$(".basketBtn").click(function () {
 			$("form").attr("action","/Gain/addCart.do");
 			$("form").submit();
 		})
-	  	
-=======
 	
-	   
->>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
+		
 });
 	function buyProd(prodNum) {
 		  Swal.fire({
