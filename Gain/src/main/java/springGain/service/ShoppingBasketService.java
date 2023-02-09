@@ -9,6 +9,7 @@ import springGain.dao.CouponDao;
 import springGain.dao.ShoppingBasketDao;
 import springGain.vo.Coupon;
 import springGain.vo.Product;
+import springGain.vo.ShoppingBasket;
 
 @Service
 public class ShoppingBasketService {
@@ -17,5 +18,9 @@ public class ShoppingBasketService {
 	
 	public List<Product> getSBList(String id){
 		return dao.getSBList(id);
+	}
+	
+	public void addCart(ShoppingBasket sb) {
+		dao.addCart(sb);
 	}
 }

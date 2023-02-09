@@ -13,6 +13,6 @@
 	</select>
 	
 	<insert id="addCart" parameterType="shoppingBasket">
-		INSERT INTO SHPPINGBASKET VALUES (#{id},#{prodNum})
+		INSERT INTO SHPPINGBASKET VALUES (#{id,jdbcType=VARCHAR},#{prodNum,jdbcType=VARCHAR})
 	</insert>
 </mapper>
