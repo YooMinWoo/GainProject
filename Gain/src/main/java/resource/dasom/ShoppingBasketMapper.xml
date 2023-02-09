@@ -15,4 +15,5 @@
 	<insert id="addCart" parameterType="springGain.vo.ShoppingBasket">
 		INSERT INTO SHPPINGBASKET VALUES (#{id},#{prodNum})
 	</insert>
+
 </mapper>

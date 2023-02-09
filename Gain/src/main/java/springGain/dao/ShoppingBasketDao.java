@@ -2,7 +2,6 @@ package springGain.dao;
 
 import java.util.List;
 
-import springGain.vo.Coupon;
 import springGain.vo.Product;
 import springGain.vo.ShoppingBasket;
 

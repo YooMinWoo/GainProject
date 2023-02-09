@@ -230,7 +230,9 @@
 		            <tbody>
 						<c:forEach var="product" items="${sbList}">
 							<tr>
-								<td style="text-align: center;"><input type="checkbox"></td>
+								<td style="text-align: center;">
+									<input type="checkbox" value="${product.prodNum}">
+								</td>
 								<td class="pro_info">
 									<img class="pro_img" alt="${product.prodName } 이미지" src="/Gain/heejun/${product.prodImg }">
 									<h3 class="pro_name">${product.prodName }</h3>							

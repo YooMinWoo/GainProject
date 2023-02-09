@@ -25,4 +25,5 @@ public class ShoppingBasketService {
 		System.out.println("아이디 : "+sb.getId()+"\n상품번호 : "+sb.getProdNum());
 		dao.addCart(sb);
 	}
+	
 }
