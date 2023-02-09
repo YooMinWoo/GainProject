@@ -25,6 +25,7 @@ public class BuyController {
 	
 //	http://localhost:7030/Gain/getbuyList.do	
 	//배송지 정보
+	
 	//@RequestParam("id") String id,Model d
 	@GetMapping("/getbuyList.do")
 	public String getbuyList(Model d, HttpSession session,@RequestParam String prodNum) {
