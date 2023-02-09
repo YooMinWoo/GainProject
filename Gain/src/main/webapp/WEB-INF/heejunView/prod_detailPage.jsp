@@ -44,6 +44,11 @@
 
 
 </style>
+
+<script type="text/javascript">
+
+	
+</script>
 </head>
 
 <body>
@@ -135,10 +140,9 @@
 							</select>
 							<div class="product_button"> 
 								<button type="button" class="buyBtn">구 매 하 기</button>
-								<form action="${path}/addCart.do" method="post">
-									<input type="hidden" name="prodNum" vlaue="${prod.prodName}">
-									<input type="hidden" name="id" vlaue="himan">
-									<button type="submit" class="basketBtn">장 바 구 니</button>
+								<form>
+								<input type="hidden" name="prodNum" value="${prod.prodNum }">
+								<button type="button" class="basketBtn">장 바 구 니</button>
 								</form>
 							</div>
 						</div>
@@ -157,7 +161,7 @@
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
 			<p style="font-size:15px;line-height:25px;">
-			(주)머스트잇
+			(주)가인
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>
 			사업자등록번호 : 123-456-789<br>
@@ -205,7 +209,12 @@ $(document).ready(function(){
 				  }
 				})	    	
 	  	})	
-	   
+
+	  	$(".basketBtn").click(function () {
+			$("form").attr("action","/Gain/addCart.do");
+			$("form").submit();
+		})
+	  	
 });
 
 </script>
