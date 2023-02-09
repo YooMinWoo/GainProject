@@ -194,7 +194,6 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
-<<<<<<< HEAD
 	    $(".insBtn").click(function(){
 			  Swal.fire({
 				  title: '등록하시겠습니까?',
