@@ -25,13 +25,11 @@ public class Raffle_Service {
 	public List<Raffle> getRafList(){
 		return dao.getRafList();
 	}
-	
 	public void insertRaffle(String rafId,String id) {
 		dao.insertRaffle(rafId,id);
 	}
 	
 	public List<Raffle> myRaffle(String id){
-		
 		return dao.myRaffle(id);
 	}
 	
@@ -39,19 +37,16 @@ public class Raffle_Service {
 		String fname = file.getOriginalFilename();
 		if(fname!=null && !fname.equals("")) {
 			File fObj = new File(upload+fname);
-			
 			try {
-				file.transferTo(fObj); // 필수예외처리 (IO발생)
+				file.transferTo(fObj);
 			} catch (IllegalStateException e) {
 				System.out.println("파일업로드 예외1:"+e.getMessage());
 			} catch (IOException e) {
 				System.out.println("파일업로드 예외2:"+e.getMessage());
 			} 
-			
 		}
 		return fname;
 	}
-	
 	public String regRaffle(Raffle ins) {
 		String fname = uploadFile(ins.getFile());
 		ins.setImgSrc(fname);

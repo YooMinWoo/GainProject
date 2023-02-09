@@ -20,23 +20,11 @@ public class Raffle_Controller {
 	private Raffle_Service service;
 	
 	// http://localhost:7080/Gain/raffle.do
+	
 	@RequestMapping("/raffle.do")
 	public String getRafList(Model d) {
 		d.addAttribute("rafList", service.getRafList());
 		return "WEB-INF\\suminView\\RaffleList.jsp";
-	}
-	// http://localhost:7080/Gain/rafUploadFrm.do
-	@GetMapping("/rafUploadFrm.do")
-	public String regFrm() {
-		return "WEB-INF\\suminView\\Raffle_admin01.jsp";
-	}
-	@RequestMapping("/rafUpload.do")
-	public String rafUpload(Raffle upload, Model d ) {
-		if(service.regRaffle(upload)!=null) {
-			d.addAttribute("msg", "업로드 성공");
-		}
-		
-		return "WEB-INF\\suminView\\Raffle_admin01.jsp"; 
 	}
 	
 	@RequestMapping("/insRaffle.do")
@@ -53,6 +41,22 @@ public class Raffle_Controller {
 		d.addAttribute("myRafList",	service.myRaffle(mem.getId()) );
 		return "WEB-INF\\suminView\\MyRaffleList.jsp";
 	}
+	
+	// http://localhost:7080/Gain/rafUploadFrm.do
+	
+	@GetMapping("/rafUploadFrm.do")
+	public String regFrm() {
+		return "WEB-INF\\suminView\\Raffle_admin01.jsp";
+	}
+	@RequestMapping("/rafUpload.do")
+	public String rafUpload(Raffle upload, Model d ) {
+		if(service.regRaffle(upload)!=null) {
+			d.addAttribute("msg", "업로드 성공");
+		}
+		return "WEB-INF\\suminView\\Raffle_admin01.jsp"; 
+	}
+	
+	
 	
 	
 	/*
