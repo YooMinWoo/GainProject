@@ -89,5 +89,12 @@ public class GainMemberController {
       return "ymw/myInfo.jsp";
    }
    
+   @RequestMapping("/uptInfo.do")
+   public String uptInfo(HttpSession session, GainMember gm) {
+	  GainMember login = (GainMember) session.getAttribute("login");
+	  service.uptMyInfo(login.getId(), gm);
+      return "redirect:/goMain.do";
+   }
+   
    
 }

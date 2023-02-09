@@ -23,4 +23,9 @@
 	<select id="login" parameterType="gmember" resultType="gmember">
 		select * from GainMember where id=#{id} and pass=#{pass}
 	</select>
+	<update id="uptMyInfo" parameterType="gmember">
+		UPDATE GAINMEMBER 
+		SET name=#{name}
+		WHERE ID = #{id}
+	</update>
 </mapper>

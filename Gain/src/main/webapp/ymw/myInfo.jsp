@@ -111,8 +111,8 @@
 		            return;
 		        }
 		        alert("수정이 완료되었습니다.")
-				//$("#frm01").attr("action","/Gain/goMain.do");
-				// $("#frm01").submit();
+				$("#frm01").attr("action","/Gain/uptInfo.do");
+				$("#frm01").submit();
 			})
 		})
 	
