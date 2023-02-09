@@ -11,7 +11,7 @@
 	
 	<insert id="insertQnA" parameterType="qna">
 		INSERT INTO QnA values(#{category},#{title},#{content},
-		sysdate,'답변대기',null,#{id},qna_seq.nextval)
+		sysdate,'답변대기','',#{id},qna_seq.nextval)
 	</insert>
 	
 	<select id="getQnAList" parameterType="qna" resultType="qna">

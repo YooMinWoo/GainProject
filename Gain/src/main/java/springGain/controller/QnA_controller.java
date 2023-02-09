@@ -45,7 +45,9 @@ public class QnA_controller {
 	}
 	
 	@PostMapping("/insert.do")
-	public String insertQnA(QnA ins,Model d) {
+	public String insertQnA(QnA ins,Model d,HttpSession session) {
+		GainMember mem = (GainMember)session.getAttribute("login");
+		ins.setId(mem.getId());
 		service.insertQnA(ins);
 		d.addAttribute("msg","Q&A 등록 완료");
 		return "WEB-INF\\suminView\\Q&A_mem01.jsp";

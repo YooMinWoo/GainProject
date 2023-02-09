@@ -162,7 +162,7 @@ $(document).ready(function(){
 	      	<h4 style="margin-left:220px;">문의 내용</h4><h5>*</h5>
 	      	<br>
 	      	<textarea name="content" ></textarea>
-	      	<button type="submit" class="btn" id="addBtn" >등록하기</button>
+	      	<button type="button" class="btn" id="addBtn" >등록하기</button>
 	      	</form>
 
 	      
