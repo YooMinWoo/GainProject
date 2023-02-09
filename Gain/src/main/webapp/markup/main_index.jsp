@@ -89,12 +89,12 @@
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="#">전체 상품</a></li>
-                <li><a href="#">의류</a></li>
-                <li><a href="#">슈즈</a></li>
-                <li><a href="#">가방</a></li>
-                <li><a href="#">액세서리</a></li>
-                <li><a href="#">주얼리</a></li>
+                <li><a href="/Gain/getProdList.do">전체 상품</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C1">의류</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C2">슈즈</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C3">가방</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C4">액세서리</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C5">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
@@ -107,6 +107,7 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                         	<img alt="" src="/Gain/markup/img/main_banner01.png">
+                        	
                         </div>
                         <div class="swiper-slide">
                         	<img alt="" src="/Gain/markup/img/main_banner02.png">
@@ -119,7 +120,9 @@
             </div>
             <!-- 하단 영역 -->
             <div class="contents">
-	            <div class="content content_lf"></div>
+	            <div class="content content_lf">
+	            	<a href="/Gain/raffle.do">래플</a>
+	            </div>
 	            <div class="content content_cen"></div>
 	            <div class="content content_rt"></div>
             </div>

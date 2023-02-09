@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import springGain.service.BuyService;
 import springGain.vo.GainMember;
@@ -26,9 +27,9 @@ public class BuyController {
 	//배송지 정보
 	//@RequestParam("id") String id,Model d
 	@GetMapping("/getbuyList.do")
-	public String getbuyList(Model d, HttpSession session) {
+	public String getbuyList(Model d, HttpSession session,@RequestParam String prodNum) {
 		GainMember mem=(GainMember)session.getAttribute("login");
-
+        
         SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy년 MM월 dd일");
         Date now = new Date();
         String nowTime2 = sdf2.format(now);
@@ -40,7 +41,7 @@ public class BuyController {
 		
 		 d.addAttribute("m01", service.getGainMemberList(mem.getId()));
 		
-		 d.addAttribute("p01",service.getProductList("P1"));
+		 d.addAttribute("p01",service.getProductList(prodNum));
 		 d.addAttribute("time01", nowTime2);
 		 
 		return "WEB-INF\\dongeunView\\buy01.jsp";

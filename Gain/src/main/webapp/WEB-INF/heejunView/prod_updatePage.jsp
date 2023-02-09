@@ -53,14 +53,12 @@
             <div class="gnb_center">The department store in my hand</div>
             <nav class="gnb_right">
                 <ul>
-                    <li><a href="#">로그아웃</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="/Gain/logout.do">로그아웃</a></li>
                 </ul>
             </nav>
          </div>
          <h1 class="main_logo">
-            <a href="#"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
+            <a href="/Gain/goAdminMain.do"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
          </h1>
          <nav class="lnb">
             <ul>
@@ -69,7 +67,7 @@
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C3">가방</a></li>
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C4">액세서리</a></li>
-                <li><a href="#">주얼리</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C5">액세서리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
@@ -126,7 +124,7 @@
 								<div class="upload-thumb-wrap"><img src="/Gain/heejun/${prod.prodImg}" class="upload-thumb">
 								</div>
 							</div>
-							<input class="upload-name" value="${prod.prodImg}" name="prodImg" disabled="disabled" style="width: 200px;">
+							<input class="upload-name" value="${prod.prodImg}" name="prodImg" readonly="readonly" style="width: 200px;">
 							
 			              	<label for="input_file">수 정</label> 
              				<input type="file" name="multipartfile" id="input_file" class="upload-hidden"> 

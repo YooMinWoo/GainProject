@@ -48,19 +48,32 @@
 
 <body>
     <header>
+    	<c:if test="${not empty login }"> <%-- 로그인 세션 O --%>
          <div class="gnb">
             <div class="gnb_left">내 손 안의 백화점, 가인</div>
             <div class="gnb_center">The department store in my hand</div>
             <nav class="gnb_right">
                 <ul>
-                    <li><a href="#">로그아웃</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="/Gain/logout.do">로그아웃</a></li>
+                    <li><a href="/Gain/goMypage.do">마이페이지</a></li>
                 </ul>
             </nav>
          </div>
+         </c:if>
+         <c:if test="${empty login }"> <%-- 로그인 세션 X --%>
+         <div class="gnb">
+            <div class="gnb_left">내 손 안의 백화점, 가인</div>
+            <div class="gnb_center">The department store in my hand</div>
+            <nav class="gnb_right">
+                <ul>
+                    <li><a href="/Gain/login.do">로그인</a></li>
+                    <li><a href="/Gain/goNewMember.do">회원가입</a></li>
+                </ul>
+            </nav>
+         </div>
+         </c:if>
          <h1 class="main_logo">
-            <a href="#"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
+            <a href="/Gain/goMain.do"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
          </h1>
          <nav class="lnb">
             <ul>
@@ -69,7 +82,7 @@
                 <li><a href="${path}/getProdList.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C3">가방</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C4">액세서리</a></li>
-                <li><a href="#">주얼리</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C5">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
@@ -120,16 +133,20 @@
 								<option value="${option.optionNum}">${option.optionName}</option>
 								</c:forEach>						
 							</select>
-							<button type="button" class="buyBtn">구 매 하 기</button>
-							<button type="button" class="basketBtn">장 바 구 니</button>
+							<div class="product_button"> 
+								<button type="button" class="buyBtn" onclick="buyProd('${prod.prodNum}')">구 매 하 기</button>
+								<form action="${path}/addCart.do" method="post">
+									<input type="hidden" name="prodNum" vlaue="${prod.prodName}">
+									<input type="hidden" name="id" vlaue="himan">
+									<button type="submit" class="basketBtn">장 바 구 니</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="down_area">
 					<div class="product_content">
-					<pre>
-${prod.prodInfo}
-					</pre>
+					<pre>${prod.prodInfo}</pre>
 					</div>										
 				</div>
 			</div>
@@ -173,23 +190,25 @@ ${prod.prodInfo}
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
-	    $(".insBtn").click(function(){
-			  Swal.fire({
-				  title: '등록하시겠습니까?',
-				  icon: 'question',
-				  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
-				  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
-				  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
-				  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
-				  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
-				}).then((result) => {
-				  if (result.value) {
-					//"확인" 버튼을 눌렀을 때 작업할 내용
-				  }
-				})	    	
-	  	})	
+	
 	   
 });
+	function buyProd(prodNum) {
+		  Swal.fire({
+			  title: '해당 상품을 구매하시겠습니까?',
+			  icon: 'question',
+			  showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+			  confirmButtonColor: '#3085d6', // confrim 버튼 색깔 지정
+			  cancelButtonColor: '#d33', // cancel 버튼 색깔 지정
+			  confirmButtonText: '확인', // confirm 버튼 텍스트 지정
+			  cancelButtonText: '취소' // cancel 버튼 텍스트 지정
+			}).then((result) => {
+			  if (result.value) {
+				//"확인" 버튼을 눌렀을 때 작업할 내용
+				  location.href="${path}/getbuyList.do?prodNum="+prodNum;
+			  }
+			})
+	}
 
 </script>
 </html>

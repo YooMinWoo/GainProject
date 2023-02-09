@@ -85,7 +85,7 @@
                 <li><a href="${path}/getProdList.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C3">가방</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C4">액세서리</a></li>
-                <li><a href="#">주얼리</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C4">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
@@ -119,7 +119,7 @@
 				<div class="right_content">
 					<div class="product_area">
 						<ul class="product_list">
-							<c:forEach var="prod" items="${plist}">
+							<c:forEach var="prod" items="${plist}" varStatus="status">
 							<li>
 								<div class="thumb">
 									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
@@ -129,7 +129,7 @@
 								<div class="product_info">
 									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
 										<dl>
-											<dt>${prod.brandNum}</dt>
+											<dt>${brand[status.index]}</dt>
 											<dd>
 												<p class="product_name">${prod.prodName}</p>
 												<div class="price_info">

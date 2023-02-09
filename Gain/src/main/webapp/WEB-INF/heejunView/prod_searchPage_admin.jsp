@@ -55,19 +55,32 @@
 
 <body>
     <header>
+    	<c:if test="${not empty login }"> <%-- 로그인 세션 O --%>
          <div class="gnb">
             <div class="gnb_left">내 손 안의 백화점, 가인</div>
             <div class="gnb_center">The department store in my hand</div>
             <nav class="gnb_right">
                 <ul>
-                    <li><a href="#">로그아웃</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="/Gain/logout.do">로그아웃</a></li>
+                    <li><a href="/Gain/goMypage.do">마이페이지</a></li>
                 </ul>
             </nav>
          </div>
+         </c:if>
+         <c:if test="${empty login }"> <%-- 로그인 세션 X --%>
+         <div class="gnb">
+            <div class="gnb_left">내 손 안의 백화점, 가인</div>
+            <div class="gnb_center">The department store in my hand</div>
+            <nav class="gnb_right">
+                <ul>
+                    <li><a href="/Gain/login.do">로그인</a></li>
+                    <li><a href="/Gain/goNewMember.do">회원가입</a></li>
+                </ul>
+            </nav>
+         </div>
+         </c:if>
          <h1 class="main_logo">
-            <a href="#"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
+            <a href="/Gain/goMain.do"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
          </h1>
          <nav class="lnb">
             <ul>
@@ -76,7 +89,7 @@
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C3">가방</a></li>
                 <li><a href="${path}/getProdListAdmin.do?categoryNum=C4">액세서리</a></li>
-                <li><a href="#">주얼리</a></li>
+                <li><a href="${path}/getProdListAdmin.do?categoryNum=C5">액세서리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
@@ -115,12 +128,12 @@
 							<c:forEach var="prod" items="${plist}" varStatus="status">
 							<li>
 								<div class="thumb">
-									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
+									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
 										<img src="/Gain/heejun/${prod.prodImg}">
 									</a>
 								</div>
 								<div class="product_info">
-									<a onclick="goDetailPage('${prod.prodNum}','${category.categoryNum}')">
+									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
 										<dl>
 											<dt>${brand[status.index]}</dt>
 											<dd>
