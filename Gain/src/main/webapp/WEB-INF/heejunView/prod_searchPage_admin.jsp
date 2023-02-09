@@ -69,21 +69,14 @@
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="${path}/getProdListAdmin.do">전체 상품</a></li>
-                <li><a href="${path}/getProdListAdmin.do?categoryNum=C1">의류</a></li>
-                <li><a href="${path}/getProdListAdmin.do?categoryNum=C2">슈즈</a></li>
-                <li><a href="${path}/getProdListAdmin.do?categoryNum=C3">가방</a></li>
-                <li><a href="${path}/getProdListAdmin.do?categoryNum=C4">액세서리</a></li>
-                <li><a href="${path}/getProdListAdmin.do?categoryNum=C5">액세서리</a></li>
-                <li><a href="#">DEGINERS</a></li>
+                <li><a href="/Gain/getProdListAdmin.do">상품 등록/수정</a></li>
+                <li><a href="/Gain/qnaList.do">Q&A 답변</a></li>
+                <li><a href="/Gain/rafUploadFrm.do">래플 등록</a></li>
+                <li><a href="/Gain/couponAdmin.do">쿠폰 조회</a></li>
+                <li><a href="/Gain/addCoupon.do">쿠폰 생성</a></li>
+
             </ul>
          </nav>
-         <div class="search-box">
-         	<form action="" method="post">
-    			<input type="text" class="search-txt" name="prodName" value="${sch.prodName}">
-    			<a class="search-btn" href="#"><i class="fas fa-search"></i></a>
-    		</form>	
-  		 </div>
     </header>
 	<section>
 	<!-- 여기서부터 작업 -->

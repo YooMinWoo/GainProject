@@ -1,14 +1,14 @@
 @charset "UTF-8";
 a{
-	cursor: pointer;
+   cursor: pointer;
 }
 
 .search-box{
     padding: 4px 10px 0px 6px;
     position: absolute;
     width: 260px;
-    left: 72%;
-    bottom: 80.2%;
+    left: 75%;
+    bottom: 77.2%;
     transform: translate(-50%,-50%);
     height: 30px;
     background-color: #fff;
@@ -50,47 +50,47 @@ a{
 
 
 .choice_category{
-	text-align: center;	
+   text-align: center;   
 }
 
 
 .content{
-	border-top: 1px solid black;
-	margin-top: 15px;
-	padding-top: 20px;
-	display: flex;
+   border-top: 1px solid black;
+   margin-top: 15px;
+   padding-top: 20px;
+   display: flex;
 }
 
 .left_content{
-	width: 230px;
-	overflow: hidden;
-	margin-right: 50px;
+   width: 230px;
+   overflow: hidden;
+   margin-right: 50px;
 }
 
 .category_subsection{
-	padding: 15px 0px 5px 10px;
-	border-bottom: 1px solid black;
+   padding: 15px 0px 5px 10px;
+   border-bottom: 1px solid black;
 }
 
 .category_subsection li{
-	margin-bottom: 15px;
+   margin-bottom: 15px;
 }
 .category_subsection li a:hover{
-	color: #ed3124;
+   color: #ed3124;
 }
 
 
 .right_content{
-	float: right !important;
-	width: 900px;
+   float: right !important;
+   width: 900px;
 }
 
 .insBtn_area{
-	display: flex;
+   display: flex;
     flex-direction: row-reverse;
 }
 .insBtn_area .insBtn{
-   	width: 105px;
+      width: 105px;
     height: 30px;
     text-align: center;
     border-radius: 5px;
@@ -103,14 +103,14 @@ a{
 }
 
 .product_area .product_list > li{
-	width: 205px;
+   width: 205px;
     height: 386px;
     margin: 30px 10px 75px;
 }
 
 .product_list{
-	display: flex;
-	flex-wrap: wrap;
+   display: flex;
+   flex-wrap: wrap;
 }
 
 .product_list .thumb{
@@ -120,26 +120,26 @@ a{
     height: 278px;
 }
 .product_list .thumb img{
-	width: 100%
+   width: 100%
 }
 .product_list .product_info{
-	padding-top: 15px;
+   padding-top: 15px;
 }
 .product_list .product_info dl > dt{
-	font-weight: bold;
-	margin-bottom: 5px;
+   font-weight: bold;
+   margin-bottom: 5px;
 }
 .product_list .product_info dl > dd > p{
-	font-size: 15px;
+   font-size: 15px;
 }
 
 .price_info{
-	display: flex;
-	margin-top: 10px;
+   display: flex;
+   margin-top: 10px;
 }
 
 .price_info .price{
-	margin-right: 10px;
+   margin-right: 10px;
 }
 
 .price_info .per{
@@ -148,7 +148,7 @@ a{
 }
 
 .button_info{
-	padding: 20px 0px 0px 50px;
+   padding: 20px 0px 0px 50px;
 }
 .button_info .udtBtn{
     width: 50px;
