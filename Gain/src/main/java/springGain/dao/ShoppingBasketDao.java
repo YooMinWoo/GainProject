@@ -12,6 +12,6 @@ public interface ShoppingBasketDao {
 	public List<Product> getSBList(String id);
 
 	// 장바구니 등록
-	public void addCart(ShoppingBasket sb);
+	public void addCart(String prodNum, String id);
 	
 }

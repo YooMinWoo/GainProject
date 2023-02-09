@@ -40,15 +40,14 @@ public class ProductController {
 	// 사용자 페이지
 	// http://localhost:7080/Gain/getProdList.do
 	@RequestMapping("/getProdList.do")
-	public String getProdList(@ModelAttribute("sch") Product sch, Model d, 
-								@RequestParam(defaultValue="") String categoryNum
-								) {
-		if(categoryNum == "") {
+	public String getProdList(@ModelAttribute("sch") Product sch, Model d) {
+		if(sch.getCategoryNum() == "") {
 			d.addAttribute("all", "전체 상품");
 		}
 		d.addAttribute("plist", service.getProduct(sch));
-		d.addAttribute("category", service.getCategoryName(categoryNum));
-		d.addAttribute("detail", service.getDetailName(categoryNum));
+		d.addAttribute("brand", service.getBrandName(sch));
+		d.addAttribute("category", service.getCategoryName(sch.getCategoryNum()));
+		d.addAttribute("detail", service.getDetailName(sch.getCategoryNum()));
 		
 		return "WEB-INF\\heejunView\\prod_searchPage.jsp";
 	}
@@ -56,16 +55,14 @@ public class ProductController {
 	// 관리자 페이지
 	// http://localhost:7080/Gain/getProdListAdmin.do
 	@RequestMapping("/getProdListAdmin.do")
-	public String getProdListAdmin(@ModelAttribute("sch") Product sch, Model d, 
-								@RequestParam(defaultValue="") String categoryNum
-								) {
-		if(categoryNum == "") {
+	public String getProdListAdmin(@ModelAttribute("sch") Product sch, Model d) {
+		if(sch.getCategoryNum() == "") {
 			d.addAttribute("all", "전체 상품");
 		}
 		d.addAttribute("plist", service.getProduct(sch));
 		d.addAttribute("brand", service.getBrandName(sch));
-		d.addAttribute("category", service.getCategoryName(categoryNum));
-		d.addAttribute("detail", service.getDetailName(categoryNum));
+		d.addAttribute("category", service.getCategoryName(sch.getCategoryNum()));
+		d.addAttribute("detail", service.getDetailName(sch.getCategoryNum()));
 		
 		return "WEB-INF\\heejunView\\prod_searchPage_admin.jsp";
 	}	

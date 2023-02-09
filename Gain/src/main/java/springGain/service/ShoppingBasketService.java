@@ -20,7 +20,7 @@ public class ShoppingBasketService {
 		return dao.getSBList(id);
 	}
 	
-	public void addCart(ShoppingBasket sb) {
-		dao.addCart(sb);
+	public void addCart(String prodNum, String id) {
+		dao.addCart(prodNum, id);
 	}
 }
