@@ -45,7 +45,6 @@
     .content{
     	width: 393px;
     	height: 300px;
-    	border: 1px solid black;
     }
     
 </style>
@@ -121,10 +120,14 @@
             <!-- 하단 영역 -->
             <div class="contents">
 	            <div class="content content_lf">
-	            	<a href="/Gain/raffle.do">래플</a>
+	            	<a href="/Gain/raffle.do"><img alt="" src="/Gain/markup/img/raffle_banner.png"></a>
 	            </div>
-	            <div class="content content_cen"></div>
-	            <div class="content content_rt"></div>
+	            <div class="content content_cen">
+	            	<a href="/Gain/prodDetail.do?prodNum=P101&categoryNum=C2"><img alt="" src="/Gain/markup/img/apc_banner.png"></a>
+	            </div>
+	            <div class="content content_rt">
+	            	<img alt="" src="/Gain/markup/img/gain_sub.png">
+	            </div>
             </div>
         </div>
     </section>
