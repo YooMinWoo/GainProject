@@ -13,6 +13,7 @@ import springGain.service.ShoppingBasketService;
 import springGain.vo.Coupon;
 import springGain.vo.GainMember;
 import springGain.vo.Product;
+import springGain.vo.ShoppingBasket;
 
 @Controller
 public class ShoppingBasketController {
@@ -25,6 +26,13 @@ public class ShoppingBasketController {
 		GainMember mem = (GainMember)session.getAttribute("login");
 		d.addAttribute("sbList", service.getSBList(mem.getId()));
 		return "WEB-INF\\dasomView\\ShoppingBasket.jsp";
+	}
+	
+	@RequestMapping("/addCart.do")
+	public String addCart(ShoppingBasket sb, Model d) {
+		service.addCart(sb);
+		d.addAttribute("msg","장바구니 추가 완료");
+		return "WEB-INF\\heejunView\\prod_detailPage.jsp";
 	}
 	
 }
