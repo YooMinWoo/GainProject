@@ -23,17 +23,21 @@ public class QnA_controller {
 	private QnA_Service service;
 	
 	// http://localhost:7080/Gain/qna.do
+	
 	@RequestMapping("/qna.do")
-//	public String memQnAList(@ModelAttribute("sch") QnA sch,Model d) {
-//		
-//		d.addAttribute("qnaList", service.memQnAList(sch));
-//		return "WEB-INF\\suminView\\Q&A_mem02.jsp";
-//	}
 	public String memQnAList(Model d,HttpSession session) {
 		GainMember mem = (GainMember)session.getAttribute("login");
 		d.addAttribute("qnaList", service.memQnAList(mem.getId()));
 		return "WEB-INF\\suminView\\Q&A_mem02.jsp";
 	}
+	
+//	public String memQnAList(@ModelAttribute("sch") QnA sch,Model d) {
+//		
+//		d.addAttribute("qnaList", service.memQnAList(sch));
+//		return "WEB-INF\\suminView\\Q&A_mem02.jsp";
+//	}
+	
+	
 	
 	@GetMapping("/insertFrm.do")
 	public String insertFrm() {

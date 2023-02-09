@@ -12,7 +12,8 @@
 		AND s.id = #{id}
 	</select>
 	
-	<insert id="addCart" parameterType="shoppingBasket">
-		INSERT INTO SHPPINGBASKET VALUES (#{id,jdbcType=VARCHAR},#{prodNum,jdbcType=VARCHAR})
+	<insert id="addCart" parameterType="springGain.vo.ShoppingBasket">
+		INSERT INTO SHPPINGBASKET VALUES (#{id},#{prodNum})
 	</insert>
+
 </mapper>

@@ -16,6 +16,14 @@ public class ShoppingBasket {
 	public void setProdNum(String prodNum) {
 		this.prodNum = prodNum;
 	}
+	
+	
+	
+	public ShoppingBasket(String prodNum, String id) {
+		super();
+		this.id = id;
+		this.prodNum = prodNum;
+	}
 	public ShoppingBasket() {
 		super();
 		// TODO Auto-generated constructor stub

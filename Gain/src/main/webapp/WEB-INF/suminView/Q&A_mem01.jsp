@@ -76,7 +76,6 @@
 $(document).ready(function(){
 	
 	 $("#addBtn").click(function(){
-		
 		 var categoryVal = $("[name=category]").val()
 		 var titleVal = $("[name=title]").val()
 		 var contentVal = $("[name=content]").val()
@@ -95,7 +94,6 @@ $(document).ready(function(){
 		 if(categoryVal!="" && titleVal!="" && contentVal!=""){
 			 $("#boardFrm").submit()
 		 }
-		
 	 })
 	 var msg ="${msg}"
 		 if(msg!=""){
@@ -143,7 +141,6 @@ $(document).ready(function(){
 	      	<hr></hr>
 	      	<br><br>
 	      	<form id="boardFrm" action="${path}/insert.do" method="post">
-	      	<input type="hidden" name="id" value="alsn99"/>
 	      	<h4 style="margin-left:220px;">문의 유형</h4><h5>*</h5>
 	      	<br>
 	      	<select name="category">

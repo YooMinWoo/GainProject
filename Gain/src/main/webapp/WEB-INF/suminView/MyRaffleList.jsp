@@ -97,15 +97,13 @@ $(document).ready(function(){
 	      	<c:forEach var="myRaf" items="${myRafList }">
 	      	<img src="/Gain/markup/img/${myRaf.imgSrc }" class="prod"/>
 	      	<br><br>
-	      	
 	      	<div class="status">
 	      		<h4 style="color:white; padding:5px 5px;">${myRaf.result }</h4>
 	      	</div>
 	      	<br>
 	      	<h4 style="margin-left:460px;">${myRaf.pname }</h4>
 	      	<br><h4 style="margin-left:460px;">Gain | RAFFLE_${myRaf.rafId }</h4><br><br>
-	      	<div class="endDate">
-	      		<br>
+	      	<div class="endDate"><br>
 	      		<h3 style="margin-left:50px; color:lightgray;">
 	      		<fmt:formatDate value="${myRaf.choDate }"/> 당첨자 발표 예정</h3>
 	      	</div>

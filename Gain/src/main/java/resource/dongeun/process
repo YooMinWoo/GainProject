@@ -92,3 +92,95 @@
 
 6. 화면단 list <c:forEach var="board" items="{$list}">
 
+ DB처리를 위한 구성 
+    1) db생성/기본 데이터 입력
+    
+     
+    
+    
+    2) 조회를 위한 sql 
+
+        SELECT id, address, phonenum 
+		FROM GAINMEMBER
+		WHERE id='himan'
+         
+    3) vo 작성 
+            private String id;
+            private String address;
+            private String phonenum;
+     
+    4) 공통 mybatis 등록 alias GainMember
+        mapper 등록
+        
+    5) dao 
+		public GainMember getGainMemberList(String id);     
+        
+    6) mapper 처리
+        <select id="getGainMemberList" resultType="gainmember" parameterType="string">
+		   SELECT id, address, phonenum 
+			FROM GAINMEMBER
+			WHERE id=#{id}
+	    </select>	
+--------------------------------------------------------------------------------------
+4. 비지니스 로직 처리(service)
+    1) subject, writer null에 대한 공백 처리     
+      
+5. controller 
+   1) 
+   	@GetMapping("/getbuyList.do")
+	public String getbuyList(@ModelAttribute("id") String id,Model d) {
+		 d.addAttribute("m01", service.getGainMemberList("himan"));
+		
+		return "WEB-INF\\dongeunView\\buy01.jsp";
+	}
+      
+
+6. 화면단 list <c:forEach var="board" items="{$list}">
+
+--------------------------------------------------------------------------------------------
+
+3. DB처리를 위한 구성 
+    1) db생성/기본 데이터 입력
+    
+     
+    couponnum, couponname,couponpercent, couponendate
+    
+    2) 조회를 위한 sql 
+
+        SELECT couponname
+        FROM coupone;
+        
+         
+    3) vo 작성 Product(vo)
+        
+     
+    4) 공통 mybatis 등록 alias GainMember
+        mapper 등록
+        
+        
+    5) dao 
+		public Product getProductList(String prodnum);     
+        
+    6) mapper 처리
+        <select id="getProductList" resultType="product" parameterType="string">
+			SELECT prodImg, prodName
+	        FROM products
+	        WHERE PRODNUM =#{prodnum}
+	    </select>	
+--------------------------------------------------------------------------------------
+4. 비지니스 로직 처리(service)
+    1) subject, writer null에 대한 공백 처리     
+      
+5. controller 
+   1) 
+   	@GetMapping("/prodList.do")
+	public String prodList(@ModelAttribute("prodnum") String prodnum,Model d) {
+		 d.addAttribute("p01", service.getGainMemberList("p01"));
+		
+		return "WEB-INF\\dongeunView\\buy01.jsp";
+	}
+   
+      
+
+6. 화면단 list <c:forEach var="board" items="{$list}">
+

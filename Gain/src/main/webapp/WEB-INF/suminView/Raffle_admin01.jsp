@@ -105,9 +105,6 @@ $(document).ready(function(){
 		if(pnameVal!="" && priceVal!=""&& startVal!=""&& endVal!=""&&choiceVal!=""){
 			$("#raffle").submit();
 		}
-
-
-
 	})
 	var msg = "${msg}"
 	if(msg != ""){
@@ -153,30 +150,18 @@ $(document).ready(function(){
 	      	
 	      	<br><br>
 	      	<form id="raffle" action="${path}/rafUpload.do" method="post" enctype="multipart/form-data">
-	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5>
-	      	<br>
-	      	<input type="text" name="pname" placeholder="상품명을 입력해주세요">
-	      	<br><br>
-	      	<h4 style="margin-left:410px;">상품가격</h4><h5>*</h5>
-	      	<br>
-	      	<input type="number" name="price" placeholder="상품가격을 입력해주세요">
-	        <br><br>
-	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="text" name="startDate" placeholder="응모 시작일을 입력해주세요">
-	      	 <br><br>
-	      	<h4 style="margin-left:410px;">응모종료일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="text" name="endDate" placeholder="응모 종료일을 입력해주세요">
-	       <br><br>
-	      	<h4 style="margin-left:410px;">추첨일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="text" name="choDate" placeholder="추첨일을 입력해주세요">
-	       <br><br>
-	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
-	      	<br>
-	      	<input type="file" name="file"/>
-	      	<br>
+	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5><br>
+	      	<input type="text" name="pname" placeholder="상품명을 입력해주세요"><br><br>
+	      	<h4 style="margin-left:410px;">상품가격</h4><h5>*</h5><br>
+	      	<input type="number" name="price" placeholder="상품가격을 입력해주세요"><br><br>
+	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5><br>
+	      	<input type="text" name="startDate" placeholder="응모 시작일을 입력해주세요"><br><br>
+	      	<h4 style="margin-left:410px;">응모종료일</h4><h5>*</h5><br>
+	      	<input type="text" name="endDate" placeholder="응모 종료일을 입력해주세요"><br><br>
+	      	<h4 style="margin-left:410px;">추첨일</h4><h5>*</h5><br>
+	      	<input type="text" name="choDate" placeholder="추첨일을 입력해주세요"><br><br>
+	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5><br>
+	      	<input type="file" name="file"/><br>
 	      	<button type="button" id="addBtn" class="btn">등록하기</button>
 			</form>
 	      

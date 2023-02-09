@@ -25,7 +25,7 @@ public class ProductService {
 	@Value("${img.upload}")
 	private String upload;
 	
-	// 상품 검색 service
+	// 상품 검색
 	public List<Product> getProduct(Product sch){
 		if(sch.getProdName()==null) sch.setProdName("");
 		
@@ -35,7 +35,6 @@ public class ProductService {
 	// 상품 상세조회
 	public Product productDetail(String prodNum) {
 		
-		
 		return dao.productDetail(prodNum);
 	}
 	
@@ -43,21 +42,20 @@ public class ProductService {
 	// 상품 등록시 이미지 파일 업로드
 	public String uploadFile(MultipartFile multipartfile) {
 		String fname = multipartfile.getOriginalFilename();
+		
 		if(fname != null && !fname.equals("")) {
 			File fObj = new File(upload+fname);
-			
 			try {
 				multipartfile.transferTo(fObj);
-				
 			} catch (IllegalStateException e) {
 				System.out.println("파일업로드 예외1:"+e.getMessage());
-				
 			} catch (IOException e) {
 				System.out.println("파일업로드 예외2:"+e.getMessage());
 			} 
 		}
 		return fname;
 	}
+	
 	// 상품 등록
 	public String insertProd(Product ins) {
 		String prodImg = uploadFile(ins.getMultipartfile());
@@ -90,13 +88,13 @@ public class ProductService {
 		return prodNum;
 	}
 	
-	// 카테고리 이름 출력
+	// 카테고리
 	public Category getCategoryName(String categoryNum) {
 		
 		return dao.getCategoryName(categoryNum);
 	}
 	
-	// 세부항목 이름 출력
+	// 세부항목
 	public List<DetailInfo> getDetailName(String categoryNum) {
 		
 		return dao.getDetailName(categoryNum);

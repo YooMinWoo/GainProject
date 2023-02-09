@@ -84,8 +84,7 @@
 					<h3 class="product_price">판매가</h3>
 				</div>
 				<div class="second_line">
-					<input type="text" name="prodName" placeholder="상품명 입력" 
-							value="${prod.prodName}">
+					<input type="text" name="prodName" placeholder="상품명 입력" value="${prod.prodName}">
 					<input type="number" name="prodPrice" placeholder="판매가 입력" value="${prod.prodPrice}">
 				</div>
 				<div class="third_line">
@@ -124,7 +123,7 @@
 								<div class="upload-thumb-wrap"><img src="/Gain/heejun/${prod.prodImg}" class="upload-thumb">
 								</div>
 							</div>
-							<input class="upload-name" value="${prod.prodImg}" name="prodImg" readonly="readonly" style="width: 200px;">
+							<input value="${prod.prodImg}" name="prodImg" readonly="readonly" class="upload-name" style="width: 200px;">
 							
 			              	<label for="input_file">수 정</label> 
              				<input type="file" name="multipartfile" id="input_file" class="upload-hidden"> 
@@ -190,7 +189,8 @@ $(document).ready(function(){
 		$("[name=detailNum] option").each(function(idx, opt){
 			if($(this).val() == $("[name=detailHidden]").val()){
 				$(this).attr("selected", "selected");
-				
+			}
+		})
 	    $(".udtBtn").click(function(){
 			  Swal.fire({
 				  title: '수정하시겠습니까?',
@@ -289,8 +289,8 @@ $(document).ready(function(){
 				  }
 				})	    	
 	  	})
-			}
-		})
+			
+		
 
 	
 	

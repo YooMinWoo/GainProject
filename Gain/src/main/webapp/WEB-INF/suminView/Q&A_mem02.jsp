@@ -103,6 +103,7 @@ $(document).ready(function(){
 		}
 	})
 	--%>
+	
 	$("#reply").click(function(){
 	    $("#question").slideToggle("slow");
 	    $("#answer").slideToggle("slow");

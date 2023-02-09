@@ -7,6 +7,17 @@
  */
 SELECT * FROM GAINMEMBER;
 
+SELECT * FROM COUPON;
+--couponnum, couponname,couponpercent, couponendate
+
+/*
+	-- 아이디
+	id varchar2(100) NOT NULL,
+	-- 쿠폰번호
+	couponNum varchar2(100) NOT NULL,
+	-- 사용 상태
+	couponState number
+**/
 
 SELECT id, address, phonenum 
 FROM GAINMEMBER
