@@ -107,6 +107,7 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                         	<img alt="" src="/Gain/markup/img/main_banner01.png">
+                        	
                         </div>
                         <div class="swiper-slide">
                         	<img alt="" src="/Gain/markup/img/main_banner02.png">
@@ -119,7 +120,9 @@
             </div>
             <!-- 하단 영역 -->
             <div class="contents">
-	            <div class="content content_lf"></div>
+	            <div class="content content_lf">
+	            	<a href="/Gain/raffle.do">래플</a>
+	            </div>
 	            <div class="content content_cen"></div>
 	            <div class="content content_rt"></div>
             </div>
