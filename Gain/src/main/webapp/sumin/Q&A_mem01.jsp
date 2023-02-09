@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -130,6 +131,7 @@ $(document).ready(function(){
 	      	<hr></hr>
 	      	<br><br>
 	      	<form id="boardFrm">
+	      	<input type="hidden" name="id" value="himan"/>
 	      	<h4 style="margin-left:220px;">문의 유형</h4><h5>*</h5>
 	      	<br>
 	      	<select name="category">

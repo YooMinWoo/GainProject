@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"resources":{"src/main/webapp/markup/doneun.sql":{"default-schema":"GAIN","default-datasource":"oracle_thin-1862b2bf408-6e12ac950fd6cdec"},"src/main/webapp/markup/gain.sql":{"default-datasource":"oracle_thin-1862b2bf408-6e12ac950fd6cdec","default-schema":"GAIN"}}}
+=======
+{"resources":{"Scripts/Script-3.sql":{"default-schema":"GAIN","default-datasource":"oracle_thin-186315d4213-68dfab1251ccda77"},"src/main/webapp/markup/doneun.sql":{"default-schema":"GAIN","default-datasource":"oracle_thin-1862a61849a-293215569f3695ed"},"src/main/webapp/markup/gain.sql":{"default-datasource":"oracle_thin-186315d4213-68dfab1251ccda77","default-schema":"GAIN"}}}
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git

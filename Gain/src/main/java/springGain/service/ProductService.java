@@ -71,12 +71,14 @@ public class ProductService {
 	
 	//  상품 수정
 	public String updateProd(Product udt) {
-		String prodImg = uploadFile(udt.getMultipartfile());
-		
-		udt.setProdImg(prodImg);
+		if( uploadFile(udt.getMultipartfile())!=null && !uploadFile(udt.getMultipartfile()).equals("")) {
+			String prodImg = uploadFile(udt.getMultipartfile());
+			
+			udt.setProdImg(prodImg);
+		}
+
 		if(udt.getProdImg()==null) udt.setProdImg("");
 		if(udt.getProdInfo()==null) udt.setProdInfo("");
-		
 		
 		dao.updateProd(udt);
 		
@@ -106,6 +108,15 @@ public class ProductService {
 	public List<Option> getOption(String categoryNum){
 		
 		return dao.getOption(categoryNum);
+	}
+	
+	// 브랜드 이름
+	public List<String> getBrandName(Product sch) {
+		if(sch.getBrandNum() == null) sch.setBrandNum("");
+		if(sch.getCategoryNum() == null) sch.setCategoryNum("");
+		if(sch.getDetailNum() == null) sch.setDetailNum("");
+		
+		return dao.getBrandName(sch);
 	}
 	
 	// 브랜드 combo

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import springGain.service.CouponService;
 import springGain.vo.Coupon;
+import springGain.vo.Product;
 
 @Controller
 public class CouponController {
@@ -21,6 +22,9 @@ public class CouponController {
 		return "WEB-INF\\dasomView\\couponListAdmin.jsp";
 	}
 	
+	//메인
+	// http://localhost:7080/Gain/goMain.do
+	
 	
 	// http://localhost:7080/Gain/addCoupon.do
 	@RequestMapping("/addCoupon.do")
@@ -28,4 +32,6 @@ public class CouponController {
 		service.addCoupon(cp);
 		return "WEB-INF\\dasomView\\addCoupon.jsp";
 	}
+
+	
 }

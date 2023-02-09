@@ -13,8 +13,21 @@ public class QnA_Service {
 	
 	@Autowired
 	private QnA_Dao dao;
+	public List<QnA> memQnAList(String id){
+		
+		return dao.memQnAList(id);
+	}
+	
+	public void insertQnA(QnA ins) {
+		dao.insertQnA(ins);
+	}
+	
 	public List<QnA> getQnAList(QnA sch){
-		if(sch.getId()==null) sch.setId("himan");
+		if(sch.getId()==null) sch.setId("");
 		return dao.getQnAList(sch);
+	}
+	
+	public void uptReply(QnA upt) {
+		dao.uptReply(upt);
 	}
 }

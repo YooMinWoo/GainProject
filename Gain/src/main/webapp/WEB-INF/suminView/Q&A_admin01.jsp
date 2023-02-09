@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -19,14 +20,18 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 
 <style type="text/css">
-  	h4,h5{
-  		display:inline;
-  	}
+ 	
   	.bar{
-  		width:980px; height:10px; background:black; margin-left:120px;
-  		display:inline-block;
+  		width:980px; height:10px; background:black; margin-left:115px;
+  		
   	}
-  
+  	hr{
+  		width:500px;
+  		color:lightgray;
+  		display:inline-block;
+  		margin-left:110px;
+  		margin-top:10px;
+  	}
   	h5{
   		margin-left:10px;
   		color:red;
@@ -37,8 +42,8 @@
   		height:38px;
   		border-radius:4px;
   	}
-  	input{
-  		margin-left:400px;
+  	.input_title{
+  		margin-left:205px;
   		width:400px;
   		height:38px;
   		border-radius:4px;
@@ -52,59 +57,72 @@
   	}
   	.btn{
   		background:black;
-  		width:300px;
+  		width:100px;
   		height:45px;
   		color:white;
   		border-radius:4px;
-  		margin-left:450px;
-  		margin-top:50px;
+  		margin-left:800px;
+  		margin-top:5px;
   	}
-  	.menu{
-  		font-size:25px;
-  		font-weight:bold;
-  	}
-  	.img_div{
-  		margin-left:400px;
-  		width:200px;
-  		height:200px;
-  		border:1px solid black;
-  		background:white;
-  	}
-  
+	.menu{
+		font-size:25px;
+		font-weight:bold;
+	
+	}
+	.question{
+		width:930px;
+		height:100px;
+		margin-left:130px;
+		
+	}
+	.reply{
+		width:930px;
+		height:300px;
+		margin-left:130px;
+		margin-top:10px;
+		background:lightgray;
+		
+	}
 </style>
 </head>
 <script>
 $(document).ready(function(){
-	$("#addBtn").click(function(){
-		var pnameVal = $("[name=pname]").val()
-		var priceVal = $("[name=price]").val()
-		var startVal = $("[name=startDate]").val()
-		var endVal = $("[name=endDate]").val()
-		var choiceVal = $("[name=choDate]").val()
-		if(pnameVal==""){
-			alert("상품명을 입력하세요")
-			return
+	$(".question").hide()
+	$(".reply").hide()
+	
+	var cnt = 0
+	$("#reply").click(function(){
+		cnt ++
+		if(cnt%2==1){
+			$(".question").show()
+			$(".reply").show()
+		}else{
+			$(".question").hide()
+			$(".reply").hide()
 		}
-		if(priceVal==""){
-			alert("상품가격을 입력하세요")
-			return
-		}
-		if(startVal==""){
-			alert("시작일을 입력하세요")
-			return
-		}
-		if(endVal==""){
-			alert("종료일을 입력하세요")
-			return
-		}
-		if(choiceVal==""){
-			alert("추첨일을 입력하세요")
-			return
-		}
-		$("#raffle").submit()
 	})
-})
+		
+	$("#addReply").click(function(){
+		var replyVal = $("[name=reply]").val()
+		if(replyVal==""){
+			alert("답변내용을 입력하세요")
+		}else{
+			$("#reFrm").submit()
+		}
+		
+	})
+	var msg ="${msg}"
+		 if(msg!=""){
+			if(confirm(msg+"\n문의내역으로 이동하시겠습니까?")){
+				location.href="${path}/qnaList.do"
+			}
+		 }		
+		
+		
+		
 
+})
+	
 </script>
 <body>
     <header>
@@ -136,40 +154,32 @@ $(document).ready(function(){
     </header>
 	<section>
         <div class="main_wrapper">
-	      	<h2 style="margin-left:580px;">Raffle</h2>
-	      	<div class="bar"></div>
-	      	
-	      	<br><br>
-	      	<form id="raffle">
-	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5>
-	      	<br>
-	      	<input type="text" name="pname" placeholder="상품명을 입력해주세요">
-	      	<br><br>
-	      	<h4 style="margin-left:410px;">상품가격</h4><h5>*</h5>
-	      	<br>
-	      	<input type="text" name="price" placeholder="상품가격을 입력해주세요">
-	        <br><br>
-	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="date" name="startDate" placeholder="응모 시작일을 입력해주세요">
-	      	 <br><br>
-	      	<h4 style="margin-left:410px;">응모종료일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="date" name="endDate" placeholder="응모 종료일을 입력해주세요">
-	       <br><br>
-	      	<h4 style="margin-left:410px;">추첨일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="date" name="choDate" placeholder="추첨일을 입력해주세요">
-	       <br><br>
-	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
-	      	<br>
-	      	<div class="img_div">
-	      		<input type="file" id="file"/>
-	      	</div>
-	      	<br>
-	      	<button type="button" id="addBtn" class="btn">등록하기</button>
-			</form>
 	      
+	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:570px;">문의내역</a>
+	      	<div class="bar"></div>
+	      	<c:forEach var="qna" items="${qnaList }">
+	      		
+		      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
+		      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
+		      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
+		      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate }"/></h5>
+		      	<button type="button" id="reply">▼</button>
+		      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>
+		      	${qna.content }
+		      	
+	      		</div>
+	      	<div class="reply">
+		      	<h2 style="padding:10px 10px;">A</h2>
+		      	<form id="reFrm" action="${path}/update.do" method="post">
+		      		<input type="hidden" name="qna_no" value="${qna.qna_no }">
+		      		<textarea name="reply" style="width:870px; height:180px; margin-left:30px;"></textarea>
+		      		<button class="btn" type="button" id="addReply">답변 등록하기</button>
+		      	</form>
+	     	</div>
+	     	</c:forEach>
+	      	<br><br>
+	      	<hr style="width:980px;">
+
         </div>
     </section>
     <footer>

@@ -17,10 +17,31 @@ public class GainMemberController {
    @Autowired
    private GainMemberService service;
    
+// http://localhost:2020/Gain/goMain.do
+   @RequestMapping("/goMain.do")
+   public String goMain() {
+	   return "markup/main_index.jsp";
+   }
+// http://localhost:2020/Gain/goAdminMain.do
+   @RequestMapping("/goAdminMain.do")
+   public String goAdminMain() {
+	   return "markup/admin_main.jsp";
+   }
+   
    // http://localhost:2020/Gain/goNewMember.do
    @RequestMapping("/goNewMember.do")
    public String goNewMember() {
 	   return "ymw/NewMember.jsp";
+   }
+// http://localhost:2020/Gain/goMypage.do
+   @RequestMapping("/goMypage.do")
+   public String goMypage() {
+	   return "ymw/myPage.jsp";
+   }
+   
+   @RequestMapping("/goAdminMypage.do")
+   public String goAdminMypage() {
+	   return "ymw/adminMyPage.jsp";
    }
    
    // http://localhost:2020/Gain/idCheck.do?id=alsn99
@@ -39,7 +60,7 @@ public class GainMemberController {
    @RequestMapping("/login.do")
    public String login(GainMember gm, Model d, HttpSession session) {
 	  if(gm.getId()==null) {
-		  d.addAttribute("logCh", "");
+		  d.addAttribute("logCh", "초기화면");
 		  return "ymw/login.jsp";
 	  }
 	  else if(service.login(gm)==null) {
@@ -48,7 +69,20 @@ public class GainMemberController {
 	  }
 	  else{
 		  session.setAttribute("login", service.login(gm));
-		  return "ymw/session.jsp";
+		  if(service.login(gm).getAuth().equals("1")) {
+			  return "redirect:/goAdminMain.do";
+		  }else {
+			  return "redirect:/goMain.do";
+		  }
+		  
 	  }
    }
+   @RequestMapping("/logout.do")
+   public String logout(HttpSession session, Model d) {
+	  session.removeAttribute("login");
+	  d.addAttribute("lo","로그아웃");
+      return "forward:/goMain.do";
+   }
+   
+   
 }

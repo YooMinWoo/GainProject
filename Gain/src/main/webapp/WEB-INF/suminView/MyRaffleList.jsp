@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -19,90 +20,44 @@
 <link rel="stylesheet" href="/Gain/markup/reset.css"/>
 
 <style type="text/css">
-  	h4,h5{
-  		display:inline;
-  	}
+  
   	.bar{
   		width:980px; height:10px; background:black; margin-left:120px;
   		display:inline-block;
   	}
-  
-  	h5{
-  		margin-left:10px;
-  		color:red;
-  	}
-  	select{
-  		margin-left:205px;
-  		width:300px;
-  		height:38px;
-  		border-radius:4px;
-  	}
-  	input{
-  		margin-left:400px;
-  		width:400px;
-  		height:38px;
-  		border-radius:4px;
-  		border:1px solid #4C4C4C;
-  	}
-  	textarea{
-  		margin-left:205px;
-  		width:800px;
-  		height:400px;
-  		border-radius:4px;
-  	}
-  	.btn{
+ 	.btn{
   		background:black;
-  		width:300px;
+  		width:160px;
   		height:45px;
   		color:white;
   		border-radius:4px;
-  		margin-left:450px;
-  		margin-top:50px;
+  		margin-left:530px;
+  		margin-top:30px;
   	}
-  	.menu{
-  		font-size:25px;
-  		font-weight:bold;
+  	.prod{
+  		width:300px;
+  		height:300px;
+  		margin-left:460px;
+  		margin-top:20px;
   	}
-  	.img_div{
-  		margin-left:400px;
-  		width:200px;
-  		height:200px;
+  	.status{
+  		background:#0054FF;
+  		width:55px;
+  		height:30px;
+  		margin-left:460px;
+  	}
+  	.endDate{
+  		width:320px;
+  		height:60px;
   		border:1px solid black;
-  		background:white;
+  		margin-left:450px;
   	}
-  
 </style>
 </head>
 <script>
 $(document).ready(function(){
-	$("#addBtn").click(function(){
-		var pnameVal = $("[name=pname]").val()
-		var priceVal = $("[name=price]").val()
-		var startVal = $("[name=startDate]").val()
-		var endVal = $("[name=endDate]").val()
-		var choiceVal = $("[name=choDate]").val()
-		if(pnameVal==""){
-			alert("상품명을 입력하세요")
-			return
-		}
-		if(priceVal==""){
-			alert("상품가격을 입력하세요")
-			return
-		}
-		if(startVal==""){
-			alert("시작일을 입력하세요")
-			return
-		}
-		if(endVal==""){
-			alert("종료일을 입력하세요")
-			return
-		}
-		if(choiceVal==""){
-			alert("추첨일을 입력하세요")
-			return
-		}
-		$("#raffle").submit()
-	})
+	
+	
 })
 
 </script>
@@ -138,38 +93,23 @@ $(document).ready(function(){
         <div class="main_wrapper">
 	      	<h2 style="margin-left:580px;">Raffle</h2>
 	      	<div class="bar"></div>
+	      	<br><br>
+	      	<c:forEach var="myRaf" items="${myRafList }">
+	      	<img src="/Gain/markup/img/${myRaf.imgSrc }" class="prod"/>
+	      	<br><br>
 	      	
-	      	<br><br>
-	      	<form id="raffle">
-	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5>
-	      	<br>
-	      	<input type="text" name="pname" placeholder="상품명을 입력해주세요">
-	      	<br><br>
-	      	<h4 style="margin-left:410px;">상품가격</h4><h5>*</h5>
-	      	<br>
-	      	<input type="text" name="price" placeholder="상품가격을 입력해주세요">
-	        <br><br>
-	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="date" name="startDate" placeholder="응모 시작일을 입력해주세요">
-	      	 <br><br>
-	      	<h4 style="margin-left:410px;">응모종료일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="date" name="endDate" placeholder="응모 종료일을 입력해주세요">
-	       <br><br>
-	      	<h4 style="margin-left:410px;">추첨일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="date" name="choDate" placeholder="추첨일을 입력해주세요">
-	       <br><br>
-	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
-	      	<br>
-	      	<div class="img_div">
-	      		<input type="file" id="file"/>
+	      	<div class="status">
+	      		<h4 style="color:white; padding:5px 5px;">${myRaf.result }</h4>
 	      	</div>
 	      	<br>
-	      	<button type="button" id="addBtn" class="btn">등록하기</button>
-			</form>
-	      
+	      	<h4 style="margin-left:460px;">${myRaf.pname }</h4>
+	      	<br><h4 style="margin-left:460px;">Gain | RAFFLE_${myRaf.rafId }</h4><br><br>
+	      	<div class="endDate">
+	      		<br>
+	      		<h3 style="margin-left:50px; color:lightgray;">
+	      		<fmt:formatDate value="${myRaf.choDate }"/> 당첨자 발표 예정</h3>
+	      	</div>
+	      	</c:forEach>
         </div>
     </section>
     <footer>

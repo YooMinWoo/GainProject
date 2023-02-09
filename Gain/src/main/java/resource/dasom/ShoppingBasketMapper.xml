@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+   
+<!-- 어드민 쿠폰 검색 -->
+<mapper namespace="springGain.dao.ShoppingBasketDao">
+	<select id="getSBList" parameterType="product" resultType="product">
+		SELECT p.*
+		FROM PRODUCTS p, SHPPINGBASKET s 
+		WHERE p.PRODNUM = s.PRODNUM
+		AND s.id = #{id}
+	</select>
+	
+	<insert id="addCart" parameterType="shoppingBasket">
+		INSERT INTO SHPPINGBASKET VALUES (#{id},#{prodNum})
+	</insert>
+</mapper>

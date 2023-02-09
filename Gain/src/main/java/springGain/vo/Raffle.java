@@ -2,25 +2,29 @@ package springGain.vo;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Raffle {
 	
 	private String rafId;
 	private String pname;
 	private int price;
 	private String imgSrc;
-	private Date startDate;
-	private Date endDate;
-	private Date choDate;
+	private MultipartFile file;
+	private String startDate;
+	private String endDate;
+	private String choDate;
 	private String result;
 	public Raffle() {
 		// TODO Auto-generated constructor stub
 	}
-	public Raffle(String rafId, String pname, int price, String imgSrc, Date startDate, Date endDate, Date choDate,
-			String result) {
+	public Raffle(String rafId, String pname, int price, String imgSrc, MultipartFile file, String startDate,
+			String endDate, String choDate, String result) {
 		this.rafId = rafId;
 		this.pname = pname;
 		this.price = price;
 		this.imgSrc = imgSrc;
+		this.file = file;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.choDate = choDate;
@@ -50,22 +54,28 @@ public class Raffle {
 	public void setImgSrc(String imgSrc) {
 		this.imgSrc = imgSrc;
 	}
-	public Date getStartDate() {
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	public Date getChoDate() {
+	public String getChoDate() {
 		return choDate;
 	}
-	public void setChoDate(Date choDate) {
+	public void setChoDate(String choDate) {
 		this.choDate = choDate;
 	}
 	public String getResult() {
@@ -74,6 +84,8 @@ public class Raffle {
 	public void setResult(String result) {
 		this.result = result;
 	}
+	
+	
 	
 	
 }

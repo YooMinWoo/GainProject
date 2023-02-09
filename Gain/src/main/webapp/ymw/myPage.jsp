@@ -75,7 +75,8 @@
 	<script>
 		$(document).ready(function(){
 			$("button").click(function(){
-				alert($(this).attr('id'))
+				var link = $(this).attr('id')
+				location.href="/Gain/"+link+".do"
 			})
 		})
 	</script>
@@ -84,14 +85,14 @@
 				<button id="buylist" type="button" class="list"> <!-- 주문내역 -->
 					<span>주문내역</span><span></span>
 				</button>
-				<button id="couponlist" type="button" class="list"> <!-- 쿠폰조회 -->
+				<button id="couponAdmin" type="button" class="list"> <!-- 쿠폰조회 -->
 					<span>쿠폰조회</span><span></span>
 				</button >
 				<button type="button" class="list"> <!-- 적립금 -->
-					<span>적립금</span><span>1000원</span>
+					<span>적립금</span><span>${login.point }원</span>
 				</button>
-				<button id="reviewlist" type="button" class="list"> <!-- 리뷰조회 -->
-					<span>리뷰조회</span><span></span>
+				<button id="shoppingBasket" type="button" class="list"> <!-- 장바구니 -->
+					<span>장바구니</span><span></span>
 				</button>
 				<button id="infoUpt" type="button" class="list"> <!-- 회원정보수정 -->
 					<span>회원정보수정</span><span></span>

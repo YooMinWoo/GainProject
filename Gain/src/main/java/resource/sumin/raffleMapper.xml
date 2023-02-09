@@ -4,7 +4,19 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
  <mapper namespace="springGain.dao.Raffle_Dao">
 	<select id="getRafList" resultType="raffle">
-		SELECT ri.PNAME,ri.PRICE,ri.ENDDATE,ri.IMGSRC
-		FROM RAFSTATE r,RAFFLEINFO ri WHERE ri.RESULT='진행중' AND r.RAFID = ri.RAFID
+		SELECT * FROM raffleInfo WHERE RESULT='진행중'
 	</select>
+	
+	<insert id="insertRaffle" parameterType="rafstate">
+		INSERT INTO rafState values(#{rafId},#{id})
+	</insert>
+	
+	<select id="myRaffle" parameterType="string" resultType="raffle">
+		SELECT * FROM rafState rs, raffleInfo ri WHERE rs.id=#{id} AND rs.RAFID = ri.RAFID
+	</select>
+	
+	<insert id="regRaffle" parameterType="raffle">
+		INSERT INTO raffleInfo values(raffle_seq.nextval,#{pname},
+	#{price},#{imgSrc},#{startDate},#{endDate},#{choDate},'진행중')
+	</insert>
 </mapper>  

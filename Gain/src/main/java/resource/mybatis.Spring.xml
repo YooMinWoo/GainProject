@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias alias="qna" type="springGain.vo.QnA"/>
 		<typeAlias alias="raffle" type="springGain.vo.Raffle"/>
+		<typeAlias alias="rafstate" type="springGain.vo.RafState"/>
 		
 		<typeAlias alias="product" type="springGain.vo.Product"/>
 		<typeAlias alias="brand" type="springGain.vo.Brand"/>
@@ -15,6 +16,7 @@
 
 		<typeAlias alias="gmember" type="springGain.vo.GainMember"/>
 		<typeAlias alias="coupon" type="springGain.vo.Coupon"/>
+		<typeAlias alias="ShoppingBasket" type="springGain.vo.ShoppingBasket"/>
 
 
 		
@@ -30,6 +32,7 @@
 		<mapper resource="resource/ymw_mapper/Mapper.xml"/>
 		
 		<mapper resource="resource/dasom/CouponMapper.xml"/>
+		<mapper resource="resource/dasom/ShoppingBasketMapper.xml"/>
 		<mapper resource="resource/dongeun/BuyMapper.xml"/>
 
 	</mappers>

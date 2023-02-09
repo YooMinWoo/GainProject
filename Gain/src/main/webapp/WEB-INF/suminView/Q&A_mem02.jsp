@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:requestEncoding value="UTF-8" />
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,22 +89,28 @@ $(document).ready(function(){
 	$(".question").hide()
 	$(".reply").hide()
 	
+	
+	<%--
 	var cnt = 0
 	$("#reply").click(function(){
 		cnt ++
 		if(cnt%2==1){
-			$(".question").show()
-			$(".reply").show()
+			$("this .question").show()
+			$("this .reply").show()
 		}else{
-			$(".question").hide()
-			$(".reply").hide()
+			$("this .question").hide()
+			$("this .reply").hide()
 		}
 	})
-	$("[name=id]").val("himan")
+	--%>
+	$("#reply").click(function(){
+	    $("#question").slideToggle("slow");
+	    $("#answer").slideToggle("slow");
+	  });
 	
-
-
+	
 })
+
 </script>
 <body>
     <header>
@@ -135,22 +142,19 @@ $(document).ready(function(){
     </header>
 	<section>
         <div class="main_wrapper">
-	      	<a href="Q&A_mem01.jsp" class="menu" style="margin-left:300px;">1:1 문의하기</a>
-	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:350px;">문의내역</a>
+	      	<a href="${path }/insertFrm.do" class="menu" style="margin-left:300px;">1:1 문의하기</a>
+	      	<a href="${path }/qna.do" class="menu" style="margin-left:350px;">문의내역</a>
 	      	<hr></hr>
 	      	<div class="bar"></div>
-	      	<form id="frm01">
-	      	<input type="hidden" name="id" value="himan"/>
-	      	<button style="display:none;" type="submit" id="search">검색</button>
-	      	</form>
+	      	
 	      	<c:forEach var="qna" items="${qnaList }">
 	      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
 	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
 	      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
 	      	<h5 style="color:#5D5D5D; display:inline;"><fmt:formatDate value="${qna.regDate}"/></h5>
 	      	<button type="button" id="reply">▼</button>
-	      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
-	      	<div class="reply">
+	      	<div class="question" id="question"><h2 style="padding:10px 10px;">Q</h2>${qna.content }</div>
+	      	<div class="reply" id="answer">
 	      	<h2 style="padding:10px 10px;">A</h2>${qna.reply }
 	     	</div>
 	      	<br><br>

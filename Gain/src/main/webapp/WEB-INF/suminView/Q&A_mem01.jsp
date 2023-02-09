@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:requestEncoding value="UTF-8" />
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,10 +24,16 @@
   		display:inline;
   	}
   	.bar{
-  		width:980px; height:10px; background:black; margin-left:120px;
+  		width:480px; height:10px; background:black; margin-left:120px;
   		display:inline-block;
   	}
-  
+  	hr{
+  		width:500px;
+  		color:lightgray;
+  		display:inline-block;
+  		margin-left:0px;
+  		margin-top:10px;
+  	}
   	h5{
   		margin-left:10px;
   		color:red;
@@ -37,8 +44,8 @@
   		height:38px;
   		border-radius:4px;
   	}
-  	input{
-  		margin-left:400px;
+  	#input_title{
+  		margin-left:205px;
   		width:400px;
   		height:38px;
   		border-radius:4px;
@@ -56,55 +63,49 @@
   		height:45px;
   		color:white;
   		border-radius:4px;
-  		margin-left:450px;
+  		margin-left:440px;
   		margin-top:50px;
   	}
   	.menu{
   		font-size:25px;
   		font-weight:bold;
   	}
-  	.img_div{
-  		margin-left:400px;
-  		width:200px;
-  		height:200px;
-  		border:1px solid black;
-  		background:white;
-  	}
-  
 </style>
 </head>
 <script>
 $(document).ready(function(){
-	$("#addBtn").click(function(){
-		var pnameVal = $("[name=pname]").val()
-		var priceVal = $("[name=price]").val()
-		var startVal = $("[name=startDate]").val()
-		var endVal = $("[name=endDate]").val()
-		var choiceVal = $("[name=choDate]").val()
-		if(pnameVal==""){
-			alert("상품명을 입력하세요")
-			return
-		}
-		if(priceVal==""){
-			alert("상품가격을 입력하세요")
-			return
-		}
-		if(startVal==""){
-			alert("시작일을 입력하세요")
-			return
-		}
-		if(endVal==""){
-			alert("종료일을 입력하세요")
-			return
-		}
-		if(choiceVal==""){
-			alert("추첨일을 입력하세요")
-			return
-		}
-		$("#raffle").submit()
-	})
-})
+	
+	 $("#addBtn").click(function(){
+		
+		 var categoryVal = $("[name=category]").val()
+		 var titleVal = $("[name=title]").val()
+		 var contentVal = $("[name=content]").val()
+		 if(categoryVal==""){
+			 alert("문의유형을 선택하세요")
+			 return
+		 }
+		 if(titleVal==""){
+			 alert("문의제목을 입력하세요")
+			 return
+		 }
+		 if(contentVal==""){
+			 alert("문의내용을 입력하세요")
+			 return
+		 }
+		 if(categoryVal!="" && titleVal!="" && contentVal!=""){
+			 $("#boardFrm").submit()
+		 }
+		
+	 })
+	 var msg ="${msg}"
+		 if(msg!=""){
+			 if(confirm(msg+"\n 문의내역으로 이동하시겠습니까?")){
+				 location.href="${path}/qna.do"
+			 }
+		 }
+	
 
+})
 </script>
 <body>
     <header>
@@ -136,39 +137,37 @@ $(document).ready(function(){
     </header>
 	<section>
         <div class="main_wrapper">
-	      	<h2 style="margin-left:580px;">Raffle</h2>
+	      	<a href="${path }/insertFrm.do" class="menu" style="margin-left:300px;">1:1 문의하기</a>
+	      	<a href="${path }/qna.do" class="menu" style="margin-left:350px;">문의내역</a>
 	      	<div class="bar"></div>
-	      	
+	      	<hr></hr>
 	      	<br><br>
-	      	<form id="raffle">
-	      	<h4 style="margin-left:410px;">상품명</h4><h5>*</h5>
+	      	<form id="boardFrm" action="${path}/insert.do" method="post">
+	      	<input type="hidden" name="id" value="alsn99"/>
+	      	<h4 style="margin-left:220px;">문의 유형</h4><h5>*</h5>
 	      	<br>
-	      	<input type="text" name="pname" placeholder="상품명을 입력해주세요">
+	      	<select name="category">
+	      		<option value="">문의유형을 선택해주세요</option>
+	      		<option>앱/웹 문의</option>
+	      		<option>매장 문의</option>
+	      		<option>상품 문의</option>
+	      		<option>주문/결제 문의</option>
+	      		<option>배송 문의</option>
+	      		<option>취소/환불 문의</option>
+	      		<option>교환/반품 문의</option>
+	      		<option>수선문의</option>
+	      	</select>
 	      	<br><br>
-	      	<h4 style="margin-left:410px;">상품가격</h4><h5>*</h5>
+	      	<h4 style="margin-left:220px;">문의 제목</h4><h5>*</h5>
 	      	<br>
-	      	<input type="text" name="price" placeholder="상품가격을 입력해주세요">
+	      	<input id="input_title"  type="text" name="title" placeholder="문의제목을 입력해주세요">
 	        <br><br>
-	      	<h4 style="margin-left:410px;">응모시작일</h4><h5>*</h5>
+	      	<h4 style="margin-left:220px;">문의 내용</h4><h5>*</h5>
 	      	<br>
-	      	<input type="date" name="startDate" placeholder="응모 시작일을 입력해주세요">
-	      	 <br><br>
-	      	<h4 style="margin-left:410px;">응모종료일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="date" name="endDate" placeholder="응모 종료일을 입력해주세요">
-	       <br><br>
-	      	<h4 style="margin-left:410px;">추첨일</h4><h5>*</h5>
-	      	<br>
-	      	<input type="date" name="choDate" placeholder="추첨일을 입력해주세요">
-	       <br><br>
-	      	<h4 style="margin-left:410px;">상품이미지</h4><h5>*</h5>
-	      	<br>
-	      	<div class="img_div">
-	      		<input type="file" id="file"/>
-	      	</div>
-	      	<br>
-	      	<button type="button" id="addBtn" class="btn">등록하기</button>
-			</form>
+	      	<textarea name="content" ></textarea>
+	      	<button type="submit" class="btn" id="addBtn" >등록하기</button>
+	      	</form>
+
 	      
         </div>
     </section>

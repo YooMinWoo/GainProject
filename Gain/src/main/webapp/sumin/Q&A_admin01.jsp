@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -104,8 +105,10 @@ $(document).ready(function(){
 		var reComentVal = $("[name=reComent]").val()
 		if(reComentVal==""){
 			alert("답변내용을 입력하세요")
+		}else{
+			$("#reFrm").submit()
 		}
-		$("#reFrm").submit()
+		
 	})	
 		
 
@@ -145,6 +148,7 @@ $(document).ready(function(){
 	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:350px;">문의내역</a>
 	      	<hr></hr>
 	      	<div class="bar"></div>
+	      
 	      	<h4 style="margin-left:120px; margin-top:20px;">교환반품 문의합니다</h4>
 	      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">답변대기</h4>
 	      	<h5 style="color:#5D5D5D; display:inline;">교환/반품문의</h5>
@@ -155,7 +159,7 @@ $(document).ready(function(){
 	      	<h2 style="padding:10px 10px;">A</h2>
 	      	<form id="reFrm">
 	      		<textarea name="reComent" style="width:870px; height:180px; margin-left:30px;"></textarea>
-	      		<button class="btn" type="button" id="addReply">답변 등록하기</button>
+	      		<button class="btn" type="submit" id="addReply">답변 등록하기</button>
 	      	</form>
 	     	</div>
 	      	<br><br>
