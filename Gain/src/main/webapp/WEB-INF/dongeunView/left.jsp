@@ -36,7 +36,7 @@
 
 
     <div id="leftArea" class="area">
-    <img class="app-img" src="https://i.balaan.io/pc2m/img-app_3.png" alt>
+    <img class="app-img" src="/Gain/markup/gain.png" alt>
    
     </div>
     <!-- 좌측 발란 표시 가인으로 바꾸기 덮어쓰기 -->
