@@ -21,7 +21,11 @@
 				"auth-model": "oracle_native"
 			}
 		},
+<<<<<<< HEAD
 		"oracle_thin-18633a7baeb-1d5e327182a543d6": {
+=======
+		"oracle_thin-18633a28a73-37e836f4650ecdc0": {
+>>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
 			"provider": "oracle",
 			"driver": "oracle_thin",
 			"name": "49.238.170.26 2",
