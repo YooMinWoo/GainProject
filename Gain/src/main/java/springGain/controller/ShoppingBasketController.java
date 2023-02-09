@@ -31,7 +31,6 @@ public class ShoppingBasketController {
 	@RequestMapping("/addCart.do")
 	public String addCart(@RequestParam("prodNum") String prodNum, HttpSession session, Model d) {
 		GainMember mem = (GainMember)session.getAttribute("login");
-		System.out.println(mem);
 		service.addCart(prodNum, mem.getId());
 		return "WEB-INF\\heejunView\\prod_detailPage.jsp";
 	}
