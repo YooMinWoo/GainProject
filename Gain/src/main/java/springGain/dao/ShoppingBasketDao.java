@@ -13,4 +13,6 @@ public interface ShoppingBasketDao {
 	// 장바구니 등록
 	public void addCart(ShoppingBasket ShoppingBasket);
 	
+	// 장바구니 삭제
+	public void delCart(ShoppingBasket ShoppingBasket);
 }
