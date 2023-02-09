@@ -84,5 +84,10 @@ public class GainMemberController {
       return "forward:/goMain.do";
    }
    
+   @RequestMapping("/myInfo.do")
+   public String myInfo() {
+      return "ymw/myInfo.jsp";
+   }
+   
    
 }

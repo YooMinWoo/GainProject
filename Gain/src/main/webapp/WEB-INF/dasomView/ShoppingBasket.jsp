@@ -242,7 +242,7 @@
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
 			<p style="font-size:15px;line-hight:25px;">
-			(주)머스트잇
+			(주)가인
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>
 			사업자등록번호 : 123-456-789<br>
