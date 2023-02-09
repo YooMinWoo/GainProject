@@ -25,7 +25,7 @@
 	</select>
 	<update id="uptMyInfo" parameterType="gmember">
 		UPDATE GAINMEMBER 
-		SET name=#{name}
+		SET name=#{name}, nickname=#{nickname}, phonenum=#{phonenum}
 		WHERE ID = #{id}
 	</update>
 </mapper>

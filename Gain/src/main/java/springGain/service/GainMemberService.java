@@ -24,8 +24,7 @@ public class GainMemberService {
    		if(gm.getPass()==null) gm.setPass("");
    		return dao.login(gm);
    	}
-   	public void uptMyInfo(String id, GainMember gm){
-   		gm.setId(id);
+   	public void uptMyInfo(GainMember gm){
    		dao.uptMyInfo(gm);
    	};
 }

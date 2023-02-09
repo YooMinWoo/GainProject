@@ -110,7 +110,7 @@
 				<button id="myRaffle" type="button" class="list"> <!-- 래플내역 -->
 					<span>래플 내역</span><span></span>
 				</button>
-				<button id="infoUpt" type="button" class="list"> <!-- 회원정보수정 -->
+				<button id="myInfo" type="button" class="list"> <!-- 회원정보수정 -->
 					<span>회원정보수정</span><span></span>
 				</button>
 				<button id="insertFrm" type="button" class="list"> <!-- 1:1문의 -->
