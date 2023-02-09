@@ -40,16 +40,17 @@ public class Raffle_Controller {
 	}
 	
 	@RequestMapping("/insRaffle.do")
-	public String insertRaffle(RafState ins,Model d) {
-		service.insertRaffle(ins);
+	public String insertRaffle(String rafId,Model d,HttpSession session) {
+		GainMember mem = (GainMember)session.getAttribute("login");
+		service.insertRaffle(rafId,mem.getId());
 		d.addAttribute("msg", "응모완료");
 		return "WEB-INF\\suminView\\RaffleList.jsp";
 	}
 	
 	@GetMapping("/myRaffle.do")
-	public String myRaffle(String id,Model d,HttpSession session) {
+	public String myRaffle(Model d,HttpSession session) {
 		GainMember mem = (GainMember)session.getAttribute("login");
-		d.addAttribute("myRafList",	service.myRaffle(id) );
+		d.addAttribute("myRafList",	service.myRaffle(mem.getId()) );
 		return "WEB-INF\\suminView\\MyRaffleList.jsp";
 	}
 	

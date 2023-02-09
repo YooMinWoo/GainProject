@@ -78,16 +78,16 @@ $(document).ready(function(){
 	     }
 	     timer = setInterval(showRemaining, 1000);
 	 }
-	 CountDownTimer('02/09/2023 12:00:00', 'timeDeal'); 
+	 CountDownTimer('02/11/2023 12:00:00', 'timeDeal'); 
 })
 
-function addRaffle(rafId,id){
-	location.href="${path}/insRaffle.do?rafId="+rafId+"&id="+id
+function addRaffle(rafId){
+	location.href="${path}/insRaffle.do?rafId="+rafId
 }
 var msg = "${msg}"
 if(msg!=""){
 	if(confirm(msg+"\n나의 응모내역으로 이동하시겠습니까?")){
-		location.href="${path}/myRaffle.do?id=alsn99"
+		location.href="${path}/myRaffle.do"
 	}
 }
 </script>
@@ -126,12 +126,11 @@ if(msg!=""){
 	      	<br><br><br>
 	      	<c:forEach var="raffle" items="${rafList }">
 		      	<span id="timeDeal" class="timer"></span>
-		      	<input type="hidden" name="id" value="alsn99"/>
 		      	<br>
 		      	<h4 style="margin-left:560px; color:#6799FF;">5000명 참여중</h4>
-		      	<button type="button" class="btn" onclick="addRaffle('${raffle.rafId}','alsn99')">응모하기</button>
+		      	<button type="button" class="btn" onclick="addRaffle('${raffle.rafId}')">응모하기</button>
 		      	
-		      	<img src="/Gain/markup/img/${raffle.imgSrc }" class="prod"/>
+		      	<img src="/Gain/sumin/${raffle.imgSrc }" class="prod"/>
 		      	<br><br>
 		      	<h4 style="margin-left:400px;">${raffle.pname }</h4>
 		      	<h2 style="margin-left:550px;">${raffle.price }</h2>

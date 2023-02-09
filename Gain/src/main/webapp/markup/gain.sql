@@ -215,7 +215,7 @@ create sequence qna_seq
       increment by 1;
 SELECT * FROM QnA;
 SELECT * FROM gainMember;
-DELETE FROM QnA WHERE id='himan';
+DELETE FROM QnA WHERE id='alsn99';
 INSERT INTO QnA values('배송','배송문의합니다','배송지연된 제품 언제 출고되나요?',sysdate,'답변대기','','alsn99',qna_seq.nextval);
 INSERT INTO QnA values('상품','상품문의합니다','s 사이즈는 없나요?',sysdate,'답변대기',null,'himan');
 UPDATE QnA SET state='답변완료', reply='2월10일 출고 예정입니다' WHERE qna_no=1;
@@ -253,6 +253,7 @@ INSERT INTO raffleInfo values(raffle_seq.nextval,'나이키 에어 조던1 레�
 	150000,'raffle_prod01.jpg','2023-02-06','2023-02-15','2023-02-18','진행중');
 INSERT INTO raffleInfo values(raffle_seq.nextval,'나이키 에어 조던1 레트로 하이 OG 쉐도우 2.0 gs 575441-035',
 	150000,'raffle_prod01.jpg','2023-02-06','2023-02-15','2023-02-18','응모마감');
+DELETE FROM RAFFLEINFO r WHERE rafid='29';
 
 -- 응모 현황
 CREATE TABLE rafState
