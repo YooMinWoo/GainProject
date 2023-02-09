@@ -4,6 +4,7 @@
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
@@ -169,6 +170,14 @@
 	
 }
 </style>
+<script type="text/javascript">
+	$(document).ready(function () {
+			var msg = "${msg}"
+			if(msg!=""){
+				alert(msg);
+			}
+	})
+</script>
 </head>
 
 <body>
@@ -216,7 +225,7 @@
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
             <h2 class="main_title">나의 장바구니</h2>
-            <form>
+            <form id="del" action="${path}/delCart.do" method="post">
 	            <table>
 	            	<col width="5%">
 	            	<col width="50%">
@@ -231,7 +240,7 @@
 						<c:forEach var="product" items="${sbList}">
 							<tr>
 								<td style="text-align: center;">
-									<input type="checkbox" value="${product.prodNum}">
+									<input type="checkbox" name="prodNum" value="${product.prodNum}">
 								</td>
 								<td class="pro_info">
 									<img class="pro_img" alt="${product.prodName } 이미지" src="/Gain/heejun/${product.prodImg }">
@@ -247,8 +256,8 @@
 						</c:forEach>
 		            </tbody>
 	            </table>
+            <button class="delBtn" type="submit">선택 상품 삭제하기</button>
             </form>
-            <button class="delBtn">선택 상품 삭제하기</button>
             <button class="buyBtn">선택 상품 구매하기</button>
         </div>
     <!-- 여기까지만 작업 -->
