@@ -142,7 +142,6 @@
 								<button type="button" class="buyBtn" onclick="buyProd('${prod.prodNum}')">구 매 하 기</button>
 								<form>
 									<input type="hidden" name="prodNum" vlaue="${prod.prodName}">
-									<input type="hidden" name="id" vlaue="himan">
 									<button type="button" class="basketBtn">장 바 구 니</button>
 								</form>
 							</div>
