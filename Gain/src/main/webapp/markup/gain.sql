@@ -253,6 +253,7 @@ INSERT INTO raffleInfo values(raffle_seq.nextval,'나이키 에어 조던1 레�
 	150000,'raffle_prod01.jpg','2023-02-06','2023-02-15','2023-02-18','진행중');
 INSERT INTO raffleInfo values(raffle_seq.nextval,'나이키 에어 조던1 레트로 하이 OG 쉐도우 2.0 gs 575441-035',
 	150000,'raffle_prod01.jpg','2023-02-06','2023-02-15','2023-02-18','응모마감');
+DELETE FROM RAFFLEINFO r WHERE rafid='23';
 
 -- 응모 현황
 CREATE TABLE rafState
