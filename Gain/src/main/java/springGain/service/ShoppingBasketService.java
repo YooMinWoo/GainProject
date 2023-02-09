@@ -21,6 +21,9 @@ public class ShoppingBasketService {
 	}
 	
 	public void addCart(String prodNum, String id) {
-		dao.addCart(prodNum, id);
+		ShoppingBasket sb = new ShoppingBasket(prodNum,id);
+		System.out.println("아이디 : "+sb.getId()+"\n상품번호 : "+sb.getProdNum());
+		dao.addCart(sb);
 	}
+	
 }

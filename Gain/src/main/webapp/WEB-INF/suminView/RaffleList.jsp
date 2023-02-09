@@ -52,16 +52,11 @@
 $(document).ready(function(){
 	
 	function CountDownTimer(dt, id) {
-	     var end = new Date(dt);
-	     var _second = 1000;
-	     var _minute = _second * 60;
-	     var _hour = _minute * 60;
-	     var _day = _hour * 24;
-	     var timer;
+	     var end = new Date(dt); var _second = 1000;var _minute = _second * 60;var _hour = _minute * 60;
+	     var _day = _hour * 24;var timer;
 	     function showRemaining() {
 	         var now = new Date();
 	         var distance = end - now;
-	       
 	         if (distance < 0) {
 	             clearInterval(timer);
 	             document.getElementById(id).innerHTML = '응모종료';
@@ -71,7 +66,6 @@ $(document).ready(function(){
 	         var hours = Math.floor((distance % _day) / _hour)+(days*24);
 	         var minutes = Math.floor((distance % _hour) / _minute);
 	         var seconds = Math.floor((distance % _minute) / _second);
-	         //document.getElementById(id).innerHTML = days + '일 ';
 	         document.getElementById(id).innerHTML = hours + ' : ';
 	         document.getElementById(id).innerHTML += minutes + ' : ';
 	         document.getElementById(id).innerHTML += seconds;
@@ -80,7 +74,6 @@ $(document).ready(function(){
 	 }
 	 CountDownTimer('02/11/2023 12:00:00', 'timeDeal'); 
 })
-
 function addRaffle(rafId){
 	location.href="${path}/insRaffle.do?rafId="+rafId
 }
@@ -90,6 +83,7 @@ if(msg!=""){
 		location.href="${path}/myRaffle.do"
 	}
 }
+
 </script>
 <body>
     <header>
@@ -129,7 +123,6 @@ if(msg!=""){
 		      	<br>
 		      	<h4 style="margin-left:560px; color:#6799FF;">5000명 참여중</h4>
 		      	<button type="button" class="btn" onclick="addRaffle('${raffle.rafId}')">응모하기</button>
-		      	
 		      	<img src="/Gain/sumin/${raffle.imgSrc }" class="prod"/>
 		      	<br><br>
 		      	<h4 style="margin-left:400px;">${raffle.pname }</h4>

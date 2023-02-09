@@ -172,29 +172,42 @@
 </head>
 
 <body>
-    <header>
+            <header>
+    	<c:if test="${not empty login }"> <%-- 로그인 세션 O --%>
          <div class="gnb">
             <div class="gnb_left">내 손 안의 백화점, 가인</div>
             <div class="gnb_center">The department store in my hand</div>
             <nav class="gnb_right">
                 <ul>
-                    <li><a href="#">로그아웃</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="/Gain/logout.do">로그아웃</a></li>
+                    <li><a href="/Gain/goMypage.do">마이페이지</a></li>
                 </ul>
             </nav>
          </div>
+         </c:if>
+         <c:if test="${empty login }"> <%-- 로그인 세션 X --%>
+         <div class="gnb">
+            <div class="gnb_left">내 손 안의 백화점, 가인</div>
+            <div class="gnb_center">The department store in my hand</div>
+            <nav class="gnb_right">
+                <ul>
+                    <li><a href="/Gain/login.do">로그인</a></li>
+                    <li><a href="/Gain/goNewMember.do">회원가입</a></li>
+                </ul>
+            </nav>
+         </div>
+         </c:if>
          <h1 class="main_logo">
-            <a href="/Gain/markup/main_index.jsp"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
+            <a href="/Gain/goMain.do"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
          </h1>
          <nav class="lnb">
             <ul>
-                <li><a href="#">전체 상품</a></li>
-                <li><a href="#">의류</a></li>
-                <li><a href="#">슈즈</a></li>
-                <li><a href="#">가방</a></li>
-                <li><a href="#">액세서리</a></li>
-                <li><a href="#">주얼리</a></li>
+                <li><a href="/Gain/getProdList.do">전체 상품</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C1">의류</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C2">슈즈</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C3">가방</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C4">액세서리</a></li>
+                <li><a href="/Gain/getProdList.do?categoryNum=C5">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
@@ -217,7 +230,9 @@
 		            <tbody>
 						<c:forEach var="product" items="${sbList}">
 							<tr>
-								<td style="text-align: center;"><input type="checkbox"></td>
+								<td style="text-align: center;">
+									<input type="checkbox" value="${product.prodNum}">
+								</td>
 								<td class="pro_info">
 									<img class="pro_img" alt="${product.prodName } 이미지" src="/Gain/heejun/${product.prodImg }">
 									<h3 class="pro_name">${product.prodName }</h3>							
@@ -226,7 +241,7 @@
 									<input type="number" min="1" value="1">
 								</td>
 								<td>
-								<h3 class="pro_price">${product.prodPrice }￦</h3>
+								<h3 class="pro_price"><fmt:formatNumber value="${product.prodPrice }" pattern="#,###" />￦</h3>
 								</td>
 							</tr>
 						</c:forEach>
@@ -242,7 +257,7 @@
     	<div class="footer_left">
 			<img alt="" src="/Gain/markup/img/GAIN_mainlogo.png" style="padding:20px 0; width:100px;">
 			<p style="font-size:15px;line-hight:25px;">
-			(주)머스트잇
+			(주)가인
 			대표 : 유민우<br>
 			소재지 : 서울시 신촌로 12길 22<br>
 			사업자등록번호 : 123-456-789<br>

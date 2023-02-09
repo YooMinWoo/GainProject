@@ -158,7 +158,6 @@ $(document).ready(function(){
 	      	<a href="Q&A_mem02.jsp" class="menu" style="margin-left:570px;">문의내역</a>
 	      	<div class="bar"></div>
 	      	<c:forEach var="qna" items="${qnaList }">
-	      		
 		      	<h4 style="margin-left:120px; margin-top:20px;">${qna.title }</h4>
 		      	<h4 style="display:inline; margin-left:120px; margin-top:15px;">${qna.state }</h4>
 		      	<h5 style="color:#5D5D5D; display:inline;">${qna.category }</h5>
@@ -166,7 +165,6 @@ $(document).ready(function(){
 		      	<button type="button" id="reply">▼</button>
 		      	<div class="question"><h2 style="padding:10px 10px;">Q</h2>
 		      	${qna.content }
-		      	
 	      		</div>
 	      	<div class="reply">
 		      	<h2 style="padding:10px 10px;">A</h2>
