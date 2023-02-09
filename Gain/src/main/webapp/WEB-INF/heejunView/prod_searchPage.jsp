@@ -85,7 +85,7 @@
                 <li><a href="${path}/getProdList.do?categoryNum=C2">슈즈</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C3">가방</a></li>
                 <li><a href="${path}/getProdList.do?categoryNum=C4">액세서리</a></li>
-                <li><a href="#">주얼리</a></li>
+                <li><a href="${path}/getProdList.do?categoryNum=C4">주얼리</a></li>
                 <li><a href="#">DEGINERS</a></li>
             </ul>
          </nav>
