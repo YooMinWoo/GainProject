@@ -110,7 +110,7 @@ $(document).ready(function(){
 	})
 	var msg = "${msg}"
 	if(msg != ""){
-		if(confirm(msg+"래플내역으로 이동하시겠습니까?")){
+		if(confirm(msg+"\n래플내역으로 이동하시겠습니까?")){
 			location.href="${path}/raffle.do"
 		}
 	}

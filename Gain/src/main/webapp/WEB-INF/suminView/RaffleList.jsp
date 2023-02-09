@@ -78,7 +78,7 @@ $(document).ready(function(){
 	     }
 	     timer = setInterval(showRemaining, 1000);
 	 }
-	 CountDownTimer($("#enddte").val(), 'timeDeal'); 
+	 CountDownTimer('02/11/2023 12:00:00', 'timeDeal'); 
 })
 
 function addRaffle(rafId){
@@ -125,7 +125,6 @@ if(msg!=""){
 	      	<div class="bar"></div>
 	      	<br><br><br>
 	      	<c:forEach var="raffle" items="${rafList }">
-	      		<h3  id="enddte" style="display:none;">${raffle.endDate }</h3>
 		      	<span id="timeDeal" class="timer"></span>
 		      	<br>
 		      	<h4 style="margin-left:560px; color:#6799FF;">5000명 참여중</h4>
