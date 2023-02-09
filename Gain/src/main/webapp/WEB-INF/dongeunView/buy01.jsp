@@ -10,6 +10,7 @@
 <html>
 <head>
 <!-- JavaScript Bundle with Popper -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
  
 <style>
@@ -66,32 +67,6 @@ $(document).ready(function(){
 </head>
 
 <body>
-<<<<<<< HEAD
-	  <header>
-    	<c:if test="${not empty login }"> <%-- 로그인 세션 O --%>
-         <div class="gnb">
-            <div class="gnb_left">내 손 안의 백화점, 가인</div>
-            <div class="gnb_center">The department store in my hand</div>
-            <nav class="gnb_right">
-                <ul>
-                    <li><a href="/Gain/logout.do">로그아웃</a></li>
-                    <li><a href="/Gain/goMypage.do">마이페이지</a></li>
-                </ul>
-            </nav>
-         </div>
-         </c:if>
-         <c:if test="${empty login }"> <%-- 로그인 세션 X --%>
-         <div class="gnb">
-            <div class="gnb_left">내 손 안의 백화점, 가인</div>
-            <div class="gnb_center">The department store in my hand</div>
-            <nav class="gnb_right">
-                <ul>
-                    <li><a href="/Gain/login.do">로그인</a></li>
-                    <li><a href="/Gain/goNewMember.do">회원가입</a></li>
-                </ul>
-            </nav>
-         </div>
-=======
 	    <header>
     	<c:if test="${not empty login }"> <%-- 로그인 세션 O --%>
          <div class="gnb">
@@ -117,7 +92,6 @@ $(document).ready(function(){
             </nav>
          </div>
          
->>>>>>> branch 'main' of https://github.com/YooMinWoo/GainProject.git
          </c:if>
          <h1 class="main_logo">
             <a href="/Gain/goMain.do"><img src="/Gain/markup/img/GAIN_mainlogo.png" alt="가인 메인 로고"></a>
