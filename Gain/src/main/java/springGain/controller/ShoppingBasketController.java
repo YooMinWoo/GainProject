@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import springGain.service.ShoppingBasketService;
 import springGain.vo.GainMember;
+import springGain.vo.ShoppingBasket;
 
 @Controller
 public class ShoppingBasketController {
@@ -35,5 +36,13 @@ public class ShoppingBasketController {
 		return "/shoppingBasket.do";
 	}
 
+	@RequestMapping("/delCart.do")
+	public String delCart(ShoppingBasket shoppingBasket, Model d, HttpSession session) {
+		GainMember mem = (GainMember)session.getAttribute("login");
+		shoppingBasket.setId(mem.getId());
+		service.delCart(shoppingBasket);
+		d.addAttribute("msg","삭제 완료");
+		return "/shoppingBasket.do";
+	}
 
 }

@@ -114,7 +114,7 @@
 							<li>
 								<div class="thumb">
 									<a onclick="goDetailPage('${prod.prodNum}','${prod.categoryNum}')">
-										<img src="/Gain/heejun/${prod.prodImg}">
+										<img src="/Gain/sumin/${prod.prodImg}">
 									</a>
 								</div>
 								<div class="product_info">

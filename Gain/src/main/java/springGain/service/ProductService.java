@@ -22,7 +22,7 @@ public class ProductService {
 	private ProductDao dao;
 	
 	// 업로드할 경로 지정
-	@Value("${img.upload}")
+	@Value("${img.upload2}")
 	private String upload;
 	
 	// 상품 검색

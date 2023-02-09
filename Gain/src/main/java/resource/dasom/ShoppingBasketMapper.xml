@@ -15,5 +15,11 @@
 	<insert id="addCart" parameterType="springGain.vo.ShoppingBasket">
 		INSERT INTO SHPPINGBASKET VALUES (#{id},#{prodNum})
 	</insert>
+	
+	<delete id="delCart" parameterType="ShoppingBasket">
+		DELETE SHPPINGBASKET 
+		WHERE ID = #{id}
+		AND PRODNUM = #{prodNum}
+	</delete>
 
 </mapper>

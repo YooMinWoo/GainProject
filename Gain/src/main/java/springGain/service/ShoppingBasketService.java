@@ -26,4 +26,8 @@ public class ShoppingBasketService {
 		dao.addCart(sb);
 	}
 	
+	public void delCart(ShoppingBasket shoppingBasket) {
+		dao.delCart(shoppingBasket);
+	}
+	
 }

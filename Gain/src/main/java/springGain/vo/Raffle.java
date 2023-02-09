@@ -18,6 +18,7 @@ public class Raffle {
 	public Raffle() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Raffle(String rafId, String pname, int price, String imgSrc, MultipartFile file, String startDate,
 			String endDate, String choDate, String result) {
 		this.rafId = rafId;

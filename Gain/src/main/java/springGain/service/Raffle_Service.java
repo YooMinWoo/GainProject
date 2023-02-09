@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import springGain.dao.Raffle_Dao;
-
+import springGain.vo.RafState;
 import springGain.vo.Raffle;
 
 
@@ -25,8 +25,9 @@ public class Raffle_Service {
 	public List<Raffle> getRafList(){
 		return dao.getRafList();
 	}
-	public void insertRaffle(String rafId,String id) {
-		dao.insertRaffle(rafId,id);
+	public void insertRaffle(RafState ins) {
+		
+		dao.insertRaffle(ins);
 	}
 	
 	public List<Raffle> myRaffle(String id){

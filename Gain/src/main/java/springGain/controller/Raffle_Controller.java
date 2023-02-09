@@ -28,9 +28,10 @@ public class Raffle_Controller {
 	}
 	
 	@RequestMapping("/insRaffle.do")
-	public String insertRaffle(String rafId,Model d,HttpSession session) {
+	public String insertRaffle(RafState ins,Model d,HttpSession session) {
 		GainMember mem = (GainMember)session.getAttribute("login");
-		service.insertRaffle(rafId,mem.getId());
+		ins.setId(mem.getId());
+		service.insertRaffle(ins);
 		d.addAttribute("msg", "응모완료");
 		return "WEB-INF\\suminView\\RaffleList.jsp";
 	}
