@@ -16,7 +16,7 @@
 <style type="text/css">
 
         .main_wrapper{
-            height: 1200px;
+            padding-bottom: 50px;
         }
 
         .main_title{
@@ -79,6 +79,95 @@
             line-height: 29px;
             color: #fff;
         }
+        
+        .pro_img{
+        	width: 100px;
+        	height: 130px;
+        	margin-left: 20px;
+        }
+        
+        .pro_info{
+        	display: flex;
+        	gap: 30px;
+        }
+        
+        .pro_price{
+        	font-size: 30px;
+		    text-align: center;
+        }
+        
+        .pro_name{
+        	font-size: 18px;
+        	font-weight: 400;
+        	line-height: 130px;
+        }
+        
+        td{
+        	border-bottom: 1px solid #777;
+        	border-right: 1px solid #777;
+        }
+        
+        th{
+        	border-bottom: 1px solid #777;
+        	border-top: 1px solid #777;
+        	border-right: 1px solid #777;
+        	font-weight: 400;
+			font-size: 20px;
+			line-height: 24px;
+			padding: 15px 0;
+        }
+        
+        td:last-child{
+        	border-right: none;
+        }
+        
+        th:last-child{
+        	border-right: none;
+        }
+        
+        table {
+			width: 100%;
+			border-spacing: 0;
+			padding-bottom: 30px;
+		}
+		
+		.delBtn{
+			width: 300px;
+    		height: 75px;
+			background: #FFFFFF;
+			border: 1px solid #777777;
+			font-size: 23px;
+			line-height: 24px;
+			color: #777777;
+			display: block; 
+			margin: 20px auto 0;
+			font-family: inherit;
+		}
+		
+		.buyBtn{
+			width: 300px;
+    		height: 75px;
+			background: #777777;
+			font-weight: 500;
+			font-size: 23px;
+			line-height: 24px;
+			color: #FFFFFF;
+			display: block;
+			border: none;
+			margin: 20px auto 0;
+			font-family: inherit;
+		}
+		
+		input[type=number]{
+			display: block;
+		    font-family: inherit;
+		    padding-left: 20px;
+		    margin: auto;
+		    width: 100px;
+		    font-size: 28px;
+		}
+	
+}
 </style>
 </head>
 
@@ -113,19 +202,39 @@
 	<section>
 	<!-- 여기서부터 작업 -->
         <div class="main_wrapper">
-            <h2 class="main_title">내 쿠폰 확인하기</h2>
-            <div class="coupon_list">
-                <div class="coupon_box">
-                    <div class="coupon_box_left">
-                        <h4>[01월 생일 기념] 5% 할인 쿠폰</h4>
-                        <h2><i>5%</i></h2>
-                        <h4>2023-01-31 <span>까지 사용 가능</span></h4>
-                    </div>
-                    <div class="coupon_box_right">
-                        <h4>사용 가능</h4>
-                    </div>
-                </div>
-            </div>
+            <h2 class="main_title">나의 장바구니</h2>
+            <form>
+	            <table>
+	            	<col width="5%">
+	            	<col width="50%">
+	            	<col width="20%">
+	            	<col width="25%">
+		            <thead>
+		            	<tr>
+		            		<th><input type="checkbox"></th><th>상품정보</th><th>수량</th><th>상품 금액</th>
+		            	</tr>
+		            </thead>
+		            <tbody>
+						<c:forEach var="product" items="${sbList}">
+							<tr>
+								<td style="text-align: center;"><input type="checkbox"></td>
+								<td class="pro_info">
+									<img class="pro_img" alt="${product.prodName } 이미지" src="/Gain/heejun/${product.prodImg }">
+									<h3 class="pro_name">${product.prodName }</h3>							
+								</td>
+								<td>
+									<input type="number" min="1" value="1">
+								</td>
+								<td>
+								<h3 class="pro_price">${product.prodPrice }￦</h3>
+								</td>
+							</tr>
+						</c:forEach>
+		            </tbody>
+	            </table>
+            </form>
+            <button class="delBtn">선택 상품 삭제하기</button>
+            <button class="buyBtn">선택 상품 구매하기</button>
         </div>
     <!-- 여기까지만 작업 -->
     </section>
